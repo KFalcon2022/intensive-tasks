@@ -22,7 +22,7 @@
 
 После этого полученную копию проекта требуется склонировать на свой компьютер. Коротко [здесь](https://docs.github.com/ru/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository)
 
-Также вам иногда потребуется актуализировать свою копию, для получения обновлений из оригинального репозитория. О необходимости этого действия будут соответсвующие объявления в чате. Коротко о синхронизации [здесь](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-branch-from-the-web-ui)
+Также вам иногда потребуется актуализировать свою копию, для получения обновлений из оригинального репозитория. О необходимости этого действия будут соответствующие объявления в чате. Коротко о синхронизации [здесь](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-branch-from-the-web-ui)
 
 ## Алгоритм выполнения и отправки задач на проверку
 Для каждой задачи:
