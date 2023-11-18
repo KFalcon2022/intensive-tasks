@@ -5,9 +5,7 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-        int age = 0;
-
-        for (; age < 128; age = age + 1) {
+        for (int age = 0; age < 128; age = age + 1) {
             System.out.println(getAgeString(age));
         }
     }
