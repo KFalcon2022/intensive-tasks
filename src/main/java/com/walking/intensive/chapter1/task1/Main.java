@@ -14,6 +14,6 @@ public class Main {
     static String getAgeString(int age) {
 //        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        return "ТЕСТ РЕКВЕСТА";
     }
 }
