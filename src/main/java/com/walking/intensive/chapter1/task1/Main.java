@@ -5,15 +5,28 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
         int age = 0;
 
-        System.out.println(getAgeString(age));
+        for (; age < 128; age = age + 1) {
+            System.out.println(getAgeString(age));
+        }
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+        int remainderOfDivision = age % 10;
 
-        return null; // Заглушка. При реализации - удалить
+        if ((age > 4 && age < 21) || (age > 104 && age < 121)) {
+            return "Вам " + age + " лет";
+        }
+
+        if (remainderOfDivision == 1) {
+            return "Вам " + age + " год";
+        }
+
+        if (remainderOfDivision == 2 || remainderOfDivision == 3 || remainderOfDivision == 4) {
+            return "Вам " + age + " года";
+        }
+
+        return "Вам " + age + " лет";
     }
 }
