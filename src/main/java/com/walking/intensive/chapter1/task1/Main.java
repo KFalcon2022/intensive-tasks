@@ -4,16 +4,52 @@ package com.walking.intensive.chapter1.task1;
  * Условие: <a href="https://geometry-math.ru/homework/Java-age.html">ссылка</a>
  */
 public class Main {
-    public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
+    public static int[] forbiddenArray = {11, 12, 13, 14};
 
-        System.out.println(getAgeString(age));
+    public static void main(String[] args) {
+
+        //int age = 122;
+
+        //System.out.println(getAgeString(age));
+
+        for (int i = 0; i < 143; i++) {
+            System.out.println(getAgeString(i));
+        }
     }
 
-    static String getAgeString(int age) {
-//        Место для вашего кода
+    /**
+     * Примечение (себе):
+     * !isFound стоит первым, чтобы не проверялось второе условие при невыполнении первого.
+     *
+     * @param age - An integer
+     * @return "Вам " + age + ending - a String
+     */
+    public static String getAgeString(int age) {
 
-        return null; // Заглушка. При реализации - удалить
+        String ending = null;
+
+        boolean isFound = isFoundInForbiddenArrayCheckedByLinearSearch(Integer.toString(age));
+        int remainder = age % 10;
+
+        if (!isFound && (remainder == 2 || remainder == 3 || remainder == 4)) {
+            ending = " года";
+        } else if (!isFound && (remainder == 1)) {
+            ending = " год";
+        } else {
+            ending = " лет";
+        }
+
+        return "Вам " + age + ending;
+    }
+
+    public static boolean isFoundInForbiddenArrayCheckedByLinearSearch(String ageString) {
+
+        for (int i = 0; i < forbiddenArray.length; i++) {
+            if ((ageString.indexOf(Integer.toString(forbiddenArray[i]), ageString.length() - 2)) != -1) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
