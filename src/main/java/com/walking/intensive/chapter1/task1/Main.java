@@ -7,10 +7,9 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
 
-        for (int i = 0; i < 15; i++) {
+        for (int i = 0; i < 50; i++) {
             int age = (int) Math.round(Math.random() * 130);
-            int lastNumber = getLostNumber(age);
-            System.out.printf("Вам %d %s\n", age, getAgeString(lastNumber));
+            System.out.printf("Вам %d %s\n", age, getExceptionsHundred(age));
         }
     }
 
