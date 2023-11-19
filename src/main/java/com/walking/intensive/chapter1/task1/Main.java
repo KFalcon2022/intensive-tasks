@@ -32,7 +32,7 @@ public class Main {
         String singleYear = " год.";
 
         if(age < 0) {
-            return "Nы еще не родилися.";
+            return "Ты еще не родилися.";
         } else if(age > 127) {
             return "Поздравляю! Ты новый долгожитель!";
         } else if(age == 0) {
@@ -41,13 +41,12 @@ public class Main {
             return youStr + age + singleYear;
         } else if(age < 5 ) {
             return youStr + age + yearsAnother;
-        } else if(age <= 20) {
+        } else if(age <= 20 || (age % 10 >= 5 || age % 10 == 0)) {
             return youStr + age + years;
         } else if (age % 10 == 1) {
             return youStr + age + singleYear;
-        } else if (age % 10 >= 5 || age % 10 == 0) {
-            return youStr + age + years;
         }
+
         return youStr + age + yearsAnother;
     }
 }
