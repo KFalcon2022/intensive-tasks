@@ -28,7 +28,7 @@ public class Main {
 
         String ending = null;
 
-        boolean isFound = isFoundInForbiddenArrayCheckedByLinearSearch(Integer.toString(age));
+        boolean isFound = findInForbiddenArray(Integer.toString(age));
         int remainder = age % 10;
 
         if (!isFound && (remainder == 2 || remainder == 3 || remainder == 4)) {
@@ -42,7 +42,7 @@ public class Main {
         return "Вам " + age + ending;
     }
 
-    public static boolean isFoundInForbiddenArrayCheckedByLinearSearch(String ageString) {
+    public static boolean findInForbiddenArray(String ageString) {
 
         for (String str : FORBIDDEN_ARRAY) {
             if ((ageString.indexOf(str, ageString.length() - 2)) != -1) {
