@@ -5,15 +5,20 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
+        int age = 128;
 
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        String message;
+        if (age <= 0 || age > 127) {
+            message = "Неверно введен возраст";
+        } else if (age < 5) {
+            message = "Вам " + age + " года";
+        } else {
+            message = "Вам " + age + " лет";
+        }
+        return message;
     }
 }
