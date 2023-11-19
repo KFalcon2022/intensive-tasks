@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int ageOutOfBounds = 1;
+        int ageOutOfBounds = 20;
 
         System.out.println(getAgeString(ageOutOfBounds));
     }
@@ -20,7 +20,7 @@ public class Main {
             return "Ошибка, введите корректный возраст!";
         } else if (age == 1 || age > 20 && lastDigit == 1) {
             return String.format("Вам %d %s", age, WORD_CASE[0]);
-        } else if (age > 20 && lastDigit > 0 && lastDigit < 5) {
+        } else if ((age > 20 || age < 10) && lastDigit > 0 && lastDigit < 5) {
             return String.format("Вам %d %s", age, WORD_CASE[1]);
         } else {
             return String.format("Вам %d %s", age, WORD_CASE[2]);
