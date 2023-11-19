@@ -7,16 +7,16 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
         for (int i = -3; i < 2024; i++) {
-            if (i > 0) {
+            if (isValidYear(i)) {
                 System.out.println("Год " + i + " " + (isLeap(i) ? "високосный" : "не вискосный"));
             } else {
                 System.out.println("Неверное число");
-                if (i == 0) {
-                    i = 1894;
-                }
             }
         }
+    }
 
+    static boolean isValidYear(int year) {
+        return year > 0;
     }
 
     static boolean isLeap(int year) {
