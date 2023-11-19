@@ -24,7 +24,7 @@ public class Main {
     //получение значения
     static int getAge() {
         Scanner in = new Scanner(System.in);
-        System.out.print("Введите возраст: ");
+        //System.out.print("Введите возраст: ");
         int age = in.nextInt();
         in.close();
         return age;
@@ -39,47 +39,48 @@ public class Main {
     }
 
     //вывод сообщения
-    /*
+/*
 лет 0 5 6 7 8 9 11 - 20 25 - 30
 год 1 21 31
 года 2 3 4 22 - 24 32-34
 */
     static String printMessageAge(int age) {
-        String type = "";
+        byte type = 0;
 
         /*if (age == 0) {
-            type = "0";
+            type = 0;
         }*/
 
-        if ((age == 1 || age % 10 == 1 || age % 100 == 1) && (age != 11 && age - 100 != 11)) {
-            type = "year";
+        if (age == 1 || age % 10 == 1) {
+            type = 1;
         }
 
-        if (age == 2 || age % 10 == 2 || age % 100 == 2 ||
-                age == 3 || age % 10 == 3 || age % 100 == 3 ||
-                age == 4 || age % 10 == 4 || age % 100 == 4) {
-            type = "years";
+        if ((2 <= age && age <= 4 ) || (2 <= age % 10 && age % 10 <= 4)) {
+            type = 2;
+        }
+
+        if ((age >= 11 && age <= 19) || (age % 100 >= 11 && age % 100 <= 19)) {
+            type = (byte) age;
         }
 
         String message = "";
         switch (type) {
-            /*case "0": {
+            /*case 0: {
                 message = "Вам 0 лет. Поздравляю! Вы только родились!";
                 break;
             }*/
-            case "year": {
-                message = "Вам " + age + " год.";
+            case 1: {
+                message = "Вам " + age + " год";
                 break;
             }
-            case "years": {
-                message = "Вам " + age + " годa.";
+            case 2: {
+                message = "Вам " + age + " года";
                 break;
             }
             default: {
-                message = "Вам " + age + " лет.";
+                message = "Вам " + age + " лет";
             }
         }
         return message;
     }
-
 }
