@@ -30,11 +30,11 @@ public class Main {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        int flatPerFloor = 4;
+        final int flatPerFloor = 4;
         int flatPerEntrance = flatPerFloor * floorAmount;
-        int flatInHouse = flatPerEntrance * entranceAmount;
+        int flatsQuantity = flatPerEntrance * entranceAmount;
 
-        if(flatNumber > flatInHouse || flatNumber <= 0) {
+        if(flatNumber > flatsQuantity || flatNumber <= 0) {
             return "Такой квартиры в доме нет.";
         }
 
