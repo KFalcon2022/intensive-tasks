@@ -18,12 +18,12 @@ public class Main {
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         //        Место для вашего кода
-        //проверка корректность этажей
+        //проверка на корректность этажей
         if (floorAmount < 1) {
             return "В доме не может быть менее 1 этажа";
         }
 
-        //проверка корректность количества подъездов
+        //проверка на корректность количества подъездов
         if (entranceAmount < 1) {
             return "В доме не может быть менее 1 подъезда";
         }
