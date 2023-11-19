@@ -17,18 +17,18 @@ public class Main {
 
     static String getAgeString(int age) {
 
-        String message = "";
-
-        if (age % 100 >= 11 && age % 100 <= 14) {
-            message = "Вам " + age + " лет";
-        } else if (age % 10 == 1) {
-            message = "Вам " + age + " год";
-        } else if (age % 10 <= 4) {
-            message = "Вам " + age + " года";
-        } else {
-            message = "Вам " + age + " лет";
+        if (age == 0 || age > 127) {
+            return "Вы ещё не родились, или поставили новый рекорд по долгожительству.";
         }
 
-        return message;
+        if (age % 100 >= 11 && age % 100 <= 14) {
+            return "Вам " + age + " лет";
+        } else if (age % 10 == 1) {
+            return "Вам " + age + " год";
+        } else if (age % 10 <= 4) {
+            return "Вам " + age + " года";
+        } else {
+            return "Вам " + age + " лет";
+        }
     }
 }
