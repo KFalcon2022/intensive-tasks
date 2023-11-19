@@ -6,9 +6,9 @@ package com.walking.intensive.chapter1.task4;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 2;
-        double b = 7;
-        double c = 0;
+        double a = 5;
+        double b = 3;
+        double c = -100;
 
         System.out.println(solveQuadraticEquation(a, b, c));
     }
@@ -27,6 +27,10 @@ public class Main {
     static String solveQuadraticEquation(double a, double b, double c) {
         //        Место для вашего кода
 
+        if(a==0 && b==0 && c==0){
+            return "Бесконечное множество решений";
+        }
+
         if (a==0 && b==0){
             return "Нет решений";
         }
@@ -44,7 +48,7 @@ public class Main {
             double x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
             double x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
 
-            return "Количество решений: 2, корни: " + x1 + " ; " + x2;
+            return "Количество решений: 2, корни: " + Math.min(x1,x2) + " ; " + Math.max(x1,x2);
         }
         else  {
             double x = -b / (2 * a);
