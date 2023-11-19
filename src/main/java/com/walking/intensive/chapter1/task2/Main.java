@@ -20,7 +20,6 @@ public class Main {
         scanner.close();
 
         System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber));
-
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
