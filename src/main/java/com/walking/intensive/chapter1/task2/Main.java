@@ -31,23 +31,20 @@ public class Main {
 
         int roomSideCount = restFlats - (flatFloor - 1) * 4;
 
-        if (roomSideCount == 1 || roomSideCount == 2)  {
+        if (roomSideCount == 1 || roomSideCount == 2) {
             roomSideFromElevator = "слева";
-        }
-        else roomSideFromElevator = "справа";
+        } else roomSideFromElevator = "справа";
 
-        if (roomSideCount % 2 == 0 ) {
+        if (roomSideCount % 2 == 0) {
             roomSide = "вправо";
-        }
-        else  roomSide = "влево";
+        } else roomSide = "влево";
 
         return flatEntrance + " подъезд, " + flatFloor + " этаж, " + roomSideFromElevator + " от лифта, " + roomSide;
     }
 
-    static int countFloor (int flatNumber, int flatEachEntrance ) {
-        if (flatNumber % flatEachEntrance > 0 ) {
+    static int countFloor(int flatNumber, int flatEachEntrance) {
+        if (flatNumber % flatEachEntrance > 0) {
             return flatNumber / flatEachEntrance + 1;
-        }
-        else return flatNumber / flatEachEntrance;
+        } else return flatNumber / flatEachEntrance;
     }
 }
