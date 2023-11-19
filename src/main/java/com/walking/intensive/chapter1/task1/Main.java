@@ -13,7 +13,6 @@ public class Main {
 
     static String getAgeString(int age) {
 
-        String yourAge;
         if (age % 10 == 1 && age != 11) {
             return "Вам " + age + " год.";
         } else if (age % 10 > 1 && age % 10 < 5) {
