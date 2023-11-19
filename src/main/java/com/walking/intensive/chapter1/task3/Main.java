@@ -1,17 +1,27 @@
 package com.walking.intensive.chapter1.task3;
 
+import java.util.Scanner;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-leap-year.html">ссылка</a>
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.print("Введите год: ");
+        int yearNumber = scanner.nextInt();
+
+        scanner.close();
+
+        if (isLeap(yearNumber)){
+            System.out.println("Этот год високосный!");
+        } else {
+            System.out.println("Этот год не високосный!");
+        }
     }
 
     static boolean isLeap(int year) {
-        //        Место для вашего кода
-
-        return false; // Заглушка. При реализации - удалить
+        return year % 4 == 0;
     }
 }
