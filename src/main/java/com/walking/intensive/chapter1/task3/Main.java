@@ -1,4 +1,4 @@
-package com.walking.intensive.chapter1.task3;
+package src.main.java.com.walking.intensive.chapter1.task3;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ public class Main {
 
         scanner.close();
 
-        if (isLeap(yearNumber)){
+        if (isLeap(yearNumber)) {
             System.out.println("Этот год високосный!");
         } else {
             System.out.println("Этот год не високосный!");
@@ -22,6 +22,6 @@ public class Main {
     }
 
     static boolean isLeap(int year) {
-        return year % 4 == 0;
+        return ((year % 4 == 0) && (year % 100 != 0)) || ((year % 100 == 0) && (year % 400 == 0));
     }
 }
