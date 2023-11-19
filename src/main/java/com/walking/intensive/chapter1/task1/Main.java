@@ -3,26 +3,25 @@ package com.walking.intensive.chapter1.task1;
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-age.html">ссылка</a>
  */
-public static void main(String[] args) {
+public class Main {
+    public static void main(String[] args) {
 
-        int age = 32;  //Ответ 32 года, все верно.
+        int age = 32;
 
-        System.out.println(getAgeString(age));
-        }
+        getAgeString(age);
+    }
 
-static String getAgeString(int age) {
+    static void getAgeString(int age) {
 
-        String result;
-
-        if (age <= 0) {
-        result = "Неверный возраст.";
-        } else if (age % 10 == 1 && age != 11 && age != 12 && age != 13 && age != 14) {
-        result = "Вам " + age + " год.";
-        } else if ((age % 10 == 2 || age % 10 == 3 || age % 10 == 4) && (age != 11 && age != 12 && age != 13 && age != 14)) {
-        result = "Вам " + age + " года.";
+        if (age < 0) {
+            System.out.println("Неверный возраст.");
+        } else if (age % 10 == 1 && age != 11) {
+            System.out.println("Вам " + age + " год.");
+        } else if (age % 10 >= 2 && age % 10 <= 4 && age != 12 && age != 13 && age != 14) {
+            System.out.println("Вам " + age + " года.");
         } else {
-        result = "Вам " + age + " лет.";
+            System.out.println("Вам " + age + " лет.");
         }
-        return result;
-        }
-        }
+
+    }
+}
