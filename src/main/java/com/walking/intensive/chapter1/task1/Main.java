@@ -13,21 +13,24 @@ public class Main {
 
         System.out.println(getAgeString(getAge()));
     }
+
     static int getAge() throws Exception {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int age = -1;
+
         while (age < 0 || age > 127) {
             System.out.print("Введите свой возраст: ");
             age = Integer.parseInt(reader.readLine());
         }
+
         reader.close();
         return age;
     }
 
     static String getAgeString(int age) {
 //        Место для вашего кода
-        if (age >= 12 && age <= 14) return  ("Вам " + age + " лет");
-        else if(age%10 > 1 && age%10 <=4 ) return  ("Вам " + age + " года");
+        if (age >= 12 && age <= 14) return ("Вам " + age + " лет");
+        else if (age % 10 > 1 && age % 10 <= 4) return ("Вам " + age + " года");
         else return ("Вам " + age + " лет");
     }
 }
