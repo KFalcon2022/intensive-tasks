@@ -4,7 +4,7 @@ package com.walking.intensive.chapter1.task1;
  * Условие: <a href="https://geometry-math.ru/homework/Java-age.html">ссылка</a>
  */
 public class Main {
-    public static int[] forbiddenArray = {11, 12, 13, 14};
+    private static final String[] FORBIDDEN_ARRAY = {"11", "12", "13", "14"};
 
     public static void main(String[] args) {
 
@@ -44,8 +44,8 @@ public class Main {
 
     public static boolean isFoundInForbiddenArrayCheckedByLinearSearch(String ageString) {
 
-        for (int i = 0; i < forbiddenArray.length; i++) {
-            if ((ageString.indexOf(Integer.toString(forbiddenArray[i]), ageString.length() - 2)) != -1) {
+        for (String str : FORBIDDEN_ARRAY) {
+            if ((ageString.indexOf(str, ageString.length() - 2)) != -1) {
                 return true;
             }
         }
