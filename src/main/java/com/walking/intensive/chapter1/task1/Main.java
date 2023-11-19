@@ -5,15 +5,33 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
-
-        System.out.println(getAgeString(age));
+        String name = "Проверяющий";
+        int age = 99;
+        System.out.println(getAgeString(name, age));
     }
 
-    static String getAgeString(int age) {
-//        Место для вашего кода
+    static String getAgeString(String name, int age) {
+        String result = "Некорректный возраст";
+        int remainderNum = age % 10;
 
-        return null; // Заглушка. При реализации - удалить
+        if (isYearsNoMore127AndNonNegative(age) != true) {
+            return result;
+        }
+        if (remainderNum == 1 && (age > 20 | age == 1)) {
+            result = name + ": Вам " + age + " год";
+        } else if (remainderNum > 1 && remainderNum < 5 && (age > 20 | age < 5)) {
+            result = name + ": Вам " + age + " года";
+        } else {
+            result = name + ": Вам " + age + " лет";
+        }
+        return result;
+    }
+
+    static boolean isYearsNoMore127AndNonNegative(int age) {
+        boolean chekYears = false;
+        if (age >= 0 && age < 128) {
+            chekYears = true;
+        }
+        return chekYears;
     }
 }
