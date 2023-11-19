@@ -23,26 +23,19 @@ public class Main {
         b = 5;
         c = 6;
 
-        System.out.println("        a = 1;\n" +
-                "        b = 5;\n" +
-                "        c = 6;" + solveQuadraticEquation(a, b, c));
+        System.out.println("a = 1; b = 5; c = 6; " + solveQuadraticEquation(a, b, c));
 
         a = 1;
         b = -5;
         c = 6;
 
-        System.out.println("        a = 1;\n" +
-                "        b = -5;\n" +
-                "        c = 6;" + solveQuadraticEquation(a, b, c));
+        System.out.println("a = 1; b = -5; c = 6; " + solveQuadraticEquation(a, b, c));
 
         a = 1;
         b = -5;
         c = -6;
 
-        System.out.println("        a = 1;\n" +
-                "        b = -5;\n" +
-                "        c = -6;" + solveQuadraticEquation(a, b, c));
-
+        System.out.println("a = 1; b = -5; c = -6; " + solveQuadraticEquation(a, b, c));
     }
 
     /**
@@ -55,8 +48,6 @@ public class Main {
      * Количество решений: 1. Корень: 0
      * <p>
      * Количество решений: 0.
-     *
-     * a -
      */
     static String solveQuadraticEquation(double a, double b, double c) {
 
@@ -74,18 +65,21 @@ public class Main {
 
         if (discriminant == 0) {
             count = 1;
+            result += "1. ";
         } else if (discriminant > 0) {
             count = 2;
+            result += "2. ";
         } else {
             result += (count + ".");
         }
 
-        if (count >= 1) {
-            x1 = (-1 * b - Math.sqrt(discriminant) / 2 * a);
-            result += "1. Корень: " + (int)x1;
-        } else {
-            x2 = (-1 * b + Math.sqrt(discriminant) / 2 * a);
-            result = ";" + (int)x2;
+        if (count > 0) {
+            x1 = ((-1 * b - Math.sqrt(discriminant)) / 2 * a);
+            result += "Корень: " + (int)x1;
+        }
+        if(count == 2) {
+            x2 = ((-1 * b + Math.sqrt(discriminant)) / 2 * a);
+            result += ";" + (int)x2;
         }
 
         return result;
