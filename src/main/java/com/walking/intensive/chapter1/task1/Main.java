@@ -5,15 +5,37 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
         int age = 0;
+        for (int i = -1; i < 129; i++) {
+            System.out.println(getAgeString(i));
+        }
 
-        System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+        String s = "";
+        if (age > 127 || age < 0) {
+            return "Проверьте правильность ввода возраста";
+        }
 
-        return null; // Заглушка. При реализации - удалить
+        switch (age % 10) {
+            case 1:
+                if (age % 100 == 11) {
+                    s = "Вам " + age + " лет";
+                } else {
+                    s = "Вам " + age + " год";
+                }
+                break;
+            case 2, 3, 4:
+                if (age % 100 == 12 || age % 100 == 13 || age % 100 == 14) {
+                    s = "Вам " + age + " лет";
+                } else {
+                    s = "Вам " + age + " года";
+                }
+                break;
+            case 0, 5, 6, 7, 8, 9:
+                s = "Вам " + age + " лет";
+        }
+        return s;
     }
 }
