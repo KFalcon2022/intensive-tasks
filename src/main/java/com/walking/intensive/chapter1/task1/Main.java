@@ -25,6 +25,7 @@ public class Main {
 
     static String getAgeString(int age) {
 //     Место для вашего кода
+        if (age<0) return "Неверный возраст";
         return "Вам " + age + " " + getYearsByAge(age);
     }
 }
