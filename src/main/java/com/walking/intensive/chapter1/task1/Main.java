@@ -6,21 +6,22 @@ package com.walking.intensive.chapter1.task1;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int age = -4;
+        int age = 0;
 
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-        if (age > 0) {
-            if (age == 1) {
-                return "Вам 1 год";
-            } else if (age >= 2 & age < 5) {
+        if (age >= 11 && age <= 14) {
+            return "Вам " + age + " лет";
+        } else {
+            int suffix = age % 10;
+            if (suffix == 1) {
+                return "Вам " + age + " год";
+            } else if (suffix >= 2 & suffix <= 4) {
                 return "Вам " + age + " года";
             }
-        } else if (age < 0) {
-            return "Количество лет не может быть отрицательным, проверьте ваши данные";
+            return "Вам " + age + " лет";
         }
-        return "Вам " + age + " лет";
     }
 }
