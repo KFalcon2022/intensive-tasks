@@ -12,8 +12,23 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        int temporaryAgeCondition = 0;
+
+        if (age <= 4 || age > 20 && age <= 104 || age > 120) {
+            temporaryAgeCondition = age % 10;
+        }
+
+        String firstOutputPart = "Вам " + age;
+        String result = firstOutputPart + " лет";
+
+
+        if (temporaryAgeCondition == 1) {
+            result = firstOutputPart + " год";
+        } else if (temporaryAgeCondition != 0 && temporaryAgeCondition <= 4) {
+            result = firstOutputPart + " года";
+        }
+
+        return result;
     }
 }
