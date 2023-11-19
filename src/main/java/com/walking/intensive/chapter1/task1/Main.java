@@ -9,7 +9,6 @@ import java.io.InputStreamReader;
 public class Main {
     public static void main(String[] args) throws Exception {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        //int age = 0;
 
         System.out.println(getAgeString(getAge()));
     }
@@ -31,7 +30,7 @@ public class Main {
 //        Место для вашего кода
         if (age >= 12 && age <= 14) return ("Вам " + age + " лет");
         else if (age % 10 > 1 && age % 10 <= 4) return ("Вам " + age + " года");
-        else if (age % 10 == 1) return ("Вам" + age + "год");
+        else if (age % 10 == 1) return ("Вам " + age + " год");
         else return ("Вам " + age + " лет");
     }
 }
