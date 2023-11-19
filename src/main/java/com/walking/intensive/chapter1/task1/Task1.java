@@ -5,15 +5,34 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Task1 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
+        int age = 112;
 
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+        String s = "Вам ";
 
-        return null; // Заглушка. При реализации - удалить
+        if (age < 0) {
+            return " Вы не родились";
+        }
+
+        int[] ageArray = new int[]{11, 12, 13, 14, 15, 16, 17, 17, 19, 111, 112, 113, 114};
+        for (int id : ageArray) {
+            if (age == id) {
+                return s + age + " лет";
+            }
+        }
+
+        switch (age % 10) {
+            case 1:
+                return s + age + " год";
+            case 2:
+            case 3:
+            case 4:
+                return s + age + " года";
+            default:
+                return s + age + " лет";
+        }
     }
 }
