@@ -1,17 +1,28 @@
 package com.walking.intensive.chapter1.task2;
 
+import java.util.Scanner;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-house.html">ссылка</a>
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
 
+        Scanner scanner = new Scanner(System.in);
+
+        int age = scanner.nextInt();
+
+        System.out.println(getAgeString(age));
     }
 
-    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        //        Место для вашего кода
+    static String getAgeString(int age) {
 
-        return null; // Заглушка. При реализации - удалить
+        if (age % 10 == 1 && age % 100 != 11) {
+            return String.format("Вам %d год", age);
+        }
+        if (age % 10 >= 2 && age % 10 <= 4 && (age % 100 < 10 || age % 100 >= 20)) {
+            return String.format("Вам %d года", age);
+        }
+        return String.format("Вам %d лет", age);
     }
 }
