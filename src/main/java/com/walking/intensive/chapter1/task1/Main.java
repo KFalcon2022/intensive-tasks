@@ -14,8 +14,6 @@ public class Main {
             System.out.println("Вы еще не родились. Введите число больше 0");
         } else if (age >= 128) {
             System.out.println("Вы превысили порог долгожительства. Введите число меньше 128");
-        } else if (age == 11 || age == 12 || age == 13 || age == 14 || age == 111) {
-            System.out.println("Вам " + age + " лет");
         } else {
             System.out.println("Вам " + age + " " + getAgeString(age));
         }
@@ -27,7 +25,11 @@ public class Main {
     private static final String three = "лет";
 
     static String getAgeString(int age) {
-        return switch (age % 10) {
+        age %= 100;
+        if (age > 20) {
+            age %= 10;
+        }
+        return switch (age) {
             case 1 -> one;
             case 2, 3, 4 -> two;
             default -> three;
