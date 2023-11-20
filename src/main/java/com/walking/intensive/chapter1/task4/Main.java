@@ -3,10 +3,8 @@ package com.walking.intensive.chapter1.task4;
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-parameter.html">ссылка</a>
  */
-public class Main
-{
-    public static void main(String[] args)
-    {
+public class Main {
+    public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
         double a = -3;
         double b = 1;
@@ -26,31 +24,31 @@ public class Main
      * <p>
      * Количество решений: 0.
      */
-    static String solveQuadraticEquation(double a, double b, double c)
-    {
+    static String solveQuadraticEquation(double a, double b, double c) {
         //        Место для вашего кода
 
-        if (a == 0 && b != 0)
+        if (a == 0 && b != 0) {
             return "Это не квадратное уравнение";
-        else if (a == 0 && b == 0)
+        }
+        else if (a == 0 && b == 0) {
             return "Некорректные данные";
+        }
 
         double x1, x2;
         String result;
 
-        double d = b * b - (4 * a * c);
+        double discriminant = b * b - (4 * a * c);
 
-        if (d < 0)
+        if (discriminant < 0) {
             result = "0";
-        else if (d == 0)
-        {
+        }
+        else if (discriminant == 0) {
             x1 = -b / (2 * a);
             result = "1. Корень: " + x1;
         }
-        else
-        {
-            x1 = (-b - Math.sqrt(d)) / (2 * a);
-            x2 = (-b + Math.sqrt(d)) / (2 * a);
+        else {
+            x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
 
             result = (x1 < x2)
                     ? ("2. Корни: " + x1 + ";" + x2)
