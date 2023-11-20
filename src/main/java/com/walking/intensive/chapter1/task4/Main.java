@@ -46,7 +46,7 @@ public class Main {
             solution = "Ненулевой коэфициент \"c\" оказался равен 0. Логическая ошибка. Проверьте ввод.";
         } else if ((b == 0) && (a == 0) && (c == 0)) {
             solution = "0 = 0";
-        } else {
+        } else {                                //проверяем решения через детерминант
             double determinant = Math.pow(b, 2) - 4 * a * c;
             if (determinant > 0) {
                 solutionNumber = 2;
