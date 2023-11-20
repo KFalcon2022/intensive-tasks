@@ -9,10 +9,11 @@ public class Main {
         System.out.println(isLeap(1500));
         System.out.println(isLeap(1980));
         System.out.println(isLeap(1998));
+        System.out.println(isLeap(2000));
 
     }
 
     static boolean isLeap(int year) {
-        return (year % 4 == 0 && year % 100 !=0);
+        return (year % 4 == 0 && year % 100 !=0) || year % 400 == 0;
     }
 }
