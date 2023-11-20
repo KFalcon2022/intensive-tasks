@@ -5,28 +5,27 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-        String name = "Проверяющий";
         int age = 99;
-        System.out.println(getAgeString(name, age));
+        System.out.println(getAgeString(age));
     }
 
-    static String getAgeString(String name, int age) {
+    static String getAgeString(int age) {
         String result = "Некорректный возраст";
         int remainderNum = age % 10;
-        if (!isYearsNoMore127AndNonNegative(age)) {
+        if (!YearsNoMore127AndNonNegative(age)) {
             return result;
         }
         if (remainderNum == 1 && (age > 20 && age < 110) | age == 121) {
-            result = name + ": Вам " + age + " год";
+            result = ": Вам " + age + " год";
         } else if (remainderNum > 1 && remainderNum < 5 && (age > 20 && age < 110 | age > 120 && age < 125) ) {
-            result = name + ": Вам " + age + " года";
+            result = ": Вам " + age + " года";
         } else {
-            result = name + ": Вам " + age + " лет";
+            result = ": Вам " + age + " лет";
         }
         return result;
     }
 
-    static boolean isYearsNoMore127AndNonNegative(int age) {
+    static boolean YearsNoMore127AndNonNegative(int age) {
         return age >= 0 && age < 128;
     }
 }
