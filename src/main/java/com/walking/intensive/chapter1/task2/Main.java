@@ -1,17 +1,43 @@
 package com.walking.intensive.chapter1.task2;
 
-/**
- * –£—Å–ª–æ–≤–∏–µ: <a href="https://geometry-math.ru/homework/Java-house.html">—Å—Å—ã–ª–∫–∞</a>
- */
 public class Main {
     public static void main(String[] args) {
-//        –î–ª—è —Å–æ–±—Å—Ç–≤–µ–Ω–Ω—ã—Ö –ø—Ä–æ–≤–µ—Ä–æ–∫ –º–æ–∂–µ—Ç–µ –¥–µ–ª–∞—Ç—å –ª—é–±—ã–µ –∏–∑–º–µ–Ω–µ–Ω–∏—è –≤ —ç—Ç–æ–º –º–µ—Ç–æ–¥–µ
+        boolean num1 = isLeapYear(100);
+        System.out.println(num1);
 
+        boolean num2 = isLeapYear(1896);
+        System.out.println(num2);
+
+        isLeapYear(2023);
+        isLeapYear(2024);
+        isLeapYear(2600);
+        isLeapYear(0);
+        isLeapYear(2000);
+        isLeapYear(1913);
+        isLeapYear(-803);
     }
 
-    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        //        –ú–µ—Å—Ç–æ –¥–ª—è –≤–∞—à–µ–≥–æ –∫–æ–¥–∞
+    public static boolean isLeapYear(int year) {
+        boolean isLeap = false;
 
-        return null; // –ó–∞–≥–ª—É—à–∫–∞. –ü—Ä–∏ —Ä–µ–∞–ª–∏–∑–∞—Ü–∏–∏ - —É–¥–∞–ª–∏—Ç—å
+        if (year <= 0) {
+            System.out.println("¬‚Â‰ËÚÂ „Ó‰ ‡‚Ì˚È ËÎË ·ÓÎÂÂ 1.");
+            isLeap = false;
+        } else if (year % 4 == 0) {
+            if (year % 100 == 0 & year % 400 == 0) {
+                System.out.println(year + " „Ó‰ - ‚ËÒÓÍÓÒÌ˚È.");
+                isLeap = true;
+            } else if (year % 100 == 0 & year % 400 != 0) {
+                System.out.println(year + " „Ó‰ - ÌÂ‚ËÒÓÍÓÒÌ˚È.");
+                isLeap = false;
+            } else {
+                System.out.println(year + " „Ó‰ - ‚ËÒÓÍÓÒÌ˚È.");
+                isLeap = true;
+            }
+        } else {
+            System.out.println(year + " „Ó‰ - ÌÂ‚ËÒÓÍÓÒÌ˚È.");
+            isLeap = false;
+        }
+        return isLeap;
     }
 }
