@@ -12,10 +12,10 @@ public class Main {
     }
 
     static void printYearInfo(int year) {
-        if (isValidYear(year)) {
+        try {
             System.out.println("Год " + year + " " + (isLeap(year) ? "високосный" : "не вискосный"));
-        } else {
-            System.out.println("Неверное число");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
     }
 
@@ -24,14 +24,19 @@ public class Main {
     }
 
     static boolean isLeap(int year) {
-        if (year % 400 == 0) {
-            return true;
-        }
+        if (isValidYear(year)) {
 
-        if (year % 100 == 0) {
-            return false;
-        }
+            if (year % 400 == 0) {
+                return true;
+            }
 
-        return year % 4 == 0;
+            if (year % 100 == 0) {
+                return false;
+            }
+
+            return year % 4 == 0;
+        } else {
+            throw new IllegalArgumentException("Неверное число");
+        }
     }
 }
