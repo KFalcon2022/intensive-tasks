@@ -1,5 +1,4 @@
 package com.walking.intensive.chapter1.task1;
-
 import java.util.Scanner;
 
 /**
@@ -7,31 +6,33 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-
 //        Для собственных проверок можете делать любые изменения в этом методе
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Введите число: ");
+        System.out.print("Веедите ваш возраст: ");
         int age = scanner.nextInt();
         scanner.close();
 
-        getAgeString(age);
+        System.out.println(getAgeString(age));
+
     }
 
-    static void getAgeString(int age) {
+    static String getAgeString(int age) {
 
-        if (age <= 0) {
-            System.out.println("Возраст введен не верно, попробуйте еще раз.");
+        int ageLastNum = age % 10;
+        String year= "";
+
+        if (ageLastNum == 1) {
+            year = " год";
+        } else if (ageLastNum == 0 || ageLastNum >= 5 && ageLastNum <= 9) {
+            year = " лет";
+        } else if (ageLastNum >= 2 && ageLastNum <= 4) {
+            year= " года";
+        }
+        if (age % 100 >= 11 && age % 100 <= 14) {
+            year= " лет";
         }
 
-        else {
-
-            switch (age % 10) {
-                case 1 -> System.out.println("Вам " + age + " год.");
-                case 2, 3, 4 -> System.out.println("Вам " + age + " года.");
-                default -> System.out.println("Вам " + age + " лет.");
-
-            }
-        }
+        return "Вам : " + age + year;
     }
 }
