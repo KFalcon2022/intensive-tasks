@@ -12,21 +12,25 @@ public class Main {
         int age = num.nextInt();
         if (age < 0) {
             System.out.println("Вы еще не родились. Введите число больше 0");
-        } else if (age >= 127) {
-            System.out.println("Вы превысили порог долгожительства. Введите число меньше 127");
+        } else if (age >= 128) {
+            System.out.println("Вы превысили порог долгожительства. Введите число меньше 128");
+        } else if (age == 11 || age == 12 || age == 13 || age == 14 || age == 111) {
+            System.out.println("Вам " + age + " лет");
         } else {
             System.out.println("Вам " + age + " " + getAgeString(age));
         }
         num.close();
     }
 
-    private static final String one = "года";
-    private static final String two = "лет";
+    private static final String one = "год";
+    private static final String two = "года";
+    private static final String three = "лет";
 
     static String getAgeString(int age) {
         return switch (age % 10) {
-            case 2, 3, 4 -> one;
-            default -> two;
+            case 1 -> one;
+            case 2, 3, 4 -> two;
+            default -> three;
         };
     }
 }
