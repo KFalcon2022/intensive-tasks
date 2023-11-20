@@ -9,6 +9,10 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
 
+        // Просто не нашел куда воткнуть проверку на дегенеративность, решил не утяжелять код. Метод проверки в конце,
+        //
+        // если нужно, то добавлю.
+
     }
 
     static double getAreaByHeron(double a, double b, double c) {
