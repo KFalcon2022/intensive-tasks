@@ -21,6 +21,7 @@ public class Main {
                 return "Вам " + age + " года.";
             }
         }
+
         return "Вам " + age + " лет.";
     }
 }
