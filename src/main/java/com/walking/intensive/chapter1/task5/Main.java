@@ -8,14 +8,43 @@ import java.util.TreeSet;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
 
+        double a = 13, b = 14, c = 15;
+
+        System.out.printf("Дано. Треугольник со сторонами: "
+                                                 + "a = %.2f, b = %.2f, c = %.2f%n", a, b, c);
+        if (isTriangleExists(a, b, c)) {
+            System.out.println("Треугольник существует.");
+            System.out.printf(
+                    "Площадь треугольника по формуле Герона: %.2f%n", getAreaByHeron(a, b, c));
+            System.out.printf(
+                    "Высоты треугольника: %s%n", Arrays.toString(getHeights(a, b, c)));
+            System.out.printf(
+                    "Медианы треугольника: %s%n", Arrays.toString(getMedians(a, b, c)));
+            System.out.printf(
+                    "Биссектрисы треугольника: %s%n", Arrays.toString(getBisectors(a, b, c)));
+            System.out.printf(
+                    "Углы треугольника: %s%n", Arrays.toString(getAngles(a, b, c)));
+            System.out.printf(
+                    "Радиус вписанной окружности: %.2f%n", getInscribedCircleRadius(a, b, c));
+            System.out.printf(
+                    "Радиус описанной окружности: %.2f%n", getCircumradius(a, b, c));
+            System.out.printf(
+                    "Площадь треугольника продвинутый метод: %s%n", getAreaAdvanced(a, b, c));
+        }
+        else {
+            System.out.println("Треугольник не существует.");
+        }
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return 0; // Заглушка. При реализации - удалить
+        double semiPerimeter = getSemiPerimeter(a, b, c);
+
+        return Math.sqrt(semiPerimeter
+                                 * (semiPerimeter - a)
+                                 * (semiPerimeter - b)
+                                 * (semiPerimeter - c));
     }
 
     /**
