@@ -28,17 +28,17 @@ public class Main {
             return "В доме не может быть менее 1 подъезда";
         }
 
-        final int FLATS_PER_FlOOR = 4; // константа для количества квартир на этаже
-        int flatAmmount = floorAmount * entranceAmount * FLATS_PER_FlOOR; // вычисление общего количества квартир
+        final int FLATS_PER_FLOOR = 4; // константа для количества квартир на этаже
+        int flatAmmount = floorAmount * entranceAmount * FLATS_PER_FLOOR; // вычисление общего количества квартир
 
         //ленивая проверка на наличие квартиры в доме
         if (flatNumber < 1 || flatNumber > flatAmmount) {
             return "В доме нет такой квартиры";
         }
 
-        int entranceNumber = (int) Math.ceil((double) flatNumber / (floorAmount * FLATS_PER_FlOOR)); // вычисление подъезда. NB:возможно, сущеcтвует более простой способ округлять частное интов в большую сторону.
+        int entranceNumber = (int) Math.ceil((double) flatNumber / (floorAmount * FLATS_PER_FLOOR)); // вычисление подъезда. NB:возможно, сущеcтвует более простой способ округлять частное интов в большую сторону.
 
-        int floorNumber = (int) Math.ceil((((double) flatNumber - (floorAmount * FLATS_PER_FlOOR * (entranceNumber - 1))) / FLATS_PER_FlOOR)); // вычисление этажа, тоже через одно место
+        int floorNumber = (int) Math.ceil((((double) flatNumber - (floorAmount * FLATS_PER_FLOOR * (entranceNumber - 1))) / FLATS_PER_FLOOR)); // вычисление этажа, тоже через одно место
 
         String destination;
         //направление квартиры на этаже
@@ -56,6 +56,7 @@ public class Main {
                 destination = "справа от лифта, влево";
                 break;
         }
+
         return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + destination;
     }
 }
