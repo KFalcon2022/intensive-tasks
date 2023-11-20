@@ -27,19 +27,24 @@ public class Main {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
+
+        if (a == 0 && b == 0 && c == 0) {
+            return "Количество решений: Infinity.";
+        }
+
+        if (a == 0 && b == 0) {
+            return "Количество решений: 0.";
+        }
+        
         if (a == 0) {
-            if (b == 0) {
-                if (c == 0) {
-                    return "Количество решений: Infinity.";
-                } else {
-                    return "Количество решений: 0.";
-                }
-            } else {
-                return "Количество решений: 1. Корень:" + (-c) / b;
-            }
+            return "Количество решений: 1. Корень:" + (-c) / b;
         }
 
         double discriminant = getDiscriminant(a, b, c);
+
+        if (discriminant == 0) {
+            return "Количество решений: 1. Корень:" + (-b) / (2 * a);
+        }
 
         if (discriminant > 0) {
             double x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
@@ -50,9 +55,8 @@ public class Main {
             }
 
             return "Количество решений: 2. Корни: " + x2 + ";" + x1;
-        } else if (discriminant == 0) {
-            return "Количество решений: 1. Корень:" + (-b) / (2 * a);
         }
+
         return "Количество решений: 0.";
     }
 
