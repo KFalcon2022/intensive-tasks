@@ -6,9 +6,9 @@ package com.walking.intensive.chapter1.task4;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 0;
-        double b = 0;
-        double c = 0;
+        double a = 1;
+        double b = 4;
+        double c = 4;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -27,7 +27,26 @@ public class Main {
      */
     static String solveQuadraticEquation(double a, double b, double c) {
         //        Место для вашего кода
+        String resultCount = "Количество решений: %d.";
 
-        return null; // Заглушка. При реализации - удалить
+        if (a==0 && b==0 && c==0){
+            return "Количество решений: бесконечно";
+        }
+
+        if (a==0 && b!=0 && c!=0){
+            return String.format(resultCount, 1) + String.format(" Корень: %,.2f", c*(-1)/b);
+        }
+        double discr = b*b - 4*a*c;
+
+        if (discr ==0){
+            return String.format(resultCount, 1) + String.format(" Корень: %,.2f", (-1)*b/(2*a));
+        }
+        else if (discr > 0){
+            return String.format(resultCount, 2) + String.format(" Корни: %,.2f;%,.2f", ((-1)*b+java.lang.Math.sqrt(discr))/(2*a),
+                    ((-1)*b-java.lang.Math.sqrt(discr))/(2*a));
+        }
+        else {
+            return String.format(resultCount, 0);
+        }
     }
 }
