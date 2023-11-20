@@ -22,14 +22,14 @@
 
 После этого полученную копию проекта требуется склонировать на свой компьютер. Коротко [здесь](https://docs.github.com/ru/repositories/creating-and-managing-repositories/cloning-a-repository#cloning-a-repository)
 
-Также вам иногда потребуется актуализировать свою копию, для получения обновлений из оригинального репозитория. О необходимости этого действия будут соответсвующие объявления в чате. Коротко о синхронизации [здесь](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-branch-from-the-web-ui)
+Также вам иногда потребуется актуализировать свою копию, для получения обновлений из оригинального репозитория. О необходимости этого действия будут соответствующие объявления в чате. Коротко о синхронизации [здесь](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork#syncing-a-fork-branch-from-the-web-ui)
 
 ## Алгоритм выполнения и отправки задач на проверку
 Для каждой задачи:
 1. Создаем ветку (от master) с номером задачи в названии. Например: `task1`. Создание веток в IDEA: [ссылка](https://www.jetbrains.com/help/idea/manage-branches.html). 
 Интерфейс на скриншотах может отличаться от привычного вам. Тогда смотрим [здесь](https://www.jetbrains.com/help/idea/2022.3/manage-branches.html)
 2. Решаем задачу, проверяем ее с помощью main(). 
-3. Если по пути `{intensive-tasks}/src/test/java/com/walking/intensive` для вашего задаче есть тестовый класс - запускаем все тесты в нем.
+3. Если по пути `{intensive-tasks}/src/test/java/com/walking/intensive` для вашей задачи есть тестовый класс - запускаем все тесты в нем.
 4. Создаем коммит с решением. В нем должен быть изменен только один класс, убедитесь, что не добавили ничего лишнего.
 5. Делаем Push коммита.
 6. Создаем Pull Request на ветку `master` в основном репозитории. Коротко [здесь](https://docs.github.com/ru/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
