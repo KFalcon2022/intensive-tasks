@@ -8,7 +8,7 @@ public class Main {
 
         System.out.println(isLeap(1500));
         System.out.println(isLeap(1980));
-        System.out.println(isLeap(1999));
+        System.out.println(isLeap(1998));
 
     }
 
