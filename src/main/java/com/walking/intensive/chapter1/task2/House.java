@@ -1,21 +1,6 @@
 package com.walking.intensive.chapter1.task2;
 
-public class House {
-    private final int floorAmount;
-    private final int entranceAmount;
-
-    public House(int floorAmount, int entranceAmount) {
-        this.floorAmount = floorAmount;
-        this.entranceAmount = entranceAmount;
-    }
-
-    public int getFloorAmount() {
-        return floorAmount;
-    }
-
-    public int getEntranceAmount() {
-        return entranceAmount;
-    }
+public record House(int floorAmount, int entranceAmount) {
     public int getFlatAmount() {
         return entranceAmount * floorAmount * 4;
     }
@@ -23,8 +8,8 @@ public class House {
     public String getFlatLocation(int flatNumber) {
 
         int flatCountInFloor = 4;
-        int flatCountInHouse = flatCountInFloor * getFloorAmount() * getEntranceAmount();
-        int flatCountInEntrance = flatCountInFloor * getFloorAmount();
+        int flatCountInHouse = flatCountInFloor * floorAmount() * entranceAmount();
+        int flatCountInEntrance = flatCountInFloor * floorAmount();
 
         if (flatNumber > flatCountInHouse) {
             return String.format("Квартир в этом доме только %d.", flatCountInHouse);
