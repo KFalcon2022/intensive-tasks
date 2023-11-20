@@ -10,14 +10,13 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-        int mod= age % 10;
-        if (mod==1) {
+        int mod = age % 10;
+        if (mod == 1) {
             return "Вам " + age + " год.";
         } else {
-            if (mod>=2 && mod<=4) {
+            if (mod >= 2 && mod <= 4) {
                 return "Вам " + age + " года.";
-            }
-            else {
+            } else {
                 return "Вам " + age + " лет.";
             }
         }
