@@ -13,7 +13,10 @@ public class Main {
 
     static String getAgeString(int age) {
 //        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        if (age < 1) return "Вы не родились";
+        if (age < 2) return "Вам 1 год";
+        if (age < 5 ) return "Вам" + age + "года";
+        return "Вам" + age + "лет";
+//        return null; // Заглушка. При реализации - удалить
     }
 }
