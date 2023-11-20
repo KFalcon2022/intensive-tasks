@@ -17,9 +17,6 @@ public class Main {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        int entranceIndex;        //номер подъезда, если от нуля
-        int floorAbsoluteIndex;   //"абсолютный" номер этажа, если бы не было подъездов
-        int floorRealIndex;       //номер этажа
         int oneEntranceFlatAmount = 4 * floorAmount;
         int totalFlatAmount = oneEntranceFlatAmount * entranceAmount;
 
@@ -27,10 +24,10 @@ public class Main {
             return "Не существует такой квартиры";
         }
 
-        entranceIndex = (flatNumber - 1) / oneEntranceFlatAmount;
+        int entranceIndex = (flatNumber - 1) / oneEntranceFlatAmount;
 
-        floorAbsoluteIndex = ((flatNumber - 1) / 4) + 1;
-        floorRealIndex = (floorAbsoluteIndex % floorAmount == 0) ? floorAmount : floorAbsoluteIndex % floorAmount;
+        int floorAbsoluteIndex = ((flatNumber - 1) / 4) + 1;
+        int floorRealIndex = (floorAbsoluteIndex % floorAmount == 0) ? floorAmount : floorAbsoluteIndex % floorAmount;
 
         String flatString = null;
         int indexOfFlat = flatNumber % 4;
