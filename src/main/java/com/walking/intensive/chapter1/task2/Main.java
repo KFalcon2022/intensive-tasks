@@ -41,6 +41,7 @@ public class Main {
                 answer += "вправо";
             }
         }
+
         return answer;
     }
 }
