@@ -19,23 +19,23 @@ public class Main {
         areaByHeron = getAreaByHeron(a, b, c);
         System.out.println("Площадь треугольника формулой Герона = " + areaByHeron);
 
-        double[] height = getHeights(a, b, c, (Double[] element) -> {
-            return (2 * areaByHeron) / element[0];
+        double[] height = getHeights(a, b, c, (var) -> {
+            return (2 * areaByHeron) / var[0];
         });
         print("Высоты", height);
 
-        double[] median = getParams(a, b, c, (Double[] var) -> {
+        double[] median = getParams(a, b, c, (var) -> {
             return 0.5 * Math.sqrt(2 * Math.pow(var[1], 2) + 2 * Math.pow(var[2], 2) - Math.pow(var[0], 2));
         });
         print("Медианы", median);
 
         //длина биссектрисы через три стороны
-        double[] bisector = getParams(a, b, c, (Double[] var) -> {
+        double[] bisector = getParams(a, b, c, (var) -> {
             return Math.sqrt(var[0] * var[1] * (var[0] + var[1] + var[2]) * (var[0] + var[1] - var[2])) / (var[0] + var[1]);
         });
         print("Биссектрисы", bisector);
 
-        double[] angle = getParams(a, b, c, (Double[] var) -> {
+        double[] angle = getParams(a, b, c, (var) -> {
                     return Math.toDegrees(Math.acos((Math.pow(var[0], 2) + Math.pow(var[1], 2) - Math.pow(var[2], 2)) / 2 / var[0] / var[1]));
                 }
         );
