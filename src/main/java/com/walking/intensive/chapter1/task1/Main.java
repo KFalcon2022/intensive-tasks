@@ -13,9 +13,9 @@ public class Main {
     static String getAgeString(int age) {
         int lastOneNumber = age % 10;
         int lastTwoNumbers = age % 100;
-    //    if (age < 0 || age > 127) {
-    //        return "Поздравляю, вы вне существующих рамок ждём ваше свидетельство о рождении на почту sobaka@sobaka.ru";
-    //    }
+        if (age < 0 || age > 127) {
+            return "Поздравляю, вы вне существующих рамок ждём ваше свидетельство о рождении на почту sobaka@sobaka.ru";
+        }
         if (age == 0) {
             return "Вам " + age + " лет";
         }
