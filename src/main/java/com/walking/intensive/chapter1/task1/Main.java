@@ -11,12 +11,11 @@ public class Main {
 	}
 
 	static String getAgeString(int age) {
-		if (age % 10 >= 2 && age % 10 <= 4) {
-			return "Вам " + age + " года.";
+		if (!(age % 10 >= 1 && age % 10 <= 4) || age % 100 >= 11 && age % 100 <= 14) {
+			return "Вам " + age + " лет.";
 		} else if (age % 10 == 1) {
 			return "Вам " + age + " год.";
-		} else {
-			return "Вам " + age + " лет.";
 		}
+		return "Вам " + age + " года.";
 	}
 }
