@@ -16,26 +16,28 @@ public class Main {
 //        System.out.println(getFlatLocation(5,5, 2));
 //        System.out.println(getFlatLocation(5,5, 3));
 //        System.out.println(getFlatLocation(5,5, 4));
-
-
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         //        Место для вашего кода
-        if (flatNumber > floorAmount * entranceAmount * 4 || flatNumber < 0) return "Нет такой квартиры";
+        if (flatNumber > floorAmount * entranceAmount * 4 || flatNumber < 1) {
+            return "Нет такой квартиры";
+        };
 
         int flatsInEntrance = floorAmount * 4;
         int entranceNumber = flatNumber/flatsInEntrance + 1;
         int floorNumber = ((flatNumber - 1) % flatsInEntrance) / 4 + 1;
         int flatPosition = flatNumber % 4;
 
-        if (flatPosition == 1)
-            return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж , слева от лифта, влево";
-        if (flatPosition == 2)
-            return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж , слева от лифта, вправо";
-        if (flatPosition == 3)
-            return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж , справа от лифта, влево";
-        return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж , справа от лифта, вправо";
-//        return null; // Заглушка. При реализации - удалить
+        return switch (flatPosition) {
+            case 1 -> flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж , " +
+                    "слева от лифта, влево";
+            case 2 -> flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж , " +
+                    "слева от лифта, вправо";
+            case 3 -> flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж , " +
+                    "справа от лифта, влево";
+            default -> flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж , " +
+                    "справа от лифта, вправо";
+        };
     }
 }
