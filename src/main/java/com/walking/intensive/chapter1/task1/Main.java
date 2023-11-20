@@ -16,9 +16,9 @@ public class Main {
         if (!isYearsNoMore127AndNonNegative(age)) {
             return result;
         }
-        if (remainderNum == 1 && (age > 20 | age == 1)) {
+        if (remainderNum == 1 && (age > 20 && age < 110) | age == 121) {
             result = name + ": Вам " + age + " год";
-        } else if (remainderNum > 1 && remainderNum < 5 && (age > 20 | age < 5)) {
+        } else if (remainderNum > 1 && remainderNum < 5 && (age > 20 && age < 110 | age > 120 && age < 125) ) {
             result = name + ": Вам " + age + " года";
         } else {
             result = name + ": Вам " + age + " лет";
