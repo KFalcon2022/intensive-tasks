@@ -12,8 +12,28 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+        int lastNumberFromAge = age % 10;
+        String year = "";
+        String result = "";
 
-        return null; // Заглушка. При реализации - удалить
+        if (age == 0) {
+            result = "Вы ещё не родились";
+        } else {
+            if (age == 11 || age == 12 || age == 13 || age == 14) {
+                year = "лет";
+            } else {
+                if (lastNumberFromAge == 1) {
+                    year = "год";
+                } else {
+                    if (lastNumberFromAge == 2 || lastNumberFromAge == 3 || lastNumberFromAge == 4) {
+                        year = "года";
+                    } else {
+                        year = "лет";
+                    }
+                }
+            }
+        }
+        result = ("Вам " + age + " " + year);
+        return result;
     }
 }
