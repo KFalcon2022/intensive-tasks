@@ -5,13 +5,37 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
+/*
+floorAmoout - количество этажей, entranceAmount -колич подъездов,flatNumber - номер кв
+кол-во кв - 4 * floorAmoout * entranceAmount
+ */
+
+    }
+    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
+        final int FLATonFLOOR = 4;
+    final int totalFLAT = FLATonFLOOR * entranceAmount * floorAmount;
+    if (totalFLAT < flatNumber || flatNumber < 1){
+        return "Такой квартиры нет в данном доме";
+    }
+else {int nomberPodezd = flatNumber / (floorAmount * FLATonFLOOR)+1; // Номер подъезда
+        int nomberFlour = flatNumber % (floorAmount * FLATonFLOOR) / FLATonFLOOR + 1; //номер этажа
+        switch (flatt%4) {//направление
+            case 1-> {
+                System.out.println(flatt+ " кв: " +nomberPodezd +" подъезд, "+ nomberFlour + " этаж, слева от лифта, влево");
+            }
+            case 2-> {
+                System.out.println(flatt+ " кв: " +nomberPodezd +" подъезд, "+ nomberFlour + " этаж, слева от лифта, вправо");
+            }
+            case 3->{
+                System.out.println(flatt+ " кв: " +nomberPodezd +" подъезд, "+ nomberFlour + " этаж, справа от лифта, влево");
+            }
+            default -> {
+                System.out.println(flatt+ " кв: " +nomberPodezd +" подъезд, "+ nomberFlour + " этаж, справа от лифта, вправо");
+            }
+        }
+
 
     }
 
-    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        //        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
     }
 }
