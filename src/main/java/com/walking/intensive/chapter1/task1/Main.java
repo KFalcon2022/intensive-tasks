@@ -9,7 +9,7 @@ public class Main {
         int age = 0;
         System.out.println(getAgeString(age));
 //Проверка
-//        for (int i = 0; i < 120; i++) {
+//        for (int i = 1; i < 120; i++) {
 //            System.out.println(getAgeString(i));
 //        }
     }
