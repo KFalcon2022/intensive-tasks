@@ -1,20 +1,35 @@
 package com.walking.intensive.chapter1.task3;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import java.util.stream.Stream;
 
 import static com.walking.intensive.chapter1.task3.Task3.isLeap;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.params.provider.Arguments.of;
 
 class Task3Test {
 
-    @Test
-    void isLeapTest() {
-        assertFalse(isLeap(2023));
-        assertTrue(isLeap(2024));
-        assertFalse(isLeap(2025));
-        assertFalse(isLeap(2026));
-        assertFalse(isLeap(2027));
-        assertTrue(isLeap(2028));
+    @ParameterizedTest
+    @MethodSource("dataSource")
+    void isLeapTest(boolean expected, int year) {
+        assertEquals(expected, isLeap(year));
+    }
+
+    static Stream<Arguments> dataSource() {
+        return Stream.of(
+                of(false, 1700),
+                of(false, 1800),
+                of(false, 1900),
+                of(true, 2000),
+                of(true, 2020),
+                of(false, 2021),
+                of(false, 2022),
+                of(false, 2023),
+                of(true, 2024),
+                of(false, 2100)
+        );
     }
 }
