@@ -7,16 +7,24 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
         int age = 0;
-
         System.out.println(getAgeString(age));
+//Проверка
+//        for (int i = 0; i < 120; i++) {
+//            System.out.println(getAgeString(i));
+//        }
     }
 
     static String getAgeString(int age) {
 //        Место для вашего кода
-        if (age < 1) return "Вы не родились";
-        if (age < 2) return "Вам 1 год";
-        if (age < 5 ) return "Вам" + age + "года";
-        return "Вам" + age + "лет";
-//        return null; // Заглушка. При реализации - удалить
+        // последние 2 цифры кода
+        int lastNumbers;
+        if (age < 0) return "Вы не родились";
+        lastNumbers = age % 100;
+        if (lastNumbers > 9 && lastNumbers < 21) return "Вам " + age + " лет";
+        lastNumbers %= 10;
+        if (lastNumbers == 0) return "Вам "+ age +" лет";
+        if (lastNumbers < 2) return "Вам " + age + " год";
+        if (lastNumbers < 5 ) return "Вам " + age + " года";
+        return "Вам " + age + " лет";
     }
 }
