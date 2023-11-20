@@ -13,7 +13,7 @@ public class Main {
 
     static String getAgeString(int age) {
 
-        if (age > 127) {
+        if (age > 127||age <0) {
             return "Давай не будем обманывать, сладкий пирожочек, напиши сколько тебе лет на самом деле.";
         }
 
