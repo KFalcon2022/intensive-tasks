@@ -5,15 +5,21 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
         int age = 0;
-
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        int mod= age % 10;
+        if (mod==1) {
+            return "Вам " + age + " год.";
+        } else {
+            if (mod>=2 && mod<=4) {
+                return "Вам " + age + " года.";
+            }
+            else {
+                return "Вам " + age + " лет.";
+            }
+        }
     }
 }
