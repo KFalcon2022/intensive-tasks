@@ -8,9 +8,9 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int a = 6;
-        int b = 8;
-        int c = 10;
+        double a = 3;
+        double b = 8;
+        double c = 10;
 
         if (!isTriangleExist(a, b, c)) {
             System.out.println("Треугольник вырожденный или не существует ");
@@ -18,43 +18,27 @@ public class Main {
         }
 
         //Площадь Герона
-        System.out.println("Формула площади Герона: " + getAreaByHeron(a, b, c));
+        System.out.println("Формула площади Герона: " + getHeronArea(a, b, c));
 
         //Высоты треугольника
         double[] heights = getHeights(a, b, c);
 
-        System.out.println("Высоты треугольника:");
-        for (double height : heights
-        ) {
-            System.out.println(height);
-        }
+        System.out.println("Высоты треугольника: " + Arrays.toString(heights));
 
         //Медианы треугольника
         double[] medians = getMedians(a, b, c);
 
-        System.out.println("Медианы треугольника:");
-        for (double median : medians
-        ) {
-            System.out.println(median);
-        }
+        System.out.println("Медианы треугольника: " + Arrays.toString(medians));
 
         //Биссектрисы треугольника
         double[] bisectors = getBisectors(a, b, c);
 
-        System.out.println("Биссектрисы треугольника:");
-        for (double bisector : bisectors
-        ) {
-            System.out.println(bisector);
-        }
+        System.out.println("Биссектрисы треугольника:" + Arrays.toString(bisectors));
 
         //Углы треугольника
         double[] angles = getAngles(a, b, c);
 
-        System.out.println("Углы треугольника:");
-        for (double angle : angles
-        ) {
-            System.out.println(angle);
-        }
+        System.out.println("Углы треугольника: " + Arrays.toString(angles));
 
         //Радиус вписанной окружности
         System.out.println("Радиус вписанной окружности: " + getInscribedCircleRadius(a, b, c));
@@ -63,10 +47,11 @@ public class Main {
         System.out.println("Радиус описанной окружности: " + getCircumradius(a, b, c));
 
         //Формула площади через синус
-        System.out.println("Формула площади через Синус: " + getAreaAdvanced(a, b, c));
+        System.out.println("Формула площади через cинус: " + getAreaAdvanced(a, b, c));
     }
 
-    static double getAreaByHeron(double a, double b, double c) {
+    static double getHeronArea(double a, double b, double c) {
+
         if (!isTriangleExist(a, b, c)) {
             return 0;
         }
@@ -82,9 +67,9 @@ public class Main {
         if (!isTriangleExist(a, b, c)) {
             return null;
         }
-        double height1 = getAreaByHeron(a, b, c) * 2 / a;
-        double height2 = getAreaByHeron(a, b, c) * 2 / b;
-        double height3 = getAreaByHeron(a, b, c) * 2 / c;
+        double height1 = getHeronArea(a, b, c) * 2 / a;
+        double height2 = getHeronArea(a, b, c) * 2 / b;
+        double height3 = getHeronArea(a, b, c) * 2 / c;
 
         double[] heights = {height1, height2, height3};
         Arrays.sort(heights);
