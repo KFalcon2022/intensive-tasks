@@ -16,7 +16,6 @@ public class Main {
 
         System.out.println(getAgeString(age));
     }
-
     static String getAgeString(int age) {
         if (age <= 0 || age > 127) {
             return "Вы не попали в диапозон";
