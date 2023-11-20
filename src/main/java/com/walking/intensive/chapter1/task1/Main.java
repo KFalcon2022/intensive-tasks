@@ -16,11 +16,11 @@ public class Main {
 
         System.out.println(getAgeString(age));
     }
+
     static String getAgeString(int age) {
         if (age <= 0 || age > 127) {
             return "Вы не попали в диапозон";
-        }
-        else if (age % 10 == 1 && age % 100 != 11) {
+        } else if (age % 10 == 1 && age % 100 != 11) {
             return "Вам " + age + " год";
         } else if (age % 10 > 1 && age % 10 < 5 && (age % 100 <= 9 || age % 100 > 19)) {
             return "Вам " + age + " года";
