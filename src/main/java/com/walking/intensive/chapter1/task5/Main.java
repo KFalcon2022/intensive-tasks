@@ -64,7 +64,7 @@ public class Main {
     /**
      * Располагает высоты по возрастанию.
      */
-    static double[] getHeights(double a, double b, double c, Computable<Double> comp) {
+    static double[] getHeights(double a, double b, double c, Computable<Double> comp) {//dependency invertion-агрегация
         return Arrays.stream(new double[]{
                 comp.compute(a),
                 comp.compute(b),
