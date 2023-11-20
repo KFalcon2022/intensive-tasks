@@ -6,16 +6,19 @@ package com.walking.intensive.chapter1.task1;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 96;
+        int age = 19;
 
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
+
         String suffix;
-         switch (age % 10) {
+        int num = age % 100 > 19 ? age % 10 : age % 100;
+
+         switch (num) {
             case 1: suffix = " год"; break;
-            case 2: suffix = " года"; break;
+            case 2: case 3: case 4: suffix = " года"; break;
             default: suffix = " лет"; break;
         }
         return age + suffix;
