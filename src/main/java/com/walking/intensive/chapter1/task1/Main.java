@@ -5,20 +5,26 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-        int age = 0;
+        int age = 113;
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-        int mod = age % 10;
-        if (mod == 1) {
-            return "Вам " + age + " год.";
+        int modHundred = age % 100;
+        if (modHundred >= 11 && modHundred <= 14) {
+            return "Вам " + age + " лет.";
         } else {
-            if (mod >= 2 && mod <= 4) {
-                return "Вам " + age + " года.";
+            int modTen = age % 10;
+            if (modTen == 1) {
+                return "Вам " + age + " год.";
             } else {
-                return "Вам " + age + " лет.";
+                if (modTen >= 2 && modTen <= 4) {
+                    return "Вам " + age + " года.";
+                } else {
+                    return "Вам " + age + " лет.";
+                }
             }
         }
+
     }
 }
