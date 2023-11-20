@@ -21,21 +21,21 @@ public class Main {
         boolean isLeap = false;
 
         if (year <= 0) {
-            System.out.println("Введите год равный или более 1.");
+            System.out.println("Р’РІРµРґРёС‚Рµ РіРѕРґ СЂР°РІРЅС‹Р№ РёР»Рё Р±РѕР»РµРµ 1.");
             isLeap = false;
         } else if (year % 4 == 0) {
             if (year % 100 == 0 & year % 400 == 0) {
-                System.out.println(year + " год - високосный.");
+                System.out.println(year + " РіРѕРґ - РІРёСЃРѕРєРѕСЃРЅС‹Р№.");
                 isLeap = true;
             } else if (year % 100 == 0 & year % 400 != 0) {
-                System.out.println(year + " год - невисокосный.");
+                System.out.println(year + " РіРѕРґ - РЅРµРІРёСЃРѕРєРѕСЃРЅС‹Р№.");
                 isLeap = false;
             } else {
-                System.out.println(year + " год - високосный.");
+                System.out.println(year + " РіРѕРґ - РІРёСЃРѕРєРѕСЃРЅС‹Р№.");
                 isLeap = true;
             }
         } else {
-            System.out.println(year + " год - невисокосный.");
+            System.out.println(year + " РіРѕРґ - РЅРµРІРёСЃРѕРєРѕСЃРЅС‹Р№.");
             isLeap = false;
         }
         return isLeap;
