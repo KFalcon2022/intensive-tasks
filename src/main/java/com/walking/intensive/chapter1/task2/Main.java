@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
 
-        System.out.println(getFlatLocation(5,4,16));
+        System.out.println(getFlatLocation(5,4,0));
 
     }
 
@@ -16,7 +16,7 @@ public class Main {
         String answer;
         int flatAmount = 4;
 
-        if (flatAmount*floorAmount*entranceAmount < flatNumber){
+        if (flatAmount*floorAmount*entranceAmount < flatNumber | flatNumber<=0){
             answer = "Такой квартиры нет в доме";
         }else {
 
