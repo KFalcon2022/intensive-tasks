@@ -30,9 +30,9 @@ public class Main {
         int floorRealIndex = (floorAbsoluteIndex % floorAmount == 0) ? floorAmount : floorAbsoluteIndex % floorAmount;
 
         String flatString = null;
-        int indexOfFlat = flatNumber % 4;
+        int flatIndex = flatNumber % 4;
 
-        flatString = switch (indexOfFlat) {
+        flatString = switch (flatIndex) {
             case (1) -> "слева от лифта, влево";
             case (2) -> "слева от лифта, вправо";
             case (3) -> "справа от лифта, влево";
