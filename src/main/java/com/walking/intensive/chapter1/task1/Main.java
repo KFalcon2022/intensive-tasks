@@ -7,14 +7,16 @@ public class Main {
     public static void main(String[] args) {
 
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
+        int age = 123;
 
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        String printAge;
+        if (age > 10 & age < 15) printAge = "Вам " + age + " лет.";
+        else if (age%10 > 0 & age%10 < 5 ) printAge = "Вам " + age + " года.";
+        else printAge = "Вам " + age + " лет.";
+        return printAge;
     }
 }
