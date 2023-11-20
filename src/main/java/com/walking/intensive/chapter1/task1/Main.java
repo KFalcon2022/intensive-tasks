@@ -8,7 +8,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Ваш возраст? ");
+        System.out.println("Ваш возраст?  ");
         int age = sc.nextInt();
 
         System.out.println(getAgeString(age));
