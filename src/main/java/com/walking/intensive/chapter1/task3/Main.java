@@ -6,7 +6,7 @@ package com.walking.intensive.chapter1.task3;
 public class Main {
     public static void main(String[] args) {
 
-        int year = 2023;
+        int year = 2021;
 
         if (isLeap(year)) {
             System.out.println(year + " год - високостный!");
