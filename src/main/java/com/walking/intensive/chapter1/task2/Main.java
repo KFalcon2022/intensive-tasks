@@ -30,21 +30,13 @@ public class Main {
 
         int entrance = (int) Math.ceil((double) flatNumber / flatsFloor / floorAmount);
         int floor = (int) Math.ceil((double) flatNumber / flatsFloor) - (entrance - 1) * floorAmount;
-        String flatLocation;
 
-        switch (flatNumber % 4) {
-            case 0:
-                flatLocation = "справа от лифта, вправо";
-                break;
-            case 3:
-                flatLocation = "справа от лифта, влево";
-                break;
-            case 2:
-                flatLocation = "слева от лифта, вправо";
-                break;
-            default:
-                flatLocation = "слева от лифта, влево";
-        }
+        String flatLocation = switch (flatNumber % flatsFloor) {
+            case 0 -> "справа от лифта, вправо";
+            case 3 -> "справа от лифта, влево";
+            case 2 -> "слева от лифта, вправо";
+            default -> "слева от лифта, влево";
+        };
 
         return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, " + flatLocation;
     }
