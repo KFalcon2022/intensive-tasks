@@ -13,8 +13,7 @@ public class Main {
     static String getAgeString(String name, int age) {
         String result = "Некорректный возраст";
         int remainderNum = age % 10;
-
-        if (isYearsNoMore127AndNonNegative(age) != true) {
+        if (!isYearsNoMore127AndNonNegative(age)) {
             return result;
         }
         if (remainderNum == 1 && (age > 20 | age == 1)) {
@@ -28,10 +27,6 @@ public class Main {
     }
 
     static boolean isYearsNoMore127AndNonNegative(int age) {
-        boolean chekYears = false;
-        if (age >= 0 && age < 128) {
-            chekYears = true;
-        }
-        return chekYears;
+        return age >= 0 && age < 128;
     }
 }
