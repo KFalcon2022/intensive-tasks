@@ -11,7 +11,7 @@ public class Main {
         double c = 0;
 
         System.out.println(solveQuadraticEquation(a, b, c));
-//        System.out.println(solveQuadraticEquation(0, 0, 5));
+        System.out.println(solveQuadraticEquation(0, 0, 5));
 //        System.out.println(solveQuadraticEquation(1, 5, 4));
 //        System.out.println(solveQuadraticEquation(1, -1, -90));
 //        System.out.println(solveQuadraticEquation(1, 12, 36));
@@ -31,7 +31,7 @@ public class Main {
      */
     static String solveQuadraticEquation(double a, double b, double c) {
         //        Место для вашего кода
-        if (a == b) {
+        if (a == 0 && b == 0) {
             return "Нет решений";
         }
         double d = (b * b) - (4 * a * c);
@@ -43,9 +43,11 @@ public class Main {
         } else  {
             double x1 = ((b * -1) + (Math.sqrt(d)) ) / ( 2 * a );
             double x2 = ((b * -1) - (Math.sqrt(d)) ) / ( 2 * a );
+
             if (x1 < x2) {
                 return "Количество решений: 2. Корни:" + x1 + ";" + x2;
-            } else {return "Количество решений: 2. Корни:" + x2 + ";"+ x1;}
+            } else {
+                return "Количество решений: 2. Корни:" + x2 + ";"+ x1;}
         }
     }
 }
