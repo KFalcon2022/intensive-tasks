@@ -6,22 +6,23 @@ package com.walking.intensive.chapter1.task1;
 public class Main {
     public static void main(String[] args) {
 
-        int age = 32;
+        int age = 111;
 
-        getAgeString(age);
+        System.out.println(getAgeString(age));
     }
 
-    static void getAgeString(int age) {
+    static String getAgeString(int age) {
 
         if (age < 0) {
-            System.out.println("Неверный возраст.");
-        } else if (age % 10 == 1 && age != 11) {
-            System.out.println("Вам " + age + " год.");
-        } else if (age % 10 >= 2 && age % 10 <= 4 && age != 12 && age != 13 && age != 14) {
-            System.out.println("Вам " + age + " года.");
-        } else {
-            System.out.println("Вам " + age + " лет.");
+            return "Неверный возраст.";
+        }
+        if (age % 10 == 1 && age != 11 && age != 111) {
+            return "Вам " + age + " год.";
+        }
+        if (age % 10 >= 2 && age % 10 <= 4 && age != 12 && age != 13 && age != 14 && age != 112 && age != 113 && age != 114) {
+            return "Вам " + age + " года.";
         }
 
+        return "Вам " + age + " лет.";
     }
 }
