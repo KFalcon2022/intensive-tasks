@@ -1,19 +1,37 @@
 package com.walking.intensive.chapter1.task1;
 
-/**
- * Условие: <a href="https://geometry-math.ru/homework/Java-age.html">ссылка</a>
- */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
-
-        System.out.println(getAgeString(age));
+        for (int i = -10; i < 140; i++) {
+            System.out.println(getAgeString(i));
+        }
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+        if (age < 0 | age > 127) {
+            return  "неверное значение";
+        }
+        String result;
+        int reminder10 = age % 10;
+        int reminder100 = age % 100;
 
-        return null; // Заглушка. При реализации - удалить
+        if ((reminder10 == 0 || reminder10 > 4) || (reminder100 > 10 && reminder100 < 20)) {
+            result = " лет";
+        } else if (reminder10 == 1) {
+            result = " год";
+        } else {
+            result = " года";
+        }
+        return "Вам "+age+result;
     }
 }
+
+// Вроде все работет, решал и с помощю 10-ти разных if и с помощью кейсов, подглядел самое короткое решение в ветке)))
+
+
+
+
+
+
+
+
