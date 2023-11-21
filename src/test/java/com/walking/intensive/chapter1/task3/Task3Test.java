@@ -20,6 +20,7 @@ class Task3Test {
 
     static Stream<Arguments> dataSource() {
         return Stream.of(
+                of(true, 1600),
                 of(false, 1700),
                 of(false, 1800),
                 of(false, 1900),
@@ -29,7 +30,8 @@ class Task3Test {
                 of(false, 2022),
                 of(false, 2023),
                 of(true, 2024),
-                of(false, 2100)
+                of(false, 2100),
+                of(true, 2400)
         );
     }
 }
