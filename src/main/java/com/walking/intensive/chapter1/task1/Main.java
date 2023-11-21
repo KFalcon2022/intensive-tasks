@@ -12,8 +12,24 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+        String ageString = "Вам ";
+        ageString += age;
 
-        return null; // Заглушка. При реализации - удалить
+        if (((age / 10) == 1) || (((age % 100) / 10 == 1) && (age > 100))) {
+            ageString += " лет";
+        } else {
+            switch (age % 10) {
+                case 1:
+                    ageString += " год";
+                    break;
+                case 2, 3, 4:
+                    ageString += " года";
+                    break;
+                default:
+                    ageString += " лет";
+            }
+        }
+
+        return ageString;
     }
 }
