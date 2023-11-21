@@ -28,34 +28,22 @@ public class Main {
 
         String apartLoc = null;
         switch (apartNumber % roomsPerFloor) {
-            case 0:
-                apartLoc = "Справа от лифта, вправо";
-                break;
-            case 1:
-                apartLoc = "Слева от лифта, влево";
-                break;
-            case 2:
-                apartLoc = "Слева от лифта, вправо";
-                break;
-            case 3:
-                apartLoc = "Справа от лифта, влево";
-                break;
+            case 0 -> apartLoc = "Справа от лифта, вправо";
+            case 1 -> apartLoc = "Слева от лифта, влево";
+            case 2 -> apartLoc = "Слева от лифта, вправо";
+            case 3 -> apartLoc = "Справа от лифта, влево";
         }
 
-        int entranceNum;
+        int entranceNum = apartNumber / (roomsPerFloor * floorsQuantity);
 
-        if (apartNumber % (roomsPerFloor * floorsQuantity) == 0) {
-            entranceNum = apartNumber / (roomsPerFloor * floorsQuantity);
-        } else {
-            entranceNum = apartNumber / (roomsPerFloor * floorsQuantity) + 1;
+        if (apartNumber % (roomsPerFloor * floorsQuantity) != 0) {
+            entranceNum++;
         }
 
-        int floorNum;
+        int floorNum = apartNumber / roomsPerFloor - (entranceNum - 1) * floorsQuantity;
 
-        if (apartNumber % roomsPerFloor == 0) {
-            floorNum = apartNumber / roomsPerFloor - (entranceNum - 1) * floorsQuantity;
-        } else {
-            floorNum = apartNumber / roomsPerFloor - (entranceNum - 1) * floorsQuantity + 1;
+        if (apartNumber % roomsPerFloor != 0) {
+            floorNum++;
         }
 
         System.out.println(apartNumber + " кв - " + entranceNum + " подъезд, " + floorNum + " этаж, " + apartLoc);
