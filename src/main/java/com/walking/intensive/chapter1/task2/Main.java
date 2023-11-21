@@ -1,12 +1,17 @@
 package com.walking.intensive.chapter1.task2;
 
+import java.util.Scanner;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-house.html">ссылка</a>
  */
 public class Main {
     public static void main(String[] args) {
-        String location = getFlatLocation(10, 3, 88);
-        System.out.println(location);
+        String location1 = getFlatLocation(10, 3, 88);
+        String location2 = getFlatLocation(10, 3, 80);
+        System.out.println(location1);
+        System.out.println(location2);
+
 
     }
 
@@ -20,8 +25,8 @@ public class Main {
 
         int flatIndex = flatNumber - 1;
 
-        int entrance = flatIndex / totalFlats + 1;
-        int floor = (flatIndex % totalFlats) / flatsPerFloor + 1;
+        int entrance = (flatIndex / flatsPerFloor) / floorAmount + 1;
+        int floor = ((flatIndex / flatsPerFloor) % floorAmount) + 1;
 
         String positionDescription = switch (flatIndex % flatsPerFloor) {
             case 0 -> "слева от лифта, влево";
