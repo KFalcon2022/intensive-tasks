@@ -13,7 +13,14 @@ public class Main {
 
     static String getAgeString(int age) {
 //        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        if (age < 0) {
+            return "Возраст не может быть отрицательным!";
+        } else if (age % 10 == 1) {
+            return String.format("Вам %d год.", age);
+        } else if (age % 10 == 2 || age % 10 == 3 || age % 10 == 4) {
+            return String.format("Вам %d года.", age);
+        } else {
+            return String.format("Вам %d лет.", age);
+        }
     }
 }
