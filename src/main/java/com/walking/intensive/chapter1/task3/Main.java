@@ -18,25 +18,4 @@ public class Main {
 
         return year % 100 == 0 || year % 4 != 0;
     }
-
 }
-
-
-
-
-
-   /* static boolean isLeap(int year) {
-
-        if (year % 400 == 0) {      //  високостный
-
-            return true;
-        }
-        if (year % 100 == 0) {   //  невисокостный
-            return false;
-        }
-        if (year % 4 == 0) {
-            return true;       //  високостный
-        }
-        return false;
-    }
-}*/
