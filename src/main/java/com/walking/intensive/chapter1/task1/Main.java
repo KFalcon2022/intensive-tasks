@@ -13,7 +13,7 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-        if (age < 0 & age > 127){
+        if (age < 0 || age > 127){
             return "error";
         }
         else if (age%100 > 10 & age%100 < 15) {
