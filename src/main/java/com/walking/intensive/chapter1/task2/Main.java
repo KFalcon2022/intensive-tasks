@@ -1,43 +1,65 @@
 package com.walking.intensive.chapter1.task2;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        boolean num1 = isLeapYear(100);
-        System.out.println(num1);
+        Scanner sc = new Scanner(System.in);
 
-        boolean num2 = isLeapYear(1896);
-        System.out.println(num2);
+        System.out.println("Введите количество этажей: ");
+        int floorAmount = sc.nextInt();
+        if (floorAmount <= 0) {
+            System.out.println("Количество этажей не может быть меньше 1.");
+            return;
+        }
 
-        isLeapYear(2023);
-        isLeapYear(2024);
-        isLeapYear(2600);
-        isLeapYear(0);
-        isLeapYear(2000);
-        isLeapYear(1913);
-        isLeapYear(-803);
+        System.out.println("Введите количество подъездов: ");
+        int entranceAmount = sc.nextInt();
+        if (entranceAmount <= 0) {
+            System.out.println("Количество подъездов не может быть меньше 1.");
+            return;
+        }
+
+        System.out.println("Введите номер квартиры: ");
+        int flatNumber = sc.nextInt();
+        if (flatNumber <= 0) {
+            System.out.println("Номер квартиры должен быть равен хотя бы 1.");
+            return;
+        }
+
+        sc.close();
+
+        System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber));
     }
 
-    public static boolean isLeapYear(int year) {
-        boolean isLeap = false;
+    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
+        int flatCounter = 0;
+        String location = "";
 
-        if (year <= 0) {
-            System.out.println("Введите год равный или более 1.");
-            isLeap = false;
-        } else if (year % 4 == 0) {
-            if (year % 100 == 0 & year % 400 == 0) {
-                System.out.println(year + " год - високосный.");
-                isLeap = true;
-            } else if (year % 100 == 0 & year % 400 != 0) {
-                System.out.println(year + " год - невисокосный.");
-                isLeap = false;
-            } else {
-                System.out.println(year + " год - високосный.");
-                isLeap = true;
+        for (int i = 1; i <= entranceAmount; i++) {
+            for (int j = 1; j <= floorAmount; j++) {
+                for (int k = 1; k <= 4; k++) {
+                    flatCounter++;
+                    if (flatCounter == flatNumber) {
+                        location = flatNumber + " кв - " + i + " подъезд, " + j + " этаж, ";
+                        switch (k) {
+                            case (1):
+                                location = location + "слева от лифта, влево.";
+                                return location;
+                            case (2):
+                                location = location + "слева от лифта, вправо.";
+                                return location;
+                            case (3):
+                                location = location + "справа от лифта, влево.";
+                                return location;
+                            case (4):
+                                location = location + "справа от лифта, вправо.";
+                                return location;
+                        }
+                    }
+                }
             }
-        } else {
-            System.out.println(year + " год - невисокосный.");
-            isLeap = false;
         }
-        return isLeap;
+        return "В доме с таким количеством этажей и подъездов не может быть квартиры с номером " + flatNumber + ".";
     }
 }
