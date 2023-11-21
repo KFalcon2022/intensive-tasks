@@ -1,4 +1,5 @@
 package com.walking.intensive.chapter1.task1;
+
 public class Main {
     public static void main(String[] args) {
         for (int i = -10; i < 140; i++) {
@@ -8,7 +9,7 @@ public class Main {
 
     static String getAgeString(int age) {
         if (age < 0 | age > 127) {
-            return  "неверное значение";
+            return "неверное значение";
         }
         String result;
         int reminder10 = age % 10;
@@ -21,7 +22,7 @@ public class Main {
         } else {
             result = " года";
         }
-        return "Вам "+age+result;
+        return "Вам " + age + result;
     }
 }
 
