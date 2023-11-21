@@ -5,13 +5,13 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Main {
     public static void main(String[] args) {
-        String location = getFlatLocation(1, 1, 4);
+        String location = getFlatLocation(1, 1, 2);
         System.out.println(location);
 
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        int flatsPerFloor = 4;
+        final int flatsPerFloor = 4;
         int totalFlats = floorAmount * entranceAmount * flatsPerFloor;
 
         if (flatNumber < 1 || flatNumber > totalFlats) {
@@ -23,11 +23,14 @@ public class Main {
 
         int entrance = flatIndex / flatsPerEntrance + 1;
         int floor = (flatIndex % flatsPerEntrance) / flatsPerFloor + 1;
-        String[] positions = {
-                "слева от лифта, влево", "слева от лифта, вправо",
-                "справа от лифта, влево", "справа от лифта, вправо"};
-        String positionDescription = positions[flatIndex % flatsPerFloor];
+        String positionDescription = switch (flatIndex % flatsPerEntrance) {
+            case 0 -> "слева от лифта, влево";
+            case 1 -> "слева от лифта, вправо";
+            case 2 -> "справа от лифта, влево";
+            case 3 -> "справа от лифта, вправо";
+            default -> "";
+        };
 
-        return String.format("%d кв - %d подъезд, %d этаж, %s",flatNumber, entrance, floor, positionDescription);
+        return String.format("%d кв - %d подъезд, %d этаж, %s", flatNumber, entrance, floor, positionDescription);
     }
 }

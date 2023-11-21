@@ -8,21 +8,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        int age = scanner.nextInt();
-
-        System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-
-     if (age % 10 == 1 && age % 100 != 11) {
-         return String.format("Вам %d год", age);
-     }
-     if (age % 10 >= 2 && age % 10 <= 4) {
-         return String.format("Вам %d года", age);
-     }
-     return String.format("Вам %d лет", age);
+        return null;
     }
+
 }
