@@ -5,19 +5,21 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-        int age = 99;
+        int age = 4;
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
         String result = "Некорректный возраст";
-        int remainderNum = age % 10;
+        int remainderNum10 = age % 10;
+        int remainderNum100 = age % 100;
         if (!YearsNoMore127AndNonNegative(age)) {
             return result;
         }
-        if (remainderNum == 1 && (age > 20 && age < 110) | age == 121) {
+        if ((remainderNum10 == 1 | remainderNum100 == 1) && age != 11 && age != 111) {
             result = ": Вам " + age + " год";
-        } else if (remainderNum > 1 && remainderNum < 5 && (age > 20 && age < 110 | age > 120 && age < 125) ) {
+        } else if ((remainderNum10 > 1 && remainderNum10 < 5) | (remainderNum100 > 1 && remainderNum100 < 5)
+                && (age < 5 | age > 20 && age < 110 | age > 120) ) {
             result = ": Вам " + age + " года";
         } else {
             result = ": Вам " + age + " лет";
