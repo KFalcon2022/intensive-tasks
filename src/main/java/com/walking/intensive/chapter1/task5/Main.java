@@ -68,10 +68,11 @@ public class Main {
      */
     static double[] getBisectors(double a, double b, double c) {
         double[] bisectorsArray = new double[3];
-        double areaHeron = areaByHeron(a, b, c);
-        bisectorsArray[0] = 2 * Math.sqrt(b * c * (areaHeron / (b + c)));
-        bisectorsArray[1] = 2 * Math.sqrt(a * c * (areaHeron / (a + c)));
-        bisectorsArray[2] = 2 * Math.sqrt(a * b * (areaHeron / (a + b)));
+        double halfPerimeter = (a + b + c) / 2;;
+        bisectorsArray[0] = 2 * Math.sqrt(b * c * (halfPerimeter - a) / (b + c));
+        bisectorsArray[1] = 2 * Math.sqrt(a * c * (halfPerimeter - b) / (a + c));
+        bisectorsArray[2] = 2 * Math.sqrt(a * b * (halfPerimeter - c) / (a + b));
+
         Arrays.sort(bisectorsArray);
         return bisectorsArray;
     }
