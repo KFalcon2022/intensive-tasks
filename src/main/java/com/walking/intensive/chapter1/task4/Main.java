@@ -25,7 +25,7 @@ public class Main {
      */
     static String solveQuadraticEquation(double a, double b, double c) {
         if ((a==0)&&(b==0)){
-            return "Выжение не явлется уравненением!";
+            return "Выражение не явлется уравненением!";
         }
 
         double discriminant = b * b - 4 * a * c;
