@@ -8,36 +8,29 @@ public class Main {
         boolean num2 = isLeapYear(1896);
         System.out.println(num2);
 
-        isLeapYear(2023);
-        isLeapYear(2024);
-        isLeapYear(2600);
-        isLeapYear(0);
-        isLeapYear(2000);
-        isLeapYear(1913);
-        isLeapYear(-803);
+        System.out.println(isLeapYear(2023));
+        System.out.println(isLeapYear(2024));
+        System.out.println(isLeapYear(2600));
+        System.out.println(isLeapYear(0));
+        System.out.println(isLeapYear(2000));
+        System.out.println(isLeapYear(1913));
+        System.out.println(isLeapYear(-803));
     }
 
     public static boolean isLeapYear(int year) {
-        boolean isLeap = false;
 
         if (year <= 0) {
-            System.out.println("Введите год равный или более 1.");
-            isLeap = false;
+            return false;
         } else if (year % 4 == 0) {
             if (year % 100 == 0 & year % 400 == 0) {
-                System.out.println(year + " год - високосный.");
-                isLeap = true;
+                return true;
             } else if (year % 100 == 0 & year % 400 != 0) {
-                System.out.println(year + " год - невисокосный.");
-                isLeap = false;
+                return false;
             } else {
-                System.out.println(year + " год - високосный.");
-                isLeap = true;
+                return true;
             }
         } else {
-            System.out.println(year + " год - невисокосный.");
-            isLeap = false;
+            return false;
         }
-        return isLeap;
     }
 }
