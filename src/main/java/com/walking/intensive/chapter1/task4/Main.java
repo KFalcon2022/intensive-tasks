@@ -27,38 +27,38 @@ public class Main {
      */
     static String solveQuadraticEquation(double a, double b, double c) {
 
-        String answer="";
+        String answer = "";
         byte answerCount = 0;
-        double x1,x2;
+        double x1, x2;
 
-        if (a==0 & b!=0 ){
+        if (a == 0 & b != 0) {
             //это линейное уравнение
             answerCount = 1;
-            x1 = -1*c/b;
-            answer = "Корень: "+x1;
-        } else{
+            x1 = -1 * c / b;
+            answer = "Корень: " + x1;
+        } else {
 
             double d;
             d = Math.pow(b, 2) - 4 * a * c;
 
-            if(d==0 & a!=0){
+            if (d == 0 & a != 0) {
                 answerCount = 1;
-                x1 = -1*b/(2*a);
-                answer = "Корень: "+x1;
-            } else if (d>0) {
+                x1 = -1 * b / (2 * a);
+                answer = "Корень: " + x1;
+            } else if (d > 0) {
                 answerCount = 2;
                 answer = "Корни: ";
-                x1 = (-1*b+Math.sqrt(d))/(2*a);
-                x2 = (-1*b-Math.sqrt(d))/(2*a);
+                x1 = (-1 * b + Math.sqrt(d)) / (2 * a);
+                x2 = (-1 * b - Math.sqrt(d)) / (2 * a);
 
-                if (x1<x2){
+                if (x1 < x2) {
                     answer += x1 + ";" + x2;
-                }else {
+                } else {
                     answer += x2 + ";" + x1;
                 }
             }
         }
-        answer = "Количество решений: "+answerCount + ". " + answer;
+        answer = "Количество решений: " + answerCount + ". " + answer;
         return answer;
     }
 }
