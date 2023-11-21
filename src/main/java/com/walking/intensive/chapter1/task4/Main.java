@@ -61,6 +61,7 @@ public class Main {
     static double getDiscriminant(double a, double b, double c) {
         return b * b - 4 * a * c;
     }
+
     static String solveQuadraticEquation(double a, double b, double c) {
         if (a == 0 && b == 0 && c == 0) {
             return "Любое значение x будет являться решением этого уравнения.";
