@@ -1,4 +1,4 @@
-package com.walking.intensive.chapter1.task2;
+package src.main.java.com.walking.intensive.chapter1.task2;
 
 import java.util.Scanner;
 
@@ -19,20 +19,23 @@ public class Main {
 
         scanner.close();
 
+        System.out.println(getRoomLocation(floorsQuantity, entrancesQuantity, apartNumber));
+    }
+
+    static String getRoomLocation(int floorsQuantity, int entrancesQuantity, int apartNumber) {
         int roomsPerFloor = 4;
 
         if ((apartNumber < 1) || (apartNumber > (roomsPerFloor * floorsQuantity * entrancesQuantity))) {
-            System.out.println("Такой квартиры в доме нет");
-            return;
+            return "Такой квартиры в доме нет";
         }
 
-        String apartLoc = null;
-        switch (apartNumber % roomsPerFloor) {
-            case 0 -> apartLoc = "Справа от лифта, вправо";
-            case 1 -> apartLoc = "Слева от лифта, влево";
-            case 2 -> apartLoc = "Слева от лифта, вправо";
-            case 3 -> apartLoc = "Справа от лифта, влево";
-        }
+        String apartLoc = switch (apartNumber % roomsPerFloor) {
+            case 0 -> "Справа от лифта, вправо";
+            case 1 -> "Слева от лифта, влево";
+            case 2 -> "Слева от лифта, вправо";
+            case 3 -> "Справа от лифта, влево";
+            default -> null;
+        };
 
         int entranceNum = apartNumber / (roomsPerFloor * floorsQuantity);
 
@@ -46,6 +49,8 @@ public class Main {
             floorNum++;
         }
 
-        System.out.println(apartNumber + " кв - " + entranceNum + " подъезд, " + floorNum + " этаж, " + apartLoc);
+        return apartNumber + " кв - " + entranceNum + " подъезд, " + floorNum + " этаж, " + apartLoc;
     }
+
+
 }
