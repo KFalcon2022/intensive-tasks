@@ -13,35 +13,25 @@ public class Main {
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
 
         int flatOnFloor = 4;
-        String resultString="";
+        int flatLimit = floorAmount * entranceAmount * flatOnFloor;
 
-        if (flatNumber > (floorAmount * entranceAmount * 4) || flatNumber <= 0) {
+        if (flatNumber > flatLimit || flatNumber <= 0) {
             return "Такой квартиры в доме нет.";
         }
+            int flatIndex = flatNumber - 1;
+            int flatEnterance = flatIndex / (floorAmount * flatOnFloor) + 1;
+            int flatFloor = (flatIndex / flatOnFloor) % floorAmount + 1;
+            int flatPosition = flatIndex % flatOnFloor;
+            String baseReturnString = String.format("%d кв – %d  подъезд, %d", flatNumber, flatEnterance, flatFloor);
+           return switch (flatPosition) {
+                case 1 ->  baseReturnString + " этаж, слева от лифта, влево";
+                case 2 ->  baseReturnString + " этаж, слева от лифта, вправо";
+                case 3 ->  baseReturnString + " этаж,справа от лифта, влево";
+                case 0 ->  baseReturnString + " этаж, справа от лифта, вправо";
+               default -> "";
+            };
 
-        else {
 
-            int flatEnterance = (flatNumber - 1) / (floorAmount * flatOnFloor) + 1;
-            int flatFloor = ((flatNumber - 1) / flatOnFloor) % floorAmount + 1;
-            int flatCoordinates = (flatNumber - 1) % flatOnFloor + 1;
-
-            switch (flatCoordinates) {
-                case 1:
-                    resultString = flatNumber + " кв – " + flatEnterance + " подъезд, " + flatFloor + " этаж, слева от лифта, влево";
-                    break;
-                case 2:
-                    resultString = flatNumber + " кв – " + flatEnterance + " подъезд, " + flatFloor + " этаж, слева от лифта, вправо";
-                    break;
-                case 3:
-                    resultString = flatNumber + " кв – " + flatEnterance + " подъезд, " + flatFloor + " этаж,справа от лифта, влево";
-                    break;
-                case 4:
-                    resultString = flatNumber + " кв – " + flatEnterance + " подъезд, " + flatFloor + " этаж, справа от лифта, вправо";
-                    break;
-            }
-
-            return resultString;
 
         }
     }
-}
