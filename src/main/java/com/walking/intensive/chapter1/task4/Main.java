@@ -31,7 +31,9 @@ public class Main {
      */
     static String solveQuadraticEquation(double a, double b, double c) {
         //        Место для вашего кода
-        if (a == b) return "Бесконечность не предел!";
+        if (a == b) {
+            return "Бесконечность не предел!";
+        }
         double d = (b * b) - (4 * a * c);
         if (d < 0) {
             return "Количество решений: 0.";
