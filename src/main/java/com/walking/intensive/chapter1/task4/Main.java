@@ -7,8 +7,8 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
         double a = 0;
-        double b = 0;
-        double c = 0;
+        double b = 1;
+        double c = 2;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -35,7 +35,7 @@ public class Main {
             solution = "Корень: " + x;
         } else if ((b == 0) && (a != 0) && (c < 0)) {
             solutionNumber = 2;
-            double x1 = Math.sqrt(c);
+            double x1 = Math.sqrt(-c);
             double x2 = -x1;
             solution = "Корни: " + x1 + ";" + x2;
         } else if ((b == 0) && (a != 0) && (c == 0)) {
@@ -43,16 +43,15 @@ public class Main {
             double x = 0;
             solution = "Корень: " + x;
         } else if ((b == 0) && (a == 0) && (c != 0)) {
-            solution = "Ненулевой коэфициент \"c\" оказался равен 0. Логическая ошибка. Проверьте ввод.";
+            solution = "Решений не существует (в действительных числах)";
         } else if ((b == 0) && (a == 0) && (c == 0)) {
-            solution = "0 = 0";
+            solution = "NaN";
         } else {                                //проверяем решения через детерминант
             double determinant = Math.pow(b, 2) - 4 * a * c;
             if (determinant > 0) {
                 solutionNumber = 2;
                 double x1 = (-b + Math.sqrt(determinant)) / 2 / a;
                 double x2 = (-b - Math.sqrt(determinant)) / 2 / a;
-                //solution = "Корни: %f;%f".formatted(x1,x2); //оказывается приводит к float
                 solution = "Корни: " + x1 + ";" + x2;
             } else if (determinant == 0) {
                 solutionNumber = 1;
@@ -62,7 +61,9 @@ public class Main {
                 solution = "";
             }
         }
-
-        return "Количество решений: %d. %s".formatted(solutionNumber, solution);
+        String checkString = solution.equals("NaN") ?
+                "бесконечное множество решений" :
+                Integer.toString(solutionNumber) + ". " + solution;
+        return "Количество решений: " + checkString;
     }
 }
