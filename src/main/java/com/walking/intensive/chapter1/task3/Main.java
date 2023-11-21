@@ -9,11 +9,19 @@ public class Main {
 //        System.out.println(isLeap(1900));
 //        System.out.println(isLeap(1979));
 //        System.out.println(isLeap(1980));
+//        System.out.println(isLeap(1600));
+
     }
 
     static boolean isLeap(int year) {
-        if (year % 4 != 0) return false;
-        return year % 100 != 0;
+        if (year % 4 != 0) {
+            return false;
+        } else if (year % 400 == 0) {
+            return true;
+        } else {
+            return year % 100 != 0;
+        }
+
         //        Место для вашего кода
 
 //        return false; // Заглушка. При реализации - удалить
