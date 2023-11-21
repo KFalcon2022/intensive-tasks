@@ -17,14 +17,22 @@ public class Main {
     static String getAgeString(int age) {
 //        Место для вашего кода
         // последние 2 цифры кода
-        int lastNumbers;
-        if (age < 0) return "Вы не родились";
-        lastNumbers = age % 100;
-        if (lastNumbers > 9 && lastNumbers < 21) return "Вам " + age + " лет";
+        int lastNumbers = age % 100;
+        if (age < 0) {
+            return "Вы не родились";
+        } else if ((lastNumbers > 9 && lastNumbers < 21)) {
+            return "Вам " + age + " лет";
+            }
+
         lastNumbers %= 10;
-        if (lastNumbers == 0) return "Вам "+ age +" лет";
-        if (lastNumbers < 2) return "Вам " + age + " год";
-        if (lastNumbers < 5 ) return "Вам " + age + " года";
-        return "Вам " + age + " лет";
+        if (lastNumbers == 0) {
+            return "Вам " + age + " лет";
+        } else if (lastNumbers < 2) {
+            return "Вам " + age + " год";
+        } else if (lastNumbers < 5 ) {
+            return "Вам " + age + " года";
+        } else {
+            return "Вам " + age + " лет";
+        }
     }
 }
