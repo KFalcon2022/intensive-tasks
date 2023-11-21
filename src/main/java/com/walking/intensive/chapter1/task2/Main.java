@@ -8,6 +8,7 @@ public class Main {
 	public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
 		System.out.println(getFlatLocation(2, 2, 5));
+		System.out.println(getFlatLocation(2, 2, 100));
 	}
 
 	static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
