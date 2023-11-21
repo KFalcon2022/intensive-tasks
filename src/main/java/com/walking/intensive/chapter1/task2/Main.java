@@ -5,7 +5,7 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Main {
     public static void main(String[] args) {
-        String location = getFlatLocation(1, 1, 2);
+        String location = getFlatLocation(1, 1, 4);
         System.out.println(location);
 
     }
@@ -19,11 +19,11 @@ public class Main {
         }
 
         int flatIndex = flatNumber - 1;
-        int flatsPerEntrance = floorAmount * flatsPerFloor;
 
-        int entrance = flatIndex / flatsPerEntrance + 1;
-        int floor = (flatIndex % flatsPerEntrance) / flatsPerFloor + 1;
-        String positionDescription = switch (flatIndex % flatsPerEntrance) {
+        int entrance = flatIndex / totalFlats + 1;
+        int floor = (flatIndex % totalFlats) / flatsPerFloor + 1;
+
+        String positionDescription = switch (flatIndex % flatsPerFloor) {
             case 0 -> "слева от лифта, влево";
             case 1 -> "слева от лифта, вправо";
             case 2 -> "справа от лифта, влево";
