@@ -69,9 +69,9 @@ public class Main {
     static double[] getBisectors(double a, double b, double c) {
         double[] bisectorsArray = new double[3];
         double areaHeron = areaByHeron(a, b, c);
-        bisectorsArray[0] = 2 * (Math.sqrt(b * c * areaHeron * (areaHeron - a))) / (b + c);
-        bisectorsArray[1] = 2 * (Math.sqrt(a * c * areaHeron * (areaHeron - b))) / (a + c);
-        bisectorsArray[2] = 2 * (Math.sqrt(a * b * areaHeron * (areaHeron - c))) / (a + b);
+        bisectorsArray[0] = 2 * Math.sqrt(b * c * (areaHeron / (b + c)));
+        bisectorsArray[1] = 2 * Math.sqrt(a * c * (areaHeron / (a + c)));
+        bisectorsArray[2] = 2 * Math.sqrt(a * b * (areaHeron / (a + b)));
         Arrays.sort(bisectorsArray);
         return bisectorsArray;
     }
@@ -91,13 +91,19 @@ public class Main {
 
     static double getInscribedCircleRadius(double a, double b, double c) {
         double areaHeron = areaByHeron(a, b, c);
-        double circleRadius = (2 * areaHeron) / (a + b + c);
-        return circleRadius;
+        double inscribedRadius = 0;
+        if (a + b > c && a + c > b && b + c > a) {
+            inscribedRadius = (2 * areaHeron) / (a + b + c);
+        }
+        return inscribedRadius;
     }
 
     static double getCircumradius(double a, double b, double c) {
         double areaHeron = areaByHeron(a, b, c);
-        double circumRadius = ((a * b * c) / (4 * areaHeron));
+        double circumRadius = 0;
+        if (a + b > c && a + c > b && b + c > a) {
+            circumRadius = (a * b * c) / (4 * areaHeron);
+        }
         return circumRadius;
     }
 
