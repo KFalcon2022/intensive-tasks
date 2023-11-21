@@ -28,7 +28,6 @@ public class Main {
             floor = floor - floorAmount * (entrance - 1);
         }
 
-
         if (flatNumber <= 0 || entranceAmount < entrance) {
             return "Такой квартиры в доме нет";
         }
@@ -43,6 +42,6 @@ public class Main {
             case (3):
                 return entrance + " подъезд, " + floor + " этаж, справа от лифта, влево";
         }
-        return entrance + " подъезд, " + floor + " этаж, справа от лифта, вправо";
+         return entrance + " подъезд, " + floor + " этаж, справа от лифта, вправо";
     }
 }
