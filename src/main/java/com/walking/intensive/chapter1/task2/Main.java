@@ -39,11 +39,11 @@ public class Main {
         int placeNom = flatNumber - ((floorAmount * 4) * (entranceAnswer - 1) + ((florAnswer - 1) * 4));
 
         String place = switch (placeNom) {
+            case 1 -> "слева от лифта, влево";
+            case 2 -> "слева от лифта, вправо";
+            case 3 -> "справа от лифта, влево";
+            case 4 -> "справа от лифта, вправо";
             default -> null;
-            case 1 -> place = "слева от лифта, влево";
-            case 2 -> place = "слева от лифта, вправо";
-            case 3 -> place = "справа от лифта, влево";
-            case 4 -> place = "справа от лифта, вправо";
         };
         return flatNumber + " кв - " + entranceAnswer + " подьезд," + florAnswer + " этаж," + place;
 
