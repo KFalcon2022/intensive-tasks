@@ -51,6 +51,4 @@ public class Main {
 
         return apartNumber + " кв - " + entranceNum + " подъезд, " + floorNum + " этаж, " + apartLoc;
     }
-
-
 }
