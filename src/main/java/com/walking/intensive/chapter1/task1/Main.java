@@ -13,18 +13,7 @@ public class Main {
 
     static String getAgeString(int age) {
 //        Место для вашего кода
-        int mod10 = age % 10;
-        int mod100 = age % 100;
-        String result = " ";
 
-        if (mod10 == 0 || mod10 >= 5 || (mod100 >= 11 && mod100 < 15)) {
-            result += "лет";
-        } else if (mod10 == 1) {
-            result += "год";
-        } else if (mod10 > 1 && mod10 < 5) {
-            result += "года";
-        }
-
-        return result; // Заглушка. При реализации - удалить
+        return null; // Заглушка. При реализации - удалить
     }
 }
