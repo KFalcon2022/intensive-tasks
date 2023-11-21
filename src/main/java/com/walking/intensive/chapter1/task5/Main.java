@@ -12,7 +12,7 @@ public class Main {
         double a = 13, b = 14, c = 15;
 
         System.out.printf("Дано. Треугольник со сторонами: "
-                                                 + "a = %.2f, b = %.2f, c = %.2f%n", a, b, c);
+                                  + "a = %.2f, b = %.2f, c = %.2f%n", a, b, c);
         if (isTriangleExists(a, b, c)) {
             System.out.println("Треугольник существует.");
             System.out.printf(
@@ -53,9 +53,9 @@ public class Main {
     static double[] getHeights(double a, double b, double c) {
 
         TreeSet<Double> heights = new TreeSet<>();
-        heights.add(2 * getAreaByHeron(a, b, c)/ a);
-        heights.add(2 * getAreaByHeron(a, b, c)/ b);
-        heights.add(2 * getAreaByHeron(a, b, c)/ c);
+        heights.add(2 * getAreaByHeron(a, b, c) / a);
+        heights.add(2 * getAreaByHeron(a, b, c) / b);
+        heights.add(2 * getAreaByHeron(a, b, c) / c);
 
         return heights.stream().mapToDouble(Double::doubleValue).toArray();
     }
@@ -64,13 +64,13 @@ public class Main {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
+
         TreeSet<Double> medians = new TreeSet<>();
         medians.add(Math.sqrt(2 * (a * a + c * c) - b * b) / 2);
         medians.add(Math.sqrt(2 * (a * a + b * b) - c * c) / 2);
         medians.add(Math.sqrt(2 * (b * b + c * c) - a * a) / 2);
 
         return medians.stream().mapToDouble(Double::doubleValue).toArray();
-
     }
 
     /**
@@ -137,6 +137,6 @@ public class Main {
 
     static double radiansToDegrees(double radians) {
 
-            return (radians * 180) / Math.PI;
+        return (radians * 180) / Math.PI;
     }
 }
