@@ -14,21 +14,23 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-        String ageString = "";
-        if ((age % 10) == 1 & age != 11) {
-            ageString = "Вам " + age + " год";
-        } else if (((age % 10) == 2 & age != 12)
-                || ((age % 10) == 3 & age != 13)
-                || ((age % 10) == 4 & age != 14)) {
-            ageString = "Вам " + age + " года";
-        } else if (age == 11 || age == 12 || age == 13
-                || age == 14 || (age % 10) == 5
-                || (age % 10) == 6 || (age % 10) == 7
-                || (age % 10) == 8 || (age % 10) == 9
-                || (age % 10) == 0) {
-            ageString = "Вам " + age + " лет";
-        }
-        return ageString;
-    }
+        int decadeRemain = age % 10;
+        int centuryRemain = age % 100;
 
+        if (decadeRemain == 1 & centuryRemain != 11) {
+            return "Вам " + age + " год";
+        } else if ((decadeRemain == 2 & centuryRemain != 12)
+                || (decadeRemain == 3 & centuryRemain != 13)
+                || (decadeRemain == 4 & centuryRemain != 14)) {
+            return "Вам " + age + " года";
+        } else if (centuryRemain == 11 || centuryRemain == 12
+                || centuryRemain == 14 || centuryRemain == 13
+                || decadeRemain == 5 || decadeRemain == 6
+                || decadeRemain == 7 || decadeRemain == 8
+                || decadeRemain == 9 || decadeRemain == 0) {
+            return "Вам " + age + " лет";
+        }
+
+        return "";
+    }
 }
