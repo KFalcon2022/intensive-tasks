@@ -18,9 +18,11 @@ public class Main {
         double b = Double.parseDouble(reader.readLine());
         double c = Double.parseDouble(reader.readLine());
 
-        if (a <= 0 || b <= 0 || c <= 0) System.out.println("Треугольник не существует");
-        else if (a + b == c || a + c == b || b + c == a) System.out.println("Треугольник является вырожденным");
-        else {
+        if (a <= 0 || b <= 0 || c <= 0) {
+            System.out.println("Треугольник не существует");
+        } else if (a + b == c || a + c == b || b + c == a) {
+            System.out.println("Треугольник является вырожденным");
+        } else {
             System.out.println("Введите номер пункта, который выдаст информацию:\n" +
                     "1) О площади треугольника формулой Герона.\n" +
                     "2) О длинах всех высот треугольника.\n" +
