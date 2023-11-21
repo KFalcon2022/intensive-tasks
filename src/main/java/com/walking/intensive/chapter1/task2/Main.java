@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
 
-        System.out.println(getFlatLocation(5,4,0));
+        System.out.println(getFlatLocation(10,3,41));
 
     }
 
@@ -20,11 +20,11 @@ public class Main {
             answer = "Такой квартиры нет в доме";
         }else {
 
-            int entrance = flatNumber / (floorAmount * flatAmount);
+            int entrance = (flatNumber -1)/ (floorAmount * flatAmount);
             answer = "" + (entrance + 1) + " подъезд, ";
 
             int flatNumberEntrance = flatNumber - entrance * floorAmount * flatAmount;
-            int floor = flatNumberEntrance / flatAmount;
+            int floor = (flatNumberEntrance -1)/ flatAmount;
             answer += (floor + 1) + " этаж, ";
 
             int flatLocation = flatNumberEntrance - floor*flatAmount;
