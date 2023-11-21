@@ -18,10 +18,12 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-        if (age <= 0 || age > 127) {
+        if (age < 0 || age > 127) {
             return "Неверно введен возраст";
         } else {
-            if (age % 10 == 1) {
+            if (age % 100 >= 11 && age % 100 <= 14) {
+                return "Вам " + age + " лет";
+            } else if (age % 10 == 1) {
                 return "Вам " + age + " год";
             } else if (age % 10 >= 2 && age % 10 <= 4) {
                 return "Вам " + age + " года";
