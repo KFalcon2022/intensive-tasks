@@ -68,7 +68,7 @@ public class Main {
      */
     static double[] getBisectors(double a, double b, double c) {
         double[] bisectorsArray = new double[3];
-        double halfPerimeter = (a + b + c) / 2;;
+        double halfPerimeter = (a + b + c) / 2;
         bisectorsArray[0] = 2 * Math.sqrt(b * c * (halfPerimeter - a) / (b + c));
         bisectorsArray[1] = 2 * Math.sqrt(a * c * (halfPerimeter - b) / (a + c));
         bisectorsArray[2] = 2 * Math.sqrt(a * b * (halfPerimeter - c) / (a + b));
