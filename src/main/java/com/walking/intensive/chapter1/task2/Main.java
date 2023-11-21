@@ -32,9 +32,7 @@ public class Main {
             return "Такой квартиры в доме нет";
         }
 
-        int position = flatNumber % FLATS_PER_FLOOR;
-
-        switch (position) {
+        switch (flatNumber % FLATS_PER_FLOOR) {
             case (1):
                 return entrance + " подъезд, " + floor + " этаж, слева от лифта, влево";
             case (2):
