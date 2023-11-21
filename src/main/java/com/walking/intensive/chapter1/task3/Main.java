@@ -5,14 +5,22 @@ package com.walking.intensive.chapter1.task3;
  */
 public class Main {
     public static void main(String[] args) {
-        boolean isLeapYear = isLeap(2024);
-        String typeYear = (isLeapYear) ? "Введенный год является високосным" : "Введенный год не является високосным";
-        System.out.println(typeYear);
 
+        int[] years1 = {400, 1600, 2000, 2020, 2024, 2028, 2032, 2040, 2400};
+        int[] years2 = {1000, 1100, 1300, 1400, 1500, 1700, 1800, 2023, 2100};
+
+        System.out.println("Должно быть true:");
+        for (int year : years1) {
+            System.out.println("Указанный год: " + year + " результат проверки: " + isLeap(year));
+        }
+
+        System.out.println("Должно быть false:");
+        for (int year : years2) {
+            System.out.println("Указанный год: " + year + " результат проверки: " + isLeap(year));
+        }
     }
 
     static boolean isLeap(int year) {
-        final int dividerLeapYear = 4;
-        return year % dividerLeapYear == 0;
+        return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
     }
 }
