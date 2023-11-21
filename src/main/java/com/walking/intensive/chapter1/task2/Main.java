@@ -5,51 +5,45 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Main {
     public static void main(String[] args) {
-        int floorAmount = 5;
+        int floorAmount = 7;
         int entranceAmount = 8;
-        int flatNumber = 96;
+        int flatNumber = 98;
 
         System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        int apartmentsOnFloor = 4;
+        int floorCapacity = 4;
+        int entranceCapacity = floorCapacity * floorAmount;
 
         if (floorAmount <= 0 || entranceAmount <= 0 || flatNumber <= 0) {
             return "Количество этажей, подъездов и номер квартиры должны быть положительными. " +
                     "Проверьте корректность введенных значений";
-        } else if (floorAmount * entranceAmount * apartmentsOnFloor < flatNumber) {
+        }
+        if (entranceCapacity * entranceAmount < flatNumber) {
             return "Квартира № " + flatNumber + " в данном здание не существует.";
         }
 
-        String flatLocation;
+        int flatRemains = flatNumber % floorCapacity;
 
-        if (flatNumber % apartmentsOnFloor == 1) {
-            flatLocation = "слева от лифта, влево";
-        } else if (flatNumber % apartmentsOnFloor == 2) {
-            flatLocation = "слева от лифта, вправо";
-        } else if (flatNumber % apartmentsOnFloor == 3) {
-            flatLocation = "справа от лифта, влево";
-        } else {
-            flatLocation = "справа от лифта, вправо";
-        }
+        String flatLocation = switch (flatRemains) {
+            case 1 -> "слева от лифта, влево";
+            case 2 -> "слева от лифта, вправо";
+            case 3 -> "справа от лифта, влево";
+            default -> "справа от лифта, вправо";
+        };
 
-        int currentEntrance = 1;
-
-        for (int i = 1; i <= entranceAmount; i++) {
-            if (i * floorAmount * apartmentsOnFloor < flatNumber) {
-                currentEntrance++;
-            }
-        }
-
-        int apartmentsInEntrance = apartmentsOnFloor * floorAmount;
+        int currentEntrance;
         int currentFloor;
-        int numberApartmentsInCurrentEntrance = flatNumber - (currentEntrance - 1) * apartmentsInEntrance;
+        int entranceCount = flatNumber / entranceCapacity;
+        int usedFloor = flatNumber / floorCapacity % floorAmount;
 
-        if (numberApartmentsInCurrentEntrance % apartmentsOnFloor == 0) {
-            currentFloor = numberApartmentsInCurrentEntrance / apartmentsOnFloor;
+        if (flatNumber % entranceCapacity == 0) {
+            currentEntrance = entranceCount;
+            currentFloor = floorAmount;
         } else {
-            currentFloor = numberApartmentsInCurrentEntrance / apartmentsOnFloor + 1;
+            currentEntrance = entranceCount + 1;
+            currentFloor = flatRemains == 0 ? usedFloor : usedFloor + 1;
         }
 
         return flatNumber + " кв – " + currentEntrance + " подъезд, " + currentFloor + " этаж, " + flatLocation;
