@@ -24,7 +24,7 @@ public class Main {
         }
 
 
-        if ((age >= 5) && (age <= 20)) {
+        if ((age >= 5 && age <= 20) || (age >= 111 && age <= 114)) {
             return "Вам " + age + " лет";
         } else if (age % 10 == 1) {
             return "Вам " + age + " год";
