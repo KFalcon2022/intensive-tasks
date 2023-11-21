@@ -19,16 +19,18 @@ public class Main {
             temporaryAgeCondition = age % 10;
         }
 
-        String firstOutputPart = "Вам " + age;
-        String result = firstOutputPart + " лет";
-
+        String result = "Вам " + age + " лет";
 
         if (temporaryAgeCondition == 1) {
-            result = firstOutputPart + " год";
+            result = "Вам " + age + " год";
         } else if (temporaryAgeCondition != 0 && temporaryAgeCondition <= 4) {
-            result = firstOutputPart + " года";
+            result = "Вам " + age + " года";
         }
 
-        return result;
+        if (age >= 0 && age <= 127) {
+            return result;
+        } else {
+            return "Указан неправильный возраст";
+        }
     }
 }
