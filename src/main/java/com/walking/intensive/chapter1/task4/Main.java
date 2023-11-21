@@ -9,9 +9,16 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
         Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Введите переменную a: ");
         double a = scanner.nextDouble();
+
+        System.out.print("Введите переменную b: ");
         double b = scanner.nextDouble();
+
+        System.out.print("Введите переменную c: ");
         double c = scanner.nextDouble();
+        scanner.close();
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
