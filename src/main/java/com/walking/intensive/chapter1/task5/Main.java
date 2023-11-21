@@ -1,5 +1,6 @@
 package com.walking.intensive.chapter1.task5;
 
+import java.io.PrintStream;
 import java.util.Arrays;
 
 /**
@@ -20,7 +21,7 @@ public class Main {
         double[] bisectors = getBisectors(3, 4, 5);
         System.out.println("Биссектрисы: " + Arrays.toString(bisectors));
 
-        double[] angles = getAngles(3, 4, 5);
+        double[] angles = getAngles(6, 8, 10);
         System.out.println("Углы: " + Arrays.toString(angles));
 
         double inscribedCircleRadius = getInscribedCircleRadius(3, 4, 5);
@@ -29,9 +30,8 @@ public class Main {
         double circumradius = getCircumradius(3, 4, 5);
         System.out.println("Длина окружности: " + circumradius);
 
-        double areaAdvanced = getAreaAdvanced(3, 4, 5);
+        double areaAdvanced = getAreaAdvanced(1, 1, 1);
         System.out.println("площадь: " + areaAdvanced);
-
     }
 
     static double getAreaByHeron(double a, double b, double c) throws IllegalAccessException {
@@ -49,10 +49,7 @@ public class Main {
     static double[] getHeights(double a, double b, double c) throws IllegalAccessException {
         if (a + b > c && a + c > b && b + c > a) {
             double area = getAreaByHeron(a, b, c);
-            double[] heights = new double[3];
-            heights[0] = (2 * area) / a;
-            heights[1] = (2 * area) / b;
-            heights[2] = (2 * area) / c;
+            double[] heights = {2 * area / a, 2 * area / b, 2 * area / c};
             Arrays.sort(heights);
             return heights;
         } else {
@@ -64,10 +61,11 @@ public class Main {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        double[] medians = new double[3];
-        medians[0] = (Math.sqrt(2 * b * b + 2 * c * c - a * a)) / 2;
-        medians[1] = (Math.sqrt(2 * a * a + 2 * c * c - b * b)) / 2;
-        medians[2] = (Math.sqrt(2 * a * a + 2 * b * b - c * c)) / 2;
+        double[] medians = {
+                0.5 * Math.sqrt(2 * b * b + 2 * c * c - a * a),
+                0.5 * Math.sqrt(2 * a * a + 2 * c * c - b * b),
+                0.5 * Math.sqrt(2 * a * a + 2 * b * b - c * c)
+        };
         Arrays.sort(medians);
         return medians;
     }
@@ -77,10 +75,11 @@ public class Main {
      */
     static double[] getBisectors(double a, double b, double c) {
         double p = (a + b + c) / 2;
-        double[] bisectors = new double[3];
-        bisectors[0] = 2 * Math.sqrt(b * c * p * (p - a)) / (b + c);
-        bisectors[1] = 2 * Math.sqrt(a * c * p * (p - b)) / (a + c);
-        bisectors[2] = 2 * Math.sqrt(a * b * p * (p - c)) / (a + b);
+        double[] bisectors = {
+                2 * Math.sqrt(b * c * p * (p - a)) / (b + c),
+                2 * Math.sqrt(a * c * p * (p - b)) / (a + c),
+                2 * Math.sqrt(a * b * p * (p - c)) / (a + b)
+        };
         Arrays.sort(bisectors);
         return bisectors;
     }
@@ -89,28 +88,28 @@ public class Main {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        double[] angels = new double[3];
-        angels[0] = Math.toDegrees(Math.acos(b * b + c * c - a * a) / (2 * b * c));
-        angels[1] = Math.toDegrees(Math.acos(a * a + c * c - b * b) / (2 * a * c));
-        angels[2] = Math.toDegrees(Math.acos(a * a + b * b - c * c) / (2 * a * b));
-        Arrays.sort(angels);
-        return angels;
+        double[] angles = new double[3];
+        angles[0] = Math.acos((b * b + c * c - a * a) / (2 * b * c));
+        angles[1] = Math.acos((a * a + c * c - b * b) / (2 * a * c));
+        angles[2] = Math.acos((a * a + b * b - c * c) / (2 * a * b));
+        for (int i = 0; i < angles.length; i++) {
+            angles[i] = Math.toDegrees(angles[i]);
+        }
+        Arrays.sort(angles);
+        return angles;
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) throws IllegalAccessException {
-        double p = (a + b + c) / 2;
-        double area = getAreaByHeron(a, b, c);
-        return area / p;
+        return getAreaByHeron(a,b,c) / ((a + b + c) / 2);
     }
 
     static double getCircumradius(double a, double b, double c) throws IllegalAccessException {
-        return (a * b * c) / (4 * getAreaByHeron(a, b, c));
+        return (a * b * c) / (4 * getAreaByHeron(a,b,c));
     }
 
-    static double getAreaAdvanced(double a, double b, double c) {
-        double angleA = Math.toRadians(getAngles(a, b, c)[0]);
-        double angleB = Math.toRadians(getAngles(a, b, c)[1]);
-        double angleC = Math.toRadians(getAngles(a, b, c)[2]);
-        return 0.5 * a * b * Math.sqrt(angleC);
+    static double getAreaAdvanced(double a, double b, double c) throws IllegalAccessException {
+        double cosC = (a * a + b * b - c * c) / (2 * a * b);
+        double sinC = Math.sqrt(1 - cosC * cosC);
+        return 0.5 * a * b * sinC;
     }
 }
