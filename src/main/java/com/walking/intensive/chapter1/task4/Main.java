@@ -42,11 +42,10 @@ public class Main {
         }
         squareRoot1 = (-b + Math.sqrt(discriminant)) / (2 * a);
         squareRoot2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-        if (squareRoot1 > squareRoot2) {
-            return "Количество решений: 2. Корень: " + squareRoot2 + ", " + squareRoot1;
-        } else {
-            return "Количество решений: 2. Корень: " + squareRoot1 + ", " + squareRoot2;
-        }
+        return "Количество решений: 2. Корень: " + ((squareRoot1 > squareRoot2) ? squareRoot2 + " " + squareRoot1 : squareRoot1 + " " + squareRoot2);
+
+
     }
 }
+
 
