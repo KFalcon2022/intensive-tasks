@@ -5,7 +5,7 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Main {
     public static void main(String[] args) {
-        String location = getFlatLocation(1, 1, 4);
+        String location = getFlatLocation(10, 3, 88);
         System.out.println(location);
 
     }
