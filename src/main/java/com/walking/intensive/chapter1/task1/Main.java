@@ -18,7 +18,7 @@ public class Main {
 
     static String getAgeString(int yourAge) {
 
-        if (yourAge <= 0 || yourAge > 127) {
+        if (yourAge < 0 || yourAge > 127) {
             return "Проверьте правильность введённых данных либо обратитесь в Книгу Рекордов Гинесса.";
         } if (yourAge % 100 >= 11 && yourAge % 100 <= 19) {
             return "Вам " + yourAge + " лет";
