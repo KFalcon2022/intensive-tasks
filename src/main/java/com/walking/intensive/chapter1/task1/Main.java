@@ -26,6 +26,6 @@ public class Main {
             ageWord = "года";
         } else ageWord = "лет";
 
-        return ("Твой возраст: " + age + " " + ageWord); // Заглушка. При реализации - удалить
+        return ("Вам " + age + " " + ageWord); // Заглушка. При реализации - удалить
     }
 }
