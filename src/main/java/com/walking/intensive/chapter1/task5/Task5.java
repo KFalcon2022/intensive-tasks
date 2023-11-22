@@ -57,8 +57,14 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        double cosA =
-        return null; // Заглушка. При реализации - удалить
+        double cosA = (b * b + c * c - a * a) / (2 * b * c);
+        double cosC = (b * b - c * c - a * a) / (2 * b * a);
+        double A = Math.cos(cosA);
+        double C = Math.cos(cosC);
+        double B = 180 - A - C;
+        double[] array = new double[]{A, C, B};
+        Arrays.sort(array);
+        return array;
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
