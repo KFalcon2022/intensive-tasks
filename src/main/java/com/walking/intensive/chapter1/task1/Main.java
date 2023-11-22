@@ -9,20 +9,15 @@ public class Main {
             System.out.println(getAgeString(age));
         }
     }
-
     static String getAgeString(int age) {
         String ageMessage = "Вам ";
-
          if (age % 10 == 0 || age % 10 > 4 || age % 100 > 10 && age % 100 < 15){
             ageMessage = ageMessage + age + " лет";
-        }
-        else if (age % 10 == 1){
+        } else if (age % 10 == 1){
             ageMessage = ageMessage + age + " год";
-        }
-        else if (age % 10 > 1){
+        } else if (age % 10 > 1){
             ageMessage = ageMessage + age + " года";
         }
-
         return ageMessage;
     }
 }
