@@ -6,7 +6,7 @@ package com.walking.intensive.chapter1.task3;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int year = 2100;
+        int year = 2004;
         if (isLeap(year)) {
             System.out.println("По григорианскому календарю " + year + " год является високосным");
         } else {
@@ -16,13 +16,9 @@ public class Main {
 
     static boolean isLeap(int year) {
         //        Место для вашего кода
-        if (year % 100 == 0 && year % 400 != 0) {
-            return false;
-        } else if (year % 400 == 0 || year % 4 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+
+        return (year % 400 == 0 || year % 4 == 0 && year % 100 != 0); // Теперь я лучше понимаю
+
     }
 
 }
