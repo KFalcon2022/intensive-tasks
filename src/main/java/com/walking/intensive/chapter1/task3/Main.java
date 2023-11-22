@@ -8,20 +8,11 @@ package com.walking.intensive.chapter1.task3;
  */
 public class Main {
     public static void main(String[] args) {
-        int year = 2001;
+        int year = 2000;
         System.out.println(year + " is a leap yaer, it`s " + isLeap(year));
     }
-    /**
-     В этом коде:
-     Тернарный оператор проверяет, кратный ли год 400.
-     Если да, возвращается true.
-     Если год не кратный 400, тогда тернарный оператор проверяет, год кратен 100?
-     Если да, возвращается false.
-     Если год не кратен ни 400, ни 100, тогда тернарный оператор проверяет, кратный ли год 4?
-     Если да, возвращается true. В противном случае возвращается false.
-     Это позволяет выполнить проверку на високосный год в одном выражении вместо использования нескольких строк кода.
-     */
+
     static boolean isLeap(int year) {
-        return (year % 400 == 0) ? true : (year % 100 == 0) ? false : (year % 4 == 0);
+        return (year % 400 == 0) || (year % 100 != 0 && year % 4 == 0);
     }
 }
