@@ -57,8 +57,7 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        //        Место для вашего кода
-
+        double cosA =
         return null; // Заглушка. При реализации - удалить
     }
 
