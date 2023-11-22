@@ -11,8 +11,7 @@ public class Main {
 
             if (isLeap(i)) {
                 leap = "високосный";
-            }
-            else {
+            } else {
                 leap = "обычный";
             }
 
