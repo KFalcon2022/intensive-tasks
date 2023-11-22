@@ -5,15 +5,27 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Task1 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
+        int age = 60;
 
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        String s1 = "Вам " + age + " год";
+        String s2 = "Вам " + age + " года";
+        String s3 = "Вам " + age + " лет";
+        String s = new String();
+        if (age > 0 && age < 5 || age > 20 && age < 105 || age > 120) {
+            if (age % 10 > 1 && age % 10 < 5) {
+                s = s2;
+            } else if (age % 10 == 1) {
+                s = s1;
+            } else {
+                s = s3;
+            }
+        } else if (age == 0 || age > 4 && age < 21 || age > 104 && age < 121) {
+            s = s3;
+        }
+        return s;
     }
 }
