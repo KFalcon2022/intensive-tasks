@@ -26,7 +26,7 @@ public class Main {
         String flatSide; // на какой стороне
         String appLocationMessage = flatNumber + " кв - ";
 
-        //получаем номер подъезда
+
         int flatEntrance = flatNumber / entranceFlatsAmount;
         if (flatNumber % entranceFlatsAmount > 0) {
             flatEntrance++;
