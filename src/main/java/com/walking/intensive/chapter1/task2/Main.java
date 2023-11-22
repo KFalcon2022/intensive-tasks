@@ -20,7 +20,7 @@ public class Main {
 
         if (currentFloor == 0) {
 
-            currentFloor = currentFloor + floorAmount;
+            currentFloor += floorAmount;
 
         }
 
