@@ -16,11 +16,6 @@ public class Main {
         System.out.println("Введите длинну c: ");
         double c = sc.nextDouble();
 
-        if (a + b < c || b + c < a) {
-            System.out.println("Треугольник вырожденный.");
-            return;
-        }
-
         sc.close();
 
         System.out.println("Площадь: " + getAreaByHeron(a, b, c));
@@ -83,7 +78,7 @@ public class Main {
     }
 
     static double[] getMedians(double a, double b, double c) {
-        if (isWrong(a, b, c)) {
+        if (isWrong(a, b, c) || isDegenerate(a, b, c)) {
             return null;
         }
 
@@ -98,7 +93,7 @@ public class Main {
     }
 
     static double[] getBisectors(double a, double b, double c) {
-        if (isWrong(a, b, c)) {
+        if (isWrong(a, b, c) || isDegenerate(a, b, c)) {
             return null;
         }
 
@@ -114,7 +109,7 @@ public class Main {
     }
 
     static double[] getAngles(double a, double b, double c) {
-        if (isWrong(a, b, c)) {
+        if (isWrong(a, b, c) || isDegenerate(a, b, c)) {
             return null;
         }
 
@@ -129,7 +124,7 @@ public class Main {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        if (isWrong(a, b, c)) {
+        if (isWrong(a, b, c) || isDegenerate(a, b, c)) {
             return 0.0;
         }
 
@@ -141,7 +136,7 @@ public class Main {
     }
 
     static double getCircumradius(double a, double b, double c) {
-        if (isWrong(a, b, c)) {
+        if (isWrong(a, b, c) || isDegenerate(a, b, c)) {
             return 0.0;
         }
 
@@ -153,7 +148,7 @@ public class Main {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        if (isWrong(a, b, c)) {
+        if (isWrong(a, b, c) || isDegenerate(a, b, c)) {
             return 0.0;
         }
 
@@ -168,6 +163,14 @@ public class Main {
     static boolean isWrong(double a, double b, double c) {
         if (a <= 0 || b <= 0 || c <= 0) {
             System.out.println("Ни одна из сторон не может быть равной 0 или быть отрицательной.");
+            return true;
+        }
+
+        return false;
+    }
+    static boolean isDegenerate(double a, double b, double c) {
+        if (a + b < c || b + c < a) {
+            System.out.println("Треугольник вырожденный.");
             return true;
         }
 
