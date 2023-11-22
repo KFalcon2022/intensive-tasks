@@ -32,11 +32,10 @@ public class Task5 {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-
-        double[] array = new double[3];
-        array[0] = 1 / 2 * Math.sqrt(2 * a * a + 2 * b * b - c * c);
-        array[1] = 1 / 2 * Math.sqrt(2 * a * a + 2 * c * c - b * b);
-        array[2] = 1 / 2 * Math.sqrt(2 * c * c + 2 * b * b - a * a);
+        double x = Math.sqrt(2 * a * a + 2 * b * b - c * c) / 2;
+        double y = Math.sqrt(2 * a * a + 2 * c * c - b * b) / 2;
+        double z = Math.sqrt(2 * c * c + 2 * b * b - a * a) / 2;
+        double[] array = new double[]{x, y, z};
         Arrays.sort(array);
         return array;
     }
@@ -45,10 +44,10 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        double[] array = new double[3];
-        array[0] = Math.sqrt(a * b * (a + b + c) * (a + b - c)) / (a + b);
-        array[1] = Math.sqrt(a * c * (a + b + c) * (a + c - b)) / (a + c);
-        array[2] = Math.sqrt(c * b * (a + b + c) * (c + b - a)) / (c + b);
+        double x = Math.sqrt(a * b * (a + b + c) * (a + b - c)) / (a + b);
+        double y = Math.sqrt(a * c * (a + b + c) * (a + c - b)) / (a + c);
+        double z = Math.sqrt(c * b * (a + b + c) * (c + b - a)) / (c + b);
+        double[] array = new double[]{x, y, z};
         Arrays.sort(array);
         return array;
     }
