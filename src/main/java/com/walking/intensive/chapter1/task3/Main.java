@@ -10,7 +10,7 @@ public class Main {
     }
 
     static boolean isLeap(int year) {
-        //        Место для вашего кода
+        //Место для вашего кода
 
         return false; // Заглушка. При реализации - удалить
     }
