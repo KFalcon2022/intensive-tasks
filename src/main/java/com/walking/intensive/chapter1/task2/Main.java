@@ -9,13 +9,13 @@ public class Main {
 
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        System.out.println(getFlatLocation(4, 3, 17));
+        System.out.println(getFlatLocation(10, 4, 48));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         int numberFlatsPerFloor = 4;
         int entranceNumber = (flatNumber - 1) / (floorAmount * numberFlatsPerFloor) + 1;
-        int floorNumber = (flatNumber - 1) % (floorAmount * numberFlatsPerFloor) / floorAmount + 1;
+        int floorNumber = (flatNumber - (floorAmount * numberFlatsPerFloor) * (entranceNumber - 1) - 1) / numberFlatsPerFloor + 1;
 
         String flatPosition = null;
         if (flatNumber % 4 == 0) {
