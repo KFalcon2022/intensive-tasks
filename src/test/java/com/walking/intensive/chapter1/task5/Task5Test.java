@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class Task5Test {
 
-
     @Test
     void getAreaByHeronTest() {
         assertEquals(30.0, getAreaByHeron(12, 13, 5));
@@ -53,7 +52,7 @@ class Task5Test {
 
     @Test
     void getAreaAdvancedTest() {
-        assertEquals(30.0, getAreaAdvanced(1, 2, 3));
-        assertEquals(6.0, getAreaAdvanced(1, 2, 3));
+        assertEquals(30.0, getAreaAdvanced(12, 13, 5));
+        assertEquals(6.0, getAreaAdvanced(3, 4, 5), 1e-10);
     }
 }
