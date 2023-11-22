@@ -16,13 +16,17 @@ public class Main {
             return "Возраст введен некоректно. Проверьте введенное значение.";
         }
 
-        if (age % 100 < 5 || age % 100 > 20) {
-            if (age % 10 == 1) {
-                return "Вам " + age + " год.";
-            }
-            if (age % 10 > 1 && age % 10 < 5) {
-                return "Вам " + age + " года.";
-            }
+        int remainsYears100 = age % 100;
+        int remainsYears10 = age % 10;
+
+        if (remainsYears100 > 4 && remainsYears100 < 21) {
+            return "Вам " + age + " лет.";
+        }
+        if (remainsYears10 == 1) {
+            return "Вам " + age + " год.";
+        }
+        if (remainsYears10 > 1 && remainsYears10 < 5) {
+            return "Вам " + age + " года.";
         }
 
         return "Вам " + age + " лет.";
