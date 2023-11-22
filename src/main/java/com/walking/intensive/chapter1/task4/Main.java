@@ -29,7 +29,7 @@ public class Main {
         if (diskr == 0) {
             return String.format("Количество решений: 1. Корень: %f", x1);
         } else {
-            return String.format("Количество решений: 2. Корни: "+ Math.min(x1, x2)+ ";"+ Math.max(x1,x2));
+            return "Количество решений: 2. Корни: "+ Math.min(x1, x2)+ ";"+ Math.max(x1,x2);
         }
 
     }
