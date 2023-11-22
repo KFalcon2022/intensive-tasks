@@ -5,15 +5,33 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
-
-        System.out.println(getAgeString(age));
+        for (int i = -1; i < 128; i++) {
+            System.out.println(getAgeString(i));
+        }
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        int module = age % 100;
+        if (age > 127 || age < 0) {
+            return "Incorrect age!";
+        } else if (module >= 11 && module <= 20) {
+            return "Вам " + age + " лет";
+        } else {
+            module = age % 10;
+            switch (module) {
+                case 1 -> {
+                    return "Вам " + age + " год";
+                }
+                case 2, 3, 4 -> {
+                    return "Вам " + age + " года";
+                }
+                case 5, 6, 7, 8, 9, 0 -> {
+                    return "Вам " + age + " лет";
+                }
+                default -> {
+                    return "Error!";
+                }
+            }
+        }
     }
 }
