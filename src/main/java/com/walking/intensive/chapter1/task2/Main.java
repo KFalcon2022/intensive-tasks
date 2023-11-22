@@ -16,13 +16,13 @@ public class Main {
         System.out.print("Введите номер квартиры (от 1 до " + (4 * floorAmount * entranceAmount) + "): ");
         int flatNumber = in.nextInt();
 
-        while (isCheckFlat(flatNumber, floorAmount, entranceAmount) != true) {
+        while (!isCheckFlat(flatNumber, floorAmount, entranceAmount)) {
             System.out.print("В доме нет квартиры с таким номером. Введите другой номер квартиры: ");
             flatNumber = in.nextInt();
         }
         in.close();
 
-        System.out.println(getFlatLocation(flatNumber, floorAmount, entranceAmount));
+        System.out.println(getFlatLocation(flatNumber, floorAmount));
     }
 
     //проверка на наличие квартиры
@@ -34,19 +34,15 @@ public class Main {
     }
 
     //вывод расположения
-    static String getFlatLocation(int flatNumber, int floorAmount, int entranceAmount) {
+    static String getFlatLocation(int flatNumber, int floorAmount) {
         int entrance = findNumberEntry(flatNumber, floorAmount);
-        if (entrance > entranceAmount) {
-            return "Подъезд определен некорректно. Необходимо сообщить разработчику.";
-        }
-
-        int floor = findNumberFoor(flatNumber, floorAmount, entrance);
-        return entrance + " подъезд, " + floor + " этаж, " + getDisposition(flatNumber, floor, floorAmount, entrance);
+        int floor = findNumberFloor(flatNumber, floorAmount, entrance);
+        return entrance + " подъезд, " + floor + " этаж, " + getDisposition(flatNumber);
     }
 
     //определение подъезда
     static int findNumberEntry(int flatNumber, int floorAmount) {
-        int entrance = 1;
+        int entrance;
         if (flatNumber % (4 * floorAmount) != 0) {
             entrance = 1 + flatNumber / (4 * floorAmount);
         } else {
@@ -56,40 +52,32 @@ public class Main {
     }
 
     //определение этажа
-    static int findNumberFoor(int flatNumber, int floorAmount, int entrance) {
-        int floor = 1;
-        if (flatNumber <= 4 * floor * entrance) {
-            return 1;
-        }
-
-        if (entrance > 1) {
-            while (flatNumber > 4 * (floor + floorAmount * entrance) && floor <= floorAmount) {
-                floor++;
-            }
+    static int findNumberFloor(int flatNumber, int floorAmount, int entrance) {
+        int floor;
+        if (flatNumber % 4 == 0) {
+            floor = (flatNumber - 4 * floorAmount * (entrance - 1)) / 4;
         } else {
-            while (flatNumber > 4 * floor && floor <= floorAmount) {
-                floor++;
-            }
+            floor = 1 + (flatNumber - 4 * floorAmount * (entrance - 1)) / 4;
         }
         return floor;
     }
 
     //определение расположения
-    static String getDisposition(int flatNumber, int floor, int floorAmount, int entrance) {
-        int floorFlat = 4 * floor;
-        if (entrance > 1) {
-            floorFlat = 4 * (floor + entrance * floorAmount);
+    static String getDisposition(int flatNumber) {
+        int floorFlat = flatNumber % 4;
+        switch (floorFlat) {
+            case 1 -> {
+                return "слева от лифта, влево";
+            }
+            case 2 -> {
+                return "слева от лифта, вправо";
+            }
+            case 3 -> {
+                return "справа от лифта, влево";
+            }
+            default -> {
+                return "справа от лифта, вправо";
+            }
         }
-
-        if (flatNumber == floorFlat) {
-            return "справа от лифта, вправо";
-        }
-        if (flatNumber == floorFlat - 1) {
-            return "справа от лифта, влево";
-        }
-        if (flatNumber == floorFlat - 2) {
-            return "слева от лифта, вправо";
-        }
-        return "слева от лифта, влево";
     }
 }
