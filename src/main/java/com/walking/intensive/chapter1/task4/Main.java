@@ -16,7 +16,7 @@ public class Main {
         double b = 0;
         double c = 0;
 
-        while (true){
+        while (true) {
             System.out.print("Введите а: ");
             a = scanner.nextDouble();
             System.out.print("Введите b: ");
@@ -60,7 +60,7 @@ public class Main {
             } else if (discriminant == 0) {
                 return "Количество решений: 1. Корень: " + (-b / (2 * a));
             } else {
-                return "Количество решений: 2. Корни: " + ((-b - sqrt(discriminant))/ (2 * a)) + ";" + ((-b + sqrt(discriminant))/ (2 * a));
+                return "Количество решений: 2. Корни: " + ((-b - sqrt(discriminant)) / (2 * a)) + ";" + ((-b + sqrt(discriminant)) / (2 * a));
             }
         }
     }
