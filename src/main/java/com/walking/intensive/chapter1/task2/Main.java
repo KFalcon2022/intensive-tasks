@@ -6,7 +6,7 @@ package com.walking.intensive.chapter1.task2;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        System.out.println(getFlatLocation(9, 3, 54));
+        System.out.println(getFlatLocation(10, 3, 41));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
@@ -17,17 +17,17 @@ public class Main {
 
         String result = "Такого дома нет";
 
-        if (flatNumber > houseCount){
+        if (flatNumber > houseCount) {
             return result;
         }
 
-        int entranceNumber = flatNumber/entranceCount;
-        int floorNumber = (flatNumber%entranceCount)/floorCount;
-        int leftrightTyrn = flatNumber%floorCount;
+        int entranceNumber = flatNumber / entranceCount;
+        int floorNumber = (flatNumber % entranceCount) / floorCount;
+        int leftrightTyrn = flatNumber % floorCount;
 
-        result = "%d подъезд, %d этаж, %s от лифта, %s";
-        result = String.format(result, entranceNumber+1, floorNumber+1, leftrightTyrn<=2?"лево":"право", leftrightTyrn%2==0?"право":"лево");
-
-        return result; // Заглушка. При реализации - удалить
+        result = "%d кв - %d подъезд, %d этаж, %s от лифта, %s";
+        String turnFromLift = leftrightTyrn <= 2 ? "слева" : "справа";
+        String turnOnSquare = leftrightTyrn % 2 == 0 ? "вправо" : "влево";
+        return String.format(result, flatNumber, entranceNumber + 1, floorNumber + 1, turnFromLift, turnOnSquare);
     }
 }
