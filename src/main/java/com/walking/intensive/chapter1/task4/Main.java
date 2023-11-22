@@ -23,6 +23,7 @@ public class Main {
         System.out.println(solveQuadraticEquation(a, b, c));
 
     }
+
     static String solveQuadraticEquation(double a, double b, double c) {
         if (a == 0 && b == 0 && c == 0) {
             return "бесконечное множество решений";
@@ -47,8 +48,7 @@ public class Main {
         if (discriminant == 0) {
             double x = (-b) / (2 * a);
             return "Количество решений: 1. Корень: " + x;
-        } else {
-            return "Количество решений: 0.";
         }
+        return "Количество решений: 0.";
     }
 }
