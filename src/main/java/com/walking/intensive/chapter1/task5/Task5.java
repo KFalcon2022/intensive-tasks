@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
  */
-public class Main {
+public class Task5 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
         double a = 3;
