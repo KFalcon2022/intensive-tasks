@@ -24,8 +24,9 @@ public class Main {
             return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, слева от лифта, направо";
         } else if (flatNumber % 4 == 3) {
             return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, справа от лифта, налево";
-        } else {
-            return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, справа от лифта, направо";
         }
+
+        return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, справа от лифта, направо";
+
     }
 }
