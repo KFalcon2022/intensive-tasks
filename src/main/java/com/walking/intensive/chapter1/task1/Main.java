@@ -5,13 +5,17 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
+
+        int age = 0;
+/*        Для собственных проверок можете делать любые изменения в этом методе
         int[] ages = new int[128];
         for (int i = 0; i < ages.length; i++) {
             ages[i] = i;
             System.out.println(getAgeString(i));
         }
-//        System.out.println(getAgeString(age));
+
+ */
+        System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
