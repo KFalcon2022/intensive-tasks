@@ -6,8 +6,8 @@ package com.walking.intensive.chapter1.task4;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 0;
-        double b = 1;
+        double a = 2;
+        double b = 0;
         double c = 2;
 
         System.out.println(solveQuadraticEquation(a, b, c));
@@ -26,44 +26,32 @@ public class Main {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
-        int solutionNumber = 0;
-        String solution = null;
+        String solution = "Количество решений: ";
 
-        if ((a == 0) && (b != 0)) {             //проверяем простые решения
-            solutionNumber = 1;
+        if ((a == 0) && (b != 0)) {
             double x = -c / b;
-            solution = "Корень: " + x;
-        } else if ((b == 0) && (a != 0) && (c < 0)) {
-            solutionNumber = 2;
-            double x1 = Math.sqrt(-c);
-            double x2 = -x1;
-            solution = "Корни: " + x1 + ";" + x2;
-        } else if ((b == 0) && (a != 0) && (c == 0)) {
-            solutionNumber = 1;
-            double x = 0;
-            solution = "Корень: " + x;
+            return solution + "1. Корень: " + x;
         } else if ((b == 0) && (a == 0) && (c != 0)) {
-            solution = "Решений не существует (в действительных числах)";
+            return solution + "0. Решений не существует (в действительных числах)";
         } else if ((b == 0) && (a == 0) && (c == 0)) {
-            solution = "NaN";
-        } else {                                //проверяем решения через детерминант
+            return solution + "бесконечное множество решений";
+        } else {
             double determinant = Math.pow(b, 2) - 4 * a * c;
             if (determinant > 0) {
-                solutionNumber = 2;
                 double x1 = (-b + Math.sqrt(determinant)) / 2 / a;
                 double x2 = (-b - Math.sqrt(determinant)) / 2 / a;
-                solution = "Корни: " + x1 + ";" + x2;
+                if (x1 > x2) {
+                    double temp = x1;
+                    x1 = x2;
+                    x2 = temp;
+                }
+                return solution + "2. Корни: " + x1 + ";" + x2;
             } else if (determinant == 0) {
-                solutionNumber = 1;
                 double x = -b / 2 / a;
-                solution = "Корень: " + x;
+                return solution + "1. Корень: " + x;
             } else {
-                solution = "";
+                return solution + "0. Решений не существует (в действительных числах)";
             }
         }
-        String checkString = solution.equals("NaN") ?
-                "бесконечное множество решений" :
-                Integer.toString(solutionNumber) + ". " + solution;
-        return "Количество решений: " + checkString;
     }
 }
