@@ -34,10 +34,12 @@ public class Main {
         if (a == 0 && b == 0) {
             return "Нет решений";
         }
+
         double d = (b * b) - (4 * a * c);
         if (d < 0) {
             return "Количество решений: 0.";
         }
+
         if (d == 0) {
             double x = (b * -1) / ( 2 * a );
             return "Количество решений: 1. Корень: " + x;
