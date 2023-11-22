@@ -98,7 +98,7 @@ public class Task5 {
 
         double p = (a + b + c) / 2;
 
-        return Math.sqrt(getAreaByHeron(a, b, c) / p);
+        return Math.sqrt(((p - a) * (p - b) * (p - c)) / p);
     }
 
     static double getCircumradius(double a, double b, double c) {
