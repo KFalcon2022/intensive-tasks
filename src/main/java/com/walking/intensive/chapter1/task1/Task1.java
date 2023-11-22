@@ -1,5 +1,4 @@
 package com.walking.intensive.chapter1.task1;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-age.html">ссылка</a>
  */
