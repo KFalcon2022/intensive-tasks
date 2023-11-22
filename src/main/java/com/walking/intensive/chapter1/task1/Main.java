@@ -6,7 +6,7 @@ package com.walking.intensive.chapter1.task1;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
+        int age = 5;
 
         System.out.println(getAgeString(age));
     }
@@ -15,16 +15,16 @@ public class Main {
 //        Место для вашего кода
         int mod10 = age % 10;
         int mod100 = age % 100;
-        String result = " ";
+        String result = "";
 
         if (mod10 == 0 || mod10 >= 5 || (mod100 >= 11 && mod100 < 15)) {
-            result += "лет";
+            result = "лет";
         } else if (mod10 == 1) {
-            result += "год";
-        } else if (mod10 > 1 && mod10 < 5) {
-            result += "года";
+            result = "год";
+        } else if (mod10 > 1) {
+            result = "года";
         }
 
-        return result; // Заглушка. При реализации - удалить
+        return String.format("Вам %d %s", age, result); // Заглушка. При реализации - удалить
     }
 }
