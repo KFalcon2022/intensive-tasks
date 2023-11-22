@@ -52,7 +52,7 @@ public class Main {
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-        if (isWrong(a, b, c)) {
+        if (isWrong(a, b, c) || isDegenerate(a, b, c)) {
             return 0.0;
         }
 
@@ -62,7 +62,7 @@ public class Main {
     }
 
     static double[] getHeights(double a, double b, double c) {
-        if (isWrong(a, b, c)) {
+        if (isWrong(a, b, c) || isDegenerate(a, b, c)) {
             return null;
         }
 
