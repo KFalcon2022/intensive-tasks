@@ -6,7 +6,7 @@ package com.walking.intensive.chapter1.task1;
 public class Main {
     public static void main(String[] args) {
 
-        int age = 156;
+        int age = 119;
         System.out.println(getAgeString(age));
     }
 
@@ -14,6 +14,9 @@ public class Main {
 
         if ( age < 0 || age > 150) {
             return "Введен неверный возраст.";
+        }
+        if ( ( age > 10 && age < 20 ) || ( age > 110 && age < 120 ) ) {
+            return "Вам " + age + " лет.";
         }
 
         int i = age%10;
