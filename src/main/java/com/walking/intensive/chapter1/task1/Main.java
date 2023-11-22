@@ -25,7 +25,7 @@ public class Main {
         } else if ((age + 10) % 10 > 1 && (age + 10) % 10 < 5) {
             ageWord = "года";
         } else ageWord = "лет";
-
+        //ff
         return ("Вам " + age + " " + ageWord); // Заглушка. При реализации - удалить
     }
 }
