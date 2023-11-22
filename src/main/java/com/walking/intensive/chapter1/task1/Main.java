@@ -11,13 +11,14 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-        // 1 год, 2, 3, 4 года, 5 - 20, 21 год, 22 - 24 года, 25 - 30 лет,
         if (age < 0 || age > 127) {
             return "Wrong age";
         }
 
         int lastNum = getLastNum(age);
-        if (lastNum == 1) {
+        if ((age >= 5 && age <= 20) || (age >= 105 && age <= 120)) {
+            return "Вам " + age + " лет";
+        } else if (lastNum == 1) {
             return "Вам " + age + " год";
         } else if (lastNum >= 2 && lastNum <= 4) {
             return "Вам " + age + " года";
