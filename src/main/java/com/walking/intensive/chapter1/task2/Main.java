@@ -13,27 +13,27 @@ public class Main {
         int flatsInEntrance = floorAmount * 4;
         int allFlat = entranceAmount * flatsInEntrance;
         if (flatNumber <= 0 || flatNumber > allFlat) {
-            return "Такой квартиры нет";
+            return "такой квартиры не существует";
         }
         int entrance = (int) Math.ceil((double) flatNumber / ((double) flatsInEntrance));
+
         int floor = (int) Math.ceil((flatNumber % flatsInEntrance) / 4.0);
-        if (floor == 0) {
-            floor = floorAmount;
-        }
+        floor = floor == 0 ? floorAmount : floor;
+
         double location = (flatNumber % flatsInEntrance) / 4.0;
         location = location - (int) location;
 
-        String text;
+        String pos;
         if (location > 0.0 && location <= 0.25) {
-            text = "слева от лифта, влево";
+            pos = "слева от лифта, влево";
         } else if (location > 0.25 && location <= 0.5) {
-            text = "слева от лифта, вправо";
+            pos = "слева от лифта, вправо";
         } else if (location > 0.5 && location <= 0.75) {
-            text = "справа от лифта, влево";
+            pos = "справа от лифта, влево";
         } else {
-            text = "справа от лифта, вправо";
+            pos = "справа от лифта, вправо";
         }
 
-        return flatNumber + " кв – " + entrance + " подъезд, " + floor + " этаж, " + text;
+        return flatNumber + " кв, " + entrance + " подъезд, " + floor + " этаж, " + pos;
     }
 }
