@@ -5,23 +5,26 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 127;
+        int age = 114;
 
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-        int remainder = age % 10;
+        int remainder10 = age % 10;
+        int remainder100 = age % 100;
 
-        if (age > 0 & age < 128) {
-
-            if (remainder == 1) {
-                return ("Вам " + age + " год");
-            } else if (remainder == 2 || remainder == 3 || remainder == 4) {
-                return ("Вам " + age + " года");
-            } else {
+        if (age >= 0 & age < 128) {
+            if (remainder100 == 11 || remainder100 == 12 || remainder100 == 13 || remainder100 == 14) {
                 return ("Вам " + age + " лет");
+            } else {
+                if (remainder10 == 1) {
+                    return ("Вам " + age + " год");
+                } else if (remainder10 == 2 || remainder10 == 3 || remainder10 == 4) {
+                    return ("Вам " + age + " года");
+                } else {
+                    return ("Вам " + age + " лет");
+                }
             }
         } else {
             return ("Неверно указан возраст");
