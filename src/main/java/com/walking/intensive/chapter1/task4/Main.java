@@ -37,7 +37,8 @@ public class Main {
         double d = (b * b) - (4 * a * c);
         if (d < 0) {
             return "Количество решений: 0.";
-        } else if (d == 0) {
+        }
+        if (d == 0) {
             double x = (b * -1) / ( 2 * a );
             return "Количество решений: 1. Корень: " + x;
         } else  {
