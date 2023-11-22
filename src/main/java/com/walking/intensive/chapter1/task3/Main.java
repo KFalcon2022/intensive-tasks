@@ -7,22 +7,11 @@ package com.walking.intensive.chapter1.task3;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int year = 4;
+        int year = 1600;
         System.out.println(isLeap(year));
     }
 
     static boolean isLeap(int year) {
-        if (year % 400 == 0) {
-            return true;
-
-        } else {
-            if (year % 100 == 0) {
-                return false;
-            } else if (year % 4 == 0) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        return (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0));
     }
 }
