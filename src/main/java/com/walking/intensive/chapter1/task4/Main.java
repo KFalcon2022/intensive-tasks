@@ -25,10 +25,11 @@ public class Main {
         int amountSolutions = 0;
 
         if (discriminant > 0) {
-            int x1 = (int)((-b + Math.sqrt(discriminant)) / (2 * a));
-            int x2 = (int)((-b - Math.sqrt(discriminant)) / (2 * a));
+            int x1 = (int) ((-b + Math.sqrt(discriminant)) / (2 * a));
+            int x2 = (int) ((-b - Math.sqrt(discriminant)) / (2 * a));
 
             amountSolutions++;
+
             if (a == 1 && (x1 + x2 == -b && x1 * x2 == c)) {             // Проверяю, есть ли решения по теореме Виетта.
                 amountSolutions++;
             }
@@ -36,20 +37,23 @@ public class Main {
             String answer = "Количество решений: " + amountSolutions + ". " + "Корни: ";
 
             if (x1 < x2) {
-                answer+= x1 + ";" + x2;
-            }
-            else if (x2 < x1) {
+                answer += x1 + ";" + x2;
+            } else if (x2 < x1) {
                 answer += x2 + ";" + x1;
             }
+
             return answer;
 
         } else if (discriminant == 0) {
             int x = (int) (-b / 2 * a);
             amountSolutions++;
+
             if (a == 1 && (x + x == -b && x * x == c)) {
                 amountSolutions++;
             }
+
             return "Количество решений: " + amountSolutions + ". " + "Корень: " + x;
+
         } else {
             return "Количество решений: " + amountSolutions;
         }
