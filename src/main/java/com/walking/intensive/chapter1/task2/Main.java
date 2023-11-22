@@ -14,13 +14,13 @@ public class Main {
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
 
-        int totalFlatFloor = (flatNumber - 1) / 4 + 1;
-        int flatEntrance = (totalFlatFloor - 1) / floorAmount + 1;
-        int CurrentFlatFloor = totalFlatFloor % floorAmount;
+        int totalFloors = (flatNumber - 1) / 4 + 1;
+        int flatEntrance = (totalFloors - 1) / floorAmount + 1;
+        int currentFloor = totalFloors % floorAmount;
 
-        if (CurrentFlatFloor == 0) {
+        if (currentFloor == 0) {
 
-            CurrentFlatFloor = CurrentFlatFloor + floorAmount;
+            currentFloor = currentFloor + floorAmount;
 
         }
 
@@ -29,16 +29,13 @@ public class Main {
             return "Нет такой квартиры";
 
         }
-        switch (flatNumber % 4) {
-            case 0:
-                return flatNumber + " кв - " + flatEntrance + " подъезд, " + CurrentFlatFloor + " Этаж" + " справа от лифта, вправо";
-            case 1:
-                return flatNumber + " кв - " + flatEntrance + " подъезд, " + CurrentFlatFloor + " Этаж" + " слева от лифта, влево";
-            case 2:
-                return flatNumber + " кв - " + flatEntrance + " подъезд, " + CurrentFlatFloor + " Этаж" + " слева от лифта, вправо";
-            case 3:
-                return flatNumber + " кв - " + flatEntrance + " подъезд, " + CurrentFlatFloor + " Этаж" + " справа от лифта, влево";
-        }
-        return "Ошибка";
+        String direction = switch (flatNumber % 4) {
+            case 0 ->" справа от лифта, вправо";
+            case 1 ->" слева от лифта, влево";
+            case 2 ->" слева от лифта, вправо";
+            case 3 ->" справа от лифта, влево";
+            default -> " Ошибка";
+        };
+        return flatNumber + " кв - " + flatEntrance + " подъезд, " + currentFloor + " Этаж" + direction;
     }
 }
