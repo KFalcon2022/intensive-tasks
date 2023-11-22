@@ -7,15 +7,11 @@ import java.util.Arrays;
  */
 
 public class Task5 {
-
-    private static double invEps;
     private static double areaByHeron;
 
     public static void main(String[] args) {
-        double eps = 0.001;     //эпсилон окрестности
-        invEps = 1 / eps;
-        double a = 3;
-        double b = 4;
+        double a = 12;
+        double b = 13;
         double c = 5;
 
         areaByHeron = getAreaByHeron(a, b, c);
@@ -55,7 +51,7 @@ public class Task5 {
 
     static void print(String keyword, double[] array) {
         System.out.println(keyword + " в порядке возрастания:");
-        Arrays.stream(array).forEach((d) -> System.out.println(Math.rint(invEps * d) / invEps));
+        Arrays.stream(array).forEach(System.out::println);
     }
 
     static double getAreaByHeron(double a, double b, double c) {
