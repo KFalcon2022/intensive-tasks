@@ -1,18 +1,28 @@
 package com.walking.intensive.chapter1.task5;
 
+import java.util.Arrays;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
  */
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
+        double a = 3;
+        double b = 4;
+        double c = 5;
 
+        System.out.println("Площадь треугольника: " + getAreaByHeron(a, b, c));
+        System.out.println("Высоты треугольника: " + getHeights(a, b, c)[0] + ", " + getHeights(a, b, c)[1] + ", " + getHeights(a, b, c)[2]);
+        System.out.println("Медианы треугольника: " + getMedians(a, b, c)[0] + ", " + getMedians(a, b, c)[1] + ", " + getMedians(a, b, c)[2]);
+        System.out.println("Биссектрисы треугольника: " + getBisectors(a, b, c)[0] + ", " + getBisectors(a, b, c)[1] + ", " + getBisectors(a, b, c)[2]);
     }
 
     static double getAreaByHeron(double a, double b, double c) {
         //        Место для вашего кода
-
-        return 0; // Заглушка. При реализации - удалить
+        double p = (a + b + c) / 2;
+        
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
     /**
@@ -20,8 +30,15 @@ public class Main {
      */
     static double[] getHeights(double a, double b, double c) {
         //        Место для вашего кода
+        double aHeight = 2 * getAreaByHeron(a, b, c) / a;
+        double bHeight = 2 * getAreaByHeron(a, b, c) / b;
+        double cHeight = 2 * getAreaByHeron(a, b, c) / c;
+        double[] heights = {aHeight, bHeight, cHeight};
 
-        return null; // Заглушка. При реализации - удалить
+        Arrays.sort(heights);
+
+        return heights;
+
     }
 
     /**
@@ -29,8 +46,14 @@ public class Main {
      */
     static double[] getMedians(double a, double b, double c) {
         //        Место для вашего кода
+        double cMedian = Math.sqrt(2 * a * a + 2 * b * b - c * c) / 2;
+        double bMedian = Math.sqrt(2 * a * a + 2 * c * c - b * b) / 2;
+        double aMedian = Math.sqrt(2 * b * b + 2 * c * c - a * a) / 2;
+        double[] medians = {aMedian, bMedian, cMedian};
 
-        return null; // Заглушка. При реализации - удалить
+        Arrays.sort(medians);
+
+        return medians;
     }
 
     /**
@@ -38,8 +61,14 @@ public class Main {
      */
     static double[] getBisectors(double a, double b, double c) {
         //        Место для вашего кода
+        double cBisector = Math.sqrt(a * b * (a + b + c) * (a + b - c)) / (a + b);
+        double bBisector = Math.sqrt(a * c * (a + b + c) * (a + c - b)) / (a + c);
+        double aBisector = Math.sqrt(b * c * (a + b + c) * (b + c - a)) / (b + c);
+        double[] bisectors = {aBisector, bBisector, cBisector};
 
-        return null; // Заглушка. При реализации - удалить
+        Arrays.sort(bisectors);
+
+        return bisectors;
     }
 
     /**
@@ -68,4 +97,6 @@ public class Main {
 
         return 0; // Заглушка. При реализации - удалить
     }
+
+
 }
