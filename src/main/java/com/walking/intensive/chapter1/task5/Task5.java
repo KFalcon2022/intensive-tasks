@@ -16,12 +16,13 @@ public class Task5 {
         System.out.println("Высоты треугольника: " + getHeights(a, b, c)[0] + ", " + getHeights(a, b, c)[1] + ", " + getHeights(a, b, c)[2]);
         System.out.println("Медианы треугольника: " + getMedians(a, b, c)[0] + ", " + getMedians(a, b, c)[1] + ", " + getMedians(a, b, c)[2]);
         System.out.println("Биссектрисы треугольника: " + getBisectors(a, b, c)[0] + ", " + getBisectors(a, b, c)[1] + ", " + getBisectors(a, b, c)[2]);
+        System.out.println("Углы треугольника: " + getAngles(a, b, c)[0] + " градусов, " + getAngles(a, b, c)[1] + " градусов, " + getAngles(a, b, c)[2] + " градусов, ");
     }
 
     static double getAreaByHeron(double a, double b, double c) {
         //        Место для вашего кода
         double p = (a + b + c) / 2;
-        
+
         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
@@ -76,8 +77,14 @@ public class Task5 {
      */
     static double[] getAngles(double a, double b, double c) {
         //        Место для вашего кода
+        double alpha = Math.toDegrees(Math.acos((a * a + c * c - b * b) / (2 * a * c)));
+        double beta = Math.toDegrees(Math.acos((a * a + b * b - c * c) / (2 * a * b)));
+        double gamma = Math.toDegrees(Math.acos((b * b + c * c - a * a) / (2 * b * c)));
+        double[] angles = {alpha, beta, gamma};
 
-        return null; // Заглушка. При реализации - удалить
+        Arrays.sort(angles);
+
+        return angles;
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
