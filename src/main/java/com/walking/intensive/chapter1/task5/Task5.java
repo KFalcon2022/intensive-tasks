@@ -73,7 +73,8 @@ public class Task5 {
     static double[] getBisectors(double a, double b, double c) {
 
         double[] bisectorsArray = new double[3];
-        double halfPerimeter = (a + b + c) / 2;;
+        double halfPerimeter = (a + b + c) / 2;
+
         bisectorsArray[0] = 2 * Math.sqrt(b * c * (halfPerimeter - a) / (b + c));
         bisectorsArray[1] = 2 * Math.sqrt(a * c * (halfPerimeter - b) / (a + c));
         bisectorsArray[2] = 2 * Math.sqrt(a * b * (halfPerimeter - c) / (a + b));
@@ -95,7 +96,6 @@ public class Task5 {
 
         Arrays.sort(anglesArray);
         return anglesArray;
-
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
@@ -138,7 +138,5 @@ public class Task5 {
         areaAdvancedArray[2] = ((a * b) / 2) * sinAngleC;
 
         return areaAdvancedArray;
-
-
     }
 }
