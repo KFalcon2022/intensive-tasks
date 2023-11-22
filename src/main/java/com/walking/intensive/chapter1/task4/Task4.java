@@ -23,8 +23,8 @@ public class Task4 {
      * <p>
      * Количество решений: 0.
      */
-    static String solveQuadraticEquation(double a, double b, double c) {
-        if ((a==0)&&(b==0)){
+    public static String solveQuadraticEquation(double a, double b, double c) {
+        if ((a == 0) && (b == 0)) {
             return "Выражение не явлется уравненением!";
         }
 

@@ -1,4 +1,4 @@
-package com.walking.intensive.chapter1.task4;
+package src.test.java.com.walking.intensive.chapter1.task4;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static com.walking.intensive.chapter1.task4.Task4.solveQuadraticEquation;
+import static src.main.java.com.walking.intensive.chapter1.task4.Task4.solveQuadraticEquation;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.params.provider.Arguments.of;
 
