@@ -1,8 +1,8 @@
-package com.walking.intensive.chapter1.task5;
+package src.test.java.com.walking.intensive.chapter1.task5;
 
 import org.junit.jupiter.api.Test;
 
-import static com.walking.intensive.chapter1.task5.Task5.*;
+import static src.main.java.com.walking.intensive.chapter1.task5.Task5.*;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
