@@ -5,7 +5,9 @@ import java.util.Arrays;
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
  */
-public class Main {
+
+public class Task5 {
+
     private static double invEps;
     private static double areaByHeron;
 
@@ -97,8 +99,8 @@ public class Main {
         return 0.5 * b * c * sin;
     }
 }
-
 @FunctionalInterface
 interface Computable<T> {
     public double compute(T... x);
 }
+
