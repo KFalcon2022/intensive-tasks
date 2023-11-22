@@ -6,17 +6,23 @@ package com.walking.intensive.chapter1.task2;
 public class Main {
 
     public static final int FLATS_PER_FLOOR = 4;
+    public static int floorAmount = 5;
+    public static int entranceAmount = 4;
 
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        System.out.println(getFlatLocation(1,4,5));
+        for (int i = 0; i <= entranceAmount * floorAmount * FLATS_PER_FLOOR + 1; i++) {
+            System.out.print(String.format("Квартира № %d: ", i));
+            System.out.println(getFlatLocation(floorAmount,entranceAmount,i));
+        }
+        
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         int totalFlats = entranceAmount * floorAmount * FLATS_PER_FLOOR;
 
         if (flatNumber > totalFlats || flatNumber < 1) {
-            return "Квартиры с таким номером в этом доме нет.";
+            return "Такой квартиры не существует.";
         }
 
         String direction;
@@ -30,9 +36,8 @@ public class Main {
             direction = "справа от лифта, вправо";
         }
 
-        int entranceNum = (int) Math.ceil(flatNumber / (double)(FLATS_PER_FLOOR * floorAmount));
-        int floorNum = (int) Math.ceil(entranceNum / (double)FLATS_PER_FLOOR);
-
+        int entranceNum = (flatNumber / (FLATS_PER_FLOOR * floorAmount)) + 1;
+        int floorNum = ((int) Math.ceil(((double) flatNumber / FLATS_PER_FLOOR))) % floorAmount == 0 ? floorAmount : ((int) Math.ceil(((double) flatNumber / FLATS_PER_FLOOR))) % floorAmount;
 
         return String.format("%d подъезд, %d этаж, %s", entranceNum, floorNum, direction);
     }
