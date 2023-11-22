@@ -6,7 +6,7 @@ package com.walking.intensive.chapter1.task2;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(getFlatLocation(3, 3, 19));
+                System.out.println(getFlatLocation(9, 12, 321));
 
     }
 
@@ -22,13 +22,15 @@ public class Main {
 
         switch (searchFlat) {
             case 0:
-                return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, слева от лифта, влево";
-            case 1:
-                return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, слева от лифта, вправо";
-            case 2:
-                return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, справа от лифта, влево";
-            case 3:
                 return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, справа от лифта, вправо";
+            case 1:
+                return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, слева от лифта, влево";
+            case 2:
+                return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, слева от лифта, вправо";
+            case 3:
+                return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, справа от лифта, влево";
+
+
         }
         return "Ошибка";
     }
