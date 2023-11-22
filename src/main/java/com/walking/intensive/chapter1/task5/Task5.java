@@ -5,12 +5,12 @@ package com.walking.intensive.chapter1.task5;
  */
 public class Task5 {
     public static void main(String[] args) {
-        // Для собственных проверок можете делать любые изменения в этом методе
+//        Для собственных проверок можете делать любые изменения в этом методе
 
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-        // Место для вашего кода
+        //        Место для вашего кода
 
         return 0; // Заглушка. При реализации - удалить
     }
@@ -19,7 +19,7 @@ public class Task5 {
      * Располагайте высоты по возрастанию.
      */
     static double[] getHeights(double a, double b, double c) {
-        // Место для вашего кода
+        //        Место для вашего кода
 
         return null; // Заглушка. При реализации - удалить
     }
@@ -28,7 +28,7 @@ public class Task5 {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        // Место для вашего кода
+        //        Место для вашего кода
 
         return null; // Заглушка. При реализации - удалить
     }
@@ -37,7 +37,7 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        // Место для вашего кода
+        //        Место для вашего кода
 
         return null; // Заглушка. При реализации - удалить
     }
@@ -46,25 +46,25 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        // Место для вашего кода
+        //        Место для вашего кода
 
         return null; // Заглушка. При реализации - удалить
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        // Место для вашего кода
+        //        Место для вашего кода
 
         return 0; // Заглушка. При реализации - удалить
     }
 
     static double getCircumradius(double a, double b, double c) {
-        // Место для вашего кода
+        //        Место для вашего кода
 
         return 0; // Заглушка. При реализации - удалить
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        // Место для вашего кода
+        //        Место для вашего кода
 
         return 0; // Заглушка. При реализации - удалить
     }
