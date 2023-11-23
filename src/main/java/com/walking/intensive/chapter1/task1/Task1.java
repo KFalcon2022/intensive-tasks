@@ -27,16 +27,16 @@ public class Task1 {
 
             }
         }
-            switch (age) {
-                case 11-> year = "лет";
-                case 12 -> year = "лет";
-                case 13 -> year = "лет";
-                case 14 -> year = "лет";
-                case 111 -> year = "лет";
-                case 112 -> year = "лет";
-                case 113 -> year = "лет";
-                case 114 -> year = "лет";
-            }
+        switch (age) {
+            case 11 -> year = "лет";
+            case 12 -> year = "лет";
+            case 13 -> year = "лет";
+            case 14 -> year = "лет";
+            case 111 -> year = "лет";
+            case 112 -> year = "лет";
+            case 113 -> year = "лет";
+            case 114 -> year = "лет";
+        }
 
         result = ("Вам " + age + " " + year);
         return result;
