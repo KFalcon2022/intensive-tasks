@@ -17,22 +17,22 @@ public class Task2 {
         int floorNumber = 1 + ((flatNumber - 1) % (floorAmount * 4)) / 4;
 
         if (flatNumber > floorAmount * entranceAmount * 4 || flatNumber < 1) {
-            return "Такой квартиры нет";
+            return "Такой квартиры не существует";
         }
 
         if (flatNumber % 4 == 1) {
-            return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, слева от лифта, налево";
+            return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, слева от лифта, влево";
         }
 
         if (flatNumber % 4 == 2) {
-            return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, слева от лифта, направо";
+            return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, слева от лифта, вправо";
         }
 
         if (flatNumber % 4 == 3) {
-            return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, справа от лифта, налево";
+            return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, справа от лифта, влево";
         }
 
-        return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, справа от лифта, направо";
+        return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, справа от лифта, вправо";
 
     }
 }
