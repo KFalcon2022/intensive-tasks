@@ -47,21 +47,19 @@ public class Main {
 
             switch (modFloorFlatAmount) {
                 case 1:
-                    floorPlace = "первая квартира слева от лифта.";
+                    floorPlace = "слева от лифта, влево";
                     break;
                 case 2:
-                    floorPlace = "вторая квартира слева от лифта.";
+                    floorPlace = "слева от лифта, вправо";
                     break;
                 case 3:
-                    floorPlace = "вторая квартира справа от лифта.";
+                    floorPlace = "справа от лифта, влево";
                     break;
                 default:
-                    floorPlace = "первая квартира справа от лифта.";
+                    floorPlace = "справа от лифта, вправо";
             }
-            flatLocation = String.format("Номер квартиры : %d" +
-                    "\nНомер подъезда: %d" +
-                    "\nЭтаж: %d" +
-                    "\nРасположение на этаже: %s", flatNumber, entranceNumber, floorNumber, floorPlace);
+            flatLocation = String.format("%d кв - %d подъезд, %d этаж, %s",
+                    flatNumber, entranceNumber, floorNumber, floorPlace);
         }
         return flatLocation;
     }
