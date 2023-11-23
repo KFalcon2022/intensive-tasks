@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-house.html">ссылка</a>
  */
-public class Main {
+public class Task2 {
     public static void main(String[] args) {
 //получение значений
         Scanner in = new Scanner(System.in);
