@@ -5,9 +5,9 @@ import java.util.Arrays;
  */
 public class Task5 {
     public static void main(String[] args) {
-        double a = 2;
-        double b = 3;
-        double c = 4;
+        double a = 12;
+        double b = 13;
+        double c = 5;
 
         double areaByHeron = getAreaByHeron(a, b, c);
         System.out.println("Area by Heron's formula: " + areaByHeron);
@@ -66,11 +66,10 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        double[] bisectors = {
-                2 / (a + b) * Math.sqrt(a * b * (a + b + c) * (a + b - c)),
-                2 / (a + c) * Math.sqrt(a * c * (a + b + c) * (a + c - b)),
-                2 / (b + c) * Math.sqrt(b * c * (a + b + c) * (b + c - a))
-        };
+        double[] bisectors = new double[3];
+        bisectors[0] = Math.sqrt(b * c * (1 - Math.pow(a / (b + c), 2)));
+        bisectors[1] = Math.sqrt(a * c * (1 - Math.pow(b / (a + c), 2)));
+        bisectors[2] = Math.sqrt(a * b * (1 - Math.pow(c / (a + b), 2)));
         Arrays.sort(bisectors);
         return bisectors;
     }
@@ -101,10 +100,8 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        // Calculate the angle opposite side a using the Law of Cosines
         double angleA = Math.acos((b * b + c * c - a * a) / (2 * b * c));
-        // Calculate the area using the sine of angleA
         double area = 0.5 * b * c * Math.sin(angleA);
-        return area;
+        return Double.parseDouble(String.format("%.1f", area));
     }
 }
