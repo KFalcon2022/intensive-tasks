@@ -16,13 +16,24 @@ public class Task2 {
         System.out.print("Введите номер квартиры (от 1 до " + (4 * floorAmount * entranceAmount) + "): ");
         int flatNumber = in.nextInt();
 
-        while (!isCheckFlat(flatNumber, floorAmount, entranceAmount)) {
+        /*while (!isCheckFlat(flatNumber, floorAmount, entranceAmount)) {
             System.out.print("В доме нет квартиры с таким номером. Введите другой номер квартиры: ");
             flatNumber = in.nextInt();
-        }
-        in.close();
+        }*/
 
-        System.out.println(getFlatLocation(flatNumber, floorAmount));
+        System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber));
+        in.close();
+    }
+
+    //вывод расположения
+    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
+        if (isCheckFlat(flatNumber, floorAmount, entranceAmount) == false) {
+            return "Такой квартиры не существует";
+        }
+
+        int entrance = findNumberEntry(flatNumber, floorAmount);
+        int floor = findNumberFloor(flatNumber, floorAmount, entrance);
+        return flatNumber + " кв - " + entrance + " подъезд, " + floor + " этаж, " + getDisposition(flatNumber);
     }
 
     //проверка на наличие квартиры
@@ -31,13 +42,6 @@ public class Task2 {
             return true;
         }
         return false;
-    }
-
-    //вывод расположения
-    static String getFlatLocation(int flatNumber, int floorAmount) {
-        int entrance = findNumberEntry(flatNumber, floorAmount);
-        int floor = findNumberFloor(flatNumber, floorAmount, entrance);
-        return entrance + " подъезд, " + floor + " этаж, " + getDisposition(flatNumber);
     }
 
     //определение подъезда
