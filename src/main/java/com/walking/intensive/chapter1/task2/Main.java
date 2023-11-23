@@ -19,7 +19,7 @@ public class Main {
         int entranceNumber = (flatNumber - 1) / (floorAmount * numberFlatsPerFloor) + 1;
         int floorNumber = (flatNumber - (floorAmount * numberFlatsPerFloor) * (entranceNumber - 1) - 1) / numberFlatsPerFloor + 1;
 
-        if (flatNumber > numberFlats) {
+        if (flatNumber > numberFlats || flatNumber < 0) {
             return "В дома нет квартиры с таким номером.";
         }
 
