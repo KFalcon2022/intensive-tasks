@@ -1,32 +1,37 @@
 package com.walking.intensive.chapter1.task5;
 
+import java.util.Arrays;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
  */
 public class Task5 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        getAreaByHeron(5, 1, 3);
-        System.out.println(Math.sqrt(-3));
+        double test = getAreaByHeron(3, 2, 5);
+        System.out.println(5 / test);
+
     }
 
-    static double getAreaByHeron(double a, double b, double c) throws ArithmeticException, IllegalArgumentException{
+    static double getAreaByHeron(double a, double b, double c) throws IllegalArgumentException, ArithmeticException{
         double halfPerimeter = (a + b + c) / 2;
-        double squaredArea = halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c);
-        if (squaredArea < 0) { // Math.sqrt(squaredArea) => NAN
+        double area = Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
+        if (area <= 0) {
+            if (area == 0) {
+                try {
+                    throw new IllegalArgumentException();
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Треугольник вырожденный");
+                }
+            }
+        } else { // Math.sqrt(squaredArea) => NAN
             try {
                 throw new ArithmeticException();
             } catch (ArithmeticException e) {
                 System.out.println("Треугольник не существует");
             }
-        } else if (squaredArea == 0) {
-            try {
-                throw new IllegalArgumentException();
-            } catch (IllegalArgumentException e) {
-                System.out.println("Треугольник вырожденный");
-            }
         }
-        return Math.sqrt(squaredArea);
+        return area;
     }
 
     /**
