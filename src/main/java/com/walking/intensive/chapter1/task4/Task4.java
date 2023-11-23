@@ -49,10 +49,14 @@ public class Task4 {
 
             return String.format("Количество решений: 2. Корни: %.0f; %.0f", root1, root2);
         }
-        if (descriminant - 0 < 0.00001) {
+        if (descriminant < 0) {
+            return "Количество решений: 0.";
+        }
+        if (descriminant - 0 < 0.00000001) {
             double root = -b / (2 * a);
             return String.format("Количество решений: 1. Корень: %.0f", root);
         }
+
         return "Что-то пошло не так";
     }
 }
