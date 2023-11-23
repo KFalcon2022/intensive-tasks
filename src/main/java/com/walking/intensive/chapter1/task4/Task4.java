@@ -28,10 +28,10 @@ public class Task4 {
     static String solveQuadraticEquation(double a, double b, double c) {
         if (a == 0) {
             if (b == 0) {
-                return c == 0 ? "An infinite number of solutions." : "no solutions";
+                return c == 0 ? "Решений бесконечно" : "Количество решений: 0.";
             } else {
                 double x = -c / b;
-                return "Number of solutions: 1. Root: " + x;
+                return "Количество решений: 1. Корень: " + x;
             }
         }
 
@@ -39,12 +39,12 @@ public class Task4 {
         if (d > 0) {
             double x1 = (-b + Math.sqrt(d)) / (2 * a);
             double x2 = (-b - Math.sqrt(d)) / (2 * a);
-            return "Number of solutions: 2. Roots: " + Math.min(x1, x2) + ";" + Math.max(x1, x2);
+            return "Количество решений: 2. Корень: " + Math.min(x1, x2) + ";" + Math.max(x1, x2);
         } else if (d == 0) {
             double x = -b / (2 * a);
-            return "Number of solutions: 1. Root: " + x;
+            return "Количество решений: 1. Корень: " + x;
         } else {
-            return "Number of solutions: 0.";
+            return "Количество решений: 0.";
 
         }
     }
