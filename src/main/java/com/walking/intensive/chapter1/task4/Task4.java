@@ -1,51 +1,43 @@
 package com.walking.intensive.chapter1.task4;
 
-/**
- * Условие: <a href="https://geometry-math.ru/homework/Java-parameter.html">ссылка</a>
- */
 public class Task4 {
-    public static void main(String[] args) {
 
-        double a = -4;
-        double b = 8;
-        double c = 12;
+    public static void main(String[] args) {
+        // Примеры для тестирования
+        double a = 1;
+        double b = 0;
+        double c = -1;
 
         System.out.println(solveQuadraticEquation(a, b, c));
-
     }
-
-    /**
-     * При формировании строки, корни уравнения должны указываться по возрастанию.
-     * <p>
-     * Примеры результирующей строки:
-     * <p>
-     * Количество решений: 2. Корни: -4;4
-     * <p>
-     * Количество решений: 1. Корень: 0
-     * <p>
-     * Количество решений: 0.
-     */
     static String solveQuadraticEquation(double a, double b, double c) {
-        if (a == 0) {
-            if (b == 0) {
-                return c == 0 ? "Решений бесконечно" : "Количество решений: 0.";
+        if (a == 0 && b == 0 && c == 0) {
+            return "Решений бесконечно";
+        } else if (a == 0 && b == 0) {
+            return "Количество решений: 0.";
+        } else if (a == 0) {
+            double root = c / b; // Изменено на c / b
+            return String.format("Количество решений: 1. Корень: %s", formatRoot(root));
+        } else {
+            double discriminant = b * b - 4 * a * c;
+            if (discriminant > 0) {
+                double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                return String.format("Количество решений: 2. Корни: %s;%s", formatRoot(Math.min(root1, root2)), formatRoot(Math.max(root1, root2)));
+            } else if (discriminant == 0) {
+                double root = -b / (2 * a);
+                return String.format("Количество решений: 1. Корень: %s", formatRoot(root));
             } else {
-                double x = -c / b;
-                return "Количество решений: 1. Корень: " + x;
+                return "Количество решений: 0.";
             }
         }
+    }
 
-        double d = b * b - 4 * a * c;
-        if (d > 0) {
-            double x1 = (-b + Math.sqrt(d)) / (2 * a);
-            double x2 = (-b - Math.sqrt(d)) / (2 * a);
-            return "Количество решений: 2. Корень: " + Math.min(x1, x2) + ";" + Math.max(x1, x2);
-        } else if (d == 0) {
-            double x = -b / (2 * a);
-            return "Количество решений: 1. Корень: " + x;
+    static String formatRoot(double root) {
+        if (root == (long) root) {
+            return String.format("%d", (long) root);
         } else {
-            return "Количество решений: 0.";
-
+            return String.format("%.2f", root);
         }
     }
 }
