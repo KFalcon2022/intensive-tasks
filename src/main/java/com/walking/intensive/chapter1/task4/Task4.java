@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-parameter.html">ссылка</a>
  */
-public class Main {
+public class Task4 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Введите коэффициенты квадратного уравнения: ");
