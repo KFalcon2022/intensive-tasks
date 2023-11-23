@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-leap-year.html">ссылка</a>
  */
-public class Main {
+public class Task3 {
     public static void main(String[] args) {
 
         Random random = new Random();
