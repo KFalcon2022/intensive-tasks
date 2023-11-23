@@ -7,12 +7,15 @@ package com.walking.intensive.chapter1.task2;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        System.out.println(getFlatLocation(4, 4, 47));
+        System.out.println(getFlatLocation(10, 3, 121));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
 
         int FLAT_MAX_NUMBER = floorAmount * entranceAmount * 4;
+        if (flatNumber > FLAT_MAX_NUMBER) {
+            return "Такой квартиры не существует";
+        }
         int entranceNumber = (flatNumber - 1) / (FLAT_MAX_NUMBER / entranceAmount) + 1;
         int floorNumber = (((flatNumber - 1) % (floorAmount * 4) + 1) - 1) / 4 + 1;
         int place = ((flatNumber - 1) % (floorAmount * 4) + 1) - 4 * (floorNumber - 1);
@@ -23,8 +26,7 @@ public class Main {
             case 4 -> "справа от лифта, вправо";
             default -> null;
         };
-        String result = String.format("%d кв - %d подъезд, %d этаж, %s", flatNumber, entranceNumber, floorNumber, placeFlat);
 
-        return result;
+        return String.format("%d кв - %d подъезд, %d этаж, %s", flatNumber, entranceNumber, floorNumber, placeFlat);
     }
 }
