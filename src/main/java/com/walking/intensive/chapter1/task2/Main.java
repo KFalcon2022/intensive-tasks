@@ -15,12 +15,13 @@ public class Main {
             return "Такой квартиры нет в данном доме";
         }
 
-        int flatDiv = (flatNumber - 1)/ FLATonFLOOR;
-        int numberFlour =  (flatDiv +1)% floorAmount;//номер этажа
-        if (numberFlour == 0){
-            numberFlour+=floorAmount;
+        int flatDiv = (flatNumber - 1) / FLATonFLOOR;
+        int numberFlour = (flatDiv + 1) % floorAmount;//номер этажа
+        int numberPodezd = flatDiv / floorAmount + 1; // Номер подъезда
+
+        if (numberFlour == 0) {
+            numberFlour += floorAmount;
         }
-        int numberPodezd =  flatDiv  / floorAmount + 1; // Номер подъезда
 
         switch (flatNumber % 4) {//направление
             case 1 -> {
@@ -35,9 +36,6 @@ public class Main {
             default -> {
                 return flatNumber + " кв: " + numberPodezd + " подъезд, " + numberFlour + " этаж, справа от лифта, вправо";
             }
-
-
         }
-
     }
 }
