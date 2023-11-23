@@ -7,15 +7,13 @@ import java.util.Random;
  */
 public class Task3 {
     public static void main(String[] args) {
-
         Random random = new Random();
-        int year = random.nextInt(1582, 2024);
-
-        System.out.println(isLeap(year) ? year + " год невискокостный!" : year + " год вискокостный!");
+        int year = random.nextInt(1538, 2500);
+        String str = isLeap(year) ? year + " год высокостный!" : year + " год невысокостный!";
+        System.out.println(str);
     }
 
     static boolean isLeap(int year) {
-
-        return year % 100 == 0 || year % 4 != 0;
+        return year % 400 == 0 || year % 4 == 0 && year % 100 != 0;
     }
 }
