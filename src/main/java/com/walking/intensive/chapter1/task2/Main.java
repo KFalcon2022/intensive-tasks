@@ -18,11 +18,17 @@ public class Main {
 
         if (flatNumber > floorAmount * entranceAmount * 4 || flatNumber < 1) {
             return "Такой квартиры нет";
-        } else if (flatNumber % 4 == 1) {
+        }
+
+        if (flatNumber % 4 == 1) {
             return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, слева от лифта, налево";
-        } else if (flatNumber % 4 == 2) {
+        }
+
+        if (flatNumber % 4 == 2) {
             return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, слева от лифта, направо";
-        } else if (flatNumber % 4 == 3) {
+        }
+
+        if (flatNumber % 4 == 3) {
             return "Ваша квартира " + flatNumber + " - " + entranceNumber + " подъезд, " + floorNumber + " этаж, справа от лифта, налево";
         }
 
