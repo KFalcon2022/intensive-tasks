@@ -12,7 +12,7 @@ public class Task1 {
     }
 
     static String getAgeString(int age) {
-        String getAgeStr = "";
+        String getAgeStr;
         if (age%100 == 11 || age%100 == 12 || age%100 == 13 || age%100 == 14) {
             getAgeStr = " лет";
         } else {
