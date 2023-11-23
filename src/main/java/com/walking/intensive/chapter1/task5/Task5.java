@@ -19,7 +19,7 @@ public class Task5 {
         System.out.println("5. Углы треугольника по возрастанию " + Arrays.toString(getAngles(a, b, c)));
         System.out.println("6. Длина радиуса вписанной в треугольник окружности " + getInscribedCircleRadius(a, b, c));
         System.out.println("7. Длина радиуса описаной вокруг треугольника окружности " + getCircumradius(a, b, c));
-        System.out.println("8. Нахождения cos углов A, B, С  с последующим преобразование их в sin и расчетом площади через эти углы" + Arrays.toString(getAreaAdvanced(a, b, c)));
+        System.out.println("8. Нахождения cos углов A, B, С  с последующим преобразование их в sin и расчетом площади через эти углы " + Arrays.toString(getAreaAdvanced(a, b, c)));
     }
 
     static double areaByHeron(double a, double b, double c) {
