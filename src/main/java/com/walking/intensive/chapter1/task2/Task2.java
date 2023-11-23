@@ -23,7 +23,7 @@ public class Task2 {
         }
         entranceNumber = (int) (Math.ceil((double) flatNumber / 4 / floorAmount));
         floorNumber = ((int) (Math.ceil((double) flatNumber / 4))) % floorAmount;
-        if (floorNumber==0){
+        if (floorNumber == 0) {
             floorNumber = floorAmount;
         }
         System.out.println(flatNumber % 4);
