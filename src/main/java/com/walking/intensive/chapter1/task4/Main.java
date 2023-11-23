@@ -43,14 +43,17 @@ public class Main {
         if (d == 0) {
             double x = (b * -1) / ( 2 * a );
             return "Количество решений: 1. Корень: " + x;
-        } else  {
-            double x1 = ((b * -1) + (Math.sqrt(d)) ) / ( 2 * a );
-            double x2 = ((b * -1) - (Math.sqrt(d)) ) / ( 2 * a );
-
-            if (x1 < x2) {
-                return "Количество решений: 2. Корни:" + x1 + ";" + x2;
-            } else {
-                return "Количество решений: 2. Корни:" + x2 + ";"+ x1;}
         }
+
+
+        double x1 = ((b * -1) + (Math.sqrt(d)) ) / ( 2 * a );
+        double x2 = ((b * -1) - (Math.sqrt(d)) ) / ( 2 * a );
+
+        if (x1 < x2) {
+                return "Количество решений: 2. Корни:" + x1 + ";" + x2;
+            }
+
+        return "Количество решений: 2. Корни:" + x2 + ";"+ x1;
+
     }
 }
