@@ -19,23 +19,20 @@ public class Main {
         int currentFloor = totalFloors % floorAmount;
 
         if (currentFloor == 0) {
-
             currentFloor += floorAmount;
-
         }
 
         if (flatNumber <= 0 || flatNumber > floorAmount * entranceAmount * 4) {
-
             return "Нет такой квартиры";
-
         }
+
         String direction = switch (flatNumber % 4) {
-            case 0 ->" справа от лифта, вправо";
-            case 1 ->" слева от лифта, влево";
-            case 2 ->" слева от лифта, вправо";
-            case 3 ->" справа от лифта, влево";
+            case 0 -> " справа от лифта, вправо";
+            case 1 -> " слева от лифта, влево";
+            case 2 -> " слева от лифта, вправо";
+            case 3 -> " справа от лифта, влево";
             default -> " Ошибка";
         };
-        return flatNumber + " кв - " + flatEntrance + " подъезд, " + currentFloor + " Этаж" + direction;
+        return flatNumber + " кв - " + flatEntrance + " подъезд, " + currentFloor + " этаж," + direction;
     }
 }
