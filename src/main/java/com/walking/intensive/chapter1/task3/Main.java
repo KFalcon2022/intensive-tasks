@@ -21,10 +21,6 @@ public class Main {
 
     static boolean isLeap(int year) {
 
-        if (year % 4 == 0) {
-            return year % 100 != 0 || (year / 100) % 4 == 0;
-        }
-
-        return false;
+        return (year % 4 == 0 && (year % 100 != 0 || (year / 100) % 4 == 0));
     }
 }
