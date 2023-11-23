@@ -15,11 +15,11 @@ public class Main {
             return ("Возраст введен некорректно");
         }
 
-        int i = age % 100;
-        if (i >= 11 && i <= 14) {
+        int century = age % 100;
+        if (century >= 11 && century <= 14) {
             return ("Вам " + age + " лет");
         }
-        int a = i % 10;
+        int a = century % 10;
 
         if (a == 1) {
             return ("Вам " + age + " год");
