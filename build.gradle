@@ -10,6 +10,9 @@ repositories {
 }
 
 dependencies {
+    implementation 'com.mikemybytes:junit5-formatted-source-tests:1.0.0'
+    implementation 'com.mikemybytes:junit5-formatted-source:1.0.0'
+    implementation 'com.mikemybytes:junit5-formatted-source-parent:1.0.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 }

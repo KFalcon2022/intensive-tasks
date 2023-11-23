@@ -1,9 +1,6 @@
 package com.walking.intensive.chapter1.task1;
 
-/**
- * Условие: <a href="https://geometry-math.ru/homework/Java-age.html">ссылка</a>
- */
-public class Main {
+public class Task1 {
     public static void main(String[] args) {
         int age = 1;
 
@@ -18,10 +15,9 @@ public class Main {
             return "Неверно указан возраст";
         } else if (remainder100 == 11 || remainder100 == 12 || remainder100 == 13 || remainder100 == 14) {
             return "Вам " + age + " лет";
-        } else if (remainder10 == 1 && remainder100 != 11) {
+        } else if (remainder10 == 1) {
             return "Вам " + age + " год";
-        } else if (remainder10 == 2 & remainder100 != 12 || remainder10 == 3 & remainder100 != 13 ||
-                   remainder10 == 4 & remainder100 != 14) {
+        } else if (remainder10 == 2 || remainder10 == 3 || remainder10 == 4) {
             return "Вам " + age + " года";
         } else {
             return "Вам " + age + " лет";
