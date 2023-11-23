@@ -19,7 +19,7 @@ public class Main {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+//        Место для вашего кода.
         if ((age % 10) == 1  && (age % 100 != 11)) {
             return ("Вам " + age + " " + "год");
         } else if (age % 10 > 1 && age % 10 < 5 && !(age % 100 >= 11 && age % 100 <=19)) {
