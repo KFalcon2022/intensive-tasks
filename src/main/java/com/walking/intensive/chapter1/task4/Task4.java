@@ -29,7 +29,7 @@ public class Task4 {
 
         String result = "";
         if (a == 0) {
-            result =  "Решений бесконечно";
+            result =  "Уравнение не является квадратным";
         } else if (b == 0 && c == 0) {
             result = "Количество решений: 1. Корень: 0";
         } else if (b == 0) {
