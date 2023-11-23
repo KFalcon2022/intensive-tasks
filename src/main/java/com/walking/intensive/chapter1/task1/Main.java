@@ -20,16 +20,12 @@ public class Main {
 
     static String getAgeString(int age) {
 //        Место для вашего кода
-        String ageWord;
-
-        if (((age + 100) % 100 >= 11 && (age + 100) % 100 <= 19)) {
-            ageWord = "лет";
-        } else if (((age + 10) % 10) == 1) {
-            ageWord = "год";
-        } else if ((age + 10) % 10 > 1 && (age + 10) % 10 < 5) {
-            ageWord = "года";
-        } else ageWord = "лет";
-        //ff
-        return ("Вам " + age + " " + ageWord); // Заглушка. При реализации - удалить
+        if ((age % 10) == 1  && (age % 100 != 11)) {
+            return ("Вам " + age + " " + "год");
+        } else if (age % 10 > 1 && age % 10 < 5 && !(age % 100 >= 11 && age % 100 <=19)) {
+            return ("Вам " + age + " " + "года");
+        } else return ("Вам " + age + " " + "лет");
     }
 }
+
+
