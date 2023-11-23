@@ -10,6 +10,8 @@ public class Main {
         double b = 0;
         double c = 0;
 
+        System.out.println(solveQuadraticEquation(a, b, c));
+
     }
 
     /**
