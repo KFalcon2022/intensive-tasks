@@ -11,9 +11,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int age = sc.nextInt();
 
-        for (int i = 0; i < 129; i++) {
-            System.out.println(getAgeString(i));
-        }
+        System.out.println(getAgeString(age));
 
     }
 
