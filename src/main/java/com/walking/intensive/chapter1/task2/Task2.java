@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class Task2 {
     public static void main(String[] args) {
-//получение значений
+        //получение значений
         Scanner in = new Scanner(System.in);
         System.out.print("Введите количество подъездов в доме: ");
         int entranceAmount = in.nextInt();
