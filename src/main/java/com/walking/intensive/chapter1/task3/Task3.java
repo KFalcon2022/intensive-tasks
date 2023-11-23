@@ -13,7 +13,7 @@ public class Task3 {
         System.out.println(isLeapYear(2600));
         System.out.println(isLeapYear(0));
         System.out.println(isLeapYear(2000));
-        System.out.println(isLeapYear(1913));
+        System.out.println(isLeapYear(191));
         System.out.println(isLeapYear(-803));
     }
 
