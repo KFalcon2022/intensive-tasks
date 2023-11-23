@@ -1,31 +1,17 @@
 package com.walking.intensive.chapter1.task4;
 
-import java.util.Scanner;
-
-import static java.lang.Math.sqrt;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-parameter.html">ссылка</a>
  */
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        Scanner scanner = new Scanner(System.in);
-
         double a = 0;
         double b = 0;
         double c = 0;
 
-        while (true) {
-            System.out.print("Введите а: ");
-            a = scanner.nextDouble();
-            System.out.print("Введите b: ");
-            b = scanner.nextDouble();
-            System.out.print("Введите c: ");
-            c = scanner.nextDouble();
+        System.out.println(solveQuadraticEquation(a, b, c));
 
-
-        }
     }
 
     /**
@@ -46,22 +32,20 @@ public class Main {
         } else if (b == 0 && c == 0) {
             return "Количество решений: 1. Корень: 0";
         } else if (b == 0) {
-            if (c / a > 0) {
-                return "Количество решений: 0";
-            } else {
-                return "Количество решений: 2. Корни: -" + sqrt(-c / a) + ";" + sqrt(-c / a);
-            }
+            return c / a > 0 ? "Количество решений: 0" : "Количество решений: 2. Корни: -" + Math.sqrt(-c / a) + ";" + Math.sqrt(-c / a);
         } else if (c == 0) {
             return (-b / a) < 0 ? "Количество решений: 2. Корни: " + (-b / a) + ";0" : "Количество решений: 2. Корни: 0;" + (-b / a);
+        }
+
+        double discriminant = ((b * b) - 4 * a * c);
+        if (discriminant < 0) {
+            return "Количество решений: 0";
+        } else if (discriminant == 0) {
+            return "Количество решений: 1. Корень: " + (-b / (2 * a));
         } else {
-            double discriminant = ((b * b) - 4 * a * c);
-            if (discriminant < 0) {
-                return "Количество решений: 0";
-            } else if (discriminant == 0) {
-                return "Количество решений: 1. Корень: " + (-b / (2 * a));
-            } else {
-                return "Количество решений: 2. Корни: " + ((-b - sqrt(discriminant)) / (2 * a)) + ";" + ((-b + sqrt(discriminant)) / (2 * a));
-            }
+            double x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            return x1 < x2 ? "Количество решений: 2. Корни: " + x1 + ";" + x2 : "Количество решений: 2. Корни: " + x2 + ";" + x1;
         }
     }
 }
