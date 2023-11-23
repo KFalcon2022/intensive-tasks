@@ -1,8 +1,8 @@
 package com.walking.intensive.chapter1.task3;
 
-public class Main {
+public class Task3 {
     public static void main(String[] args) {
-        boolean num1 = isLeapYear(100);
+        boolean num1 = isLeapYear(102);
         System.out.println(num1);
 
         boolean num2 = isLeapYear(1896);
@@ -18,6 +18,6 @@ public class Main {
     }
 
     public static boolean isLeapYear(int year) {
-        return year > 0 && (year % 4 == 0 || year % 100 == 0 & year % 400 == 0);
+        return year > 0 && ((year % 4 == 0) ? ((year % 100 == 0) ? year % 400 == 0 : true) : false);
     }
 }
