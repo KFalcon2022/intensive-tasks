@@ -23,7 +23,9 @@ public class Main {
 
         if (a == 1) {
             return ("Вам " + age + " год");
-        } if (a >= 2 && a <= 4) {
+        }
+
+        if (a >= 2 && a <= 4) {
             return ("Вам " + age + " года");
         }
             return ("Вам " + age + " лет");
