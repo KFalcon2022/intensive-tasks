@@ -7,8 +7,8 @@ public class Task4 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
         double a = 0;
-        double b = 0;
-        double c = 0;
+        double b = 1;
+        double c = 2;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -27,7 +27,28 @@ public class Task4 {
      */
     static String solveQuadraticEquation(double a, double b, double c) {
         //        Место для вашего кода
+        String message = "Это не квадратное уравнение (a = 0)";
 
-        return null; // Заглушка. При реализации - удалить
+        if (a != 0) {
+            double D = (b * b) - (4 * a * c); //дискриминант квадратного уравнения
+
+            if (D < 0) {
+                message = "Дискриминант отрицательный. Действительных корней нет";
+            }
+            if (D == 0) {
+                double x = -b / 2 * a;
+                message = "Количество решений: 1. Корень: " + x;
+            }
+            if (D > 0) {
+                double x1 = (-b + Math.sqrt(D)) / (2 * a);
+                double x2 = (-b - Math.sqrt(D)) / (2 * a);
+                if(x2 > x1) {
+                    message = "Количество решений: 2. Корни: " + x1 + ";" + x2;
+                } else {
+                    message = "Количество решений: 2. Корни: " + x2 + ";" + x1;
+                }
+            }
+        }
+        return message;
     }
 }
