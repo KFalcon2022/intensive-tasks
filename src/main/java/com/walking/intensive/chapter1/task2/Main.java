@@ -15,41 +15,52 @@ public class Main {
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
 
-        final int FLATS_ON_FLOOR_AMOUNT = 4;
+        final int flatsOnFloorAmount = 4;
 
         if (flatNumber <= 0) {
             return "Некорректное значение номера квартиры";
         }
 
         //Кол-во квартир в подъезде
-        int flatsInEntranceAmount = floorAmount * FLATS_ON_FLOOR_AMOUNT;
+        int entranceCapacity = floorAmount * flatsOnFloorAmount;
 
-        if (flatNumber > entranceAmount * flatsInEntranceAmount) {
+        if (flatNumber > entranceAmount * entranceCapacity) {
             return "Квартиры с таким номером в доме нет";
         }
 
-        int entranceNum = (int) Math.ceil((float) flatNumber / flatsInEntranceAmount);
+        int entranceNum = (int) Math.ceil((float) flatNumber / entranceCapacity);
+        int floorNum = (flatNumber % entranceCapacity == 0) ? floorAmount : (int) Math.ceil((float) (flatNumber % entranceCapacity) / flatsOnFloorAmount);
 
-        int floorNum;
-        if (flatNumber % flatsInEntranceAmount == 0) {
-            floorNum = floorAmount;
-        } else {
-            floorNum = (int) Math.ceil((float) (flatNumber % flatsInEntranceAmount) / FLATS_ON_FLOOR_AMOUNT);
-        }
+        int posOnTheFloor = flatNumber % flatsOnFloorAmount;
 
-        int posOnTheFloor = flatNumber % flatsInEntranceAmount % FLATS_ON_FLOOR_AMOUNT;
+//       Компилятор ругался, хотя вроде java стоит 21
+//       String posOnTheFloor = switch (posOnTheFloor) {
+//            case 1:
+//                yield  "слева от лифта, влево";
+//            case 2:
+//                yield "слева от лифта, вправо";
+//            case 3:
+//                yield "справа от лифта, влево";
+//            default:
+//                yield "справа от лифта, вправо";
+//         };
         String posOnTheFloorStr;
-        if (posOnTheFloor == 1) {
-            posOnTheFloorStr = "слева от лифта, влево";
-        } else if (posOnTheFloor == 2) {
-            posOnTheFloorStr = "слева от лифта, вправо";
-        } else if (posOnTheFloor == 3) {
-            posOnTheFloorStr = "справа от лифта, влево";
-        } else  {
-            posOnTheFloorStr = "справа от лифта, вправо";
+        switch (posOnTheFloor) {
+            case 1:
+                posOnTheFloorStr = "слева от лифта, влево";
+                break;
+            case 2:
+                posOnTheFloorStr = "слева от лифта, вправо";
+                break;
+            case 3:
+                posOnTheFloorStr = "справа от лифта, влево";
+                break;
+            default:
+                posOnTheFloorStr = "справа от лифта, вправо";
+                break;
         }
 
-        return entranceNum + " подъезд, " + floorNum + " этаж, " + posOnTheFloorStr;
+        return String.format("%d подъезд, %d этаж, %s", entranceNum, floorNum, posOnTheFloorStr);
 
     }
 }
