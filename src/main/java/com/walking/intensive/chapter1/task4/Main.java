@@ -10,12 +10,6 @@ public class Main {
         double b = 0;
         double c = 0;
 
-        System.out.println(solveQuadraticEquation(a, b, c));
-        System.out.println(solveQuadraticEquation(0, 0, 5));
-//        System.out.println(solveQuadraticEquation(1, 5, 4));
-//        System.out.println(solveQuadraticEquation(1, -1, -90));
-//        System.out.println(solveQuadraticEquation(1, 12, 36));
-//        System.out.println(solveQuadraticEquation(3, 4, 10));
     }
 
     /**
@@ -30,10 +24,21 @@ public class Main {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
+
         //        Место для вашего кода
+
+        if (a == 0 && b == 0 && c == 0 ){
+            return "Бесконечное количество решений.";
+        }
+
         if (a == 0 && b == 0) {
             return "Нет решений";
         }
+
+        if (a == 0) {
+            return "Количество решений: 1. Корень: " + c / b;
+        }
+
 
         double d = (b * b) - (4 * a * c);
         if (d < 0) {
