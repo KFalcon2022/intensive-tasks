@@ -6,8 +6,8 @@ package com.walking.intensive.chapter1.task5;
 
 public class Main {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 5;
+
+        double a = 10;
         double b = 8;
         double c = 9;
 
@@ -24,13 +24,13 @@ public class Main {
             double[] triAngles = getAngles(a, b, c);
             System.out.printf("Углы треугольника (в градусах): %.0f; %.0f; %.0f\n", triAngles[0], triAngles[1], triAngles[2]);
             System.out.printf("Радиус вписанной окружности: %.1f\n", getInscribedCircleRadius(a, b, c));
+            System.out.printf("Радиус описанной окружности: %.1f\n", getCircumradius(a, b, c));
         }
     }
 
     static double getAreaByHeron(double a, double b, double c) {
         double p = (a + b + c) / 2;
-        double triangleSquare = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        return triangleSquare;
+        return (Math.sqrt(p * (p - a) * (p - b) * (p - c)));
     }
 
     // Располагайте высоты по возрастанию.
@@ -104,20 +104,10 @@ public class Main {
 
     static double getInscribedCircleRadius(double a, double b, double c) {
         double p = (a + b + c) / 2;
-        double inCircleRadius = Math.sqrt(((p - a) * (p - b) * (p - b)) / p);
-        return inCircleRadius;
+        return Math.sqrt(((p - a) * (p - b) * (p - b)) / p);
     }
 
     static double getCircumradius(double a, double b, double c) {
-        
-
-        return 0; // Заглушка. При реализации - удалить
+        return (a * b * c) / (4 * getAreaByHeron(a, b, c));
     }
-
-    static double getAreaAdvanced(double a, double b, double c) {
-        //        Место для вашего кода
-
-        return 0; // Заглушка. При реализации - удалить
-    }
-
 }
