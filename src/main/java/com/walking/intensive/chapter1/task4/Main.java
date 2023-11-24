@@ -18,6 +18,9 @@ public class Main {
             return "Бесконечное колличество решений";
         } else if (a == 0 && b == 0) {
             return "Количество решений: 0.";
+        } else if (a == 0 && c != 0) {
+            double x1 = -c / b;
+            return "Количество решений: 1. Корень: " +  x1;
         }
         double discriminant = b * b - 4 * a * c;
         if (discriminant > 0) {
