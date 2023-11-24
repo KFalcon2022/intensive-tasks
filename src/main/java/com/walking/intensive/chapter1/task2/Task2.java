@@ -15,9 +15,9 @@ public class Task2 {
         int entranceCount = floorAmount * floorCount;
         int houseCount = entranceCount * entranceAmount;
 
-        String result = "Такого дома нет";
+        String result = "Такой квартиры не существует";
 
-        if (flatNumber > houseCount) {
+        if (flatNumber <= 0 || flatNumber > houseCount) {
             return result;
         }
 
