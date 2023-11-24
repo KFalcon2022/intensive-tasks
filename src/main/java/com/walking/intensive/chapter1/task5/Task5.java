@@ -8,30 +8,49 @@ import java.util.Arrays;
 public class Task5 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double test = getAreaByHeron(3, 2, 5);
-        System.out.println(5 / test);
+        /*
+        double a = 10;
+        double b = 6;
+        double c = 6;
+
+        double doubleArea = getAreaByHeron(a, b, c) * 2;
+        double sine1 = doubleArea / (a * b);
+        double sine2 = doubleArea / (b * c);
+        double sine3 = doubleArea / (a * c);
+
+        double ang1rad = Math.asin(sine1);
+        double ang2rad = Math.asin(sine2);
+        double ang3rad = Math.asin(sine3);
+        System.out.println("Сумма углов треугольника в градусах: " +
+                (Math.toDegrees(ang1rad) + Math.toDegrees(ang2rad) + Math.toDegrees(ang3rad)));
+        System.out.println("Сумма углов треугольника в радианах: " +
+                (ang1rad + ang2rad + ang3rad));
+
+        System.out.println("Площадь по формуле Герона:  " + getAreaByHeron(a, b, c));
+        System.out.println("Длины высот треугольника: " + Arrays.toString(getHeights(a, b, c)));
+        System.out.println("Длины медиан треугольника: " + Arrays.toString(getMedians(a, b, c)));
+        System.out.println("Длины биссектрис треугольника: " + Arrays.toString(getBisectors(a, b, c)));
+        System.out.println("Значения углов треугольника в градусах: " + Arrays.toString(getAngles(a, b, c)));
+        System.out.println("Радиус вписанной в треугольник окружности: " + getInscribedCircleRadius(a, b, c));
+        System.out.println("Радиус описанной вокруг треугольника окружности: " + getCircumradius(a, b, c));
+        System.out.println("Площадь по синусу: " + getAreaAdvanced(a, b, c));
+         */
 
     }
 
-    static double getAreaByHeron(double a, double b, double c) throws IllegalArgumentException, ArithmeticException{
+    static double getAreaByHeron(double a, double b, double c) {
         double halfPerimeter = (a + b + c) / 2;
-        double area = Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
-        if (area <= 0) {
-            if (area == 0) {
-                try {
-                    throw new IllegalArgumentException();
-                } catch (IllegalArgumentException e) {
-                    System.out.println("Треугольник вырожденный");
-                }
-            }
-        } else { // Math.sqrt(squaredArea) => NAN
-            try {
-                throw new ArithmeticException();
-            } catch (ArithmeticException e) {
+        double squaredArea = halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c);
+        boolean isExisting = a + b > c && b +c > a && a + c > b;
+
+        if (squaredArea <= 0 || !isExisting) {
+            if (squaredArea == 0) {
+                System.out.println("Треугольник вырожденный");
+            } else { // NaN
                 System.out.println("Треугольник не существует");
             }
         }
-        return area;
+        return Math.sqrt(squaredArea);
     }
 
     /**
@@ -58,6 +77,8 @@ public class Task5 {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
+        double triangleCheck = getAreaByHeron(a, b, c);
+
         double median1 = Math.sqrt(2 * (Math.pow(a, 2) + Math.pow(b, 2)) - Math.pow(c, 2)) / 2;
         double median2 = Math.sqrt(2 * (Math.pow(b, 2) + Math.pow(c, 2)) - Math.pow(a, 2)) / 2;
         double median3 = Math.sqrt(2 * (Math.pow(a, 2) + Math.pow(c, 2)) - Math.pow(b, 2)) / 2;
@@ -76,6 +97,8 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
+        double triangleCheck = getAreaByHeron(a, b, c);
+
         double perimeter = a + b + c;
 
         double bisector1 = Math.sqrt(b * c * perimeter * (perimeter - a * 2)) / (perimeter - a);
@@ -98,9 +121,13 @@ public class Task5 {
     static double[] getAngles(double a, double b, double c) {
         double doubleArea = getAreaByHeron(a, b, c) * 2;
 
-        double angle1 = (Math.asin(doubleArea / (a * b)) * 180) / Math.PI;
-        double angle2 = (Math.asin(doubleArea / (b * c)) * 180) / Math.PI;
-        double angle3 = (Math.asin(doubleArea / (a * c)) * 180) / Math.PI;
+        double sine1 = doubleArea / (a * b);
+        double sine2 = doubleArea / (b * c);
+        double sine3 = doubleArea / (a * c);
+
+        double angle1 = Math.toDegrees(Math.asin(sine1));
+        double angle2 = Math.toDegrees(Math.asin(sine2));
+        double angle3 = Math.toDegrees(Math.asin(sine3));
 
         double angelsSum = angle1 + angle2 + angle3;
 
@@ -123,6 +150,8 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
+        double triangleCheck = getAreaByHeron(a, b, c);
+
         double cosine = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
         double sine = Math.sqrt(1 - Math.pow(cosine, 2));
 
