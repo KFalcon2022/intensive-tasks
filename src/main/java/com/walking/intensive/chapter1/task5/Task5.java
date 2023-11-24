@@ -11,7 +11,7 @@ public class Task5 {
 
     }
 
-    static double getAreaByHeron(double a, double b, double c)  {
+    static double getAreaByHeron(double a, double b, double c) {
         if (a + b > c && a + c > b && b + c > a) {
             double p = (a + b + c) / 2;
             return Math.sqrt(p * (p - a) * (p - b) * (p - c));
@@ -33,9 +33,8 @@ public class Task5 {
             double[] heights = {2 * area / a, 2 * area / b, 2 * area / c};
             Arrays.sort(heights);
             return heights;
-        } else {
-            throw new IllegalArgumentException("нет");
         }
+        throw new IllegalArgumentException("нет");
     }
 
     /**
@@ -80,19 +79,19 @@ public class Task5 {
         return angles;
     }
 
-    static double getInscribedCircleRadius(double a, double b, double c){
-        return getAreaByHeron(a,b,c) / ((a + b + c) / 2);
+    static double getInscribedCircleRadius(double a, double b, double c) {
+            return getAreaByHeron(a, b, c) / ((a + b + c) / 2);
     }
 
     static double getCircumradius(double a, double b, double c) {
-        return (a * b * c) / (4 * getAreaByHeron(a,b,c));
+        return (a * b * c) / (4 * getAreaByHeron(a, b, c));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
 
-        double cosTheta = (a * a + b * b - c * c) / (2 * a * b);
-        double sinTheta = Math.sqrt(1 - cosTheta * cosTheta);
+        double cosA = (a * a + b * b - c * c) / (2 * a * b);
+        double sinA = Math.sqrt(1 - cosA * cosA);
 
-        return Math.round(0.5 * a * b * sinTheta);
+        return Math.round(0.5 * a * b * sinA);
     }
 }
