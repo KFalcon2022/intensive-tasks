@@ -6,15 +6,16 @@ public class Task2 {
     }
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
 
-        int entranceNumber = 0;
-        String flatPosition, flatDirection;
-
         int entranceCapacity = floorAmount * 4;
         int flatAmount = entranceCapacity * entranceAmount;
 
         if ( flatNumber < 1 || flatNumber > flatAmount || floorAmount <1 || entranceAmount < 1)  {
             return "Такой квартиры не существует";
         }
+
+        int entranceNumber = flatNumber / entranceCapacity + 1;
+        String flatPosition = "слева";
+        String flatDirection = "влево";
 
         for (int i = 1 ; i <= entranceAmount ; i++) {
             if (flatNumber <= (entranceCapacity * i)) {
@@ -26,12 +27,9 @@ public class Task2 {
         int flatNumberInEntrance = flatNumber - (entranceNumber-1) * entranceCapacity;
         int floorNumber = flatNumberInEntrance % 4 == 0 ? flatNumberInEntrance / 4 : (flatNumberInEntrance / 4) + 1;
 
-        if (flatNumberInEntrance % 4 == 0 || flatNumberInEntrance % 4 == 3) {
+        if (flatNumber % 4 == 0 || flatNumber % 4 == 3) {
             flatPosition = "справа";
             flatDirection = "вправо";
-        } else {
-            flatPosition = "слева";
-            flatDirection = "влево";
         }
 
         return String.format ("%d кв - %d подъезд, %d этаж, %s от лифта, %s",
