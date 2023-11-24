@@ -7,7 +7,7 @@ public class Task2 {
     public static void main(String[] args) {
         int floor = 10;
         int entrance = 3;
-        int flatNumber = 121;
+        int flatNumber = 41;
         System.out.println(getFlatLocation(floor, entrance, flatNumber));
     }
 
