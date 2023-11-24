@@ -5,19 +5,11 @@ package com.walking.intensive.chapter1.task3;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println(isLeap(2100));
+        System.out.println(isLeap(1600));
 
     }
 
     static boolean isLeap(int year) {
-        if (year % 4 == 0) {
-            if (year % 400 != 0 && year % 100 == 0) {
-                return false;
-            } else {
-                return true;
-            }
-        } else {
-            return false;
-        }
+        return (year % 4 == 0 && year % 100 != 0) || year % 400 == 0;
     }
 }
