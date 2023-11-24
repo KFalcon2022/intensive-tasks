@@ -15,6 +15,7 @@ public class Main {
 
         int lastNumber = age % 10;
         int last2Numbers = age % 100;
+
         if (age < 0) {
             return "Некорректный возраст";
         }
