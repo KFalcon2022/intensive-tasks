@@ -5,13 +5,12 @@ package com.walking.intensive.chapter1.task4;
  */
 public class Task4 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 0;
+
+        double a = 1;
         double b = 0;
         double c = 0;
 
         System.out.println(solveQuadraticEquation(a, b, c));
-
     }
 
     /**
@@ -26,8 +25,34 @@ public class Task4 {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
-        //        Место для вашего кода
+        String solution;
 
-        return null; // Заглушка. При реализации - удалить
+        if (a == 0) {
+            if (b == 0) {
+                if (c == 0) {
+                    solution = "Решений бесконечно";
+                } else {
+                    solution = "Количество решений: 0.";
+                }
+            } else {
+                int x = (int) (-c / b);
+                solution = "Количество решений: 1. Корень: " + x;
+            }
+        } else {
+            double discriminant = b * b - 4 * a * c;
+
+            if (discriminant > 0) {
+                int x2 = (int) ((-b + Math.sqrt(discriminant)) / (2 * a));
+                int x1 = (int) ((-b - Math.sqrt(discriminant)) / (2 * a));
+                solution = "Количество решений: 2. Корни: " + x1 + ";" + x2;
+            } else if (discriminant == 0) {
+                int x = (int) (-b / (2 * a));
+                solution = "Количество решений: 1. Корень: " + x;
+            } else {
+                solution = "Количество решений: 0.";
+            }
+        }
+
+        return solution;
     }
 }
