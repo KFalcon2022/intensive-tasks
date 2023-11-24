@@ -9,7 +9,6 @@ public class Task5 {
     public static void main(String[] args) {
 
     }
-
     static double getAreaByHeron(double a, double b, double c) {
         if (!testing(a, b, c)) {
             return 0;
