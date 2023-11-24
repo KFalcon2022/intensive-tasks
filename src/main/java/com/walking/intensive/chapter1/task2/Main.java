@@ -46,7 +46,7 @@ public class Main {
       return
           flatNum + " кв – " + entranceNum + " подъезд, " + floorNum + " этаж," + location;
     } else {
-      return "Такой квартиры в доме нет";
+      return "Такой квартиры в доме нет!";
     }
   }
 }
