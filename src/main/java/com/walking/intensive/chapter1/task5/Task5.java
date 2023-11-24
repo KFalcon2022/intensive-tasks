@@ -78,10 +78,8 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        double cosA = b*b+c*c-a*a/(2*b*c);
-        double sinA = Math.sqrt(1-cosA*cosA);
-        double S = b*c*sinA/2;
-
-        return S; // Заглушка. При реализации - удалить
+        double cosA = b * b + c * c - a * a / (2 * b * c);
+        double sinA = Math.sqrt(1 - cosA * cosA);
+        return b * c * sinA / 2;// Заглушка. При реализации - удалить
     }
 }
