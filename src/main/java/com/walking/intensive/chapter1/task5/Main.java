@@ -8,8 +8,7 @@ import java.util.TreeSet;
  */
 public class Main {
     public static void main(String[] args) {
-
-        double a = 13, b = 14, c = 15;
+        double a = 13, b = 0, c = 15;
 
         System.out.printf("Дано. Треугольник со сторонами: "
                                   + "a = %.2f, b = %.2f, c = %.2f%n", a, b, c);
@@ -38,7 +37,6 @@ public class Main {
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-
         double semiPerimeter = getSemiPerimeter(a, b, c);
 
         return Math.sqrt(semiPerimeter
@@ -51,7 +49,6 @@ public class Main {
      * Располагайте высоты по возрастанию.
      */
     static double[] getHeights(double a, double b, double c) {
-
         TreeSet<Double> heights = new TreeSet<>();
         heights.add(2 * getAreaByHeron(a, b, c) / a);
         heights.add(2 * getAreaByHeron(a, b, c) / b);
@@ -64,7 +61,6 @@ public class Main {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-
         TreeSet<Double> medians = new TreeSet<>();
         medians.add(Math.sqrt(2 * (a * a + c * c) - b * b) / 2);
         medians.add(Math.sqrt(2 * (a * a + b * b) - c * c) / 2);
@@ -77,7 +73,6 @@ public class Main {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-
         TreeSet<Double> bisectors = new TreeSet<>();
         bisectors.add(Math.sqrt(a * b * (a + b + c) * (a + b - c)) / (a + b));
         bisectors.add(Math.sqrt(a * c * (a + b + c) * (a + c - b)) / (a + c));
@@ -90,7 +85,6 @@ public class Main {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-
         TreeSet<Double> angles = new TreeSet<>();
         angles.add(radiansToDegrees(Math.acos((a * a + b * b - c * c) / (2 * a * b))));
         angles.add(radiansToDegrees(Math.acos((a * a + c * c - b * b) / (2 * a * c))));
@@ -100,17 +94,14 @@ public class Main {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-
         return getAreaByHeron(a, b, c) / getSemiPerimeter(a, b, c);
     }
 
     static double getCircumradius(double a, double b, double c) {
-
         return a * b * c / (4 * getAreaByHeron(a, b, c));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-
         double cosAlpha = (b * b + c * c - a * a) / (2 * b * c);
         double sinAlpha = Math.sqrt(1 - cosAlpha * cosAlpha);
 
@@ -118,25 +109,14 @@ public class Main {
     }
 
     static boolean isTriangleExists(double a, double b, double c) {
-
-        if (a <= 0 || b <= 0 || c <= 0) {
-            return false;
-        }
-
-        if (a + b > c && b + c > a && a + c > b) {
-            return true;
-        }
-
-        return false;
+        return a > 0 && b > 0 && c > 0 && (a + b > c && b + c > a && a + c > b);
     }
 
     static double getSemiPerimeter(double a, double b, double c) {
-
         return (a + b + c) / 2;
     }
 
     static double radiansToDegrees(double radians) {
-
         return (radians * 180) / Math.PI;
     }
 }
