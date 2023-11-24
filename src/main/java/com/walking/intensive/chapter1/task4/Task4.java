@@ -1,5 +1,4 @@
 package com.walking.intensive.chapter1.task4;
-
 import java.lang.Math;
 
 /**
