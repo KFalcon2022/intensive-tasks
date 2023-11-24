@@ -6,9 +6,10 @@ package src.main.java.com.walking.intensive.chapter1.task4;
 public class Task4 {
     public static void main(String[] args) {
         double a = 0;
-        double b = 0;
-        double c = 0;
+        double b = 1;
+        double c = 2;
 
+        System.out.println("Дискриминант: " + (b * b - 4 * a * c));
         System.out.println(solveQuadraticEquation(a, b, c));
     }
 
@@ -25,7 +26,16 @@ public class Task4 {
      */
     public static String solveQuadraticEquation(double a, double b, double c) {
         if ((a == 0) && (b == 0)) {
-            return "Выражение не явлется уравненением!";
+            if (c != 0) {
+                return "Количество решений: 0.";
+            }
+
+            return "Решений бесконечно";
+        }
+
+        if (a == 0) {
+            double root = -c / b;
+            return "Количество решений: 1. Корень: " + root;
         }
 
         double discriminant = b * b - 4 * a * c;
@@ -41,9 +51,9 @@ public class Task4 {
 
             if (rootOne < rootTwo) {
                 return "Количество решений: 2. Корни: " + rootOne + ";" + rootTwo;
-            } else {
-                return "Количество решений: 2. Корни: " + rootTwo + ";" + rootOne;
             }
+
+            return "Количество решений: 2. Корни: " + rootTwo + ";" + rootOne;
         }
 
         return "Количество решений: 0.";
