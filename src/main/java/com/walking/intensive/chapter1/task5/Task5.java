@@ -17,7 +17,6 @@ public class Task5 {
             return Math.sqrt(p * (p - a) * (p - b) * (p - c));
         }
         throw new IllegalArgumentException("не выраженный треугольник");
-
     }
 
     /**
