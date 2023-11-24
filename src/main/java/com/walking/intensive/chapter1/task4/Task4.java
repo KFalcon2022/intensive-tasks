@@ -5,29 +5,66 @@ package com.walking.intensive.chapter1.task4;
  */
 public class Task4 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 0;
-        double b = 0;
+
+        double a = 5;
+        double b = 5;
         double c = 0;
 
         System.out.println(solveQuadraticEquation(a, b, c));
-
     }
 
-    /**
-     * При формировании строки, корни уравнения должны указываться по возрастанию.
-     * <p>
-     * Примеры результирующей строки:
-     * <p>
-     * Количество решений: 2. Корни: -4;4
-     * <p>
-     * Количество решений: 1. Корень: 0
-     * <p>
-     * Количество решений: 0.
-     */
     static String solveQuadraticEquation(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        double root1 = 0;
+        double root2;
+        String zeroSolution = "Количество решений: 0.";
+        String oneSolution = "Количество решений: 1. Корень: ";
+        String twoSolutions = "Количество решений: 2. Корни: ";
+
+        if (a == 0) {
+            if (b == 0) {
+                if (c == 0) {
+                    return "Решений бесконечно";
+                } else {
+                    return zeroSolution;
+                }
+            } else {
+                root1 = -c / b;
+                return oneSolution + root1;
+            }
+        }
+
+        if (b == 0) {
+            if (c == 0) {
+                return oneSolution + root1;
+            } else if (-c / a > 0) {
+                root1 = -Math.sqrt(-c / a);
+                root2 = -root1;
+                return twoSolutions + root1 + ";" + root2;
+            } else {
+                return zeroSolution;
+            }
+        }
+
+        if (c == 0) {
+            root2 = -b / a;
+            return root2 > 0 ? twoSolutions + root1 + ";" + root2 : twoSolutions + root2 + ";" + root1;
+        }
+
+        double discriminant = Math.pow(b, 2) - 4 * a * c;
+
+        if (discriminant < 0) {
+            return zeroSolution;
+        }
+
+        if (discriminant == 0) {
+            root1 = -b / (2 * a);
+            return oneSolution + root1;
+        }
+
+        root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+        return root2 > root1 ? twoSolutions + root1 + ";" + root2 : twoSolutions + root2 + ";" + root1;
     }
 }
