@@ -9,7 +9,7 @@ public class Task3 {
         isLeap(year);
     }
     static boolean isLeap(int year) {
-        if ((year % 400 == 0) || (year % 4 == 0) && (year % 100 != 0)) {
+        if ((year % 40 == 0) || (year % 4 == 0) && (year % 100 != 0)) {
             return true;
         } else {
             return false;
