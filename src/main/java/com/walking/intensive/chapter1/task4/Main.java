@@ -15,7 +15,7 @@ public class Main {
     }
     static String solveQuadraticEquation(double a, double b, double c) {
         if (a == 0 && b == 0 && c == 0) {
-            return "Бесконечное колличество решений";
+            return "Решений бесконечно";
         } else if (a == 0 && b == 0) {
             return "Количество решений: 0.";
         } else if (a == 0 && c != 0) {
@@ -27,7 +27,7 @@ public class Main {
             double x1, x2;
             x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
             x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
-            return "Количество решений: 2, x1 = " + x1 + ", x2 = " + x2;
+            return "Количество решений: 2. Корни: -1;1 x1 " + x1 + ", x2 = " + x2;
 
         } else if (discriminant == 0) {
             double x;
