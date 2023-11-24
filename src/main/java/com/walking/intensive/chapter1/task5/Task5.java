@@ -15,13 +15,9 @@ public class Task5 {
         if (a + b > c && a + c > b && b + c > a) {
             double p = (a + b + c) / 2;
             return Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        } else {
-            try {
-                throw new IllegalAccessException("нет");
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
         }
+        throw new IllegalArgumentException("не выраженный треугольник");
+
     }
 
     /**
@@ -34,7 +30,7 @@ public class Task5 {
             Arrays.sort(heights);
             return heights;
         }
-        throw new IllegalArgumentException("нет");
+        throw new IllegalArgumentException("не выраженный треугольник");
     }
 
     /**
@@ -80,7 +76,7 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-            return getAreaByHeron(a, b, c) / ((a + b + c) / 2);
+        return getAreaByHeron(a, b, c) / ((a + b + c) / 2);
     }
 
     static double getCircumradius(double a, double b, double c) {
