@@ -67,20 +67,21 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        //        Место для вашего кода
-
-        return 0; // Заглушка. При реализации - удалить
+        double s = getAreaByHeron(a, b, c);
+        return 2 * s / (a + b + c);
     }
 
     static double getCircumradius(double a, double b, double c) {
-        //        Место для вашего кода
+        double s = getAreaByHeron(a, b, c);
+        return a * b * c / (4 * s);
 
-        return 0; // Заглушка. При реализации - удалить
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        //        Место для вашего кода
+        double cosA = b*b+c*c-a*a/(2*b*c);
+        double sinA = Math.sqrt(1-cosA*cosA);
+        double S = b*c*sinA/2;
 
-        return 0; // Заглушка. При реализации - удалить
+        return S; // Заглушка. При реализации - удалить
     }
 }
