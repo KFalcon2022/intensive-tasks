@@ -8,9 +8,9 @@ import java.util.Arrays;
 public class Task5 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 6;
-        double b = 6;
-        double c = 10;
+        double a = 3;
+        double b = 4;
+        double c = 5;
 
         System.out.println("Площадь по формуле Герона:  " + getAreaByHeron(a, b, c));
         System.out.println("Длины высот треугольника: " + Arrays.toString(getHeights(a, b, c)));
