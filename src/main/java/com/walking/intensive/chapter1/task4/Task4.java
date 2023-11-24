@@ -6,9 +6,9 @@ package com.walking.intensive.chapter1.task4;
 public class Task4 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 4;
-        double b = 12;
-        double c = 5;
+        double a = 5;
+        double b = 1;
+        double c = 4;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -27,44 +27,31 @@ public class Task4 {
      */
     static String solveQuadraticEquation(double a, double b, double c) {
 
-        double x1 = 0, x2 = 0;
-
         int solutionsNum = 0;
+        String roots = "";
+
         if (a == 0 && b == 0 && c == 0) {
-            solutionsNum = 1;
+            return "Решений бесконечно";
         } else if (a == 0 && b == 0 && c != 0) {
             solutionsNum = 0;
+        } else if (a != 0 && b == 0 && c == 0) {
+            solutionsNum = 1;
+            roots = " Корень: 0";
+        } else if (a == 0 && b != 0) {
+            solutionsNum = 1;
+            roots = " Корень: " + (int) ((-c) / b);
         } else {
-
             double discriminant = Math.pow(b, 2) - 4 * a * c;
-            System.out.println(discriminant);
+            System.out.println("discriminant = " + discriminant);
 
             if (discriminant > 0) {
-                x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-                solutionsNum++;
-                x2 = (-b - Math.sqrt(discriminant)) / (2*a);
-                solutionsNum++;
+                double x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                double x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                solutionsNum = 2;
+                roots = " Корни: " + (int) x1 + ";" + (int) x2;
             }
         }
 
-        System.out.println(x1);
-        System.out.println(x2);
-
-        String roots = "";
-        switch (solutionsNum) {
-            case (1):
-                roots = "Корень: " + x1;
-                break;
-            case (2):
-                roots = "Корни: " + x1 + ";" + x2;
-                break;
-            case (0):
-                roots = "";
-                break;
-            default:
-                roots = "Не бывает такого :) ";
-         };
-
-        return String.format("Количество решений: %d. %s", solutionsNum, roots);
+        return "Количество решений: " + solutionsNum + "." + roots;
     }
 }
