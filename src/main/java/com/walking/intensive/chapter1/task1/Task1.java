@@ -7,32 +7,33 @@ import java.util.Scanner;
  */
 public class Task1 {
     public static void main(String[] args) {
-        Scanner num = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Введите ваш возраст ");
-        int age = num.nextInt();
-        if (age < 0) {
-            System.out.println("Вы еще не родились. Введите число больше 0");
-        } else if (age >= 128) {
-            System.out.println("Вы превысили порог долгожительства. Введите число меньше 128");
-        } else {
-            System.out.println("Вам " + age + " " + getAgeString(age));
-        }
-        num.close();
+        int age = scanner.nextInt();
+        scanner.close();
+        System.out.print(getAgeString(age));
     }
 
-    private static final String one = "год";
-    private static final String two = "года";
-    private static final String three = "лет";
+    private static final String ONE_YEAR = "год";
+    private static final String SOME_YEARS = "года";
+    private static final String MANY_YEARS = "лет";
 
     static String getAgeString(int age) {
-        age %= 100;
-        if (age > 20) {
-            age %= 10;
+        if (age < 0) {
+            return "Вы еще не родились. Введите число больше 0";
+        } else if (age >= 128) {
+            return "Вы превысили порог долгожительства. Введите число меньше 128";
+        } else {
+            int num = age % 100;
+            if (num > 20) {
+                num %= 10;
+            }
+            String ageString = switch (num) {
+                case 1 -> ONE_YEAR;
+                case 2, 3, 4 -> SOME_YEARS;
+                default -> MANY_YEARS;
+            };
+            return "Вам " + age + " " + ageString;
         }
-        return switch (age) {
-            case 1 -> one;
-            case 2, 3, 4 -> two;
-            default -> three;
-        };
     }
 }
