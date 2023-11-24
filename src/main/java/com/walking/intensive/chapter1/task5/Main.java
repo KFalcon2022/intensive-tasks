@@ -20,7 +20,7 @@ public class Main {
         Arrays.stream(getHeights(a, b, c)).peek(x -> System.out.print("высота равна: ")).forEach(x -> System.out.printf("%.2f\n ", x));
         Arrays.stream(getMedians(a, b, c)).peek(x -> System.out.print("медиана равна: ")).forEach(x -> System.out.printf("%.2f\n ", x));
         Arrays.stream(getBisectors(a, b, c)).peek(x -> System.out.print("бисектриса равна: ")).forEach(x -> System.out.printf("%.2f\n ", x));
-        Arrays.stream(getAngles(a, b, c)).peek(x -> System.out.print("угол равен : ")).map(x -> x * 180 / Math.PI).forEach(x -> System.out.printf(" %.2f\n ", x));
+        Arrays.stream(getAngles(a, b, c)).peek(x -> System.out.print("угол равен : ")).forEach(x -> System.out.printf(" %.2f\n ", x));
         System.out.printf("Радиус вписанной окружности %.2f%n", getInscribedCircleRadius(a, b, c));
         System.out.printf("Радиус описанной окружностис %.2f%n", getCircumradius(a, b, c));
         System.out.printf("Площадь через 2 стороны и синус угла %.2f%n", getAreaAdvanced(a, b, c));
@@ -52,14 +52,12 @@ public class Main {
      * Располагайте высоты по возрастанию.
      */
     static double[] getHeights(double a, double b, double c) {
-        double h1;
-        double h2;
-        double h3;
+
         if (isExist(a, b, c)) {
             double[] angles = getNotSortedAngles(a, b, c);
-            h1 = a * Math.sin(angles[2]);
-            h2 = b * Math.sin(angles[0]);
-            h3 = c * Math.sin(angles[1]);
+            double h1 = a * Math.sin(angles[2]);
+            double h2 = b * Math.sin(angles[0]);
+            double h3 = c * Math.sin(angles[1]);
             double[] heights = {h1, h2, h3};
             Arrays.sort(heights);
             return heights;
@@ -73,15 +71,12 @@ public class Main {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        double mer1;
-        double mer2;
-        double mer3;
 
         if (isExist(a, b, c)) {
             double[] angles = getNotSortedAngles(a, b, c);
-            mer1 = Math.sqrt(a * a + 0.25 * c * c - a * c * Math.cos(angles[1]));
-            mer2 = Math.sqrt(b * b + 0.25 * a * a - a * b * Math.cos(angles[2]));
-            mer3 = Math.sqrt(c * c + 0.25 * b * b - b * c * Math.cos(angles[0]));
+            double mer1 = Math.sqrt(a * a + 0.25 * c * c - a * c * Math.cos(angles[1]));
+            double mer2 = Math.sqrt(b * b + 0.25 * a * a - a * b * Math.cos(angles[2]));
+            double mer3 = Math.sqrt(c * c + 0.25 * b * b - b * c * Math.cos(angles[0]));
             double[] meridians = {mer1, mer2, mer3};
             Arrays.sort(meridians);
             return meridians;
@@ -94,15 +89,12 @@ public class Main {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        double bis1;
-        double bis2;
-        double bis3;
 
         if (isExist(a, b, c)) {
             double[] angles = getNotSortedAngles(a, b, c);
-            bis1 = (a * Math.sin(angles[1])) / Math.sin(Math.PI - angles[1] - angles[2] / 2);
-            bis2 = b * Math.sin(angles[2]) / Math.sin(Math.PI - angles[2] - angles[0] / 2);
-            bis3 = c * Math.sin(angles[0]) / Math.sin(Math.PI - angles[0] - angles[1] / 2);
+            double bis1 = (a * Math.sin(angles[1])) / Math.sin(Math.PI - angles[1] - angles[2] / 2);
+            double bis2 = b * Math.sin(angles[2]) / Math.sin(Math.PI - angles[2] - angles[0] / 2);
+            double bis3 = c * Math.sin(angles[0]) / Math.sin(Math.PI - angles[0] - angles[1] / 2);
             double[] bisectors = {bis1, bis2, bis3};
             Arrays.sort(bisectors);
             return bisectors;
@@ -118,7 +110,7 @@ public class Main {
         double beta = Math.acos((-b * b + a * a + c * c) / (2 * a * c));
         double gama = Math.acos((-c * c + b * b + a * a) / (2 * b * a));
 
-        double[] doubles = {alfa, beta, gama};
+        double[] doubles = {alfa*180/Math.PI, beta*180/Math.PI, gama*180/Math.PI};
         Arrays.sort(doubles);
         return doubles;
     }
