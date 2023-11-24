@@ -16,7 +16,8 @@ public class Main {
         String flatLocation;
         final int flatsPerFloor = 4;
 
-        if (flatNumber > flatsPerFloor * floorAmount * entranceAmount || flatNumber <= 0) {
+        if (flatNumber > flatsPerFloor * floorAmount * entranceAmount || flatNumber <= 0 ||
+                floorAmount <= 0 || entranceAmount <= 0) {
             flatLocation = "Такой квартиры нет в доме";
         } else {
             int flatsPerEntrance = flatsPerFloor * floorAmount;
