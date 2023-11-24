@@ -89,8 +89,10 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        double cosC = (a * a + b * b - c * c) / (2 * a * b);
-        double sinC = Math.sqrt(1 - Math.pow(cosC, 2));
-        return Math.round(1000 * 0.5 * a * b * sinC) / 1000.0;
+
+        double cosTheta = (a * a + b * b - c * c) / (2 * a * b);
+        double sinTheta = Math.sqrt(1 - cosTheta * cosTheta);
+
+        return Math.round(0.5 * a * b * sinTheta);
     }
 }
