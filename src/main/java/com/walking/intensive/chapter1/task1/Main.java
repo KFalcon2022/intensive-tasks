@@ -6,29 +6,28 @@ package com.walking.intensive.chapter1.task1;
 public class Main {
     public static void main(String[] args) {
 
-        int age = 122;
+        int age = 10;
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
         String answerAge = " Ваш возраст ";
-        int result = age % 10;
+        int resultRemainder = age % 10;
+        int resultExclusion = age % 100;
 
-        if (result >= 5 && result <= 20 || (result % 10) == 0) {
+
+        if (resultExclusion >= 11 && resultExclusion <= 14 || resultRemainder >= 5 && resultRemainder <= 9 || resultRemainder == 0) {
             return answerAge + age + " лет";
         }
 
-        if (result >= 2 && result <= 4) {
+        if (resultRemainder >= 2 && resultRemainder <= 4) {
             return answerAge + age + " года";
 
-        }
-        else if (age == 1) {
+        } else if (age == 1) {
             return answerAge + age + " год";
         }
 
         return answerAge + age + " год";
     }
 }
-
-
 
