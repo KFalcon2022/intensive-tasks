@@ -10,8 +10,10 @@ public class Task3 {
     }
 
     static boolean isLeap(int year) {
-        //Место для вашего кода
-
-        return false; // Заглушка. При реализации - удалить
+        boolean isYearStatus = false;
+        isYearStatus = (year % 4 == 0) ? true: false;
+        isYearStatus = (year % 100 == 0) ? false: isYearStatus;
+        isYearStatus = (year % 400 == 0) ? true: isYearStatus;
+        return isYearStatus; // Заглушка. При реализации - удалить
     }
 }
