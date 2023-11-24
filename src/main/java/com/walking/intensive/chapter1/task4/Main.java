@@ -26,15 +26,15 @@ public class Main {
 
     static String solveQuadraticEquation(double a, double b, double c) {
         if (a == 0 && b == 0 && c == 0) {
-            return "бесконечное множество решений";
+            return "Бесконечное множество решений";
         }
 
         if (a == 0 && b == 0) {
-            return "некорректное уравнение";
+            return "Количество решений: 0.";
         }
 
         if (a == 0) {
-            return "уравнение не квадратное, x=" + (-c / b);
+            return "Количество решений: 1. Корень: " + (-c / b);
         }
 
         double discriminant = Math.pow(b, 2) - 4 * a * c;
@@ -46,9 +46,9 @@ public class Main {
         }
 
         if (discriminant == 0) {
-            double x = (-b) / (2 * a);
-            return "Количество решений: 1. Корень: " + x;
+            return "Количество решений: 1. Корень: " + (-b) / (2 * a);
         }
+
         return "Количество решений: 0.";
     }
 }
