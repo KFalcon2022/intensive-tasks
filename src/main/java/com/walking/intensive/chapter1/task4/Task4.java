@@ -1,4 +1,5 @@
 package com.walking.intensive.chapter1.task4;
+
 import java.lang.Math;
 
 /**
@@ -19,7 +20,7 @@ public class Task4 {
         if (a == 0 && b == 0 && c == 0) {
             return "Бесконечное множество решений";
         }
-        if (a == 0 && b == 0 && c != 0 || b == 0 && c > 0) {
+        if (a == 0 && b == 0 && c != 0) {
             return "invalid numbers";
         }
         if (b == 0 && c < 0) {
@@ -27,7 +28,7 @@ public class Task4 {
             double x2 = -Math.sqrt(-c / a);
             return "Количество решений: 2. Корни: " + Math.min(x1, x2) + ";" + Math.max(x1, x2);
         }
-        if (b == 0 && c == 0) {
+        if (b == 0 && c == 0 || a == 0 && c == 0) {
             return "Количество решений: 1. Корень: 0";
         }
         if (a == 0) {
