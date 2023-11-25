@@ -12,8 +12,19 @@ public class Task1 {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+
+        int x = age % 100;
+
+        if (x != 11 && x % 10 == 1) {
+            return "Вам " + age + " год";
+
+        } else if (x % 10 > 1 && x % 10 < 5 && x != 12 && x != 13 && x != 14) {
+            return "Вам " + age + " года";
+
+        } else {
+            return "Вам " + age + " лет";
+        }
     }
+
 }
