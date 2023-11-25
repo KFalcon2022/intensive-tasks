@@ -21,8 +21,6 @@ public class Task4 {
     }
 
     static String solveQuadraticEquation(double a, double b, double c) {
-        double discriminant = b * b - 4 * a * c;
-
         if (a == 0 && b == 0 && c == 0) {
             return "Решений бесконечно";
         }
@@ -31,11 +29,13 @@ public class Task4 {
             return "Количество решений: 0.";
         }
 
-        if (a == 0 && b != 0) {
+        if (a == 0) {
             int x = (int) (-c / b);
-            return "Количество решений: 1." + " Корень: " + x; // Не могу понять, почему по тестам в этом случае будет ответ 2,
-        }                                                      // ведь при переносе 2 в правую сторону уравнения (bx + c = 0 - это bx = -c) она станет с минусом.
-                                                               // Не знаю, в здесь чем я туплю.
+            return "Количество решений: 1." + " Корень: " + x;
+        }
+
+        double discriminant = b * b - 4 * a * c;
+
         if (discriminant > 0) {
             int x1 = (int) ((-b + Math.sqrt(discriminant)) / (2 * a));
             int x2 = (int) ((-b - Math.sqrt(discriminant)) / (2 * a));
@@ -49,14 +49,13 @@ public class Task4 {
             }
 
             return answer;
-
-        } else if (discriminant == 0) {
+        }
+        if (discriminant == 0) {
             int x = (int) (-b / 2 * a);
 
             return "Количество решений: 1. " + "Корень: " + x;
-
-        } else {
-            return "Количество решений: 0.";
         }
+
+        return "Количество решений: 0.";
     }
 }
