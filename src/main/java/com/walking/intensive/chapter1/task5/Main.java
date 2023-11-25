@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
 
-        double a = 75, b = 80, c = 85;
+        double a = 12, b = 13, c = 5;
         double[] answer;
 
         System.out.println("Площадь Герон");
@@ -166,24 +166,23 @@ public class Main {
      */
     static double[] getAngles(double a, double b, double c) {
 
-        double s = getAreaByHeron(a, b, c);
-
-        if (s == 0) {
+        if (!isTriangleReal(a, b, c)) {
             return null;
         }
 
         double[] answer = new double[3];
 
-        double heightB = getOneHeight(s, b);
-        double heightC = getOneHeight(s, c);
-
-        //треугольник существует (площадь не нулевая), поэтому можно смело делить
-        answer[0] = heightB / a; //угол между сторонами а b
-        answer[1] = heightB / c; //угол между сторонами b c
-        answer[2] = heightC / a; //угол между сторонами а c
-
+        answer[0] = getOneangle(a, b, c); //угол между сторонами b c
+        answer[1] = getOneangle(c, b, a); //угол между сторонами a b
+        answer[2] = getOneangle(b, a, c); //угол между сторонами а c
         Arrays.sort(answer);
+
         return answer;
+    }
+
+    static double getOneangle(double mainSideA, double sideB, double sideC) {
+        double cosAngle = (Math.pow(sideB, 2) + Math.pow(sideC, 2) - Math.pow(mainSideA, 2)) / (2 * sideB * sideC);
+        return Math.toDegrees(Math.acos(cosAngle));
     }
 
     /**
