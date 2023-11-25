@@ -4,15 +4,29 @@ import java.util.*;
 
 public class Task6 {
     public static void main(String[] args) {
-        System.out.println(primeFactorization(100));
+        System.out.println(primeFactorization(200356));
+        System.out.println(greatestCommonDivisor(54,24));
+        System.out.println(greatestCommonDivisor(124,1150));
+
 
 
     }
 
     static int greatestCommonDivisor(int a, int b) {
+        List<Integer> aPrimeList = primeFactorization(a);
+        List<Integer> bPrimeList = primeFactorization(b);
+        int GCD = 1;
+        for (int i = 0; i < bPrimeList.size(); i++) {
+            if (aPrimeList.contains(bPrimeList.get(i))) {
+                GCD*=bPrimeList.get(i);
+                // Если возникнет ситуация когда лист содержит два и более одинаковых значения подряд {..,2,2..} мы зануляем
+                // первое найденое значение, чтобы он больше его не мог найти в методе contains
+                aPrimeList.set(aPrimeList.indexOf(bPrimeList.get(i)),0);
+            }
+        }
 
 
-        return 0;
+        return GCD;
     }
 
     static int highestCommonFactor(int a, int b) {
@@ -46,6 +60,7 @@ public class Task6 {
                     if (number % i == 0) {
                         result.add(i);
                         number /= i;
+                        break;
                     }
                 }
             }
