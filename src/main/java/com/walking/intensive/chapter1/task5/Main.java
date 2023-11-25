@@ -56,9 +56,9 @@ public class Main {
     }
 
     static double[] getAngles(double a, double b, double c) {
-        double cosA = Math.cos((a * a + c * c - b * b) / (2 * a * c));
-        double cosB = Math.cos((a * a + b * b - c * c) / (2 * a * b));
-        double cosY = Math.cos((b * b + c * c - a * a) / (2 * b * c));
+        double cosA = Math.acos((a * a + c * c - b * b) / (2 * a * c));
+        double cosB = Math.acos((a * a + b * b - c * c) / (2 * a * b));
+        double cosY = Math.acos((b * b + c * c - a * a) / (2 * b * c));
 
         return getMinAvgMaxValue(Math.toDegrees(cosA), Math.toDegrees(cosB), Math.toDegrees(cosY));
     }
