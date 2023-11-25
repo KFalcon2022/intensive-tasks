@@ -17,9 +17,8 @@ public class Main {
 
     static double getAreaByHeron(double a, double b, double c) {
         //        Место для вашего кода
-        double p = (a + b + c) / 2;
-        double s = Math.sqrt(p*(p - a) * (p-b) * (p - c));
-        return s;
+        double p = getHalfOfPerimeter(a,b,c);
+        return  Math.sqrt(p * (p - a) * (p-b) * (p - c));
     }
 
     /**
@@ -27,7 +26,7 @@ public class Main {
      */
     static double[] getHeights(double a, double b, double c) {
         //        Место для вашего кода
-        double p = (a + b + c) / 2;
+        double p = getHalfOfPerimeter(a,b,c);
         double s = Math.sqrt(p*(p - a) * (p-b) * (p - c));
         double[] heights = new double[3];
         heights[0] = (2 * s) / a;
@@ -40,14 +39,11 @@ public class Main {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        double p = (a + b + c) / 2;
-        double s = Math.sqrt(p*(p - a) * (p-b) * (p - c));
         double[] medians = new double[3];
         medians[0] = Math.sqrt(2 * a * a + 2 * b * b - c * c ) / 2;
         medians[1] = Math.sqrt(2 * c * c + 2 * a * a - b * b ) / 2;
         medians[2] = Math.sqrt(2 * c * c + 2 * b * b - a * a ) / 2;
         return Arrays.stream(medians).sorted().toArray();
-//        return null; // Заглушка. При реализации - удалить
     }
 
     /**
@@ -55,8 +51,6 @@ public class Main {
      */
     static double[] getBisectors(double a, double b, double c) {
         //        Место для вашего кода
-        double p = (a + b + c) / 2;
-        double s = Math.sqrt(p*(p - a) * (p-b) * (p - c));
         double[] bisectors = new double[3];
         bisectors[0] = (Math.sqrt(a*b*(a+b+c)*(a+b-c))) / a+b;
         bisectors[1] = (Math.sqrt(a*c*(a+b+c)*(a-b+c))) / a+c;
@@ -78,13 +72,13 @@ public class Main {
 
     static double getInscribedCircleRadius(double a, double b, double c) {
         //        Место для вашего кода
-
-        return (a*b*c)/2;
+        double p = getHalfOfPerimeter(a,b,c);
+        return (Math.sqrt((p - a) * (p - b) * (p - c)) / p);
     }
 
-    static double getCircumradius(double a, double b, double c) {
+    static double getCircumRadius(double a, double b, double c) {
         //        Место для вашего кода
-        double p = (a + b + c) / 2;
+        double p = getHalfOfPerimeter(a,b,c);
         return (a*b*c)/(4 * Math.sqrt(p*(p-a)*(p-b)*(p-c)));
     }
 
@@ -95,12 +89,15 @@ public class Main {
     }
 
     static boolean isDegenerate(double a, double b, double c){
-        if ((a > (b + c)) && (b > (a + c)) && (c > (a + b))) {
+        if ((a >= (b + c)) && (b >= (a + c)) && (c >= (a + b))) {
             System.out.println("Треугольник не должен быть вырожденным и должен существовать.");
             return false;
-        } else {
-            return true;
         }
-    };
+        return true;
+    }
+
+    static double getHalfOfPerimeter (double a, double b, double c) {
+        return (a + b + c) / 2;
+    }
 
 }
