@@ -15,16 +15,17 @@ public class Task6 {
 
         System.out.println("Наименьшее общее кратное чисел: " + getSmallestCommonMultiple(a, b));
         System.out.println("Наибольший общий делитель чисел: " + getGreatestCommonDivisor(a, b));
+        System.out.println("Наибольший общий делитель чисел через алгоритм Евклида: " + getGreatestCommonDivisorByEuclid(a, b));
     }
 
     public static int getSmallestCommonMultiple(int a, int b) {
-        for (int i = 1; i <= a * b; i++){
+        for (int i = 1; i <= a * b; i++) {
             if ((i % a == 0) && (i % b == 0)) {
                 return i;
             }
         }
 
-        return a*b;
+        return a * b;
     }
 
     public static int getGreatestCommonDivisor(int a, int b) {
@@ -35,5 +36,19 @@ public class Task6 {
         }
 
         return 1;
+    }
+
+    public static int getGreatestCommonDivisorByEuclid(int a, int b) {
+        if (a > b) {
+            a -= b;
+        } else {
+            b -= a;
+        }
+
+        if (a == b) {
+            return a;
+        }
+
+        return getGreatestCommonDivisorByEuclid(a, b);
     }
 }
