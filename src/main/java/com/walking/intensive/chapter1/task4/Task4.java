@@ -5,7 +5,7 @@ package com.walking.intensive.chapter1.task4;
  */
 public class Task4 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
+
         double a = 0;
         double b = 0;
         double c = 0;
@@ -26,8 +26,29 @@ public class Task4 {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
-        //        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        if (a == 0) {
+            if (b == 0) {
+                if (c == 0) {
+                    return "Решений бесконечно";
+                }
+                return "Количество решений: 0.";
+            }
+            double root = -c / b;
+            return "Количество решений: 1. Корень: " + root;
+        }
+        double discriminant = Math.pow(b, 2) - 4 * a * c;
+        if (discriminant > 0) {
+            double firstRoot = (-b - Math.sqrt(discriminant)) / (2 * a);
+            double secondRoot = (-b + Math.sqrt(discriminant)) / (2 * a);
+            return "Количество решений: 2. Корни: " + firstRoot + ";" + secondRoot;
+        }
+        if (discriminant == 0) {
+            double root = -b / (2 * a);
+            return "Количество решений: 1. Корень: " + root;
+        }
+        return "Количество решений: 0.";
     }
 }
+
+
+
