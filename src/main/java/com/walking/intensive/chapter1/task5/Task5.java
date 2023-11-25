@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class Task5 {
     public static void main(String[] args) {
-
+        System.out.println(Arrays.toString(getAngles(12, 13, 5)));
 
     }
 
@@ -58,8 +58,8 @@ public class Task5 {
     static double[] getAngles(double a, double b, double c) {
         double cosA = (b * b + c * c - a * a) / (2 * b * c);
         double cosC = (b * b - c * c - a * a) / (2 * b * a);
-        double A = Math.cos(cosA);
-        double C = Math.cos(cosC);
+        double A = Math.toDegrees(Math.acos(cosA));
+        double C = Math.toDegrees(Math.acos(cosC));
         double B = 180 - A - C;
         double[] array = new double[]{A, C, B};
         Arrays.sort(array);
@@ -78,8 +78,8 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        double cosA = b * b + c * c - a * a / (2 * b * c);
+        double cosA = (b * b + c * c - a * a) / (2 * b * c);
         double sinA = Math.sqrt(1 - cosA * cosA);
-        return b * c * sinA / 2;// Заглушка. При реализации - удалить
+        return b * c * sinA / 2;
     }
 }
