@@ -56,11 +56,9 @@ public class Main {
             return 0;
         }
 
-        double p, s;
-        p = (a + b + c) / 2; //полупериметр
-        s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        double semiperimeter = (a + b + c) / 2;
 
-        return s;
+        return Math.sqrt(semiperimeter * (semiperimeter - a) * (semiperimeter - b) * (semiperimeter - c));
     }
 
     /**
@@ -195,12 +193,9 @@ public class Main {
             return 0;
         }
 
-        double s, r; //площадь, радиус
-        s = getAreaByHeron(a, b, c);
+        double s = getAreaByHeron(a, b, c);
 
-        r = 2 * s / (a + b + c);
-
-        return r;
+        return 2 * s / (a + b + c);
     }
 
     /**
