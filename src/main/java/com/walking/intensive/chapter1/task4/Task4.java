@@ -37,7 +37,7 @@ public class Task4 {
         } else if (c == 0) {
             result = (-b / a) < 0 ? "Количество решений: 2. Корни: " + (-b / a) + ";0" : "Количество решений: 2. Корни: 0;" + (-b / a);
         }
-        if (!result.isEmpty()) {
+        if (a == 0 || b == 0 || c == 0) {
             return result;
         }
         double discriminant = ((b * b) - 4 * a * c);
@@ -46,9 +46,9 @@ public class Task4 {
         } else if (discriminant == 0) {
             result = "Количество решений: 1. Корень: " + (-b / (2 * a));
         } else {
-            double x1 = (-b + Math.sqrt(discriminant)) / (2 * a);
-            double x2 = (-b - Math.sqrt(discriminant)) / (2 * a);
-            result = x1 < x2 ? "Количество решений: 2. Корни: " + x1 + ";" + x2 : "Количество решений: 2. Корни: " + x2 + ";" + x1;
+            double root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+            double root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+            result = root1 < root2 ? "Количество решений: 2. Корни: " + root1 + ";" + root2 : "Количество решений: 2. Корни: " + root2 + ";" + root1;
         }
         return result;
     }
