@@ -5,12 +5,12 @@ package com.walking.intensive.chapter1.task4;
  */
 public class Task4 {
     public static void main(String[] args) {
-/*        double a = 0;
+        double a = 0;
         double b = 0;
         double c = 0;
 
         System.out.println(solveQuadraticEquation(a, b, c));
-*/
+
     }
 
     static String solveQuadraticEquation(double a, double b, double c) {
