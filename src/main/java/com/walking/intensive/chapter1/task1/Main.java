@@ -6,7 +6,7 @@ package com.walking.intensive.chapter1.task1;
 public class Main {
     public static void main(String[] args) {
 
-        int age = 10;
+        int age = 1;
         System.out.println(getAgeString(age));
     }
 
