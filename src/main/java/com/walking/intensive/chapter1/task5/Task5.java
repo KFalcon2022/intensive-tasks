@@ -72,8 +72,7 @@ public class Task5 {
     }
 
     static double getCircumradius(double a, double b, double c) {
-        double semiPerimeter = (a + b + c) / 2;
-        return a * b * c / (4 * Math.sqrt(semiPerimeter(a, b, c) * (semiPerimeter(a, b, c) - a) * (semiPerimeter(a, b
+                return a * b * c / (4 * Math.sqrt(semiPerimeter(a, b, c) * (semiPerimeter(a, b, c) - a) * (semiPerimeter(a, b
                 , c) - b) * (semiPerimeter(a, b, c) - c)));
     }
 
