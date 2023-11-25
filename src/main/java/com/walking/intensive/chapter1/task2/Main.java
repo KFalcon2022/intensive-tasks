@@ -7,7 +7,7 @@ package com.walking.intensive.chapter1.task2;
 public class Main {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        System.out.println(getFlatLocation(10, 3, 121));
+        System.out.println(getFlatLocation(10, 3, 41));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
