@@ -8,7 +8,7 @@ public class Main {
 
         double a = 0;
         double b = 0;
-        double c = -5;
+        double c = 0;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -26,6 +26,10 @@ public class Main {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
+
+        if (a == 0 & b == 0 & c == 0) {
+            return "Решений не существует";
+        }
 
         String answer = "";
         byte answerCount = 0;
