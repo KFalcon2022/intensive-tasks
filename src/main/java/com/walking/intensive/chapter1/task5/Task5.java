@@ -56,12 +56,12 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        double cosA = (b * b + c * c - a * a) / (2 * b * c);
-        double cosC = (b * b - c * c - a * a) / (2 * b * a);
-        double A = Math.toDegrees(Math.acos(cosA));
-        double C = Math.toDegrees(Math.acos(cosC));
-        double B = 180 - A - C;
-        double[] array = new double[]{A, C, B};
+        double cosOfAngleA = (b * b + c * c - a * a) / (2 * b * c);
+        double cosOfAngleC = (b * b - c * c - a * a) / (2 * b * a);
+        double angleA = Math.toDegrees(Math.acos(cosOfAngleA));
+        double angleC = Math.toDegrees(Math.acos(cosOfAngleC));
+        double angleB = 180 - angleA - angleC;
+        double[] array = new double[]{angleA, angleC, angleB};
         Arrays.sort(array);
         return array;
     }
