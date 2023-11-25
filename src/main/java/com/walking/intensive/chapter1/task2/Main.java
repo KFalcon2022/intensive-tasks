@@ -24,15 +24,20 @@ public class Main {
         int amountFlats = floorAmount * entranceAmount * amountFlatsOnFloor;
         String location = "";
 
-        if (flatNumber > amountFlats || flatNumber <= 0) return "Квартиры с таким номером в доме не существует.";
+        if (flatNumber > amountFlats || flatNumber <= 0){
+            return "Квартиры с таким номером в доме не существует.";
+        }
 
-        if (floorAmount <= 0) return "Количество этажей не может быть меньше 1.";
+        if (floorAmount <= 0){
+            return "Количество этажей не может быть меньше 1.";
+        }
 
-        if (entranceAmount <= 0) return "Количество подъездов не может быть меньше 1.";
+        if (entranceAmount <= 0){
+            return "Количество подъездов не может быть меньше 1.";
+        }
 
         int searchableEntrance = (int) Math.ceil(flatNumber / (floorAmount * (double)amountFlatsOnFloor));  // Находим необходимый подъезд.
         int searchableFloor = (int) (Math.ceil(flatNumber / (double)amountFlatsOnFloor) % floorAmount);     // Находим необходимый этаж.
-
         location = flatNumber + " кв - " + searchableEntrance + " подъезд, " + searchableFloor + " этаж, ";
 
         switch (flatNumber % amountFlatsOnFloor) {
@@ -49,7 +54,7 @@ public class Main {
                 location += "справа от лифта, вправо.";
                 return location;
             default:
-                return "Нахождение квартиры на этаже неизвестно.";
+                return "Расположение квартиры на этаже неизвестно.";
         }
     }
 }
