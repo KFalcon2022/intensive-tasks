@@ -4,7 +4,7 @@ package com.walking.intensive.chapter1.task2;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(getFlatLocation(3, 4, 8));
+        System.out.println(getFlatLocation(10, 3, 41));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
@@ -12,7 +12,7 @@ public class Main {
         int flatTotal = floorAmount * entranceAmount * 4;
         int flatPerEntrance = flatTotal / entranceAmount;
         int flatEntrance = (flatNumber - 1) / flatPerEntrance + 1;
-        int flatFloor = (flatNumber - 1) % 12 / 4 + 1;
+        int flatFloor = (flatNumber - 1) % flatPerEntrance / 4 + 1;
 
         if (flatNumber > flatTotal) {
             return ("Квартиры с номером " + flatNumber + " нет в данном доме");
