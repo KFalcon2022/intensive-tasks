@@ -10,6 +10,7 @@ public class Task5 {
         System.out.println(getAreaByHeron(12, 13, 5));
         System.out.println(Arrays.toString(getHeights(12, 13, 5)));
         System.out.println(Arrays.toString(getAngles(3, 4, 5)));
+        System.out.println(getAreaAdvanced(12, 13, 5));
     }
 
     static double getAreaByHeron(double a, double b, double c) {
@@ -67,24 +68,22 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-
         return Math.sqrt(((semiPerimeter(a, b, c) - a) * (semiPerimeter(a, b, c) - b) * (semiPerimeter(a, b, c) - c)) / semiPerimeter(a, b, c));
     }
 
     static double getCircumradius(double a, double b, double c) {
-                return a * b * c / (4 * Math.sqrt(semiPerimeter(a, b, c) * (semiPerimeter(a, b, c) - a) * (semiPerimeter(a, b
+        return a * b * c / (4 * Math.sqrt(semiPerimeter(a, b, c) * (semiPerimeter(a, b, c) - a) * (semiPerimeter(a, b
                 , c) - b) * (semiPerimeter(a, b, c) - c)));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
+        double cosBC = (b * b + c * c - a * a) / (2 * b * c);
+        double sinBC = (Math.sqrt(1 - cosBC * cosBC));
 
-
-        return 0; // Заглушка. При реализации - удалить
+        return (c * b * sinBC) / 2;
     }
 
-    static double semiPerimeter(double a, double b, double c) {
+    static double semiPerimeter(double a, double b, double c) { // полупериметр треугольника
         return (a + b + c) / 2;
     }
-
-
 }
