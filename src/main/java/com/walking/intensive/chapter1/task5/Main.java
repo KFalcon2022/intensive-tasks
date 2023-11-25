@@ -10,7 +10,7 @@ public class Main {
 //        Для собственных проверок можете делать любые изменения в этом методе
         double a = 2;
         double b = 5;
-        double c = 5;
+        double c = 6;
         if (a + b >= c && a + c >= b && b + c >= a && a * b * c != 0){
         System.out.println("Площадь треугольника: " + getAreaByHeron(a, b, c));
         System.out.println("Высоты треугольника: " + Arrays.toString(getHeights(a, b, c)));
