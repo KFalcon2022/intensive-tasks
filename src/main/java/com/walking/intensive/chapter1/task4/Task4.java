@@ -15,8 +15,11 @@ public class Task4 {
     }
 
     static String solveQuadraticEquation(double a, double b, double c) {
+        if (a == 0 & b == 0 & c == 0) {
+            return "Решений бесконечное множество";
+        }
         if (a == 0 & b == 0) {
-            return "Действительных корней нет";
+            return "Количество решений: 0.";
         }
         if (a == 0 & b != 0) {
             double xOne = -c / b;
@@ -30,13 +33,10 @@ public class Task4 {
             double xTwo = ((-b) + Math.sqrt(D)) / (2 * a);
             return xOne > xTwo ? String.format("Количество решений: 2. Корни: %.3f; %.3f", xTwo, xOne) : String.format("Количество решений: 2. Корни: %.3f; %.3f", xOne, xTwo);
         } else if (D == 0) {
-            double xOne = (-b) / (2 * a);
-            if (xOne == -0) {
-                return String.format("Количество решений: 1. Корень %.3f", -xOne);
-            }
+            double xOne = b / (2 * a);
             return String.format("Количество решений: 1. Корень %.3f", xOne);
-        } else {
-            return "Действительных корней нет";
         }
+
+        return "Количество решений: 0.";
     }
 }
