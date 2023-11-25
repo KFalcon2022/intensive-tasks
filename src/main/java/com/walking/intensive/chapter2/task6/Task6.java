@@ -4,8 +4,6 @@ public class Task6 {
     public static void main(String[] args) {
 
         System.out.println(getMaxCommonDivisor(0, 20));
-        System.out.println(getMaxCommonDivisor(24, 20));
-        System.out.println(getMinCommonMultiple(0, 20));
         System.out.println(getMinCommonMultiple(24, 20));
 
     }
