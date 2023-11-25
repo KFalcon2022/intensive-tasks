@@ -13,7 +13,7 @@ public class Task2 {
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
 
         int FLAT_MAX_NUMBER = floorAmount * entranceAmount * 4;
-        if (flatNumber > FLAT_MAX_NUMBER) {
+        if (flatNumber > FLAT_MAX_NUMBER || flatNumber < 1) {
             return "Такой квартиры не существует";
         }
         int entranceNumber = (flatNumber - 1) / (FLAT_MAX_NUMBER / entranceAmount) + 1;
