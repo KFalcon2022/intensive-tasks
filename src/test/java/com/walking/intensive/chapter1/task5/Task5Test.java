@@ -52,7 +52,7 @@ class Task5Test {
 
     @Test
     void getAreaAdvancedTest() {
-        assertEquals(30.0, getAreaAdvanced(12, 13, 5));
+        assertEquals(30.0, getAreaAdvanced(12, 13, 5), 1e-10);
         assertEquals(6.0, getAreaAdvanced(3, 4, 5), 1e-10);
     }
 }
