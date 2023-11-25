@@ -6,23 +6,21 @@ import java.util.Arrays;
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
  */
 public class Task5 {
-    public static void main(String[] args) {
-
+    public static void Main(String[] args) {
     }
+
     static double getAreaByHeron(double a, double b, double c) {
-        if (!testing(a, b, c)) {
+        if (!isExisting(a, b, c)) {
             return 0;
         }
-        double p = (a + b + c) / 2;
-
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        return Math.sqrt(getHalfPerimeter(a, b, c) * (getHalfPerimeter(a, b, c) - a) * (getHalfPerimeter(a, b, c) - b) * (getHalfPerimeter(a, b, c) - c));
     }
 
     static double[] getHeights(double a, double b, double c) {
 
         double[] heights = new double[3];
 
-        if (!testing(a, b, c)) {
+        if (!isExisting(a, b, c)) {
             return heights;
         }
 
@@ -41,7 +39,7 @@ public class Task5 {
 
         double[] medians = new double[3];
 
-        if (!testing(a, b, c)) {
+        if (!isExisting(a, b, c)) {
             return medians;
         }
 
@@ -54,12 +52,11 @@ public class Task5 {
         return medians;
     }
 
-
     static double[] getBisectors(double a, double b, double c) {
 
         double[] bisectors = new double[3];
 
-        if (!testing(a, b, c)) {
+        if (!isExisting(a, b, c)) {
             return bisectors;
         }
         bisectors[0] = getBisector(a, b, c);
@@ -75,7 +72,7 @@ public class Task5 {
 
         double[] angles = new double[3];
 
-        if (!testing(a, b, c)) {
+        if (!isExisting(a, b, c)) {
             return angles;
         }
 
@@ -89,14 +86,14 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        if (!testing(a, b, c)) {
+        if (!isExisting(a, b, c)) {
             return 0;
         }
         return 2 * getAreaByHeron(a, b, c) / (a + b + c);
     }
 
     static double getCircumradius(double a, double b, double c) {
-        if (!testing(a, b, c)) {
+        if (!isExisting(a, b, c)) {
             return 0;
         }
 
@@ -112,20 +109,23 @@ public class Task5 {
         return b * c * sin / 2;
     }
 
-
     static double getMedian(double a, double b, double c) {
         return (1.0 / 2 * Math.sqrt(2 * (Math.pow(a, 2) + Math.pow(b, 2)) - Math.pow(c, 2)));
     }
 
     static double getBisector(double a, double b, double c) {
-        return Math.sqrt(a * b * (a + b + c) * (a + b - c)) / (a + b);
+        return Math.sqrt(a * b * getHalfPerimeter(a, b, c) * 2 * (a + b - c)) / (a + b);
     }
 
     static double getAngle(double a, double b, double c) {
         return Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / 2 / a / b));
     }
 
-    static boolean testing(double a, double b, double c) {
-        return !(a + b < c) && !(a + c < b) && !(c + b < a);
+    static boolean isExisting(double a, double b, double c) {
+        return (a + b >= c) && (a + c >= b) && (c + b >= a);
+    }
+
+    static double getHalfPerimeter(double a, double b, double c) {
+        return (a + b + c) / 2;
     }
 }
