@@ -5,8 +5,8 @@ package com.walking.intensive.chapter1.task5;
  */
 public class Task5 {
     public static void main(String[] args) {
-        //printInfo(12, 13, 5);
-       printInfo(1, 2, 24);
+       printInfo(12, 13, 5);
+       //printInfo(1, 2, 24);
     }
 
     static String doubleToRoundedString(double val) {
