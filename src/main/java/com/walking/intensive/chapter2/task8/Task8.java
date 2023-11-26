@@ -13,4 +13,3 @@ public class Task8 {
         return 0.0;
     }
 }
-
