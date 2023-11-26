@@ -14,7 +14,12 @@ public class Task6 {
     }
 
     static int getNod(int m, int n) {
-        // Ващ код
+        // Ваш код
+        return 0;
+    }
+
+    static int getNodByEuclideanAlgorithm(int m, int n){
+        // Ваш код
         return 0;
     }
 
