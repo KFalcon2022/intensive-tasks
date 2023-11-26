@@ -5,7 +5,8 @@ package com.walking.intensive.chapter1.task5;
  */
 public class Task5 {
     public static void main(String[] args) {
-        printInfo(11, 21, 24);
+        //printInfo(11, 21, 24);
+        printInfo(1, 2, 24);
     }
 
     static String doubleToRoundedString(double val) {
@@ -58,14 +59,19 @@ public class Task5 {
 
     }
 
-    static double getHalfOfPerimeter(double a, double b, double c) {
+    static double getHalfPerimeter(double a, double b, double c) {
         return (a + b + c) / 2;
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-        double p = getHalfOfPerimeter(a, b, c);
-
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        if (a > 0 && b > 0 & c > 0) {
+            double halfPerimeter = getHalfPerimeter(a, b, c);
+            double val = halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c);
+            if(val < 0) {
+                throw new IllegalArgumentException("Неверные входные параметры");
+            }
+            return Math.sqrt(val);
+        } else throw new IllegalArgumentException("Длина стороны треугольника не может быть отрицательным числом");
     }
 
     /**
@@ -82,7 +88,7 @@ public class Task5 {
         return result;
     }
 
-    static double getMedianByThreeSides(double a, double b, double c) {
+    static double getMedianThreeSides(double a, double b, double c) {
         return Math.sqrt(2 * a * a + 2 * b * b - c * c) / 2;
     }
 
@@ -92,15 +98,15 @@ public class Task5 {
     static double[] getMedians(double a, double b, double c) {
         double[] result = new double[3];
 
-        result[0] = getMedianByThreeSides(a, b, c);
-        result[1] = getMedianByThreeSides(c, b, a);
-        result[2] = getMedianByThreeSides(a, c, b);
+        result[0] = getMedianThreeSides(a, b, c);
+        result[1] = getMedianThreeSides(c, b, a);
+        result[2] = getMedianThreeSides(a, c, b);
 
         return result;
     }
 
-    static double getOneBisectorByHalfPerimeterAndThreeSides(double a, double b, double c) {
-        return (2 * Math.sqrt(a * b * getHalfOfPerimeter(a, b, c) * (getHalfOfPerimeter(a, b, c) - c))) / (a + b);
+    static double getOneBisector(double a, double b, double c) {
+        return (2 * Math.sqrt(a * b * getHalfPerimeter(a, b, c) * (getHalfPerimeter(a, b, c) - c))) / (a + b);
     }
 
     /**
@@ -109,14 +115,14 @@ public class Task5 {
     static double[] getBisectors(double a, double b, double c) {
         double[] result = new double[3];
 
-        result[0] = getOneBisectorByHalfPerimeterAndThreeSides(a, b, c);
-        result[1] = getOneBisectorByHalfPerimeterAndThreeSides(c, b, a);
-        result[2] = getOneBisectorByHalfPerimeterAndThreeSides(a, c, b);
+        result[0] = getOneBisector(a, b, c);
+        result[1] = getOneBisector(c, b, a);
+        result[2] = getOneBisector(a, c, b);
 
         return result;
     }
 
-    static double getOneAngleByThreeSides(double a, double b, double c) {
+    static double getOneAngle(double a, double b, double c) {
         return Math.toDegrees(Math.acos((a * a + b * b - c * c) / (2 * a * b)));
     }
 
@@ -126,21 +132,21 @@ public class Task5 {
     static double[] getAngles(double a, double b, double c) {
         double[] result = new double[3];
 
-        result[0] = getOneAngleByThreeSides(a, b, c);
-        result[1] = getOneAngleByThreeSides(c, b, a);
-        result[2] = getOneAngleByThreeSides(a, c, b);
+        result[0] = getOneAngle(a, b, c);
+        result[1] = getOneAngle(c, b, a);
+        result[2] = getOneAngle(a, c, b);
 
         return result;
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        double p = getHalfOfPerimeter(a, b, c);
+        double p = getHalfPerimeter(a, b, c);
 
         return Math.sqrt(((p - a) * (p - b) * (p - c)) / p);
     }
 
     static double getCircumradius(double a, double b, double c) {
-        double p = getHalfOfPerimeter(a, b, c);
+        double p = getHalfPerimeter(a, b, c);
 
         return a * b * c / (4 * Math.sqrt(p * (p - a) * (p - b) * (p - c)));
     }
