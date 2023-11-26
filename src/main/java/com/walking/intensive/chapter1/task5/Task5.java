@@ -8,9 +8,10 @@ import java.util.Arrays;
 public class Task5 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int a = 4;
-        int b = 5;
-        int c = 6;
+        double a = 4;
+        double b = 5;
+        double c = 6;
+        
         System.out.println("Если стороны треугольника равны: " + a + ", " + b + " и " + c + ", то:");
         System.out.println("Площадь треугольника равна " + getAreaByHeron(a, b, c));
         System.out.println("Длины высот треугольника: " + Arrays.toString(getHeights(a, b, c)));
