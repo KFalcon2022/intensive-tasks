@@ -5,15 +5,19 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Task1 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
+        int age = 111;
 
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        if (age % 10 == 1 && age / 10 != 1 && age / 10 != 11) {                        // 2-ое и 3-ье условие - проверка на то, что age не входит в диапазон от 10 до 19 и от 110 до 119
+            return "Вам " + String.valueOf(age) + " год";
+        } else if (age % 10 < 5 && age % 10 > 1 && age / 10 != 1 && age / 10 != 11) {
+            return "Вам " + String.valueOf(age) + " года";
+        } else {
+            return "Вам " + String.valueOf(age) + " лет";
+        }
     }
 }
