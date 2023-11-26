@@ -6,39 +6,51 @@ public class Task7 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Введите число n: ");
-        int n = sc.nextInt();
-
-        System.out.println("Введите число m: ");
-        int m = sc.nextInt();
-
         System.out.println("Значение максимального дружественного числа: ");
         int maxValue = sc.nextInt();
 
-        System.out.println("Наибольшее число из пары дружественных чисел: " + getMaxFriendlyNumber(n, m, maxValue));
+        System.out.println("Наибольшее число из пары дружественных чисел не более числа " + maxValue + ": " + getMaxFriendlyNumber(maxValue));
     }
 
-    public static int getMaxFriendlyNumber(int n, int m, int maxValue) {
-        if (n > 0 && m > 0) {
-            Math.max(getFriendlyNumber(n, m, maxValue), getFriendlyNumber(m, n, maxValue));
-        }
+    public static int getMaxFriendlyNumber(int maxValue) {
+        int firstNumber = 2;
+        int memory = 0;
 
-        return 0;
-    }
+        while (firstNumber < Integer.MAX_VALUE) {
+            int sum1 = 0;
+            int sum2 = 0;
 
-    private static int getFriendlyNumber(int num1, int num2, int maxValue) {
-        int sumDividers = 0;
+            for (int i = 1; i < firstNumber; i++) {
 
-        for (int i = 1; i < num1; ++i) {
-            if (num1 % i == 0) {
-                sumDividers += i;
+                if (firstNumber % i == 0) {
+                    sum1 += i;
+                }
             }
-        }
 
-        if (sumDividers == num2 && sumDividers <= maxValue) {
-            return sumDividers;
-        }
+            if(sum1 < maxValue){
+                memory = sum1;
+                firstNumber++;
+                continue;
+            }
+            else{
+                sum1 = memory;
+                firstNumber--;
+            }
 
+            int secondNumber = sum1;
+
+            for (int j = 1; j < secondNumber; j++) {
+
+                if (secondNumber % j == 0) {
+                    sum2 += j;
+                }
+            }
+
+            if ((sum2 == firstNumber) && (firstNumber != secondNumber)) {
+                return Math.max(sum1, sum2);
+            }
+            firstNumber--;
+        }
         return 0;
     }
 }
