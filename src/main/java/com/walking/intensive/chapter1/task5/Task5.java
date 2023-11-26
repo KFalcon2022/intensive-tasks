@@ -27,7 +27,6 @@ public class Task5 {
         double[] arr = {heigthA, heigthB, heigthC};
         Arrays.sort(arr);
         return arr;
-
     }
 
     /**
