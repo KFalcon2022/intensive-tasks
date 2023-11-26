@@ -36,16 +36,20 @@ public class Task4 {
             double root = -c / b;
             return "Количество решений: 1. Корень: " + root;
         }
+
         double discriminant = Math.pow(b, 2) - 4 * a * c;
+
         if (discriminant > 0) {
             double firstRoot = (-b - Math.sqrt(discriminant)) / (2 * a);
             double secondRoot = (-b + Math.sqrt(discriminant)) / (2 * a);
             return "Количество решений: 2. Корни: " + firstRoot + ";" + secondRoot;
         }
+
         if (discriminant == 0) {
             double root = -b / (2 * a);
             return "Количество решений: 1. Корень: " + root;
         }
+
         return "Количество решений: 0.";
     }
 }
