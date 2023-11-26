@@ -12,7 +12,7 @@ public class Task6 {
         System.out.println(primeFactorization(256));
         System.out.println(highestCommonFactor(100, 256));
         System.out.println(highestCommonFactor(2560, 8051));
-        System.out.println(highestCommonFactor(0,0));
+        System.out.println(highestCommonFactor(0, 0));
 
 
     }
@@ -52,35 +52,32 @@ public class Task6 {
     }
 
     static List<Integer> primeFactorization(int a) {
+        boolean isChange;
         List<Integer> result = new ArrayList<>();
         int number = Math.abs(a);
+        if (number == 0) {
+            System.out.println("Вы пытаетесь разложить 0 на простые множители");
+            return result;
+        }
         do {
-            if (number == 0) {
-                System.out.println("Вы пытаетесь разложить 0 на простые множители");
-                break;
-            }
-            if (number == 1) {
-                result.add(1);
-                break;
-            }
+            isChange = false;
             if (number % 2 == 0) {
                 result.add(2);
                 number /= 2;
+                isChange = true;
             } else {
-                for (int i = 3; i <= number; i = i + 2) {
-                    if (number == i) {
-                        result.add(i);
-                        number /= i;
-                        break;
-                    }
+                for (int i = 3; i <= Math.sqrt(number); i = i + 2) {
                     if (number % i == 0) {
                         result.add(i);
                         number /= i;
+                        isChange = true;
                         break;
                     }
                 }
             }
-        } while (number >= 1);
+        } while (isChange);
+        result.add(1);
+        result.add(number);
         Collections.sort(result);
         return result;
     }
