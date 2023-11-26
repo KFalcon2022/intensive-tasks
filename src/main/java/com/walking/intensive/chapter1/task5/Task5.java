@@ -93,8 +93,7 @@ public class Task5 {
     }
 
     static double getCircumradius(double a, double b, double c) {
-        double p = getSemiPerimeter(a, b, c);
-        return (a * b * c) / (4.0 * Math.sqrt(p * (p - a) * (p - b) * (p - c)));
+        return (a * b * c) / (4.0 * getAreaByHeron(a, b, c));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
