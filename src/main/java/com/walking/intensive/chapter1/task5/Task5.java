@@ -5,8 +5,8 @@ package com.walking.intensive.chapter1.task5;
  */
 public class Task5 {
     public static void main(String[] args) {
-        printInfo(11, 21, 24);
-       //printInfo(1, 2, 24);
+        //printInfo(12, 13, 5);
+       printInfo(1, 2, 24);
     }
 
     static String doubleToRoundedString(double val) {
@@ -25,7 +25,7 @@ public class Task5 {
                 if (value >= array[i]) {
                     break;
                 }
-                //Иначе передвигаем больший элемент дальше
+                //передвигаем больший элемент дальше
                 array[i + 1] = array[i];
             }
             // В освободившееся место вставляем вытащенное значение
@@ -34,7 +34,6 @@ public class Task5 {
     }
 
     static String arrayToString(double[] arr) {
-        sortArray(arr);
         String result = "[";
         for (int i = 0; i < arr.length; i++) {
             result = result.concat(doubleToRoundedString(arr[i]));
@@ -64,14 +63,14 @@ public class Task5 {
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-        if (a > 0 && b > 0 & c > 0) {
-            double halfPerimeter = getHalfPerimeter(a, b, c);
-            double val = halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c);
-            if(val < 0) {
-                throw new IllegalArgumentException("Неверные входные параметры");
-            }
-            return Math.sqrt(val);
-        } else throw new IllegalArgumentException("Длина стороны треугольника не может быть отрицательным числом");
+        if (a + b <= c || a + c <= b || c + b <= a) {
+            throw new IllegalArgumentException("Неверные входные параметры");
+        }
+
+        double halfPerimeter = getHalfPerimeter(a, b, c);
+        double val = halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c);
+
+        return Math.sqrt(val);
     }
 
     /**
@@ -84,6 +83,7 @@ public class Task5 {
         result[0] = 2 * s / a;
         result[1] = 2 * s / b;
         result[2] = 2 * s / c;
+        sortArray(result);
 
         return result;
     }
@@ -101,6 +101,7 @@ public class Task5 {
         result[0] = getMedianThreeSides(a, b, c);
         result[1] = getMedianThreeSides(c, b, a);
         result[2] = getMedianThreeSides(a, c, b);
+        sortArray(result);
 
         return result;
     }
@@ -118,6 +119,7 @@ public class Task5 {
         result[0] = getOneBisector(a, b, c);
         result[1] = getOneBisector(c, b, a);
         result[2] = getOneBisector(a, c, b);
+        sortArray(result);
 
         return result;
     }
@@ -135,6 +137,7 @@ public class Task5 {
         result[0] = getOneAngle(a, b, c);
         result[1] = getOneAngle(c, b, a);
         result[2] = getOneAngle(a, c, b);
+        sortArray(result);
 
         return result;
     }
