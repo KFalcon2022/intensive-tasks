@@ -2,7 +2,8 @@ package com.walking.intensive.chapter2.task6;
 
 public class Task6 {
     public static void main(String[] args) {
-
+        System.out.println(findGCD(4,5));
+        System.out.println(findLCM(4,5));
     }
 
     public static int findLCM(int num1, int num2) {
