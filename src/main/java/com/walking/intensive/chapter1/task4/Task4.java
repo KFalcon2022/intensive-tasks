@@ -1,11 +1,11 @@
 package com.walking.intensive.chapter1.task4;
 
 /**
- * РЈСЃР»РѕРІРёРµ: <a href="https://geometry-math.ru/homework/Java-parameter.html">СЃСЃС‹Р»РєР°</a>
+ * Условие: <a href="https://geometry-math.ru/homework/Java-parameter.html">ссылка</a>
  */
 public class Task4 {
     public static void main(String[] args) {
-//        Р”Р»СЏ СЃРѕР±СЃС‚РІРµРЅРЅС‹С… РїСЂРѕРІРµСЂРѕРє РјРѕР¶РµС‚Рµ РґРµР»Р°С‚СЊ Р»СЋР±С‹Рµ РёР·РјРµРЅРµРЅРёСЏ РІ СЌС‚РѕРј РјРµС‚РѕРґРµ
+//        Для собственных проверок можете делать любые изменения в этом методе
         double a = 5;
         double b = 1;
         double c = 4;
@@ -15,15 +15,15 @@ public class Task4 {
     }
 
     /**
-     * РџСЂРё С„РѕСЂРјРёСЂРѕРІР°РЅРёРё СЃС‚СЂРѕРєРё, РєРѕСЂРЅРё СѓСЂР°РІРЅРµРЅРёСЏ РґРѕР»Р¶РЅС‹ СѓРєР°Р·С‹РІР°С‚СЊСЃСЏ РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ.
+     * При формировании строки, корни уравнения должны указываться по возрастанию.
      * <p>
-     * РџСЂРёРјРµСЂС‹ СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµР№ СЃС‚СЂРѕРєРё:
+     * Примеры результирующей строки:
      * <p>
-     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 2. РљРѕСЂРЅРё: -4;4
+     * Количество решений: 2. Корни: -4;4
      * <p>
-     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 1. РљРѕСЂРµРЅСЊ: 0
+     * Количество решений: 1. Корень: 0
      * <p>
-     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 0.
+     * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
 
@@ -31,20 +31,20 @@ public class Task4 {
         String roots = "";
 
         if (a == 0 && b == 0 && c == 0) {
-            return "Р РµС€РµРЅРёР№ Р±РµСЃРєРѕРЅРµС‡РЅРѕ";
+            return "Решений бесконечно";
         }
 
         if (a == 0 && b == 0) {
-            return "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 0.";
+            return "Количество решений: 0.";
         }
 
         if (b == 0 && c == 0) {
-            return "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 1. РљРѕСЂРµРЅСЊ: 0";
+            return "Количество решений: 1. Корень: 0";
         }
 
         if (a == 0) {
             solutionsNum = 1;
-            roots =  String.format(" РљРѕСЂРµРЅСЊ: %.1f", (-c) / b);
+            roots =  String.format(" Корень: %.1f", (-c) / b);
         } else {
             double discriminant = Math.pow(b, 2) - 4 * a * c;
             System.out.println("discriminant = " + discriminant);
@@ -53,10 +53,10 @@ public class Task4 {
                 double x1 = (-b - Math.sqrt(discriminant)) / (2 * a);
                 double x2 = (-b + Math.sqrt(discriminant)) / (2 * a);
                 solutionsNum = 2;
-                roots = String.format(" РљРѕСЂРЅРё: %.1f; %.1f", x1, x2);
+                roots = String.format(" Корни: %.1f; %.1f", x1, x2);
             }
         }
 
-        return "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: " + solutionsNum + "." + roots;
+        return "Количество решений: " + solutionsNum + "." + roots;
     }
 }
