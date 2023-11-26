@@ -28,7 +28,6 @@ public class Main {
             firstThreeDigitsSum += n % 10;
             n /= 10;
         }
-
         return (firstThreeDigitsSum == lastThreeDigitsSum);
     }
 
@@ -40,6 +39,6 @@ public class Main {
                 happyCount++;
             }
         }
-        return happyCount/999999;
+        return happyCount/1000000;
     }
 }
