@@ -8,8 +8,8 @@ public class Task8 {
 
     }
 
-    static boolean isHappyTicket(int ticketNumber){
+    static double getHappyTicketChance(int ticketNumber){
         // Ваш код
-        return false;
+        return 0.0;
     }
 }
