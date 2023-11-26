@@ -5,8 +5,8 @@ package com.walking.intensive.chapter1.task5;
  */
 public class Task5 {
     public static void main(String[] args) {
-        //printInfo(11, 21, 24);
-        printInfo(1, 2, 24);
+        printInfo(11, 21, 24);
+       //printInfo(1, 2, 24);
     }
 
     static String doubleToRoundedString(double val) {
@@ -14,19 +14,19 @@ public class Task5 {
     }
 
     static void sortArray(double[] array) {
+        //Лучше поменять логическое условие на противоположное, поменять блоки ветвления местами и убрать else
         for (int left = 0; left < array.length; left++) {
             // Вытаскиваем значение элемента
             double value = array[left];
             // Перемещаемся по элементам, которые перед вытащенным элементом
             int i = left - 1;
             for (; i >= 0; i--) {
-                // Если вытащили значение меньшее — передвигаем больший элемент дальше
-                if (value < array[i]) {
-                    array[i + 1] = array[i];
-                } else {
-                    // Если вытащенный элемент больше — останавливаемся
+                // Если вытащенный элемент больше — останавливаемся
+                if (value >= array[i]) {
                     break;
                 }
+                //Иначе передвигаем больший элемент дальше
+                array[i + 1] = array[i];
             }
             // В освободившееся место вставляем вытащенное значение
             array[i + 1] = value;
