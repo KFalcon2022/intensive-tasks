@@ -13,25 +13,22 @@ public class Task1 {
 
     static String getAgeString(int age) {
 
-        int ostatok = age % 10;
+        int modAge = age % 10;
 
         if (age > 127) {
             return "Превышен порог возраста";
         }
 
-        else if ( ostatok == 1 && age != 11 && age != 111){
+        else if ( modAge == 1 && age != 11 && age != 111){
             return "Вам " + age + " год";
-        }
 
-        else if ((age > 10 && age < 15) | (age > 110 && age < 115)) {
+        } else if ((age > 10 && age < 15) | (age > 110 && age < 115)) {
             return "Вам " + age + " лет";
-        }
 
-        else if (ostatok > 1 && ostatok < 5) {
+        } else if (modAge > 1 && modAge < 5) {
             return "Вам " + age + " года";
-        }
 
-        else {
+        } else {
             return "Вам " + age + " лет";
         }
 
