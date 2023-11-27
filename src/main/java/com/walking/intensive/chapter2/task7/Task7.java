@@ -1,8 +1,9 @@
 package com.walking.intensive.chapter2.task7;
 
 public class Task7 {
+
     public static void main(String[] args) {
-        System.out.println(findMaxFriendlyNumber(-1_000));
+        System.out.println(findMaxFriendlyNumber(504));
     }
 
     public static int findMaxFriendlyNumber(int N) {
@@ -10,7 +11,6 @@ public class Task7 {
             if (Math.abs(N) >= 1_000_000) {
                 throw new IllegalArgumentException("N должно быть меньше 1,000,000");
             }
-
             int maxSum = 0;
             int maxNumber = 0;
             for (int n = 1; n < Math.abs(N); n++) {
@@ -20,18 +20,30 @@ public class Task7 {
                         sum += i;
                     }
                 }
-
-                if (sum < Math.abs(N) && sum > maxSum) {
-                    maxSum = sum;
-                    maxNumber = n;
+                if (sum > n && sum < N) {
+                    int pairSum = 0;
+                    for (int i = 1; i <= sum / 2; i++) {
+                        if (sum % i == 0) {
+                            pairSum += i;
+                        }
+                    }
+                    if (pairSum == n) {
+                        if (sum > maxSum && sum < N) {
+                            maxSum = sum;
+                            maxNumber = n;
+                        }
+                    }
                 }
             }
+            if (maxNumber == 0) {
+                throw new IllegalArgumentException("У заданного числа нет дружественных пар.");
+            }
             return maxNumber;
-
-        } catch (IllegalArgumentException e) {
-            System.out.println("Значение N за пределами допустимого диапазона: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Ошибка: " + e.getMessage());
             return 0;
         }
     }
 }
+
 
