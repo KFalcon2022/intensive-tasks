@@ -27,11 +27,9 @@ public class Task7 {
                             pairSum += i;
                         }
                     }
-                    if (pairSum == n) {
-                        if (sum > maxSum && sum < N) {
+                    if (pairSum == n && sum > maxSum && sum < N) {
                             maxSum = sum;
                             maxNumber = n;
-                        }
                     }
                 }
             }
