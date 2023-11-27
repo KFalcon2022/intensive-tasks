@@ -35,13 +35,14 @@ public class Task4 {
         if (a == 0) {
             if (b == 0) {
                 if (c == 0) {
-                    return "Количество решений: бесконечно";
+                    return "Решений бесконечно";
                 } else {
-                    return "Количество решенийЖ 0";
+                    return "Количество решений: 0.";
                 }
             } else {
                 double aZero = -c / b;
-                return "Количество решений: 1. Корень: " + aZero;
+                int rounedAZero = (int)aZero;
+                return "Количество решений: 1. Корень: " + rounedAZero;
             }
         } else {
 
@@ -51,12 +52,15 @@ public class Task4 {
             if (discriminant > 0) {
                 double firstMS = (-b + Math.sqrt(discriminant)) / (2 * a);
                 double secondMS = (-b - Math.sqrt(discriminant)) / (2 * a);
-                return "Количество решений: 2. Корни: " + Math.min(firstMS, secondMS) + ";" + Math.max(firstMS, secondMS);
+                int rounedFirstMS = (int) Math.floor(firstMS);
+                int rounedSecondMS = (int) Math.floor(secondMS);
+                return "Количество решений: 2. Корни: " + Math.min(rounedFirstMS, rounedSecondMS) + ";" + Math.max(rounedFirstMS,rounedSecondMS);
             } else if (discriminant == 0) {
-                double disZero = -b / (2 * a);
-                return "Количество решений: 1. Корень: " + disZero;
+                double disZero =  -b / (2 * a);
+                int rounedDisZero = (int)disZero;
+                return "Количество решений: 1. Корень: " + rounedDisZero;
             } else {
-                return "Количество решений: 0";
+                return "Количество решений: 0.";
             }
         }
     }
