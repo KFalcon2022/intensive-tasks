@@ -29,6 +29,7 @@ public class Task9 {
         for (int i = 0; i <= n; i++) {
             strMaxLength = sb.append(arrayMy[n][i]).append(" ").toString();
         }
+        sb = new StringBuilder();
         for (int i = 0; i <= n; i++) {
             while (j <= i) {
                 strCurrent += arrayMy[i][j] + " ";
