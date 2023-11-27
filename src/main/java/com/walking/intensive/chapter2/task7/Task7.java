@@ -13,44 +13,39 @@ public class Task7 {
     }
 
     public static int getMaxFriendlyNumber(int maxValue) {
-        int firstNumber = 2;
-        int memory = 0;
+        int x = maxValue - 1;
 
-        while (firstNumber < Integer.MAX_VALUE) {
-            int sum1 = 0;
-            int sum2 = 0;
+        while (x > 1) {
+            int sumFirst = x;
+            int secondNum = sumFirst;
+            int sumSecond = getSumDividers(secondNum);
+            int firstNum = sumSecond;
+            int newSumFirstNum = getSumDividers(firstNum);
 
-            for (int i = 1; i < firstNumber; i++) {
-
-                if (firstNumber % i == 0) {
-                    sum1 += i;
-                }
+            if (newSumFirstNum == sumFirst && firstNum != secondNum) {
+                return getMaxNum(firstNum, secondNum, maxValue);
             }
-
-            if(sum1 < maxValue){
-                memory = sum1;
-                firstNumber++;
-                continue;
-            }
-            else{
-                sum1 = memory;
-                firstNumber--;
-            }
-
-            int secondNumber = sum1;
-
-            for (int j = 1; j < secondNumber; j++) {
-
-                if (secondNumber % j == 0) {
-                    sum2 += j;
-                }
-            }
-
-            if ((sum2 == firstNumber) && (firstNumber != secondNumber)) {
-                return Math.max(sum1, sum2);
-            }
-            firstNumber--;
+            x--;
         }
         return 0;
+    }
+
+    private static int getSumDividers(int number) {
+        int sum = 0;
+        int x = number;
+
+        for (int i = 1; i < x; i++) {
+            if (x % i == 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+
+    private static int getMaxNum(int first, int second, int maxValue) {
+        if (first >= maxValue || second >= maxValue) {
+            return Math.min(first, second);
+        }
+        return Math.max(first, second);
     }
 }
