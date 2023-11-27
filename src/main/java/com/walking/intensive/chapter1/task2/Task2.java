@@ -27,11 +27,10 @@ public class Task2 {
             return "Такой квартиры не существует";
         } else if (floorAmount < 1) {
             return "Такого этажа не существует";
-        } else if(entranceAmount < 1) {
+        } else if (entranceAmount < 1) {
             return "Такого подъезда не существует";
         } else {
             return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + positionStr;
         }
-
     }
 }
