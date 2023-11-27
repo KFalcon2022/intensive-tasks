@@ -25,25 +25,19 @@ public class Task4 {
             if (b == 0) {
                 if (c == 0) {
                     return "Решений бесконечно";
-                } else {
-                    return zeroSolution;
                 }
-            } else {
-                root1 = -c / b;
-                return oneSolution + root1;
+                return zeroSolution;
             }
+            return oneSolution + (-c / b);
         }
 
         if (b == 0) {
-            if (c == 0) {
-                return oneSolution + root1;
-            } else if (-c / a > 0) {
+            if (-c / a > 0) {
                 root1 = -Math.sqrt(-c / a);
                 root2 = -root1;
                 return twoSolutions + root1 + ";" + root2;
-            } else {
-                return zeroSolution;
             }
+            return c == 0 ? oneSolution + root1 : zeroSolution;
         }
 
         if (c == 0) {
@@ -51,7 +45,7 @@ public class Task4 {
             return root2 > 0 ? twoSolutions + root1 + ";" + root2 : twoSolutions + root2 + ";" + root1;
         }
 
-        double discriminant = Math.pow(b, 2) - 4 * a * c;
+        double discriminant = b * b - 4 * a * c;
 
         if (discriminant < 0) {
             return zeroSolution;
