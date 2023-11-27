@@ -14,31 +14,25 @@ public class Task10 {
         String palindrome3 = "Я - арка края";
         System.out.println(isPalindrome(palindrome3));
 
-        System.out.println(isPalindrome("Это не палидром!"));
+        System.out.println(isPalindrome("Это не палиндром!"));
     }
 
     static boolean isPalindrome(String inputString) {
-        String stringOne = cleanString(inputString);
-        String stringTwo = cleanString(inputString);
-        stringTwo = reverseString(stringTwo);
+        StringBuilder stringOne = new StringBuilder(inputString.toLowerCase());
+        StringBuilder stringTwo = new StringBuilder(inputString.toLowerCase());
 
-        return stringOne.equalsIgnoreCase(stringTwo);
+        stringOne = cleanString(stringOne);
+        stringTwo = cleanString(stringTwo);
+        stringTwo.reverse();
+
+        return stringOne.compareTo(stringTwo) == 0;
     }
 
-    static String reverseString(String string) {
-        String result = "";
-        int strLength = string.length();
-        for (int i = 0; i < strLength; i++) {
-            result += string.charAt(strLength - 1 - i);
-        }
-        return result;
-    }
-
-    static String cleanString(String string) {
-        String result = "";
+    static StringBuilder cleanString(StringBuilder string) {
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < string.length(); i++) {
             if (Character.isLetter(string.charAt(i))) {
-                result += string.charAt(i);
+                result.append(string.charAt(i));
             }
         }
         return result;
