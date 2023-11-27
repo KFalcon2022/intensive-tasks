@@ -15,30 +15,36 @@ public class Task6 {
 
         System.out.println("Наименьшее общее кратное чисел: " + getSmallestCommonMultiple(a, b));
         System.out.println("Наибольший общий делитель чисел: " + getGreatestCommonDivisor(a, b));
-        System.out.println("Наибольший общий делитель чисел через алгоритм Евклида: " + getGreatestCommonDivisorByEuclid(a, b));
+        System.out.println("Наибольший общий делитель чисел через алгоритм Евклида: " + getGreatestCommonDivisorEuclidic(a, b));
     }
 
     public static int getSmallestCommonMultiple(int a, int b) {
-        for (int i = 1; i <= a * b; i++) {
+        int result = a*b;
+
+        for (int i = Math.min(a, b); i <= a * b; i+=Math.min(a, b)) {
             if ((i % a == 0) && (i % b == 0)) {
-                return i;
+                result = i;
+                break;
             }
         }
 
-        return a * b;
+        return result;
     }
 
     public static int getGreatestCommonDivisor(int a, int b) {
-        for (int i = Math.max(a, b); i >= 1; i--) {
+        int result = 1;
+
+        for (int i = Math.min(a, b); i >= 1; i--) {
             if ((a % i == 0) && (b % i == 0)) {
-                return i;
+                result = i;
+                break;
             }
         }
 
-        return 1;
+        return result;
     }
 
-    public static int getGreatestCommonDivisorByEuclid(int a, int b) {
+    public static int getGreatestCommonDivisorEuclidic(int a, int b) {
         if (a > b) {
             a -= b;
         } else {
@@ -49,6 +55,6 @@ public class Task6 {
             return a;
         }
 
-        return getGreatestCommonDivisorByEuclid(a, b);
+        return getGreatestCommonDivisorEuclidic(a, b);
     }
 }
