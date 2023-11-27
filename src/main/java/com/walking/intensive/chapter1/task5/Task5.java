@@ -8,12 +8,17 @@ import java.util.Arrays;
 public class Task5 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 3;
-        double b = 4;
+        double a = 12;
+        double b = 13;
         double c = 5;
-        //System.out.println(getAreaByHeron(a, b, c));
-        //System.out.println(Arrays.toString(getHeights(a, b, c)));
+        System.out.println(getAreaByHeron(a, b, c));
+        System.out.println(Arrays.toString(getHeights(a, b, c)));
         System.out.println(Arrays.toString(getMedians(a, b, c)));
+        System.out.println(Arrays.toString(getBisectors(a, b, c)));
+        System.out.println(Arrays.toString(getAngles(a, b, c)));
+        System.out.println(getInscribedCircleRadius(a, b, c));
+        System.out.println(getCircumradius(a, b, c));
+        System.out.println(getAreaAdvanced(a, b, c));
     }
 
     static double getAreaByHeron(double a, double b, double c) {
@@ -32,11 +37,7 @@ public class Task5 {
         double sqrt = Math.sqrt(semiperimeter * (semiperimeter - a)
                 * (semiperimeter - b) * (semiperimeter - c));
 
-        double heightToSideA = (2 / a) * sqrt;
-        double heightToSideB = (2 / b) * sqrt;
-        double heightToSideC = (2 / c) * sqrt;
-
-        double[] heightsArray = {heightToSideA, heightToSideB, heightToSideC};
+        double[] heightsArray = {(2 / a) * sqrt, (2 / b) * sqrt, (2 / c) * sqrt};
         Arrays.sort(heightsArray);
 
         return heightsArray;
@@ -61,35 +62,44 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        //        Место для вашего кода
+        double[] bisectorArray ={ (Math.sqrt(c * b * (a + b + c) * (c + b - a))) / (c + b),
+                (Math.sqrt(a * c * (a + b + c) * (a + c - b))) / (a + c),
+                (Math.sqrt(a * b * (a + b + c) * (a + b - c))) / (a + b) };
 
-        return null; // Заглушка. При реализации - удалить
+        Arrays.sort(bisectorArray);
+        return bisectorArray;
     }
 
     /**
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        double[] degreeArray = { Math.toDegrees(Math.acos(((a * a) + (b * b) - (c * c)) / (2 * a * b))),
+                Math.toDegrees(Math.acos(((a * a) + (c * c) - (b * b)) / (2 * a * c))),
+                Math.toDegrees(Math.acos(((c * c) + (b * b) - (a * a)) / (2 * b * c))) };
+
+        Arrays.sort(degreeArray);
+        return degreeArray;
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return 0; // Заглушка. При реализации - удалить
+        return (getAreaByHeron(a, b, c)) / ((a + b + c) / 2);
     }
 
     static double getCircumradius(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return 0; // Заглушка. При реализации - удалить
+        return a * b * c / (4 * getAreaByHeron(a, b, c));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        //        Место для вашего кода
+        // a^2 = b^2 + c^2 - 2*b*c*cos a - теорема косинусов
+        // sin^2 a + cos^2 b = 1 - основное тождество
+        // S = 1/2 * a * c * sin a - площадь треуголника
+        double preliminaryCosA = ((a * a) - (b * b) - (c * c)) / (2 * b *c);
+        double preliminarySinA = Math.sqrt(1 - (Math.pow(preliminaryCosA, 2)));
 
-        return 0; // Заглушка. При реализации - удалить
+        return 0.5 * b * c * preliminarySinA;
     }
 }
