@@ -7,10 +7,9 @@ public class Task1 {
     public static void main(String[] args) {
 
         int age = 127;
+        System.out.println(getAgeString(age));
 
-        // System.out.println(getAgeString(age));
-
-        for (int i = -1; i < 129 ; i++) {
+        for (int i = -1; i < 129; i++) {
             System.out.println(getAgeString(i));
 
         }
@@ -34,7 +33,8 @@ public class Task1 {
             return answerAge + age + " года";
 
         }
-         if (age == 1) {
+
+        if (age == 1) {
             return answerAge + age + " год";
         }
 
