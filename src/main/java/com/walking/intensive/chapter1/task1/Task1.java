@@ -18,6 +18,7 @@ public class Task1 {
     static String getAgeString(int age) {
         String answerAge = " Ваш возраст ";
 
+
         if (age < 0 || age > 127) {
             return " Возраст введен неверно ";
         }
