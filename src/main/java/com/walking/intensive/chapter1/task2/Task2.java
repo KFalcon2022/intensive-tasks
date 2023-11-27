@@ -9,35 +9,30 @@ public class Task2 {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        int flatAmount = 0;
-        int entranceNumber = 0; //номер подъезда
-        int floorNumber = 0; //номер этажа        String result = "";
-        String direction = "";
-        flatAmount = 4 * floorAmount * entranceAmount;
+        int flatAmount = 4 * floorAmount * entranceAmount;
         if (flatNumber > flatAmount || flatNumber <= 0) {
             return "Такой квартиры не существует";
         }
-        entranceNumber = (int) (Math.ceil((double) flatNumber / 4 / floorAmount));
-        floorNumber = ((int) (Math.ceil((double) flatNumber / 4))) % floorAmount;
+        int entranceNumber = (int) (Math.ceil((double) flatNumber / 4 / floorAmount));
+        int floorNumber = ((int) (Math.ceil((double) flatNumber / 4))) % floorAmount;
         if (floorNumber == 0) {
             floorNumber = floorAmount;
         }
-        System.out.println(flatNumber % 4);
+        String direction = "";
         switch (flatNumber % 4) {
             case (1):
-                direction = "слева от лифта, влево";
+                return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "слева от лифта, влево";
                 break;
             case (2):
-                direction = "слева от лифта, вправо";
+                return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "слева от лифта, вправо";
                 break;
             case (3):
-                direction = "справа от лифта, влево";
+                return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "справа от лифта, влево";
                 break;
             case (0):
-                direction = "справа от лифта, вправо";
+                return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "справа от лифта, вправо";
                 break;
         }
-        String result = flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + direction;
-        return result; // Заглушка. При реализации - удалить
+
     }
 }
