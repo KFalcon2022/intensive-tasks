@@ -9,7 +9,6 @@ public class Task9 {
     }
 
     static String getPascalTriangle(int n) {
-        StringBuilder sb = new StringBuilder();
         int[][] arrayMy = new int[n + 1][n + 1];
         int j = 0;
         for (int i = 0; i <= n; i++) {
@@ -23,26 +22,24 @@ public class Task9 {
             }
             j = 0;
         }
-        String stringResult = "";
-        String strMaxLength = "";
-        String strCurrent = "";
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i <= n; i++) {
-            strMaxLength = sb.append(arrayMy[n][i]).append(" ").toString();
+            sb.append(arrayMy[n][i]).append(" ");
         }
+        int maxLengthCurrentString = sb.length() - 1;
         sb = new StringBuilder();
+        StringBuilder resStrBuild = new StringBuilder();
         for (int i = 0; i <= n; i++) {
-            while (j <= i) {
-                strCurrent += arrayMy[i][j] + " ";
-                j++;
+            for (int k = 0; k <= i; k++) {
+                sb.append(arrayMy[i][k]);
+                if (k < i) {
+                    sb.append(" ");
+                }
             }
-            int lengthCurrentStr = (strMaxLength.length() - strCurrent.length()) / 2;
-            for (int k = 0; k <= lengthCurrentStr + 1; k++) {
-                strCurrent = " ".concat(strCurrent);
-            }
-            stringResult = sb.append(strCurrent).append("\n").toString();
-            strCurrent = "";
-            j = 0;
+            int lengthCurrentStr = (maxLengthCurrentString - sb.length()) / 2;
+            resStrBuild.append(" ".repeat(lengthCurrentStr)).append(sb).append("\n");
+            sb.setLength(0);
         }
-        return stringResult;
+        return resStrBuild.toString();
     }
 }
