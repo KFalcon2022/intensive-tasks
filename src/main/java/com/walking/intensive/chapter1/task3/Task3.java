@@ -11,7 +11,6 @@ public class Task3 {
 
     static boolean isLeap(int year) {
         //Место для вашего кода
-        if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))) return true;
-        return false; // Заглушка. При реализации - удалить
+        return (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0));// Заглушка. При реализации - удалить
     }
 }
