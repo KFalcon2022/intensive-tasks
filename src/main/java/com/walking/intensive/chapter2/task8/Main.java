@@ -2,7 +2,7 @@ package com.walking.intensive.chapter2.task8;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(getHappyTicketChance(1));
+        System.out.println(getHappyTicketChance(0));
     }
 
     static double getHappyTicketChance(int ticketNumber){
