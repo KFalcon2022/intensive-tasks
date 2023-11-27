@@ -6,12 +6,22 @@ package com.walking.intensive.chapter1.task1;
 public class Task1 {
     public static void main(String[] args) {
 
-        int age = 1;
-        System.out.println(getAgeString(age));
+        int age = 127;
+
+        // System.out.println(getAgeString(age));
+
+        for (int i = -1; i < 129 ; i++) {
+            System.out.println(getAgeString(i));
+
+        }
     }
 
     static String getAgeString(int age) {
         String answerAge = " Ваш возраст ";
+
+        if (age < 0 || age > 127) {
+            return " Возраст введен неверно ";
+        }
         int resultRemainder = age % 10;
         int resultExclusion = age % 100;
 
@@ -23,7 +33,8 @@ public class Task1 {
         if (resultRemainder >= 2 && resultRemainder <= 4) {
             return answerAge + age + " года";
 
-        } else if (age == 1) {
+        }
+         if (age == 1) {
             return answerAge + age + " год";
         }
 
