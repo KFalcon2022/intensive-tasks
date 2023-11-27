@@ -11,30 +11,26 @@ public class Task2 {
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
 
-        int flatQuantity = floorAmount*entranceAmount*4;
+        int flatQuantity = floorAmount * entranceAmount * 4;
         int position = flatNumber % 4;
-        String positionStr = "empty";
+        int entranceNumber = (flatNumber - 1)/(floorAmount * 4) + 1;
+        int floorNumber = (((flatNumber-(entranceNumber - 1) * (floorAmount * 4)) - 1) / 4) + 1;
+        String positionStr = switch (position) {
+            case (0) -> "справа от лифта, вправо";
+            case (1) -> "слева от лифта, влево";
+            case (2) -> "слева от лифта, вправо";
+            case (3) -> "справа от лифта, влево";
+            default -> "";
+        };
 
-        switch (position) {
-            case (0):
-                positionStr = "справа от лифта, вправо";
-                break;
-            case (1):
-                positionStr = "слева от лифта, влево";
-                break;
-            case (2):
-                positionStr = "слева от лифта, вправо";
-                break;
-            case (3):
-                positionStr = "справа от лифта, влево";
-                break;
-        }
-
-        if (flatNumber>flatQuantity|flatNumber==0) {
-            return "Квартиры не существует";
-        }
-        else {
-            return flatNumber + " кв - " + ((flatNumber-1)/(floorAmount*4)+1) + " подъезд, " + ((((flatNumber-(((flatNumber-1)/(floorAmount*4)))*(floorAmount*4))-1)/4)+1) + " этаж, " + positionStr;
+        if (flatNumber>flatQuantity|flatNumber < 1) {
+            return "Такой квартиры не существует";
+        } else if (floorAmount < 1) {
+            return "Такого этажа не существует";
+        } else if(entranceAmount < 1) {
+            return "Такого подъезда не существует";
+        } else {
+            return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + positionStr;
         }
 
     }
