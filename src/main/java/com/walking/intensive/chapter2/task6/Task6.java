@@ -1,7 +1,6 @@
 package com.walking.intensive.chapter2.task6;
 
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 
 /**
@@ -19,12 +18,8 @@ public class Task6 {
 
     static int getNoc(int m, int n) {
         //НОК - такое маленькое число, которое делится без остатка на число a и число b.
-        int foundNoc = 0;
-
         LinkedList<Integer> mKratinie = new LinkedList<>();
         LinkedList<Integer> nKratinie = new LinkedList<>();
-
-        int ceiling = Math.max(m, n);
 
         for (int i = 1; i <= m; i++) {
             mKratinie.add(i * m);
@@ -44,7 +39,7 @@ public class Task6 {
 
         for (int i = 1; i <= ceiling; i++) {
             if (m % i == 0 && n % i == 0) {
-                foundNod = i;
+                foundNod = i;   //обновляем каждый раз на максимальное
             }
         }
 
