@@ -10,6 +10,9 @@ public class Task2 {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
+       //общее кол-во квартир в доме
+        {System.out.println("такой квартиры нет");}
+
         //        Место для вашего кода
 
         return null; // Заглушка. При реализации - удалить
