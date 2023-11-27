@@ -3,7 +3,8 @@ package com.walking.intensive.chapter2.task7;
 public class Task7 {
 
     public static void main(String[] args) {
-        System.out.println(findMaxFriendlyNumber(504));
+
+        System.out.println(findMaxFriendlyNumber(1184 + 1210);
     }
 
     public static int findMaxFriendlyNumber(int N) {
@@ -28,8 +29,8 @@ public class Task7 {
                         }
                     }
                     if (pairSum == n && sum > maxSum && sum < N) {
-                            maxSum = sum;
-                            maxNumber = n;
+                        maxNumber = sum;
+                            maxSum = n;
                     }
                 }
             }
