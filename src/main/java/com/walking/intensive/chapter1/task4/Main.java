@@ -41,13 +41,14 @@ public class Main {
         } else if (discriminant > 0) {
             double xFirst = ((-b) + Math.sqrt(discriminant)) / 2 * a;
             double xSecond = ((-b) - Math.sqrt(discriminant)) / 2 * a;
-            if (xFirst >= xSecond) {
+            if (xFirst > xSecond) {
                 return "Количество решений: 2. Корни: " + xFirst + ";" + xSecond;
             } else if (xFirst < xSecond) {
                 return "Количество решений: 2. Корни: " + xSecond + ";" + xFirst;
+            } else {
+                return "Количество решений: 1. Корень: " + Math.abs(xFirst);
             }
         }
-
         return "";
     }
 }
