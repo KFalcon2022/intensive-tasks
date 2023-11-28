@@ -4,8 +4,7 @@ package com.walking.intensive.chapter1.task2;
  * Условие: <a href="https://geometry-math.ru/homework/Java-house.html">ссылка</a>
  */
 public class Task2 {
-    public static void main(String[] args) {//        Для собственных проверок можете делать любые изменения в этом методе
-        System.out.println(getFlatLocation(10, 3, -1));
+    public static void main(String[] args) {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
@@ -18,21 +17,17 @@ public class Task2 {
         if (floorNumber == 0) {
             floorNumber = floorAmount;
         }
-        String direction = "";
-        switch (flatNumber % 4) {
-            case (1):
-                return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "слева от лифта, влево";
-                break;
-            case (2):
-                return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "слева от лифта, вправо";
-                break;
-            case (3):
-                return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "справа от лифта, влево";
-                break;
-            case (0):
-                return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "справа от лифта, вправо";
-                break;
-        }
+        return switch (flatNumber % 4) {
+            case 1 ->
+                    flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "слева от лифта, влево";
+            case 2 ->
+                    flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "слева от лифта, вправо";
+            case 3 ->
+                    flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "справа от лифта, влево";
+            case 0 ->
+                    flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + "справа от лифта, вправо";
+            default -> "Ошибка"; // !Вопрос! Написал "default", т.к. компилятор переживал что switch покрывает не все возможные значения и не будет return. Как-то можно иначе это реализовать? Ведь, по факту, switch покрывает все возможные значения.
+        };
 
     }
 }
