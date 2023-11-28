@@ -1,5 +1,7 @@
 package com.walking.intensive.chapter1.task4;
 
+import java.util.Arrays;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-parameter.html">ссылка</a>
  */
@@ -28,31 +30,35 @@ public class Task4 {
     static String solveQuadraticEquation(double a, double b, double c) {
         //        Место для вашего кода
         String resultCount = "Количество решений: %d.";
-        String result;
+        int[] roots = new int[2];
 
         if (a == 0 && b == 0 && c == 0) {
-            result = "Решений бесконечно";
+            return "Решений бесконечно";
         } else if (a == 0 && b == 0 && c != 0) {
-            result = "Количество решений: 0.";
+            return "Количество решений: 0.";
         } else if (a != 0 && b == 0 && c == 0){
-            result = "Количество решений: 1. Корень: 0";
+            return "Количество решений: 1. Корень: 0";
         }
         else if (a == 0 && b != 0 && c != 0) {
-            result = String.format(resultCount, 1) + String.format(" Корень: %d", Math.round(c * (-1) / b));
+            roots[0] = (int) Math.round(c * (-1) / b);
+            return String.format(resultCount, 1) + String.format(" Корень: %d", roots[0]);
         } else {
-            double discr = Math.pow(b, 2) - 4 * a * c;
+            double discriminant  = Math.pow(b, 2) - 4 * a * c;
 
-            if (discr == 0) {
-                result = String.format(resultCount, 1) + String.format(" Корень: %d", Math.round((-1) * b / (2 * a)));
-            } else if (discr > 0) {
-                result = String.format(resultCount, 2) + String.format(" Корни: %d;%d",
-                        Math.round(((-1) * b - Math.sqrt(discr)) / (2 * a)),
-                        Math.round(((-1) * b + java.lang.Math.sqrt(discr)) / (2 * a)));
+            if (discriminant  == 0) {
+                roots[0] = (int) Math.round((-1) * b / (2 * a));
+                return String.format(resultCount, 1) + String.format(" Корень: %d", roots[0]);
+            } else if (discriminant  > 0) {
+                roots[0] = (int) Math.round(((-1) * b - Math.sqrt(discriminant )) / (2 * a));
+                roots[1] = (int) Math.round(((-1) * b + java.lang.Math.sqrt(discriminant )) / (2 * a));
+                Arrays.sort(roots);
+                return String.format(resultCount, 2) + String.format(" Корни: %d;%d",
+                        roots[0],
+                        roots[1]);
             } else {
-                result = String.format(resultCount, 0);
+                return String.format(resultCount, 0);
             }
         }
 
-        return result;
     }
 }
