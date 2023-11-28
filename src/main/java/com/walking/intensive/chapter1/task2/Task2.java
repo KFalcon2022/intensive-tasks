@@ -13,12 +13,12 @@ public class Task2 {
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         String flatLocation = "";
-        if (flatNumber <=0)
+        if (flatNumber <= 0)
             return "Ошибка ввода.";
         if (flatNumber > 4 * floorAmount * entranceAmount)
             return "Квартира номер " + flatNumber + " отсутсвует в этом доме.";
-        int entranceNumber = (flatNumber-1) / (floorAmount * 4) + 1; //Подъезд квартиры
-        int floorNumber = ((flatNumber - 1) / 4 + 1) - (floorAmount*(entranceNumber-1)); //Этаж квартиры
+        int entranceNumber = (flatNumber - 1) / (floorAmount * 4) + 1; //Подъезд квартиры
+        int floorNumber = ((flatNumber - 1) / 4 + 1) - (floorAmount * (entranceNumber - 1)); //Этаж квартиры
         switch (flatNumber % 4) {
             case 0 -> flatLocation = " справа от лифта и направо.";
             case 1 -> flatLocation = " слева от лифта и налево.";
