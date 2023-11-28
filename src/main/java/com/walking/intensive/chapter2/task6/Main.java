@@ -3,8 +3,8 @@ package com.walking.intensive.chapter2.task6;
 public class Main {
     public static void main(String[] args) {
 
-        int number1 = 270;
-        int number2 = 192;
+        int number1 = 777;
+        int number2 = 555;
 
         System.out.println(getNOKAndNOD(number1, number2));
     }
