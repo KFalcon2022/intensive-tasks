@@ -1,7 +1,5 @@
 package com.walking.intensive.chapter1.task2;
 
-import java.util.Scanner;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-house.html">ссылка</a>
  */
