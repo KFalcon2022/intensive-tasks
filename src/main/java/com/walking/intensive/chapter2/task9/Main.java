@@ -1,7 +1,5 @@
 package com.walking.intensive.chapter2.task9;
 
-import java.awt.event.WindowFocusListener;
-
 public class Main {
     public static void main(String[] args) {
 
