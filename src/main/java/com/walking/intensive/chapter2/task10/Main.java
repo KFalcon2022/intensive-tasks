@@ -8,14 +8,10 @@ public class Main {
 
     }
     static boolean isPalindrome(String s){
-        char[] sentanse = s.replaceAll("[^a-zA-Z]", "").toLowerCase().toCharArray();
-
-        for (int i = 0; i < sentanse.length/2; i++) {
-            if(sentanse[i]!=sentanse[sentanse.length-i-1]){
-                    return false;
-                }
-            }
-
+        StringBuilder sb = new StringBuilder(s.replaceAll("[^a-zA-Z]", "").toLowerCase());
+        if(!sb.toString().contentEquals(sb.reverse())){
+            return false;
+        }
         return true;
     }
 }
