@@ -100,3 +100,4 @@ public class Task5 {
         return (c * b * sinusA) / 2;
     }
 }
+// исправленная версия
