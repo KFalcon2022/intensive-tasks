@@ -70,7 +70,6 @@ public class Main {
             valueA = valueB;
             valueB = remainDiv;
         }
-        System.out.println(valueNOD);
         return valueNOD;
     }
 }
