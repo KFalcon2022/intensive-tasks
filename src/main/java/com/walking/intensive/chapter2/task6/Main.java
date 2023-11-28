@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         int number1 = 777;
-        int number2 = 555;
+        int number2 = 1313;
 
         System.out.println(getNOKAndNOD(number1, number2));
     }
