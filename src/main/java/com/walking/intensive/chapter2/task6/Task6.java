@@ -9,13 +9,24 @@ public class Task6 {
     }
 
     static int getNoc(int m, int n) {
-        // Ваш код
-        return 0;
+        if (getNod(m, n) == 0) {
+            return 0;
+        } else {
+            return Math.abs(m * n) / getNod(m, n);
+        }
     }
 
     static int getNod(int m, int n) {
-        // Ваш код
-        return 0;
+        if (m == 0 || n == 0) {
+            return 0;
+        }
+        int nod = 1;
+        for (int i = 1; i <= Math.min(m, n); i++) {
+            if (m % i == 0 && n % i == 0) {
+                nod = i;
+            }
+        }
+        return nod;
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n){
