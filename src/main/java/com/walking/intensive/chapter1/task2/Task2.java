@@ -13,16 +13,9 @@ public class Task2 {
             return "Такой квартиры не существует";
         }
 
-        int entranceNumber = flatNumber / entranceCapacity + 1;
+        int entranceNumber = (int) Math.ceil((double) flatNumber / entranceCapacity);
         String flatPosition = "слева";
         String flatDirection = "влево";
-
-        for (int i = 1 ; i <= entranceAmount ; i++) {
-            if (flatNumber <= (entranceCapacity * i)) {
-                entranceNumber = i;
-                break;
-            }
-        }
 
         int flatNumberInEntrance = flatNumber - (entranceNumber-1) * entranceCapacity;
         int floorNumber = flatNumberInEntrance % 4 == 0 ? flatNumberInEntrance / 4 : (flatNumberInEntrance / 4) + 1;
