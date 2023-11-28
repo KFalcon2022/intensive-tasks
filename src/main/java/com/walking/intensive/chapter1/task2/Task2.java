@@ -5,35 +5,38 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Task2 {
     public static void main(String[] args) {
-        int floorAmount = 2;
-        int entranceAmount = 2;
-        int flatNumber = 9;
-        int secondFlatFloor = 4;
+        int floorAmount = 10;
+        int entranceAmount = 3;
+        int flatNumber = 88;
 
-        if (inCorrectEnter(floorAmount, entranceAmount, flatNumber, secondFlatFloor)) {
-            System.out.println(getFlatLocation(floorAmount, flatNumber, secondFlatFloor));
+        System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber));
+
+    }
+
+    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
+
+        if (inCorrectEnter(floorAmount, entranceAmount, flatNumber)) {
+
+            int floorFlat = getFloorFlat(floorAmount, flatNumber);
+            int entranceFlat = getEntranceFlat(floorAmount, flatNumber);
+            String positionFlat = getPositionFlat(flatNumber);
+
+            return flatNumber + " кв - " + entranceFlat + " подъезд, " + floorFlat + " этаж, " + positionFlat;
         }
-    }
-
-    public static String getFlatLocation(int floorAmount, int flatNumber, int secondFlatFloor) {
-
-        int floorFlat = getFloorFlat(floorAmount, flatNumber, secondFlatFloor);
-        int entranceFlat = getEntranceFlat(floorAmount, flatNumber, secondFlatFloor);
-        String positionFlat = getPositionFlat(flatNumber, secondFlatFloor);
-        return "Квартира номер " + flatNumber + " находится в подъезде номер " + entranceFlat + " на " + floorFlat + " этаже, " + positionFlat;
+        return "";
 
     }
 
-    public static int getEntranceFlat(int floorAmount, int flatNumber, int secondFlatFloor) {
+    public static int getEntranceFlat(int floorAmount, int flatNumber) {
 
-        return (int) Math.ceil((double) flatNumber / (floorAmount * secondFlatFloor));
+        return (int) Math.ceil((double) flatNumber / (floorAmount * 4));
     }
 
-    public static int getFloorFlat(int floorAmount, int flatNumber, int secondFlatFloor) {
-        return (int) Math.ceil(Math.ceil((double) flatNumber / secondFlatFloor) - ((getEntranceFlat(floorAmount, flatNumber, secondFlatFloor)-1) * floorAmount ));
+    public static int getFloorFlat(int floorAmount, int flatNumber) {
+        return (int) Math.ceil(Math.ceil((double) flatNumber / 4) - ((getEntranceFlat(floorAmount, flatNumber) - 1) * floorAmount));
     }
 
-    public static boolean inCorrectEnter(int florAmount, int entranceAmount, int flatNumber, int secondFlatFloor) {
+    public static boolean inCorrectEnter(int florAmount, int entranceAmount, int flatNumber) {
         if (florAmount < 1) {
             System.out.println("В доме нет подземных этажей");
             return false;
@@ -46,16 +49,16 @@ public class Task2 {
             System.out.println("В доме не может быть квартиры с отрицательным номером");
             return false;
         }
-        if (flatNumber > florAmount * entranceAmount * secondFlatFloor) {
+        if (flatNumber > florAmount * entranceAmount * 4) {
             System.out.println("Такой квартиры в доме нет");
             return false;
         }
         return true;
     }
 
-    public static String getPositionFlat(int flatNumber, int secondFlatFloor) {
+    public static String getPositionFlat(int flatNumber) {
 
-        return switch (flatNumber % secondFlatFloor) {
+        return switch (flatNumber % 4) {
             case 0 -> "справа от лифта, вправо";
             case 1 -> "справа от лифта, влево";
             case 2 -> "слева от лифта, вправо";
