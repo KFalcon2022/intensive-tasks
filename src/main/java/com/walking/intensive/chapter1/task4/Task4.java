@@ -6,9 +6,9 @@ package com.walking.intensive.chapter1.task4;
 public class Task4 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 1;
-        double b = 0;
-        double c = 1;
+        double a = 2;
+        double b = 1;
+        double c = 0;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -29,13 +29,13 @@ public class Task4 {
         if (a == 0 && b == 0 && c == 0) {
             return "Решений бесконечно";
         }
-        if (a == 0 && b == 0 && c == 5) {
+        if (a == 0 && b == 0 && (c < 0 || c > 0)) {
             return "Количество решений: 0.";
         }
         int diskriminant = (int) ((b * b) - (4 * a * c));
 
         if (diskriminant < 0) {
-            return "Количество решений: 0.";
+            return "Корней нет";
         }
         if (diskriminant == 0) {
             int x = (int) -(b / (2 * a));
