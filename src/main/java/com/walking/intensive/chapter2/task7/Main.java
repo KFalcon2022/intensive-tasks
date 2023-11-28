@@ -4,29 +4,40 @@ public class Main {
     public static void main(String[] args) {
         int max = 1000000;
 
-        System.out.println("РќР°РёР±РѕР»СЊС€РµРµ С‡РёСЃР»Рѕ РёР· РїР°СЂС‹ РґСЂСѓР¶РµСЃС‚РІРµРЅРЅС‹С… С‡РёСЃРµР», РЅРѕ РјРµРЅСЊС€Рµ ,С‡РµРј " + max + ": " + findAmicableNumbers(max));
+        System.out.println("Наибольшее число из пары дружественных чисел, сумма которых максимальна среди всех пар дружественных чисел, большее из которых меньше " + max + ": " + findAmicableNumbers(max));
     }
-
     static int findAmicableNumbers(int max) {
-        int first = 2, second = 0, firstSum = 0, secondSum = 0, firstAmicable, secondAmicable;
-        for (; first < max; first++) { // РЈРІРµР»РёС‡РёРІР°РµРј РїРµСЂРІРѕРµ С‡РёСЃР»Рѕ РґРѕ РјР°РєСЃРёРјР°Р»СЊРЅРѕ Р·Р°РґР°РЅРЅРѕРіРѕ
-            for (int i = 0; i < first; i++) {
-                if (first % i == 0) { // РС‰РµРј РґРµР»РёС‚РµР»Рё РїРµСЂРІРѕРіРѕ С‡РёСЃР»Р°
-                    firstSum += i; // РЎРєР»Р°РґС‹РІР°РµРј РґРµР»РёС‚РµР»Рё РїРµСЂРІРѕРіРѕ С‡РёСЃР»Р°
+        int first, second = 0, firstSum = 0, secondSum = 0, firstAmicable = 0, secondAmicable = 0;
+        for (first = 0; first < max; first++) { // Пока потенциальные дружественные числа не превысят заданный порог
+            for (int i = 1; i * i < first; i++) {
+                if (first % i == 0) { // Ищем делители первого числа
+                    if (i == 1 || i == first / i) {
+                        firstSum += i; // Сумма делителей первого числа
+                    } else {
+                        firstSum += i + first / i;
+                    }
                 }
             }
-            for (int i = 0; i < firstSum; i++){
-                if (firstSum % i == 0) { //РС‰РµРј РґРµР»РёС‚РµР»Рё РІС‚РѕСЂРѕРіРѕ С‡РёСЃР»Р°
-                    secondSum += i; // РЎРєР»Р°РґС‹РІР°РµРј РґРµР»РёС‚РµР»Рё РІС‚РѕСЂРѕРіРѕ С‡РёСЃР»Р°
+            for (int i = 1; i * i < firstSum; i++) {
+                if (firstSum % i == 0) { //Ищем делители второго числа
+                    if (i == 1 || i == firstSum / i) {
+                        secondSum += i;
+                    } else {
+                        secondSum += i + firstSum / i;
+                    }
+                }
+                if (first == secondSum) { //Сравниваем, равняется ли первое число сумме делителей второго
+                    second = firstSum; //Если да, то присваиваем второму числу значение суммы первого числа
                 }
             }
-            if (first == secondSum && second == firstSum){
-                firstAmicable = first;
+            if (first == secondSum && second == firstSum && first + second > firstAmicable + secondAmicable && second < max) { // Проверяем, равняется ли первое число сумме делителей второго числа, а второе число равняется ли сумме делителей первого числа
+                firstAmicable = first; // Если да, обновляем рекордсменов
                 secondAmicable = second;
+                System.out.println(firstAmicable + " " + secondAmicable); // Это для проверки
             }
+            firstSum = 0;
+            secondSum = 0;
         }
-
-
         return Math.max(firstAmicable, secondAmicable);
     }
 }
