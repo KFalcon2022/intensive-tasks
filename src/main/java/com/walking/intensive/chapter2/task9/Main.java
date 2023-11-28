@@ -42,7 +42,6 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] != 0) {
-                    sb.append(" ");
                     sb.append(array[i][j]);
                     sb.append(" ");
                 }
@@ -58,7 +57,6 @@ public class Main {
             }
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] != 0) {
-                    sb.append(" ");
                     sb.append(array[i][j]);
                     sb.append(" ");
                 }
