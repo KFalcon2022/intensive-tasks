@@ -36,7 +36,7 @@ public class Task6 {
 
         int nod = 1;
 
-        for (int i = 1; i <= m && i <= n; i++) {
+        for (int i = 1; i <= Math.min(m, n); i++) {
 
             if (m % i == 0 && n % i == 0) {
                 nod = i;
