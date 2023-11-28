@@ -11,7 +11,7 @@ public class Task5 {
         double a = 4;
         double b = 5;
         double c = 6;
-        
+
         System.out.println("Если стороны треугольника равны: " + a + ", " + b + " и " + c + ", то:");
         System.out.println("Площадь треугольника равна " + getAreaByHeron(a, b, c));
         System.out.println("Длины высот треугольника: " + Arrays.toString(getHeights(a, b, c)));
@@ -46,9 +46,9 @@ public class Task5 {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        double median_A = (Math.sqrt(2 * Math.pow(b, 2)) + (2 * Math.pow(c, 2)) - Math.pow(a,2)) / 2;
-        double median_B = (Math.sqrt(2 * Math.pow(a, 2)) + (2 * Math.pow(c, 2)) - Math.pow(b,2)) / 2;
-        double median_C = (Math.sqrt(2 * Math.pow(a, 2)) + (2 * Math.pow(b, 2)) - Math.pow(c,2)) / 2;
+        double median_A = (Math.sqrt((2 * Math.pow(b, 2)) + (2 * Math.pow(c, 2)) - Math.pow(a, 2))) / 2;
+        double median_B = (Math.sqrt((2 * Math.pow(a, 2)) + (2 * Math.pow(c, 2)) - Math.pow(b, 2))) / 2;
+        double median_C = (Math.sqrt((2 * Math.pow(a, 2)) + (2 * Math.pow(b, 2)) - Math.pow(c, 2))) / 2;
         double[] arr = {median_A, median_B, median_C};
         Arrays.sort(arr);
         return arr;
@@ -70,26 +70,26 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        double Angle_A = Math.toDegrees(Math.acos((Math.pow (b, 2) + Math.pow (c, 2) - Math.pow (a, 2)) / (2 * b * c)));
-        double Angle_B = Math.toDegrees(Math.acos((Math.pow (a, 2) + Math.pow (c, 2) - Math.pow (b, 2)) / (2 * a * c)));
-        double Angle_C = Math.toDegrees(Math.acos((Math.pow (a, 2) + Math.pow (b, 2) - Math.pow (c, 2)) / (2 * a * b)));
-        double[] arr = {Angle_A, Angle_B, Angle_C};
+        double angle_A = Math.toDegrees(Math.acos((Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c)));
+        double angle_B = Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(c, 2) - Math.pow(b, 2)) / (2 * a * c)));
+        double angle_C = Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b)));
+        double[] arr = {angle_A, angle_B, angle_C};
         Arrays.sort(arr);
         return arr;
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        return getAreaByHeron(a, b, c) / (a + b +c);
+        return (2 * getAreaByHeron(a, b, c)) / (a + b + c);
     }
 
     static double getCircumradius(double a, double b, double c) {
         double halfPerimeter = (a + b + c) / 2;
-        return (a * b * c) / (4 * Math.sqrt (halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c)));
+        return (a * b * c) / (4 * Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c)));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        double cos_C = (Math.pow (a,2) + Math.pow (b,2) - Math.pow (c,2)) / (2 * a * b);
-        double sin_C = Math.sqrt(1 - Math.pow((cos_C),2));
+        double cos_C = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
+        double sin_C = Math.sqrt(1 - Math.pow((cos_C), 2));
         return (a * b * sin_C) / 2;
     }
 }
