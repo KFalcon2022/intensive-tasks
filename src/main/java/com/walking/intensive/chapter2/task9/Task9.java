@@ -14,35 +14,44 @@ public class Task9 {
 
         System.out.println(getPascalTriangle(heightTriangle));
     }
+
     static String getPascalTriangle(int n) {
-        String line = "";
+        String triangle = "";
+
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j <= n - i; j++) {
-                line += "    ";
+            for (int j = 0; j <= (getStringTriangle(n).length() - getStringTriangle(i).length()) / 2; j++) {
+                triangle += " ";
             }
-            for (int j = 0; j <= i; j++) {
-                int result = 1;
-                if (i > 1) {
-                    result = (int) (getFactorial(i) / (getFactorial(j) * getFactorial(i - j)));
-                }
-                if (j < i) {
-                    line += result + "       ";
-                } else {
-                    line += result;
-                }
-            }
-            line += "\n";
+
+            triangle += getStringTriangle(i) + "\n";
         }
-        return line;
+        return triangle;
     }
+
     static long getFactorial(int number) {
         long factorial = 1;
         if (number == 0) {
             return 1;
         }
+
         for (int i = 1; i <= number; i++) {
             factorial *= i;
         }
+
         return factorial;
+    }
+    static String getStringTriangle(int n) {
+        String string = "";
+
+        for (int i = 0; i <= n; i++) {
+           int num = (int) (getFactorial(n) / (getFactorial(i) * getFactorial(n - i)));
+
+            if (i < n) {
+                string += num + " ";
+            } else {
+                string += num;
+            }
+        }
+        return string;
     }
 }
