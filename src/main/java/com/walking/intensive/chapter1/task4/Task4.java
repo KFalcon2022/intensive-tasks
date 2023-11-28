@@ -1,11 +1,11 @@
 package com.walking.intensive.chapter1.task4;
 
 /**
- * Условие: <a href="https://geometry-math.ru/homework/Java-parameter.html">ссылка</a>
+ * РЈСЃР»РѕРІРёРµ: <a href="https://geometry-math.ru/homework/Java-parameter.html">СЃСЃС‹Р»РєР°</a>
  */
 public class Task4 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
+//        Р”Р»СЏ СЃРѕР±СЃС‚РІРµРЅРЅС‹С… РїСЂРѕРІРµСЂРѕРє РјРѕР¶РµС‚Рµ РґРµР»Р°С‚СЊ Р»СЋР±С‹Рµ РёР·РјРµРЅРµРЅРёСЏ РІ СЌС‚РѕРј РјРµС‚РѕРґРµ
         double a = 8;
         double b = 3;
         double c = 0;
@@ -15,53 +15,55 @@ public class Task4 {
     }
 
     /**
-     * При формировании строки, корни уравнения должны указываться по возрастанию.
+     * РџСЂРё С„РѕСЂРјРёСЂРѕРІР°РЅРёРё СЃС‚СЂРѕРєРё, РєРѕСЂРЅРё СѓСЂР°РІРЅРµРЅРёСЏ РґРѕР»Р¶РЅС‹ СѓРєР°Р·С‹РІР°С‚СЊСЃСЏ РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ.
      * <p>
-     * Примеры результирующей строки:
+     * РџСЂРёРјРµСЂС‹ СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµР№ СЃС‚СЂРѕРєРё:
      * <p>
-     * Количество решений: 2. Корни: -4;4
+     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 2. РљРѕСЂРЅРё: -4;4
      * <p>
-     * Количество решений: 1. Корень: 0
+     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 1. РљРѕСЂРµРЅСЊ: 0
      * <p>
-     * Количество решений: 0.
+     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
-        /*Если D < 0 – то квадратное уравнение не имеет решений;
-          Если D = 0 – то уравнение будет иметь только один корень;
-          Если D > 0 – то уравнение имеет два решения.
-         Бесконечное количество корней будет если только все коэффициенты равны нулю.
 
-          */
-        if (a == 0) {
+            if (a == 0) {
             if (b == 0) {
                 if (c == 0) {
-                    return "Решений бесконечно";
+                    return "Р РµС€РµРЅРёР№ Р±РµСЃРєРѕРЅРµС‡РЅРѕ";
                 } else {
-                    return "Количество решений: 0.";
+                    return "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 0.";
                 }
             } else {
                 double aZero = -c / b;
-                int rounedAZero = (int)aZero;
-                return "Количество решений: 1. Корень: " + rounedAZero;
+                int roundedAZero = (int)aZero;
+                return "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 1. РљРѕСЂРµРЅСЊ: " + roundedAZero;
             }
         } else {
 
-
-            double discriminant = b * b - 4 * a * c;  //определяем корень диск D=b2?4ac   х=-b±Math.sqrt(D) / 2a
+            double discriminant = b * b - 4 * a * c;
 
             if (discriminant > 0) {
+
                 double firstMS = (-b + Math.sqrt(discriminant)) / (2 * a);
                 double secondMS = (-b - Math.sqrt(discriminant)) / (2 * a);
-                int rounedFirstMS = (int) Math.floor(firstMS);
-                int rounedSecondMS = (int) Math.floor(secondMS);
-                return "Количество решений: 2. Корни: " + Math.min(rounedFirstMS, rounedSecondMS) + ";" + Math.max(rounedFirstMS,rounedSecondMS);
+                int roundedFirstMS = (int) Math.floor(firstMS);
+                int roundedSecondMS = (int) Math.floor(secondMS);
+                return "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 2. РљРѕСЂРЅРё: " + Math.min(roundedFirstMS, roundedSecondMS) + ";" + Math.max(roundedFirstMS,roundedSecondMS);
+
             } else if (discriminant == 0) {
+
                 double disZero =  -b / (2 * a);
-                int rounedDisZero = (int)disZero;
-                return "Количество решений: 1. Корень: " + rounedDisZero;
+                int roundedDisZero = (int)disZero;
+                return "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 1. РљРѕСЂРµРЅСЊ: " + roundedDisZero;
+
             } else {
-                return "Количество решений: 0.";
+
+                return "РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 0.";
             }
+
         }
+
     }
+
 }
