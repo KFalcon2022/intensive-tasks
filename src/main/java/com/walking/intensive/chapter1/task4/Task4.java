@@ -6,8 +6,8 @@ package com.walking.intensive.chapter1.task4;
 public class Task4 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 2;
-        double b = 1;
+        double a = 1;
+        double b = -2;
         double c = 0;
 
         System.out.println(solveQuadraticEquation(a, b, c));
@@ -29,10 +29,11 @@ public class Task4 {
         if (a == 0 && b == 0 && c == 0) {
             return "Решений бесконечно";
         }
-        if (a == 0 && b == 0 && (c < 0 || c > 0)) {
+        if (a == 0 && b == 0) {
             return "Количество решений: 0.";
         }
         int diskriminant = (int) ((b * b) - (4 * a * c));
+        System.out.println(diskriminant);
 
         if (diskriminant < 0) {
             return "Корней нет";
@@ -45,8 +46,8 @@ public class Task4 {
             int x = (int) (c / b);
             return "Количество решений: 1. Корень: " + x;
         }
-        int x1 = (int) -(b + Math.sqrt(diskriminant) / 2 * a);
-        int x2 = (int) -(b - Math.sqrt(diskriminant) / 2 * a);
+        int x1 = (int) (((-b) + Math.sqrt(diskriminant)) / (2 * a));
+        int x2 = (int) (((-b) - Math.sqrt(diskriminant)) / (2 * a));
 
         if (x1 > x2) {
             return "Количество решений: 2. Корни: " + x2 + ";" + x1;
