@@ -34,10 +34,10 @@ public class Task5 {
      * Располагайте высоты по возрастанию.
      */
     static double[] getHeights(double a, double b, double c) {
-        double height_A = (getAreaByHeron(a, b, c) * 2) / a;
-        double height_B = (getAreaByHeron(a, b, c) * 2) / b;
-        double height_C = (getAreaByHeron(a, b, c) * 2) / c;
-        double[] arr = {height_A, height_B, height_C};
+        double heightA = (getAreaByHeron(a, b, c) * 2) / a;
+        double heightB = (getAreaByHeron(a, b, c) * 2) / b;
+        double heightC = (getAreaByHeron(a, b, c) * 2) / c;
+        double[] arr = {heightA, heightB, heightC};
         Arrays.sort(arr);
         return arr;
     }
@@ -46,10 +46,10 @@ public class Task5 {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        double median_A = (Math.sqrt((2 * Math.pow(b, 2)) + (2 * Math.pow(c, 2)) - Math.pow(a, 2))) / 2;
-        double median_B = (Math.sqrt((2 * Math.pow(a, 2)) + (2 * Math.pow(c, 2)) - Math.pow(b, 2))) / 2;
-        double median_C = (Math.sqrt((2 * Math.pow(a, 2)) + (2 * Math.pow(b, 2)) - Math.pow(c, 2))) / 2;
-        double[] arr = {median_A, median_B, median_C};
+        double medianA = (Math.sqrt((2 * Math.pow(b, 2)) + (2 * Math.pow(c, 2)) - Math.pow(a, 2))) / 2;
+        double medianB = (Math.sqrt((2 * Math.pow(a, 2)) + (2 * Math.pow(c, 2)) - Math.pow(b, 2))) / 2;
+        double medianC = (Math.sqrt((2 * Math.pow(a, 2)) + (2 * Math.pow(b, 2)) - Math.pow(c, 2))) / 2;
+        double[] arr = {medianA, medianB, medianC};
         Arrays.sort(arr);
         return arr;
     }
@@ -58,10 +58,10 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        double bisector_A = (Math.sqrt(b * c * (a + b + c) * (b + c - a))) / (b + c);
-        double bisector_B = (Math.sqrt(a * c * (a + b + c) * (a + c - b))) / (a + c);
-        double bisector_C = (Math.sqrt(a * b * (a + b + c) * (a + b - c))) / (a + b);
-        double[] arr = {bisector_A, bisector_B, bisector_C};
+        double bisectorA = (Math.sqrt(b * c * (a + b + c) * (b + c - a))) / (b + c);
+        double bisectorB = (Math.sqrt(a * c * (a + b + c) * (a + c - b))) / (a + c);
+        double bisectorC = (Math.sqrt(a * b * (a + b + c) * (a + b - c))) / (a + b);
+        double[] arr = {bisectorA, bisectorB, bisectorC};
         Arrays.sort(arr);
         return arr;
     }
@@ -70,10 +70,10 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        double angle_A = Math.toDegrees(Math.acos((Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c)));
-        double angle_B = Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(c, 2) - Math.pow(b, 2)) / (2 * a * c)));
-        double angle_C = Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b)));
-        double[] arr = {angle_A, angle_B, angle_C};
+        double angleA = Math.toDegrees(Math.acos((Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c)));
+        double angleB = Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(c, 2) - Math.pow(b, 2)) / (2 * a * c)));
+        double angleC = Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b)));
+        double[] arr = {angleA, angleB, angleC};
         Arrays.sort(arr);
         return arr;
     }
@@ -88,8 +88,8 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        double cos_C = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
-        double sin_C = Math.sqrt(1 - Math.pow((cos_C), 2));
-        return (a * b * sin_C) / 2;
+        double cosC = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
+        double sinC = Math.sqrt(1 - Math.pow((cosC), 2));
+        return (a * b * sinC) / 2;
     }
 }
