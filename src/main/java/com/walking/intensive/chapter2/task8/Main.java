@@ -13,18 +13,18 @@ public class Main {
 
         for (int i = 0; i < 1000000; i++) {
             int a = i / 100000;
-            int b = (i / 10000 - 10 * a);
-            int c = (i / 1000 - 100 * a - 10 * b);
-            int d = (i / 100 - 1000 * a - 100 * b - 10 * c);
-            int e = (i / 10 - 10000 * a - 1000 * b - 100 * c - 10 * d);
+            int b = (i / 10000 % 10);
+            int c = (i / 1000 % 10);
+            int d = (i / 100 % 10);
+            int e = (i / 10 % 10);
             int f = i % 10;
-            if ((a+b+c)==(d+e+f)) {
+            if ((a + b + c) == (d + e + f)) {
                 winCount++;
             }
         }
 
 
         System.out.println(winCount);
-        return (double) winCount/ 1000000;
+        return (double) winCount / 1000000;
     }
 }
