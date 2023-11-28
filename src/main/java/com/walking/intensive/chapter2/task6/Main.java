@@ -49,6 +49,7 @@ public class Main {
         if (maxNumber % minNumber == 0) {
             return "Наименьшее общее кратное (НОК): " + maxNumber + "\nНаибольший общий делить (НОД): " + minNumber;
         }
+
         int valueNOD = getNOD(maxNumber, minNumber);
         int valueNOK = (maxNumber * minNumber) / valueNOD;
 
@@ -70,6 +71,7 @@ public class Main {
             valueA = valueB;
             valueB = remainDiv;
         }
+
         return valueNOD;
     }
 }
