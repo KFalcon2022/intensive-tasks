@@ -10,12 +10,12 @@ import java.util.ListIterator;
 public class Task9 {
     public static void main(String[] args) {    //n - по условию количество этажей
 
-        System.out.println(getPascalTriangle(10));
+        System.out.println(getPascalTriangle(20));
     }
 
     static String getPascalTriangle(int n) {
         n--;                //количество этажей теперь будет от нуля
-        int element = 0;
+        long element = 0;
         StringBuilder rowBuilder;
         List<String> rowList = new ArrayList<>();
 
@@ -32,7 +32,7 @@ public class Task9 {
                 }
                 //теперь есть строка с элементами, где, например, на 10 этаже будет 10 элементов
             }
-
+            System.out.println(rowBuilder);
             rowList.add(rowBuilder.toString());        //заносим в список для последующей работы с ним
         }
 
@@ -70,12 +70,14 @@ public class Task9 {
                 inputString);
     }
 
-    private static int getElement(int k, int n) { //вычисляем сочетания C из n по k - элементы таблицы
-
-        return getFactorial(n) / (getFactorial(k) * getFactorial(n - k));
+    private static long getElement(int k, int n) { //вычисляем сочетания C из n по k - элементы таблицы
+        long top = getFactorial(n);
+        long botMultiplierK = getFactorial(k);
+        long botMultiplierNK = getFactorial(n - k);
+        return top / (botMultiplierK * botMultiplierNK);
     }
 
-    private static int getFactorial(int currentNumber) {
+    private static long getFactorial(int currentNumber) {
 
         return (currentNumber <= 1) ? 1 : currentNumber * getFactorial(currentNumber - 1);
     }
