@@ -11,28 +11,28 @@ public class Task5 {
 
     }
 
-    static double getAreaByHeron(double a, double b, double c) {
-        //        Место для вашего кода
-        double p = (a + b + c) / 2;
+    static double getHalfPerimeter(double a, double b, double c){
+        return (a + b + c) / 2;
+    }
 
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c)); // Заглушка. При реализации - удалить
+    static double getAreaByHeron(double a, double b, double c) {
+        double halfPerimeter = getHalfPerimeter(a, b, c);
+        return Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
     }
 
     /**
      * Располагайте высоты по возрастанию.
      */
     static double[] getHeights(double a, double b, double c) {
-        //        Место для вашего кода
         double[] result = {2 * getAreaByHeron(a, b, c) / a, 2 * getAreaByHeron(a, b, c) / b, 2 * getAreaByHeron(a, b, c) / c};
         Arrays.sort(result);
-        return result; // Заглушка. При реализации - удалить
+        return result;
     }
 
     /**
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        //        Место для вашего кода
         double[] result = {Math.sqrt(2 * Math.pow(c, 2) + 2 * Math.pow(b, 2) - Math.pow(a, 2)) / 2,
                 Math.sqrt(2 * Math.pow(c, 2) + 2 * Math.pow(a, 2) - Math.pow(b, 2)) / 2,
                 Math.sqrt(2 * Math.pow(a, 2) + 2 * Math.pow(b, 2) - Math.pow(c, 2)) / 2};
@@ -44,7 +44,6 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        //        Место для вашего кода
         double[] result = {Math.sqrt(a * c * (a + c + b) * (a + c - b)) / (a + c),
                 Math.sqrt(a * b * (a + b + c) * (a + b - c)) / (a + b),
                 Math.sqrt(b * c * (a + b + c) * (b + c - a)) / (b + c)};
@@ -56,7 +55,6 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        //        Место для вашего кода
         double[] result = {Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b))),
                 Math.toDegrees(Math.acos((Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c))),
                 Math.toDegrees(Math.acos((Math.pow(a, 2) + Math.pow(c, 2) - Math.pow(b, 2)) / (2 * a * c)))};
@@ -65,23 +63,18 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        //        Место для вашего кода
-        double p = (a + b + c) / 2;
-        return Math.sqrt((p - a) * (p - b) * (p - c) / p); // Заглушка. При реализации - удалить
+        double halfPerimeter = getHalfPerimeter(a, b, c);
+        return Math.sqrt((halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c) / halfPerimeter);
     }
 
     static double getCircumradius(double a, double b, double c) {
-        //        Место для вашего кода
-
-
-        return (a * b * c) / (4 * getAreaByHeron(a, b, c)); // Заглушка. При реализации - удалить
+        return (a * b * c) / (4 * getAreaByHeron(a, b, c));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        //        Место для вашего кода
         double cos = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
         double sin = Math.sqrt(1 - Math.pow(cos, 2));
 
-        return (a * b * c) / (2 * c / sin); // Заглушка. При реализации - удалить
+        return (a * b * c) / (2 * c / sin);
     }
 }
