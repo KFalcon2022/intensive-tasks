@@ -9,7 +9,33 @@ public class Task7 {
     }
 
     static int getFriendlyPair(int m){
-        // Ваш код
-        return 0;
+        if (m >= 1_000_000) {
+            return 0;
+        }
+
+        int maxFriendlyNumber = 0;
+        for (int i = 1; i < m; i++)
+        {
+            for (int j = 1; j < m; j++) {
+                if (getDivisorsSum(i) == j && getDivisorsSum(j) == i) {
+                    maxFriendlyNumber = Math.max(i, j);
+                }
+            }
+        }
+        return maxFriendlyNumber;
+    }
+
+    static double getDivisorsSum(int a) {
+        double sum = 0;
+        if (a > 0) {
+            for (int i = 1; i < a; i++) {
+                if (a % i == 0) {
+                    sum += i;
+                }
+            }
+            return sum;
+        } else {
+            return 0;
+        }
     }
 }
