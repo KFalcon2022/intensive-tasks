@@ -8,11 +8,9 @@ import java.util.ArrayList;
 public class Task6 {
     public static void main(String[] args) {
     }
-
     static int getNoc(int m, int n) {
         return (m * n) / getNod(m, n);
     }
-
     static int getNod(int m, int n) {
         int nod = 0;
         for (int i = 1; i <= n && i <= m; i++) {
