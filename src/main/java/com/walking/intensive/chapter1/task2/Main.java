@@ -22,7 +22,6 @@ public class Main {
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         int amountFlatsOnFloor = 4;
         int amountFlats = floorAmount * entranceAmount * amountFlatsOnFloor;
-        String location = "";
 
         if (flatNumber > amountFlats || flatNumber <= 0){
             return "Квартиры с таким номером в доме не существует.";
@@ -38,6 +37,7 @@ public class Main {
 
         int searchableEntrance = (int) Math.ceil(flatNumber / (floorAmount * (double)amountFlatsOnFloor));  // Находим необходимый подъезд.
         int searchableFloor = (int) (Math.ceil(flatNumber / (double)amountFlatsOnFloor) % floorAmount);     // Находим необходимый этаж.
+        String location = "";
         location = flatNumber + " кв - " + searchableEntrance + " подъезд, " + searchableFloor + " этаж, ";
 
         switch (flatNumber % amountFlatsOnFloor) {
@@ -54,7 +54,7 @@ public class Main {
                 location += "справа от лифта, влево.";
                 return location;
             default:
-                return "Расположение квартиры на этаже неизвестно.";
+                return "";
         }
     }
 }
