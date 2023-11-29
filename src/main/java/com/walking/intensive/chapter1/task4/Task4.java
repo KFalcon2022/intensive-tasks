@@ -5,12 +5,17 @@ package com.walking.intensive.chapter1.task4;
  */
 public class Task4 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 0;
-        double b = 0;
-        double c = 0;
 
-        System.out.println(solveQuadraticEquation(a, b, c));
+        /*double a = 4;
+        double b = 2;
+        double c = 5;*/
+
+        System.out.println(solveQuadraticEquation(0, 0, 0));
+        System.out.println(solveQuadraticEquation(0, 0, 5));
+        System.out.println(solveQuadraticEquation(0, 1, 2));
+        System.out.println(solveQuadraticEquation(1, 0, 0));
+        System.out.println(solveQuadraticEquation(1, 0, 1));
+        System.out.println(solveQuadraticEquation(1, 0, -1));
 
     }
 
@@ -26,8 +31,25 @@ public class Task4 {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        if (a == 0 & b == 0 & c == 0) {
+            return "Решений бесконечно";
+        }
+
+        double D = b * b - 4 * a * c;
+
+        if (a == 0 & b == 0 || D < 0) {
+            return "Количество решений: 0.";
+        } else if (a == 0) {
+            double solutionA = -c / b;
+            return "Количество решений: 1. Корень: " + solutionA;
+        } else if (D == 0) {
+            double solutionA = -b / (2 * a);
+            return "Количество решений: 1. Корень: " + solutionA;
+        } else {
+            double solutionA = (-b - Math.sqrt(D)) / (2 * a);
+            double solutionB = (-b + Math.sqrt(D)) / (2 * a);
+            return "Количество решений: 2. Корни: " + solutionA + ";" + solutionB;
+        }
     }
 }
