@@ -1,8 +1,5 @@
 package com.walking.intensive.chapter2.task6;
 
-import java.util.Collections;
-import java.util.LinkedList;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-NOKNOD.html">ссылка</a>
  */
@@ -18,21 +15,16 @@ public class Task6 {
 
     static int getNoc(int m, int n) {
         //НОК - такое маленькое число, которое делится без остатка на число a и число b.
-
-        int[] mKratnie = new int[m];
-        int[] nKratnie = new int[n];
-
-        for (int i = 0; i < m; i++) {
-            mKratnie[i] = (i + 1) * n;
-        }
-        for (int i = 0; i < n; i++) {
-            nKratnie[i] = (i + 1) * m;
-        }
+        int currentM;
+        int currentN;
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (mKratnie[i] == nKratnie[j]) {
-                    return mKratnie[i];             //первый найденный
+                currentM = (i + 1) * n;
+                currentN = (j + 1) * m;
+
+                if (currentM == currentN) {
+                    return currentM;             //первый найденный
                 }
             }
         }
