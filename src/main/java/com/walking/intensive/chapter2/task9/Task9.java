@@ -33,12 +33,9 @@ public class Task9 {
 
         for (int i = 0; i <= n; i++) {
             int num = getNumberTriangle(n, i);
-
+            string.append(num);
             if (i < n) {
-                string.append(num);
                 string.append(" ");
-            } else {
-                string.append(num);
             }
         }
 
