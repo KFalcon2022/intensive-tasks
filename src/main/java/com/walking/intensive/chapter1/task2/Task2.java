@@ -12,7 +12,7 @@ public class Task2 {
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         int apartmentNumber = 4 * floorAmount * entranceAmount;
         if (flatNumber > apartmentNumber || flatNumber <= 0 || floorAmount == 0 || entranceAmount == 0) {
-            return "Ошибка входных данных";
+            return "Неверно введен номер квартиры";
         }
         int flatEntrance = (flatNumber / (4 * floorAmount));
         int apartmentEntrance = (flatNumber - ((flatEntrance - 1) * floorAmount * 4));
