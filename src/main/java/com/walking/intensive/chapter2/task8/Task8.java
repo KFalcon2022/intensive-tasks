@@ -8,9 +8,9 @@ public class Task8 {
         System.out.println(getHappyTicketChance(120000));
     }
 
-    static double getHappyTicketChance(int ticketNumber){
+    static double getHappyTicketChance(int ticketNumber) {
         int numberLuckyTickets = 0;
-        int a = 0, b = 0, c = 0, d = 0, e = 0, f = 0;
+        int a, b, c, d, e, f;
         for (int i = 0; i < 999999; i++) {
             a = i / 100000;
             b = i % 100000 / 10000;
@@ -18,7 +18,7 @@ public class Task8 {
             d = i % 1000 / 100;
             e = i % 100 / 10;
             f = i % 10;
-            if (a+d+c == d+e+f) {
+            if (a + b + c == d + e + f) {
                 numberLuckyTickets++;
             }
         }
