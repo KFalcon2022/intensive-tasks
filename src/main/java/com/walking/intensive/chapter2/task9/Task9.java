@@ -1,15 +1,24 @@
 package com.walking.intensive.chapter2.task9;
 
-/**
- * Условие: <a href="https://geometry-math.ru/homework/Java-pascalTriangle.html">ссылка</a>
- */
+import java.util.Scanner;
 public class Task9 {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("Введите число: ");
+        int n = sc.nextInt();
+
+        System.out.println(getPascalTriangle(n));
     }
 
     static String getPascalTriangle(int n){
-        // Ваш код
-        return null;
+        String whiteSpace = " ";
+        int numbersSpaces = n;
+        String triangle = "";
+
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n * 2; j++){
+                if()
+            }
     }
 }
