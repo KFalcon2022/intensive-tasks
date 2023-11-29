@@ -7,26 +7,21 @@ import java.util.Arrays;
  */
 public class Task5 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
     }
 
     static double getAreaByHeron(double a, double b, double c) {
         if (isInfoAboutTriangle(a, b, c)) {
             System.out.println("Треугольника не существует");
+            return 0;
         }
         double p = (a + b + c) / 2;
         double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        System.out.println(s);
-
-        return s; // Заглушка. При реализации - удалить
+        return s;
     }
-
-    /**
-     * Располагайте высоты по возрастанию.
-     */
     static double[] getHeights(double a, double b, double c) {
         if (isInfoAboutTriangle(a, b, c)) {
             System.out.println("Треугольника не существует");
+            return new double[0];
         }
         double s = getAreaByHeron(a, b, c);
         double heightsA = 2 * s / a;
@@ -34,45 +29,36 @@ public class Task5 {
         double heightsC = 2 * s / c;
         double[] heights = {heightsA, heightsB, heightsC};
         Arrays.sort(heights);
-        return heights; // Заглушка. При реализации - удалить
+        return heights;
     }
-
-    /**
-     * Располагайте медианы по возрастанию.
-     */
     static double[] getMedians(double a, double b, double c) {
         if (isInfoAboutTriangle(a, b, c)) {
             System.out.println("Треугольника не существует");
+            return new double[0];
         }
         double mediansA = (Math.sqrt(2 * b * b + 2 * c * c - a * a)) / 2;
         double mediansB = (Math.sqrt(2 * c * c + 2 * a * a - b * b)) / 2;
         double mediansС = (Math.sqrt(2 * b * b + 2 * a * a - c * c)) / 2;
         double[] meridians = {mediansA, mediansB, mediansС};
         Arrays.sort(meridians);
-        return meridians; // Заглушка. При реализации - удалить
+        return meridians;
     }
-
-    /**
-     * Располагайте биссектрисы по возрастанию.
-     */
     static double[] getBisectors(double a, double b, double c) {
         if (isInfoAboutTriangle(a, b, c)) {
             System.out.println("Треугольника не существует");
+            return new double[0];
         }
         double bisectorsA = 1 / (b + c) * Math.sqrt(b * c * (a + b + c) * (c + b - a));
         double bisectorsB = 1 / (a + c) * Math.sqrt(a * c * (a + b + c) * (a + c - b));
         double bisectorsC = 1 / (b + a) * Math.sqrt(b * a * (a + b + c) * (a + b - c));
         double[] bisectors = {bisectorsA, bisectorsB, bisectorsC};
         Arrays.sort(bisectors);
-        return bisectors; // Заглушка. При реализации - удалить
+        return bisectors;
     }
-
-    /**
-     * Располагайте углы по возрастанию.
-     */
     static double[] getAngles(double a, double b, double c) {
         if (isInfoAboutTriangle(a, b, c)) {
             System.out.println("Треугольника не существует");
+            return new double[0];
         }
         double cosA = (b * b + c * c - a * a) / (2 * b * c);
         double cosB = (a * a + c * c - b * b) / (2 * a * c);
@@ -82,38 +68,36 @@ public class Task5 {
         double anglesC = (180 / Math.PI) * Math.acos(cosC);
         double[] angles = {anglesA, anglesB, anglesC};
         Arrays.sort(angles);
-        return angles; // Заглушка. При реализации - удалить
+        return angles;
     }
-
     static double getInscribedCircleRadius(double a, double b, double c) {
         if (isInfoAboutTriangle(a, b, c)) {
             System.out.println("Треугольника не существует");
+            return 0;
         }
         double p = (a + b + c) / 2;
         double r = Math.sqrt(((p - a) * (p - b) * (p - c)) / p);
-        return r; // Заглушка. При реализации - удалить
+        return r;
     }
-
     static double getCircumradius(double a, double b, double c) {
         if (isInfoAboutTriangle(a, b, c)) {
             System.out.println("Треугольника не существует");
+            return 0;
         }
         double p = (a + b + c) / 2;
         double r = (a * b * c) / (4 * (Math.sqrt(p * (p - a) * (p - b) * (p - c))));
-        return r; // Заглушка. При реализации - удалить
+        return r;
     }
-
     static double getAreaAdvanced(double a, double b, double c) {
-        //        Место для вашего кода
-
-        return 0; // Заглушка. При реализации - удалить
-    }
-
-    static boolean isInfoAboutTriangle(double a, double b, double c) {
-        if (a + b > c & b + c > a & c + a > b) {
-            return true;
-        } else {
-            return false;
+        if (isInfoAboutTriangle(a, b, c)) {
+            System.out.println("Треугольника не существует");
+            return 0;
         }
+        double cosA = (b * b + c * c - a * a) / (2 * b * c);
+        double sinA = (Math.sqrt(1 - cosA * cosA));
+        return (c * b * sinA / 2);
+    }
+    static boolean isInfoAboutTriangle(double a, double b, double c) {
+        return (a + b < c || b + c < a || c + a < b);
     }
 }
