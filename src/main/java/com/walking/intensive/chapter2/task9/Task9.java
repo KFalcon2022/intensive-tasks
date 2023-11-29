@@ -25,26 +25,15 @@ public class Task9 {
 
             triangle += getStringTriangle(i) + "\n";
         }
+
         return triangle;
     }
 
-    static long getFactorial(int number) {
-        long factorial = 1;
-        if (number == 0) {
-            return 1;
-        }
-
-        for (int i = 1; i <= number; i++) {
-            factorial *= i;
-        }
-
-        return factorial;
-    }
     static String getStringTriangle(int n) {
         String string = "";
 
         for (int i = 0; i <= n; i++) {
-           int num = (int) (getFactorial(n) / (getFactorial(i) * getFactorial(n - i)));
+            int num = getNumberTriangle(n, i);
 
             if (i < n) {
                 string += num + " ";
@@ -52,6 +41,11 @@ public class Task9 {
                 string += num;
             }
         }
+
         return string;
+    }
+
+    static int getNumberTriangle(int l, int num) {
+        return (num == 0 || num == l) ? 1 : getNumberTriangle(l - 1, num - 1) + getNumberTriangle(l - 1, num);
     }
 }
