@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class Task6 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int a;
-        int b;
+        int a, b;
+
         do {
             System.out.print("Введите положительное число а: ");
             a = scanner.nextInt();
@@ -23,38 +23,42 @@ public class Task6 {
 
         System.out.printf("НОД числа %d и числа %d равен %d\n", a, b, getNod(a, b));
         System.out.printf("НОК числа %d и числа %d равен %d\n", a, b, getNoc(a, b));
-        System.out.printf("НОД числа %d и числа %d равен %d\n", a, b, getNodByEuclideanAlgorithm(a, b));
+        System.out.printf("НОД числа %d и числа %d, рассчитанный по алгоритму Евклида, равен %d\n", a, b, getNodByEuclideanAlgorithm(a, b));
     }
 
     static int getNoc(int m, int n) {
         int result = Math.max(m, n);
-        for (int i = result; i % m + i % n != 0; i++) {
-            result = i;
+
+        for (int i = result; i <= m * n; i++) {
+            if (i % m == 0 && i % n == 0) {
+
+                return i;
+            }
         }
 
-        if (result == Math.max(m, n)) {
-            return result;
-        }
-        return result + 1;
+        return result;
+
     }
 
     static int getNod(int m, int n) {
         int result = Math.min(m, n);
-        for (int i = result; m % i + n % i != 0; i--) {
-            result = i;
+
+        for (int i = result; i > 0; i--) {
+            if (m % i == 0 && n % i == 0) {
+
+                return i;
+            }
         }
 
-        if (result == Math.min(m, n)) {
-            return result;
-        }
-        return result - 1;
+        return result;
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
         if (n == 0) {
+
             return m;
         }
+
         return getNodByEuclideanAlgorithm(n, m % n);
     }
-
 }
