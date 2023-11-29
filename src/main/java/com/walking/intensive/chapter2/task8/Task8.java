@@ -8,7 +8,7 @@ public class Task8 {
         System.out.println(getHappyTicketChance(120000));
     }
 
-    static double getHappyTicketChance(int ticketNumber) {
+    static double getHappyTicketChance(int ticketNumber){
         int numberLuckyTickets = 0;
         int a, b, c, d, e, f;
         for (int i = 0; i < 999999; i++) {
