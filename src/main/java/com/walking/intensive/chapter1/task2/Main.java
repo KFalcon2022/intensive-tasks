@@ -41,6 +41,9 @@ public class Main {
         location = flatNumber + " кв - " + searchableEntrance + " подъезд, " + searchableFloor + " этаж, ";
 
         switch (flatNumber % amountFlatsOnFloor) {
+            case (0):
+                location += "справа от лифта, вправо.";
+                return location;
             case (1):
                 location+= "слева от лифта, влево.";
                 return location;
@@ -49,9 +52,6 @@ public class Main {
                 return location;
             case (3):
                 location += "справа от лифта, влево.";
-                return location;
-            case (0):
-                location += "справа от лифта, вправо.";
                 return location;
             default:
                 return "Расположение квартиры на этаже неизвестно.";
