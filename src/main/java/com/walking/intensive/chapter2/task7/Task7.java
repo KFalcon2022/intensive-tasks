@@ -11,20 +11,23 @@ public class Task7 {
         int maxNumberInPair = 0;
         int friendOfMaxNumber = 0;
 
-        // счетчик чисел от 1 до m для поиска дружественных пар
+        // Перебор чисел от 1 до m для поиска дружеских пар
         for (int i = 1; i < m; i++) {
-            int sumOfDivisorsI = sumOfDivisors(i); /* Расчёт суммы делителей числа и
-            проверка, что сумма делителей меньше чем m и число не дружественно само себе*/
-            if (sumOfDivisorsI < m && sumOfDivisorsI != i) {
-                // провеверка, число i дружественное для sumOfDivisorsI
-                if (i == sumOfDivisors(sumOfDivisorsI)) {
-                    int pairSum = i + sumOfDivisorsI; /*Расчёт суммы дружественной пары
-                    Обновление максимальных значений, если текущая сумма больше чем предидущая*/
-                    if (pairSum > maxPairSum) {
-                        maxPairSum = pairSum;
-                        maxNumberInPair = Math.max(i, sumOfDivisorsI); // сохранение наибольшего числа из пары
-                        friendOfMaxNumber = Math.min(i, sumOfDivisorsI); // сохранение наименьшего числа из пары
-                    }
+            // Вычисление суммы делителей числа i
+            int sumOfDivisorsI = sumOfDivisors(i);
+
+            /* Проверка, сумма делителей меньше m, не является ли число дружественным самому себе,
+            и является ли дружеским числом для sumOfDivisorsI*/
+            if (sumOfDivisorsI < m && sumOfDivisorsI != i && i == sumOfDivisors(sumOfDivisorsI)) {
+                // Вычисление суммы дружеской пары
+                int pairSum = i + sumOfDivisorsI;
+
+                /* Обновление максимальной суммы и определение наибольшего и наименьшего числа в паре,
+                если текущая сумма больше предыдущей максимальной суммы*/
+                if (pairSum > maxPairSum) {
+                    maxPairSum = pairSum;
+                    maxNumberInPair = Math.max(i, sumOfDivisorsI); // Сохранение наибольшего числа из пары
+                    friendOfMaxNumber = Math.min(i, sumOfDivisorsI); // Сохранение наименьшего числа из пары
                 }
             }
         }
