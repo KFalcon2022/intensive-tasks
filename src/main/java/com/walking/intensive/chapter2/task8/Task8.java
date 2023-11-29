@@ -13,7 +13,6 @@ public class Task8 {
 
         for (int i = 0; i < 1000; i++) {
             int sumI = (i % 10) + (i % 100 - i % 10) + (i / 100);
-
             for (int j = 0; j < 1000; j++) {
                 int sumJ = (j % 10) + (j % 100 - j % 10) + (j / 100);
 
