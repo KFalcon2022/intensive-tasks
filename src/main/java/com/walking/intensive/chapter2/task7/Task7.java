@@ -9,6 +9,7 @@ public class Task7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int num;
+
         do {
             System.out.print("Введите число от 1 до 999 999: ");
             num = scanner.nextInt();
@@ -21,23 +22,28 @@ public class Task7 {
     static int getFriendlyPair(int m) {
         int result = 0;
         int sumFriendlyPair = 0;
+
         for (int i = 0; i <= m; i++) {
-            if ((i + getSumDivisor(i) == getSumDivisor(i) + getSumDivisor(getSumDivisor(i)))
-                    && (i != getSumDivisor(i)) && (getSumDivisor(i) < m) && (i + getSumDivisor(i) > sumFriendlyPair)) {
-                sumFriendlyPair = i + getSumDivisor(i);
-                result = Math.max(i, getSumDivisor(i));
+            int sumDivisor = getSumDivisor(i);
+
+            if ((i + sumDivisor == sumDivisor + getSumDivisor(sumDivisor)) && (i != sumDivisor) && (sumDivisor < m) && (i + sumDivisor > sumFriendlyPair)) {
+                sumFriendlyPair = i + sumDivisor;
+                result = Math.max(i, sumDivisor);
             }
         }
+
         return result;
     }
 
     static int getSumDivisor(int num) {
         int sum = 0;
+
         for (int i = 1; i < num; i++) {
             if (num % i == 0) {
                 sum += i;
             }
         }
+
         return sum;
     }
 }
