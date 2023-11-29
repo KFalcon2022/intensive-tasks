@@ -9,52 +9,62 @@ P.S. По желанию: Если знакомы с рекурсией напи
 public class Task6 {
     public static void main(String[] args) {
 
-        int a = 27;
-        int b = 168;
+        int a = 9;
+        int b = 15;
 
-        System.out.printf("Наименьшее общее кратное для %d и %d: %d", a, b, findLeastCommonMultiple(a, b));
-        System.out.println();
-        System.out.printf("Наибольший общий делитель для %d и %d: %d", a, b, findGreatestCommonDivisor(a, b));
-        System.out.println();
-        System.out.printf("Наибольший общий делитель для %d и %d рекурсивно: %d", a, b, useEuclideanAlgorithm(a, b));
+        try {
+            System.out.printf("Наименьшее общее кратное для %d и %d: %d\n", a, b, getLeastCommonMultiple(a, b));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+        try {
+            System.out.printf("Наибольший общий делитель для %d и %d: %d\n", a, b, getGreatestCommonDivisor(a, b));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
 
+        try {
+            System.out.printf("Наибольший общий делитель для %d и %d рекурсивно: %d", a, b, useEuclideanAlgorithm(a, b));
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public static int findLeastCommonMultiple(int a, int b) {
+    public static int getLeastCommonMultiple(int a, int b) throws IllegalArgumentException {
 
-        int result = 0;
-        int i = 2;
+        if (a < 1 || b < 1) {
+            throw new IllegalArgumentException("a и b должны быть положительными");
+        }
 
-        while (result == 0) {
+        int i = Math.max(a, b);
+        while (true) {
             if (i % a == 0 && i % b == 0) {
-                result = i;
+                return i;
             } else {
                 i++;
             }
         }
-        return result;
     }
-    public static int findGreatestCommonDivisor(int a, int b) {
+
+    public static int getGreatestCommonDivisor(int a, int b) throws IllegalArgumentException {
 
         for (int i = Math.min(a, b); i > 0; i--) {
             if (a % i == 0 && b % i == 0) {
                 return i;
             }
         }
-        return 1;
+        throw new IllegalArgumentException("a и b должны быть положительными");
     }
 
     public static int useEuclideanAlgorithm(int a, int b) {
 
-        if (a==0 || b == 0){
-            return a+b;
+        if (a == 0 || b == 0) {
+            return a + b;
         }
-        if (a>b){
-            a = a%b;
+        if (a > b) {
+            return useEuclideanAlgorithm(a % b, b);
+        } else {
+            return useEuclideanAlgorithm(a, b % a);
         }
-        else {
-            b=b%a;
-        }
-        return useEuclideanAlgorithm(a,b);
     }
 }
