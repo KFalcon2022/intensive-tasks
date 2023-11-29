@@ -31,7 +31,6 @@ public class Task6 {
 
         for (int i = result; i <= m * n; i++) {
             if (i % m == 0 && i % n == 0) {
-
                 return i;
             }
         }
@@ -45,7 +44,6 @@ public class Task6 {
 
         for (int i = result; i > 0; i--) {
             if (m % i == 0 && n % i == 0) {
-
                 return i;
             }
         }
@@ -55,7 +53,6 @@ public class Task6 {
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
         if (n == 0) {
-
             return m;
         }
 
