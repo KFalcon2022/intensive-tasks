@@ -27,4 +27,3 @@ public class Task10 {
         return true;
     }
 }
-
