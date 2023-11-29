@@ -1,61 +1,53 @@
 package com.walking.intensive.chapter2.task9;
 
-/**
- * Условие: <a href="https://geometry-math.ru/homework/Java-pascalTriangle.html">ссылка</a>
- */
 public class Task9 {
     public static void main(String[] args) {
-        int n = 20; // Вы можете установить количество уровней треугольника
-        System.out.println(getPascalTriangle(n));
+        int n = 25; // Установка количества уровней треугольника Паскаля
+        System.out.println(getPascalTriangle(n)); // Вывод треугольника на экран
     }
 
+    // Метод для центрирования строки внутри строки определенной длины
+    static String getCenteredRow(int maxRowLength, String row) {
+        int paddingSize = (maxRowLength - row.length()) / 2; // Вычисление количества пробелов для вставки слева
+        String padding = " ".repeat(paddingSize); // Создание строки с пробелами для левого отступа
+        // Возвращение строки с пробелами слева, самой строки и пробелами справа
+        // Если общая длина должна быть нечетной, добавляется дополнительный пробел справа
+        return padding + row + padding + (maxRowLength % 2 != row.length() % 2 ? " " : "");
+    }
+
+    // Главный метод для генерации треугольника Паскаля
     static String getPascalTriangle(int n) {
-        StringBuilder builder = new StringBuilder();
-        // Рассчитываем максимальную ширину строки в треугольнике
-        int maxRowWidth = calculateMaxRowWidth(n);
+        StringBuilder builder = new StringBuilder(); // Используется для построения всего треугольника
+        int maxRowLength = calculateRowWidth(n - 1); // Вычисление длины самой длинной строки в треугольнике
+
+        // Построение каждого уровня треугольника
         for (int i = 0; i < n; i++) {
-            int number = 1;
-            // Расчет начальных пробелов для центровки строки
-            int leadingSpaces = (maxRowWidth - calculateRowWidth(i)) / 2;
-            builder.append(" ".repeat(leadingSpaces));
-
+            StringBuilder rowBuilder = new StringBuilder(); // Используется для построения отдельного уровня
+            int number = 1; // Первое число в каждом уровне всегда 1
+            // Построение строки с числами треугольника Паскаля
             for (int j = 0; j <= i; j++) {
-                builder.append(number);
+                if (j > 0) rowBuilder.append(" "); // Добавление пробела между числами
+                rowBuilder.append(number); // Добавление числа в строку
+                // Расчет следующего числа в строке с использованием коэффициентов
                 number = number * (i - j) / (j + 1);
-                // Добавляем пробелы после каждого числа, кроме последнего в строке
-                if (j < i) {
-                    builder.append(" ");
-                }
             }
-            builder.append("\n");
+            // Центрирование построенной строки и добавление ее в общий треугольник
+            String centeredRow = getCenteredRow(maxRowLength, rowBuilder.toString());
+            builder.append(centeredRow).append("\n");
         }
-        return builder.toString();
+
+        return builder.toString(); // Возвращение итогового треугольника в виде строки
     }
 
-    // Расчет максимальной ширины строки в треугольнике
-    static int calculateMaxRowWidth(int n) {
-        int number = 1;
-        int width = 1;
-        // Перебираем числа для последнего уровня треугольника
-        for (int i = 1; i < n; i++) {
-            number = number * (n - i) / i;
-            // Увеличиваем общую ширину на количество знаков в числе + пробел
-            width += (int)(Math.log10(number) + 2);
-        }
-        return width;
-    }
-
-    // Расчет ширины текущей строки в треугольнике
+    // Метод для вычисления длины строки треугольника на определенном уровне
     static int calculateRowWidth(int row) {
-        int number = 1;
-        int width = 1;
-        // Перебираем числа для текущего уровня треугольника
+        int number = 1; // Начинаем с первого числа
+        int width = 1; // Начальная ширина строки
+        // Вычисление ширины строки путем последовательного добавления длин чисел и пробелов между ними
         for (int i = 1; i <= row; i++) {
             number = number * (row - i + 1) / i;
-            // Увеличиваем общую ширину на количество знаков в числе + пробел
-            width += (int)(Math.log10(number) + 2);
+            width += (int) (Math.log10(number) + 2); // Добавление длины числа и пробела после него
         }
-        // Уменьшаем на один, так как после последнего числа пробел не нужен
-        return width - 1;
+        return width - 1; // Уменьшаем на один, так как после последнего числа пробел не ставится
     }
 }
