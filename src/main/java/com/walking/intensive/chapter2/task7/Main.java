@@ -23,66 +23,45 @@ public class Main {
         int n4 = 2925;
         int n5 = 5565;
 
-        solutionTask7(n1);
-        solutionTask7(n2);
-        solutionTask7(n3);
-        solutionTask7(n4);
-        solutionTask7(n5);
-    }
-
-    //проверка двух чисел на наличие пары
-    public static boolean isAmicableNumbers(int a, int b) {
-
-        return (getDividersSum(a) == b && getDividersSum(b) == a);
-    }
-
-    //поиск суммы делителей заданного n
-    public static int getDividersSum(int n) {
-
-        int result = 0;
-
-        for (int i = 1; i < n; i++) {
-            if (n % i == 0) {
-                result += i;
-            }
-        }
-        return result;
-    }
-
-    /*
-    "...сумма дружественных чисел которой максимальна среди всех пар дружественных чисел".
-    Как будто можно обойтись без этого условия и без метода getAmicableNumbersSum(). Не вычислять сумму, а просто найти
-    ближайшее к n число (двигаясь n -> 1), входящее в пару и являющееся в такой паре бОльшим числом. Сумма
-    чисел в такой паре будет больше, чем сумма чисел в следующей паре.
-    Или я неверно понял условия. Метод оставлю для археологов.
-     */
-    public static int getAmicableNumbersSum(int a, int b) {
-
-        return a + b;
+        System.out.println(getMaxValueOfAmicablePairLessThanN(n1));
+        System.out.println(getMaxValueOfAmicablePairLessThanN(n2));
+        System.out.println(getMaxValueOfAmicablePairLessThanN(n3));
+        System.out.println(getMaxValueOfAmicablePairLessThanN(n4));
+        System.out.println(getMaxValueOfAmicablePairLessThanN(n5));
     }
 
     public static int getMaxValueOfAmicablePairLessThanN(int n) {
 
         for (int i = n - 1; i > 0; i--) { //
 
-            //Ищем сумму делителей i, сравниваем ее с i на наличие дружественной пары
-            if (isAmicableNumbers(i, getDividersSum(i))) {
-                //Проверяем, является ли i максимальным значением в паре. Возвращаем, если да
-                if (getDividersSum(i) < i) {
-                    return i;
-                }
+            //Ищем сумму делителей i, сравниваем ее с i на наличие дружественной пары, возвращаем i, если оно максимальное в паре
+            if (isAmicableNumbers(i, getDividersSum(i)) && i > getDividersSum(i)) {
+                return i;
             }
         }
-        //заглушка, не должно сработать никогда
-        return 1;
+        return 0;
     }
 
-    //при n < 285 не должно быть подходящего ответа
-    public static void solutionTask7(int n) {
-        if (n > 284) {
-            System.out.println(getMaxValueOfAmicablePairLessThanN(n));
-        } else {
-            System.out.println("Для введенного вами числа не существует дружественной пары, удовлетворяющей условиям");
+    /**
+     * проверка двух чисел на наличие пары
+     */
+    public static boolean isAmicableNumbers(int a, int b) {
+
+        return getDividersSum(a) == b && getDividersSum(b) == a;
+    }
+
+    /**
+     * поиск суммы делителей заданного n
+     */
+    public static int getDividersSum(int n) {
+
+        int result = 0;
+
+        for (int i = 1; i <= n / 2; i++) {
+            if (n % i == 0) {
+                result += i;
+            }
         }
+        return result;
     }
 }
