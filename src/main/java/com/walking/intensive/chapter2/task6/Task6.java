@@ -32,9 +32,6 @@ public class Task6 {
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
-        if (n == 0) {
-            return m;
-        }
-        return getNodByEuclideanAlgorithm(n, m % n);
+        return (n == 0) ? m : getNodByEuclideanAlgorithm(n, m % n);
     }
 }
