@@ -16,33 +16,33 @@ public class Task9 {
     }
 
     static String getPascalTriangle(int n) {
-        String triangle = "";
+        StringBuilder triangle = new StringBuilder();
 
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j <= (getStringTriangle(n).length() - getStringTriangle(i).length()) / 2; j++) {
-                triangle += " ";
-            }
+            triangle.append(" ".repeat(Math.max(0, (getStringTriangle(n - 1).length() - getStringTriangle(i).length()) / 2 + 1)));
 
-            triangle += getStringTriangle(i) + "\n";
+            triangle.append(getStringTriangle(i));
+            triangle.append("\n");
         }
 
-        return triangle;
+        return triangle.toString();
     }
 
     static String getStringTriangle(int n) {
-        String string = "";
+        StringBuilder string = new StringBuilder();
 
         for (int i = 0; i <= n; i++) {
             int num = getNumberTriangle(n, i);
 
             if (i < n) {
-                string += num + " ";
+                string.append(num);
+                string.append(" ");
             } else {
-                string += num;
+                string.append(num);
             }
         }
 
-        return string;
+        return string.toString();
     }
 
     static int getNumberTriangle(int l, int num) {
