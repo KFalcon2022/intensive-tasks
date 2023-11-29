@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task5 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
+
     }
 
     static double getAreaByHeron(double a, double b, double c) {
@@ -17,8 +17,7 @@ public class Task5 {
         double p = (a + b + c) / 2;
         double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
         System.out.println(s);
-
-        return s; // Заглушка. При реализации - удалить
+        return s;
     }
 
     /**
@@ -34,7 +33,7 @@ public class Task5 {
         double heightsC = 2 * s / c;
         double[] heights = {heightsA, heightsB, heightsC};
         Arrays.sort(heights);
-        return heights; // Заглушка. При реализации - удалить
+        return heights;
     }
 
     /**
@@ -49,7 +48,7 @@ public class Task5 {
         double mediansС = (Math.sqrt(2 * b * b + 2 * a * a - c * c)) / 2;
         double[] meridians = {mediansA, mediansB, mediansС};
         Arrays.sort(meridians);
-        return meridians; // Заглушка. При реализации - удалить
+        return meridians;
     }
 
     /**
@@ -64,7 +63,7 @@ public class Task5 {
         double bisectorsC = 1 / (b + a) * Math.sqrt(b * a * (a + b + c) * (a + b - c));
         double[] bisectors = {bisectorsA, bisectorsB, bisectorsC};
         Arrays.sort(bisectors);
-        return bisectors; // Заглушка. При реализации - удалить
+        return bisectors;
     }
 
     /**
@@ -82,7 +81,7 @@ public class Task5 {
         double anglesC = (180 / Math.PI) * Math.acos(cosC);
         double[] angles = {anglesA, anglesB, anglesC};
         Arrays.sort(angles);
-        return angles; // Заглушка. При реализации - удалить
+        return angles;
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
@@ -91,7 +90,7 @@ public class Task5 {
         }
         double p = (a + b + c) / 2;
         double r = Math.sqrt(((p - a) * (p - b) * (p - c)) / p);
-        return r; // Заглушка. При реализации - удалить
+        return r;
     }
 
     static double getCircumradius(double a, double b, double c) {
@@ -100,20 +99,16 @@ public class Task5 {
         }
         double p = (a + b + c) / 2;
         double r = (a * b * c) / (4 * (Math.sqrt(p * (p - a) * (p - b) * (p - c))));
-        return r; // Заглушка. При реализации - удалить
+        return r;
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        //        Место для вашего кода
-
-        return 0; // Заглушка. При реализации - удалить
+        double cosA = (b * b + c * c - a * a) / (2 * b * c);
+        double sinA = (Math.sqrt(1 - cosA * cosA));
+        return (c * b * sinA / 2);
     }
 
     static boolean isInfoAboutTriangle(double a, double b, double c) {
-        if (a + b > c & b + c > a & c + a > b) {
-            return true;
-        } else {
-            return false;
-        }
+        return (a + b > c & b + c > a & c + a > b);
     }
 }
