@@ -11,9 +11,10 @@ public class Task6 {
     }
 
     public static int getNOD(int a, int b) {
-        if (b == 0)
+        if (b == 0) {
             return a;
-        else
+        } else {
             return getNOD(b, a % b);
+        }
     }
 }
