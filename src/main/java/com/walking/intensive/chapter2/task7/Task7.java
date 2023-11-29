@@ -5,12 +5,15 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        int n = 7000;
+        int n = 15000;
+
         System.out.printf("Для N = %d искомое число = %d", n, getFriendlyPair(n));
     }
 
     static int getFriendlyPair(int m) {
-        for (int i = m - 1; i > 0; i--) {     //натуральные числа начинается от единицы, т.е i>0
+
+        //натуральные числа начинается от единицы, т.е i>0
+        for (int i = m - 1; i > 0; i--) {
             for (int j = m - 1; j > 0; j--) {
                 if ((i != j) && isFriendlyPair(i, j)) {
                     System.out.println(i + "\n" + j);
