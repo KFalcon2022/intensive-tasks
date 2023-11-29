@@ -15,10 +15,16 @@ public class Task10 {
         System.out.println(isPalindrome(inputString));
     }
     static boolean isPalindrome(String inputString) {
-        String removeExcess = inputString.replaceAll("[^\\p{L}\\p{N}]+", "");
-        StringBuilder result = new StringBuilder(removeExcess);
-        StringBuilder reverse = result.reverse();
+        int leftOnRight = 0, rightOnLeft = inputString.length() - 1;
 
-        return reverse.toString().equalsIgnoreCase(removeExcess);
+        while(leftOnRight < rightOnLeft){
+            if(inputString.charAt(leftOnRight) != inputString.charAt(rightOnLeft)){
+                return false;
+            }
+            leftOnRight++;
+            rightOnLeft--;
+        }
+        return true;
     }
 }
+
