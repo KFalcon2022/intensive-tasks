@@ -7,22 +7,25 @@ import java.util.Scanner;
  */
 public class Task6 {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner number = new Scanner(System.in);
 
         System.out.println("Введите первое число m ");
-        int m = in.nextInt();
+        int m = number.nextInt();
 
         System.out.println("Введите второе число n ");
-        int n = in.nextInt();
-        in.close();
+        int n = number.nextInt();
 
+        number.close();
 
         System.out.println("НОД " + getNod(m, n) + "\n" + "НОК " + getNoc(m, n));
+
         System.out.println("НОД по алгоритму Евклида " + getNodByEuclideanAlgorithm(m, n));
     }
+
     static int getNoc(int m, int n) {
         return m / getNod(m, n) * n;
     }
+
     static int getNod(int m, int n) {
         int result = 0;
         for (int i = 1; i <= Math.max(m, n); i++) {
@@ -30,9 +33,11 @@ public class Task6 {
                 result = i;
             }
         }
+
         return result;
     }
-    static int getNodByEuclideanAlgorithm(int m, int n){
+
+    static int getNodByEuclideanAlgorithm(int m, int n) {
         return n == 0 ? m : getNodByEuclideanAlgorithm(n, m % n);
     }
 }
