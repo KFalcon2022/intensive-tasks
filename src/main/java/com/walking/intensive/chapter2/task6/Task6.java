@@ -5,8 +5,8 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        int number1 = 315;
-        int number2 = 245;
+        int number1 = 236;
+        int number2 = 328;
 
         System.out.println("НОД = " + getNod(number1, number2) +
                 ", НОК = " + getNoc(number1, number2) +
@@ -18,10 +18,10 @@ public class Task6 {
         int currentM;
         int currentN;
 
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                currentM = (i + 1) * n;
-                currentN = (j + 1) * m;
+        for (int i = 1; i <= m; i++) {
+            currentM = i * n;
+            for (int j = 1; j <= n; j++) {
+                currentN = j * m;
 
                 if (currentM == currentN) {
                     return currentM;             //первый найденный
