@@ -8,29 +8,36 @@ import java.util.LinkedList;
  */
 public class Task6 {
     public static void main(String[] args) {
-        int number1 = 24;
-        int number2 = 16;
+        int number1 = 315;
+        int number2 = 245;
 
         System.out.println("НОД = " + getNod(number1, number2) +
-                ", НОК = " + getNoc(number1, number2)+
+                ", НОК = " + getNoc(number1, number2) +
                 " НОД посредством алгоритма Евклида = " + getNodByEuclideanAlgorithm(number1, number2));
     }
 
     static int getNoc(int m, int n) {
         //НОК - такое маленькое число, которое делится без остатка на число a и число b.
-        LinkedList<Integer> mKratinie = new LinkedList<>();
-        LinkedList<Integer> nKratinie = new LinkedList<>();
 
-        for (int i = 1; i <= m; i++) {
-            mKratinie.add(i * m);
+        int[] mKratnie = new int[m];
+        int[] nKratnie = new int[n];
+
+        for (int i = 0; i < m; i++) {
+            mKratnie[i] = (i + 1) * n;
         }
-        for (int i = 1; i <= n; i++) {
-            nKratinie.add(i * n);
+        for (int i = 0; i < n; i++) {
+            nKratnie[i] = (i + 1) * m;
         }
 
-        mKratinie.retainAll(nKratinie); //удаляем из списка mKratinie все элементы, которые не содержатся в nКратные, retain - сохранить
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mKratnie[i] == nKratnie[j]) {
+                    return mKratnie[i];             //первый найденный
+                }
+            }
+        }
 
-        return Collections.min(mKratinie);
+        return 0;
     }
 
     static int getNod(int m, int n) {
@@ -63,12 +70,12 @@ public class Task6 {
     static int getNodByEuclideanAlgorithm(int m, int n) {
         int ceiling = Math.max(m, n);
         int floor = Math.min(m, n);
-        int ostatok = ceiling % floor;
+        int remainder = ceiling % floor;
 
-        if (ostatok == 0) {
+        if (remainder == 0) {
             return floor;
         } else {
-            ceiling = ostatok;
+            ceiling = remainder;
         }
 
         return getNodByEuclideanAlgorithm(floor, ceiling); //рекурсия
