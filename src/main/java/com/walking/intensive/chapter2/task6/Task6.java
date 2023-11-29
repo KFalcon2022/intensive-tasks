@@ -5,12 +5,13 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
 
-public static void main(String[] args) {
-    int n = 25;
-    int m = 15;
-    System.out.println("НОК чисел " + n + " и " + m + " равен " + getNoc(n, m));
-    System.out.println("НОД чисел " + n + " и " + m + " равен " + getNod(n, m));
-}
+    public static void main(String[] args) {
+        int n = 25;
+        int m = 15;
+        System.out.println("НОК чисел " + n + " и " + m + " равен " + getNoc(n, m));
+        System.out.println("НОД чисел " + n + " и " + m + " равен " + getNod(n, m));
+    }
+
     //    тод для нахождения НОД двух чисел
     public static int getNod(int n, int m) {
         if (m == 0) {
