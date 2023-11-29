@@ -5,27 +5,23 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        int number1 = 236;
-        int number2 = 328;
+        int number1 = 36;
+        int number2 = 28;
 
         System.out.println("НОД = " + getNod(number1, number2) +
                 ", НОК = " + getNoc(number1, number2) +
-                " НОД посредством алгоритма Евклида = " + getNodByEuclideanAlgorithm(number1, number2));
+                ", НОД посредством алгоритма Евклида = " + getNodByEuclideanAlgorithm(number1, number2));
     }
 
     static int getNoc(int m, int n) {
         //НОК - такое маленькое число, которое делится без остатка на число a и число b.
-        int currentM;
-        int currentN;
 
-        for (int i = 1; i <= m; i++) {
-            currentM = i * n;
-            for (int j = 1; j <= n; j++) {
-                currentN = j * m;
+        int supposedNoc;
 
-                if (currentM == currentN) {
-                    return currentM;             //первый найденный
-                }
+        for (int i = 1; i <= n; i++) {
+            supposedNoc = i * m;
+            if (supposedNoc % n == 0) {
+                return supposedNoc;
             }
         }
 
