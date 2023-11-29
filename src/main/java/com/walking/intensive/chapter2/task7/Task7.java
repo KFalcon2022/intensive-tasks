@@ -6,9 +6,10 @@ public class Task7 {
         System.out.println(getFriendlyPair(N)); // максимальное число с дружественной пары
     }
 
-    static int getFriendlyPair(int m) {
+    static String getFriendlyPair(int m) {
         int maxPairSum = 0;
         int maxNumberInPair = 0;
+        int friendOfMaxNumber = 0;
 
         // счетчик чисел от 1 до m для поиска дружественных пар
         for (int i = 1; i < m; i++) {
@@ -22,23 +23,25 @@ public class Task7 {
                     if (pairSum > maxPairSum) {
                         maxPairSum = pairSum;
                         maxNumberInPair = Math.max(i, sumOfDivisorsI); // сохранение наибольшего числа из пары
+                        friendOfMaxNumber = Math.min(i, sumOfDivisorsI); // сохранение наименьшего числа из пары
                     }
                 }
             }
         }
 
-        return maxNumberInPair;
+        return maxNumberInPair + ", " + friendOfMaxNumber; // Возвращение строки
     }
-        private static int sumOfDivisors(int number){
-            int sum = 0;
-            /* перебор возможных делителей числа number
-            * (делитель любого числа никогда не может быть больше чем его половина, исключение - делителем можеть быть само число).*/
-            for (int i = 1; i <= number / 2; i++) {
-                // если number делитель, добавляем его к сумме
-                if (number % i == 0) {
-                    sum += i;
-                }
+
+    private static int sumOfDivisors(int number) {
+        int sum = 0;
+        /* перебор возможных делителей числа number
+         * (делитель любого числа никогда не может быть больше чем его половина, исключение - делителем можеть быть само число).*/
+        for (int i = 1; i <= number / 2; i++) {
+            // если number делитель, добавляем его к сумме
+            if (number % i == 0) {
+                sum += i;
             }
-            return sum;
         }
+        return sum;
     }
+}
