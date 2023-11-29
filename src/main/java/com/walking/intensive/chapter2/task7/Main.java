@@ -3,10 +3,10 @@ package com.walking.intensive.chapter2.task7;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(getMaxSumOfTwoPairs(450));
+        System.out.println(getMaxSumTwoPairs(450));
     }
 
-    public static int getMaxSumOfTwoPairs(int n) {
+    public static int getMaxSumTwoPairs(int n) {
         int maxOfAll = 0;
         int maxSumOfPair = 0;
         for (int firstOfPair = n; firstOfPair >= 0; firstOfPair--) {
@@ -27,7 +27,7 @@ public class Main {
 
     public static int getSumDividers(int x) {
         int sum = 0;
-        for (int i = 1; i < x; i++) {
+        for (int i = 1; i < x / 2; i++) {
             if ((x % i) == 0) {
                 sum += i;
             }
