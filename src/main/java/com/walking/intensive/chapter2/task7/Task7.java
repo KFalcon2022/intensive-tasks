@@ -24,7 +24,6 @@ public class Task7 {
             }
             if (i == number2 && i != number1 && number1 <= m) {
                 System.out.println("Число " + i + " число " + number1 + " - дружественные");
-                break;
             }
             number2 = 0;
             number1 = 0;
