@@ -7,20 +7,22 @@ public class Task9 {
     public static void main(String[] args) {
         int n = 50;
 
-        getPascalTriangle(n);
+        System.out.println(getPascalTriangle(n));
     }
 
     static String getPascalTriangle(int n) {
+        String pascalTriangle = "";
+
         for (int i = 0; i < n; i++) {
             int lastStringLength = getTriangleString(n).length();
             int currentStringLength = getTriangleString(i).length();
 
-            for (int spaces = 0; spaces < (lastStringLength - currentStringLength) / 2 + 1; spaces++) {
-                System.out.print(" ");
+            for (int spaces = 0; spaces < (lastStringLength - 1 - currentStringLength) / 2; spaces++) {
+                pascalTriangle = pascalTriangle + " ";
             }
-            System.out.println(getTriangleString(i));
+            pascalTriangle = pascalTriangle + getTriangleString(i) + "\n";
         }
-        return null;
+        return pascalTriangle;
     }
 
     static String getTriangleString(int n) {
