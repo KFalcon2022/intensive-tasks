@@ -14,10 +14,14 @@ public class Task7 {
         }
 
         int maxFriendlyNumber = 0;
-        for (int i = 1; i < m; i++)
+        int maxSumFriendlyNumbers = 0;
+        for (int i = m; i > 1 ; i--)
         {
-            for (int j = 1; j < m; j++) {
-                if (getDivisorsSum(i) == j && getDivisorsSum(j) == i) {
+            long firstNumberDivisorsSum = getDivisorsSum(i);
+            for (int j = 1; j < m ; j++) {
+                long secondNumberDivisorsSum = getDivisorsSum(j);
+                if (i != j && firstNumberDivisorsSum == j && secondNumberDivisorsSum == i && (i + j > maxSumFriendlyNumbers)) {
+                    maxSumFriendlyNumbers = i + j;
                     maxFriendlyNumber = Math.max(i, j);
                 }
             }
@@ -25,8 +29,8 @@ public class Task7 {
         return maxFriendlyNumber;
     }
 
-    static double getDivisorsSum(int a) {
-        double sum = 0;
+    static long getDivisorsSum(int a) {
+        long sum = 0;
         if (a > 0) {
             for (int i = 1; i < a; i++) {
                 if (a % i == 0) {
