@@ -18,12 +18,12 @@ public class Main {
         }
     }
 
-    public static int getDivisorsSum(int integer) {
+    public static int getDivisorsSum(int number) {
         int result = 1;
 
-        for (int i = 2; i < Math.sqrt(integer); i++) {
-            if (integer % i == 0) {
-                result += i + integer / i;
+        for (int i = 2; i < Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                result += i + number / i;
             }
         }
 
@@ -31,15 +31,13 @@ public class Main {
     }
 
     public static int getMaxFriendlyInt(int maxInteger) {
+        int maxSum = 0;
         int result = 0;
-        int sum = 0;
 
         for (int i = 1; i <= maxInteger; i++) {
-            for (int j = i + 1; j <= maxInteger; j++) {
-                if ((i == getDivisorsSum(j)) && (getDivisorsSum(i) == j) && (i + j > sum)) {
-                    sum = i + j;
-                    result = Math.max(i, j);
-                }
+            if ((i != getDivisorsSum(i)) && (i == getDivisorsSum(getDivisorsSum(i))) && (getDivisorsSum(i) < maxInteger) && (i + getDivisorsSum(i) > maxSum)) {
+                maxSum = i + getDivisorsSum(i);
+                result = Math.max(i, getDivisorsSum(i));
             }
         }
 
