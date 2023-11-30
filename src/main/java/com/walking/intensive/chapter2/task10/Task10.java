@@ -9,28 +9,28 @@ public class Task10 {
     }
 
     static boolean isPalindrome(String inputString) {
-        char[] str = inputString
-                .toLowerCase()
-                .toCharArray();
+//        char[] str = inputString
+//                .toLowerCase()
+//                .toCharArray();
 
         int left = 0;
-        int right = str.length - 1;
+        int right = inputString.length() - 1;
 
         while (left < right) {
-            if (!Character.isLetter(str[left])) {
+            if (!Character.isLetter(inputString.charAt(left))) {
                 left++;
                 continue;
             }
 
-            if (!Character.isLetter(str[right])) {
+            if (!Character.isLetter(inputString.charAt(right))) {
                 right--;
                 continue;
             }
 
-            if (str[left] != str[right]) {
+            if (inputString.charAt(left) != inputString.charAt(right)) {
                 return false;
-            }
 
+            }
             left++;
             right--;
         }
