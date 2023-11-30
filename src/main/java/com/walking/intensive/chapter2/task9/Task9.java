@@ -5,37 +5,38 @@ package com.walking.intensive.chapter2.task9;
  */
 public class Task9 {
     public static void main(String[] args) {
-        getPascalTriangle(5);
+        System.out.println(getPascalTriangle(20));
     }
 
-    static String getPascalTriangle(int N) {
+    /**
+     * Формула нахождения чисел пирамиды паскаля: C (n,k) = (n-k+1)/k, n и k - биномиальные коэффициенты,
+     * переменная Cnk - и подразумевает эти вычисления, нахождения значений по коэффицентам
+     */
+    static String getPascalTriangle(int numberOfLines) {
         int CnK = 1;
-        String maxStr = "";
-        maxStr += 1 + " ";
-        for (int k = 1; k < N - 1; k++) {
-            CnK *= ((N - 1) - k + 1);
+        String lastStringInTriangle = 1 + " ";
+
+        for (int k = 1; k < numberOfLines - 1; k++) {
+            CnK *= ((numberOfLines - 1) - k + 1);
             CnK /= k;
-            maxStr += CnK + " ";
+            lastStringInTriangle += CnK + " ";
         }
-        maxStr += 1;
-        System.out.println(maxStr.length());
-        for (int n = 0; n < N; n++) {
-            int maxCnK = 0;
-            String strN = "";
+        lastStringInTriangle += 1;
+
+        String fullTriangleResult = "";
+        for (int n = 0; n < numberOfLines; n++) {
+            String currentLine = "";
             CnK = 1;
-            strN += CnK + " ";
+            currentLine += CnK + " ";
             for (int k = 1; k <= n; k++) {
                 CnK *= (n - k + 1);
                 CnK /= k;
-                strN += CnK + " ";
-                if (CnK > maxCnK){
-                    maxCnK = CnK;
-                }
+                currentLine += CnK + " ";
             }
 
-                System.out.println(" ".repeat(maxStr.length() / 3 -n) + strN + " ".repeat(maxStr.length() / 3-n));
+            fullTriangleResult += (" ".repeat(lastStringInTriangle.length() - currentLine.length() / 2) + currentLine) + "\n";
 
         }
-        return null;
+        return fullTriangleResult;
     }
 }
