@@ -33,7 +33,7 @@ public class Task7 {
             if (n % j == 0) {
                 sumFactorsNumber += j;
                 if (j != n / j) {
-                    sumFactorsNumber +=  n / j;
+                    sumFactorsNumber += n / j;
                 }
             }
         }
