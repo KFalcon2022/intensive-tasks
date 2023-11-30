@@ -6,38 +6,40 @@ public class Main {
 
         System.out.println("Ќаибольшее число из пары дружественных чисел, сумма которых максимальна среди всех пар дружественных чисел, большее из которых меньше " + max + ": " + findAmicableNumbers(max));
     }
+
     static int findAmicableNumbers(int max) {
-        int first, second = 0, firstSum = 0, secondSum = 0, firstAmicable = 0, secondAmicable = 0;
+        int first, second = 0, firstSum, secondSum, firstAmicable = 0, secondAmicable = 0;
+
         for (first = 0; first < max; first++) { // ѕока потенциальные дружественные числа не превыс€т заданный порог
-            for (int i = 1; i * i < first; i++) {
-                if (first % i == 0) { // »щем делители первого числа
-                    if (i == 1 || i == first / i) {
-                        firstSum += i; // —умма делителей первого числа
-                    } else {
-                        firstSum += i + first / i;
-                    }
-                }
+            firstSum = getDividerSum(first);
+            secondSum = getDividerSum(firstSum);
+
+            if (first == secondSum) { //—равниваем, равн€етс€ ли первое число сумме делителей второго
+                second = firstSum; //≈сли да, то присваиваем второму числу значение суммы первого числа
             }
-            for (int i = 1; i * i < firstSum; i++) {
-                if (firstSum % i == 0) { //»щем делители второго числа
-                    if (i == 1 || i == firstSum / i) {
-                        secondSum += i;
-                    } else {
-                        secondSum += i + firstSum / i;
-                    }
-                }
-                if (first == secondSum) { //—равниваем, равн€етс€ ли первое число сумме делителей второго
-                    second = firstSum; //≈сли да, то присваиваем второму числу значение суммы первого числа
-                }
-            }
-            if (first == secondSum && second == firstSum && first + second > firstAmicable + secondAmicable && second < max) { // ѕровер€ем, равн€етс€ ли первое число сумме делителей второго числа, а второе число равн€етс€ ли сумме делителей первого числа
+
+            if (first == secondSum && second == firstSum && first + second > firstAmicable + secondAmicable && second < max && first != second) { // ѕровер€ем, равн€етс€ ли первое число сумме делителей второго числа, а второе число равн€етс€ ли сумме делителей первого числа
                 firstAmicable = first; // ≈сли да, обновл€ем рекордсменов
                 secondAmicable = second;
-                System.out.println(firstAmicable + " " + secondAmicable); // Ёто дл€ проверки
+                 //System.out.println(firstAmicable + " " + secondAmicable); // Ёто дл€ проверки
             }
-            firstSum = 0;
-            secondSum = 0;
         }
+
         return Math.max(firstAmicable, secondAmicable);
+    }
+
+    static int getDividerSum(int limit) {
+        int dividerSum = 0;
+
+        for (int i = 1; i * i < limit; i++) {
+            if (limit % i == 0) { // »щем делители первого числа
+                if (i == 1 || i == limit / i) {
+                    dividerSum += i; // —умма делителей первого числа
+                } else {
+                    dividerSum += i + limit / i;
+                }
+            }
+        }
+        return dividerSum;
     }
 }
