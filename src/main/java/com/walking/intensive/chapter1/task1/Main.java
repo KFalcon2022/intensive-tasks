@@ -8,23 +8,26 @@ public class Main {
         for (int i = -1; i <= 128; i++) {
             System.out.println(getAgeString(i));
         }
-
-
     }
 
     static String getAgeString(int age) {
         int module = age % 100;
+
         if (age < 0 || age > 127) {
             return "Incorrect age!";
-        } else if (module >= 11 && module <= 20) {
-            return "Вам " + age + " лет";
-        } else {
-            module = age % 10;
-            if (module == 1) {
-                return "Вам " + age + " год";
-            } else if (module >= 2 && module <= 4) {
-                return "Вам " + age + " года";
-            } else return "Вам " + age + " лет";
         }
+        if (module >= 11 && module <= 20) {
+            return "Вам " + age + " лет";
+        }
+
+        int remainder = age % 10;
+
+        if (remainder == 1) {
+            return "Вам " + age + " год";
+        }
+        if (remainder >= 2 && remainder <= 4){
+            return "Вам " + age + " года";
+        }
+        return "Вам " + age + " лет";
     }
 }
