@@ -11,51 +11,66 @@ public class Task10 {
     }
 
     public static boolean isPalindrome(String inputString) {
-        int lastIndex = inputString.length() - 1;
+        int length = inputString.length();
+        char firstChar, lastChar;
+        int startIndex = 0;
+        int endIndex = length - 1;
 
-        for (int i = 0, j = lastIndex; i <= lastIndex; i++, j--) {
-            if (getCharByIndex(inputString, i, true) != getCharByIndex( inputString, lastIndex - i, false)) {
+        while (startIndex < length) {
+            firstChar = inputString.charAt(startIndex);
+            lastChar = inputString.charAt(endIndex);
 
-                return false;
+            if (isRussianLetter(firstChar)) {
+                firstChar = toLowerCase(firstChar);
+            } else {
+
+                while (!isRussianLetter(firstChar) && startIndex < length - 1) {
+                    startIndex++;
+                    firstChar = inputString.charAt(startIndex);
+                }
+
+                if (isRussianLetter(firstChar)) {
+                    firstChar = toLowerCase(firstChar);
+                }
+            }
+
+            if (isRussianLetter(lastChar)) {
+                lastChar = toLowerCase(lastChar);
+            } else {
+
+                while (!isRussianLetter(lastChar) && endIndex > 0) {
+                    endIndex--;
+                    lastChar = inputString.charAt(endIndex);
+                }
+
+                if (isRussianLetter(lastChar)) {
+                    lastChar = toLowerCase(lastChar);
+                }
+            }
+
+            if (isRussianLetter(firstChar) && isRussianLetter(lastChar)) {
+                if (toLowerCase(firstChar) != toLowerCase(lastChar)) {
+                    return false;
+                }
+            }
+
+            startIndex++;
+            if (endIndex > 0) {
+                endIndex--;
             }
         }
 
         return true;
     }
 
-    public static char getCharByIndex(String str, int index, boolean isStart) {
-        if (isRussianLetter(str.charAt(index))) {
-
-            if (isUpperCase(str.charAt(index))) {
-                return toLowerCase(str.charAt(index));
-            }
-
-            return str.charAt(index);
-        }
-        if(isStart) {
-            index++;
-
-            return getCharByIndex(str, index, true);
-        }
-        index--;
-
-        return getCharByIndex(str, index, false);
-    }
-
     public static boolean isRussianLetter(char simbol) {
-        if (simbol >= 192 && simbol <= 223) {
-            return true;
-        }
 
-        return false;
+        return simbol >= 1040 && simbol <= 1103;
     }
 
     public static boolean isUpperCase(char simbol) {
-        if (simbol >= 192 && simbol <= 223) {
-            return true;
-        }
 
-        return false;
+        return simbol >= 1040 && simbol <= 1071;
     }
     public static char toLowerCase(char simbol) {
         if (isUpperCase(simbol)) {
