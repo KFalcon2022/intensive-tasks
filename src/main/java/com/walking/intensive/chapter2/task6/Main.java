@@ -3,8 +3,8 @@ package com.walking.intensive.chapter2.task6;
 public class Main {
     public static void main(String[] args) {
 
-        int number1 = 24;
-        int number2 = 24;
+        int number1 = 4791;
+        int number2 = 126;
 
         System.out.println(getNOKAndNOD(number1, number2));
     }
@@ -31,7 +31,9 @@ public class Main {
     }
 
     public static String getNOKAndNOD(int number1, int number2) {
+
         if (isNotCorrectInput(number1, number2)) {
+
             return "Вводимое значение не должны быть меньше или равно 0";
         }
 
@@ -39,10 +41,12 @@ public class Main {
         int maxNumber = getMaxNumber(number1, number2);
 
         if (minNumber == maxNumber || maxNumber % minNumber == 0) {
+
             return "Наименьшее общее кратное (НОК): " + maxNumber + "\nНаибольший общий делить (НОД): " + minNumber;
         }
 
         if (isSimple(maxNumber) && isSimple(minNumber)) {
+
             return "Наименьшее общее кратное (НОК): " + maxNumber * minNumber + "\nНаибольший общий делить (НОД): 1";
         }
 
