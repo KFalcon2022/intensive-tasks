@@ -9,7 +9,6 @@ public class Task4 {
     static String solveQuadraticEquation(double a, double b, double c) {
         double x1 = 0, x2 = 0;
         int amountSolution = 0;
-
         double d = b * b - 4 * a * c;
         if (d > 0) {
             x1 = (-b + Math.sqrt(d)) / (2 * a);
