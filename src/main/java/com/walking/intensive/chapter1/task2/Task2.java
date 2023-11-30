@@ -29,11 +29,11 @@ public class Task2 {
         }
 
         if (floorAmount <= 0) {
-            return "Количество этажей не может быть меньше 1.";
+            return "Количество этажей не может быть меньше 1";
         }
 
         if (entranceAmount <= 0) {
-            return "Количество подъездов не может быть меньше 1.";
+            return "Количество подъездов не может быть меньше 1";
         }
 
         int searchableEntrance = (int) Math.ceil(flatNumber / (floorAmount * (double) amountFlatsOnFloor));
