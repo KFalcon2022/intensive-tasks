@@ -5,18 +5,18 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        int n = 15000;
+        int n = 1000;
 
         System.out.printf("Для N = %d искомое число = %d", n, getFriendlyPair(n));
     }
 
     static int getFriendlyPair(int m) {
-
         //натуральные числа начинается от единицы, т.е i>0
         for (int i = m - 1; i > 0; i--) {
             for (int j = m - 1; j > 0; j--) {
                 if ((i != j) && isFriendlyPair(i, j)) {
                     System.out.println(i + "\n" + j);
+
                     return Math.max(i, j);
                 }
             }
@@ -28,7 +28,6 @@ public class Task7 {
     static boolean isFriendlyPair(int a, int b) {
         int highNumber = Math.max(a, b);
         int lowNumber = Math.min(a, b);
-
         int nodSumForLowNumber = 0;
         int nodSumForHighNumber = 0;
 
@@ -41,6 +40,7 @@ public class Task7 {
             if (i < lowNumber && lowNumber % i == 0) {
                 nodSumForLowNumber += i;
             }
+
             if (highNumber % i == 0) {
                 nodSumForHighNumber += i;
             }
