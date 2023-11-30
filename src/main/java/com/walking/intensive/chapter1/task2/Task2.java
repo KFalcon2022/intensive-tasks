@@ -12,21 +12,22 @@ public class Task2 {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
+        int flatQuantityOnOneFloor = 4;
         //количество квартир - этажи * подъезды * 4
-        int flatAmount = floorAmount * entranceAmount * 4;
-        if ((flatAmount < flatNumber) || flatNumber < 0) {
+        int flatAmount = floorAmount * entranceAmount * flatQuantityOnOneFloor;
+        if ((flatAmount < flatNumber) || flatNumber < 0 || entranceAmount < 0 || floorAmount < 0) {
             return ("Такой квартиры не существует");
         }
 
         //количество квартир в одном подъезде - этажи * 4
-        int flatAmountInOneEntrance = floorAmount * 4;
+        int flatAmountInOneEntrance = floorAmount * flatQuantityOnOneFloor;
         //номер подъезда - номер квартиры / количество квартир в одном подъезде
         int entranceNumber = (flatNumber - 1) / flatAmountInOneEntrance + 1;
         // номер этажа - номер квартиры % количество квартир в одном подъезде / 4 + 1
-        int floorNumber = (flatNumber - 1) % flatAmountInOneEntrance / 4 + 1;
+        int floorNumber = (flatNumber - 1) % flatAmountInOneEntrance / flatQuantityOnOneFloor + 1;
 
         String result = flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж";
-        return switch (flatNumber % 4) {
+        return switch (flatNumber % flatQuantityOnOneFloor) {
             case 0 -> result + ", справа от лифта, вправо";
             case 1 -> result + ", слева от лифта, влево";
             case 2 -> result + ", слева от лифта, вправо";
