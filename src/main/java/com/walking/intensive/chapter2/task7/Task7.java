@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        getFriendlyPair(1000001);
+        getFriendlyPair(1000000);
     }
 
     static int getFriendlyPair(int m) {
