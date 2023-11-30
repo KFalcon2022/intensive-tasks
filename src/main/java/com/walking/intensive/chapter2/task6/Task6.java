@@ -7,7 +7,7 @@ public class Task6 {
     public static void main(String[] args) {
 
         int m = 112;
-        int n = 14;
+        int n = 224;
 
         System.out.println("НОК чисел " + m + " и " + n + " равен: " + getNoc(m, n));
         System.out.println("НОД чисел " + m + " и " + n + " равен: " + getNod(m, n));
@@ -38,9 +38,10 @@ public class Task6 {
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
 
-        if (Math.max(m, n) % Math.min(m, n) == 0) return Math.min(m, n);
+        if (Math.max(m, n) % Math.min(m, n) == 0) {
+            return Math.min(m, n);
+        }
 
-        return getNodByEuclideanAlgorithm(Math.abs(m - n), Math.min(m, n));
+        return getNodByEuclideanAlgorithm(Math.max(m, n) % Math.min(m, n), Math.min(m, n));
     }
-
 }
