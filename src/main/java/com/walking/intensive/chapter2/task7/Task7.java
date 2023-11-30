@@ -8,7 +8,7 @@ public class Task7 {
         getFriendlyPair(1000000);
     }
 
-    static int getFriendlyPair(int m) {
+    static int getFriendlyPair( int m ) {
         int number1 = 0;
         int number2 = 0;
         for (int i = m; i > 1; i--) {
