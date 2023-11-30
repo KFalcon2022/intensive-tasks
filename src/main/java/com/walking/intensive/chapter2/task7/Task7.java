@@ -1,46 +1,36 @@
 package com.walking.intensive.chapter2.task7;
 
+/**
+ * Условие: <a href="https://geometry-math.ru/homework/java-friendly-number.html">ссылка</a>
+ */
 public class Task7 {
     public static void main(String[] args) {
-        int N = 1000; // граници поиска дружественных чисел
-        System.out.println(getFriendlyPair(N)); // максимальное число с дружественной пары
+        int N = 1000; // границы поиска дружественных чисел
+        int maxNumber = getFriendlyPair(N);
+        System.out.println("Максимальное число дружественной пары: " + maxNumber);
     }
 
-    static String getFriendlyPair(int m) {
+    static int getFriendlyPair(int m) {
         int maxPairSum = 0;
-        int maxNumberInPair = 0;
-        int friendOfMaxNumber = 0;
+        int maxNumber = 0;
+        int friendMax = 0;
 
-        // Перебор чисел от 1 до m для поиска дружеских пар
         for (int i = 1; i < m; i++) {
-            // Вычисление суммы делителей числа i
             int sumOfDivisorsI = sumOfDivisors(i);
-
-            /* Проверка, сумма делителей меньше m, не является ли число дружественным самому себе,
-            и является ли дружеским числом для sumOfDivisorsI*/
-            if (sumOfDivisorsI < m && sumOfDivisorsI != i && i == sumOfDivisors(sumOfDivisorsI)) {
-                // Вычисление суммы дружеской пары
-                int pairSum = i + sumOfDivisorsI;
-
-                /* Обновление максимальной суммы и определение наибольшего и наименьшего числа в паре,
-                если текущая сумма больше предыдущей максимальной суммы*/
-                if (pairSum > maxPairSum) {
-                    maxPairSum = pairSum;
-                    maxNumberInPair = Math.max(i, sumOfDivisorsI); // Сохранение наибольшего числа из пары
-                    friendOfMaxNumber = Math.min(i, sumOfDivisorsI); // Сохранение наименьшего числа из пары
-                }
+            if (sumOfDivisorsI < m && sumOfDivisorsI != i && i == sumOfDivisors(sumOfDivisorsI) && (i + sumOfDivisorsI) > maxPairSum) {
+                maxPairSum = i + sumOfDivisorsI;
+                maxNumber = Math.max(i, sumOfDivisorsI);
+                friendMax = Math.min(i, sumOfDivisorsI);
             }
         }
 
-        return maxNumberInPair + ", " + friendOfMaxNumber; // Возвращение строки
+        System.out.println("Другое число дружественной пары: " + friendMax);
+        return maxNumber;
     }
 
     private static int sumOfDivisors(int number) {
         int sum = 0;
-        /* перебор возможных делителей числа number
-         * (делитель любого числа никогда не может быть больше чем его половина, исключение - делителем можеть быть само число).*/
         for (int i = 1; i <= number / 2; i++) {
-            // если number делитель, добавляем его к сумме
             if (number % i == 0) {
                 sum += i;
             }
