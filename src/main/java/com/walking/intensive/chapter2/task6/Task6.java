@@ -21,7 +21,7 @@ public class Task6 {
     static int getNod(int m, int n) {
         while (m != 0 && n != 0) {
             if (m > n) {
-                m = m % n;
+                m %= n;
             }
             if (m == 0) {
                 return m + n;
