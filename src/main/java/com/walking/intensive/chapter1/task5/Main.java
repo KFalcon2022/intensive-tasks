@@ -23,103 +23,102 @@ public class Main {
 
     static double getAreaByHeron(double a, double b, double c) {
 
-        if (isTriangleExist(a, b, c)) {
+        if (isNotTriangleExist(a, b, c)) {
 
-            double p = (a + b + c) / 2;
-
-            return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+            return 0.0;
         }
 
-        return 0.0;
+        double p = (a + b + c) / 2;
+
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
     static double[] getHeights(double a, double b, double c) {
 
-        if (isTriangleExist(a, b, c)) {
+        if (isNotTriangleExist(a, b, c)) {
 
-            double hA = (2 / a) * getAreaByHeron(a, b, c);
-            double hB = (2 / b) * getAreaByHeron(a, b, c);
-            double hC = (2 / c) * getAreaByHeron(a, b, c);
-
-            return getMinAvgMaxValue(hA, hB, hC);
+            return new double[]{0.0};
         }
+        double hA = (2 / a) * getAreaByHeron(a, b, c);
+        double hB = (2 / b) * getAreaByHeron(a, b, c);
+        double hC = (2 / c) * getAreaByHeron(a, b, c);
 
-        return new double[]{0.0};
+        return getMinAvgMaxValue(hA, hB, hC);
     }
 
     static double[] getMedians(double a, double b, double c) {
 
-        if (isTriangleExist(a, b, c)) {
+        if (isNotTriangleExist(a, b, c)) {
 
-            double mA = 0.5 * Math.sqrt(2 * (b * b) + 2 * (c * c) - a * a);
-            double mB = 0.5 * Math.sqrt(2 * (a * a) + 2 * (c * c) - b * b);
-            double mC = 0.5 * Math.sqrt(2 * (a * a) + 2 * (b * b) - c * c);
-
-            return getMinAvgMaxValue(mA, mB, mC);
+            return new double[]{0.0};
         }
 
-        return new double[]{0.0};
+        double mA = 0.5 * Math.sqrt(2 * (b * b) + 2 * (c * c) - a * a);
+        double mB = 0.5 * Math.sqrt(2 * (a * a) + 2 * (c * c) - b * b);
+        double mC = 0.5 * Math.sqrt(2 * (a * a) + 2 * (b * b) - c * c);
+
+        return getMinAvgMaxValue(mA, mB, mC);
     }
 
     static double[] getBisectors(double a, double b, double c) {
 
-        if (isTriangleExist(a, b, c)) {
+        if (isNotTriangleExist(a, b, c)) {
 
-            double lA = Math.sqrt((b * c) * (b + c + a) * (b + c - a)) / (b + c);
-            double lB = Math.sqrt((a * c) * (a + c + b) * (a + c - b)) / (a + c);
-            double lC = Math.sqrt((a * b) * (a + b + c) * (a + b - c)) / (a + b);
-
-            return getMinAvgMaxValue(lA, lB, lC);
+            return new double[]{0.0};
         }
 
-        return new double[]{0.0};
+        double lA = Math.sqrt((b * c) * (b + c + a) * (b + c - a)) / (b + c);
+        double lB = Math.sqrt((a * c) * (a + c + b) * (a + c - b)) / (a + c);
+        double lC = Math.sqrt((a * b) * (a + b + c) * (a + b - c)) / (a + b);
+
+        return getMinAvgMaxValue(lA, lB, lC);
     }
 
     static double[] getAngles(double a, double b, double c) {
 
-        if (isTriangleExist(a, b, c)) {
+        if (isNotTriangleExist(a, b, c)) {
 
-            double cosA = Math.acos((a * a + c * c - b * b) / (2 * a * c));
-            double cosB = Math.acos((a * a + b * b - c * c) / (2 * a * b));
-            double cosY = Math.acos((b * b + c * c - a * a) / (2 * b * c));
-
-            return getMinAvgMaxValue(Math.toDegrees(cosA), Math.toDegrees(cosB), Math.toDegrees(cosY));
+            return new double[]{0.0};
         }
 
-        return new double[]{0.0};
+        double cosA = Math.acos((a * a + c * c - b * b) / (2 * a * c));
+        double cosB = Math.acos((a * a + b * b - c * c) / (2 * a * b));
+        double cosY = Math.acos((b * b + c * c - a * a) / (2 * b * c));
+
+        return getMinAvgMaxValue(Math.toDegrees(cosA), Math.toDegrees(cosB), Math.toDegrees(cosY));
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
 
-        if (isTriangleExist(a, b, c)) {
+        if (isNotTriangleExist(a, b, c)) {
 
-            return (2 * getAreaByHeron(a, b, c)) / (a + b + c);
+            return 0.0;
         }
 
-        return 0.0;
+        return (2 * getAreaByHeron(a, b, c)) / (a + b + c);
     }
 
     static double getCircumradius(double a, double b, double c) {
 
-        if (isTriangleExist(a, b, c)) {
+        if (isNotTriangleExist(a, b, c)) {
 
-            return (a * b * c) / (4 * getAreaByHeron(a, b, c));
+            return 0.0;
         }
 
-        return 0.0;
+        return (a * b * c) / (4 * getAreaByHeron(a, b, c));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
 
-        if (isTriangleExist(a, b, c)) {
+        if (isNotTriangleExist(a, b, c)) {
 
-            double cosA = (b * b + c * c - a * a) / (2 * b * c);
-            double sinA = Math.sqrt(1 - cosA * cosA);
-
-            return 0.5 * c * b * sinA;
+            return 0.0;
         }
 
-        return 0.0;
+        double cosA = (b * b + c * c - a * a) / (2 * b * c);
+        double sinA = Math.sqrt(1 - cosA * cosA);
+
+        return 0.5 * c * b * sinA;
     }
 
     static double[] getMinAvgMaxValue(double valueA, double valueB, double valueC) {
@@ -141,7 +140,7 @@ public class Main {
         return new double[]{minValue, avgValue, maxValue};
     }
 
-    static boolean isTriangleExist (double a, double b, double c){
+    static boolean isNotTriangleExist (double a, double b, double c){
 
         return  (a + b > c && a + c > b && b + c > a && a * b * c != 0);
 
