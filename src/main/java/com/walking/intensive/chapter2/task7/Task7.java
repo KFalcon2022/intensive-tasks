@@ -5,10 +5,10 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        getFriendlyPair(1000000);
+        getFriendlyPair(1000001);
     }
 
-    static int getFriendlyPair( int m ) {
+    static int getFriendlyPair(int m) {
         int number1 = 0;
         int number2 = 0;
         for (int i = m; i > 1; i--) {
