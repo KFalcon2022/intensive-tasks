@@ -8,7 +8,7 @@ public class Task10 {
 
     }
 
-    static boolean isPalindrome(String inputString){
+    static boolean isPalindrome(String inputString) {
         // Ваш код
         return false;
     }
