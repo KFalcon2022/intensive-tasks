@@ -57,7 +57,12 @@ public class Task6 {
         //переименовал метод, т.к. предлоги плохо использовать в именах
         checkValue(m, n);
 
-        return n > 0 ? getNodEuclideanAlgorithm(n, m % n) : m;
+        return getNodRecursion(m, n);
     }
+
+    static int getNodRecursion(int m, int n) {
+        return n > 0 ? getNodRecursion(n, m % n) : m;
+    }
+
 
 }
