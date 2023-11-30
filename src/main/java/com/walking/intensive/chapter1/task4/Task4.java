@@ -20,15 +20,25 @@ public class Task4 {
             x1 = -b / (2 * a);
             amountSolution = 1;
         }
-        if (a==0){
+        if (d > 0) {
             amountSolution = 3;
         }
+        if (a == 0) {
+            x1 = c / b;
+            amountSolution = 1;
+            if (b == 0) {
+                amountSolution = 0;
+            }
+            if (c == 0) {
+                amountSolution = 3;
+            }
+        }
         return switch (amountSolution) {
-            case 3 -> "Это не квадратное уравнение";
+            case 3 -> "Решений бесконечно";
             case 2 -> "Количество решений: 2. Корни: " + Math.min(x1, x2) + ";" + Math.max(x1, x2);
             case 1 -> "Количество решений: 1. Корень: " + x1;
             case 0 -> "Количество решений: 0.";
-            default -> "Решений бесконечно";
+            default -> "Нет действительных корней";
         };
     }
 }
