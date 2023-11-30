@@ -5,16 +5,16 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Task2 {
     public static void main(String[] args) {
-        int floorAmount = 10; //Кол-во этажей
-        int entranceAmount = 4; //Кол-во подъездов
-        int flatNumber = 155; //Номер квартиры
+        int floorAmount = -10; //Кол-во этажей
+        int entranceAmount = -1; //Кол-во подъездов
+        int flatNumber = 15; //Номер квартиры
         System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         String flatLocation = "";
-        if (flatNumber <= 0)
-            return "Ошибка ввода.";
+        if (flatNumber <= 0 || floorAmount <= 0 || entranceAmount <= 0)
+            return "Ошибка ввода. Число не может быть отрицательным или равным нулю.";
         if (flatNumber > 4 * floorAmount * entranceAmount)
             return "Квартира номер " + flatNumber + " отсутсвует в этом доме.";
         int entranceNumber = (flatNumber - 1) / (floorAmount * 4) + 1; //Подъезд квартиры
