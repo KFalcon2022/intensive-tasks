@@ -32,7 +32,9 @@ public class Task7 {
         for (int j = 2; j <= Math.sqrt(n); j++) {
             if (n % j == 0) {
                 sumFactorsNumber += j;
-                sumFactorsNumber += n / j;
+                if (j != n / j) {
+                    sumFactorsNumber +=  n / j;
+                }
             }
         }
         return sumFactorsNumber;
