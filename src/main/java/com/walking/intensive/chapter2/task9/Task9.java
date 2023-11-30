@@ -1,6 +1,8 @@
 package com.walking.intensive.chapter2.task9;
 
+import java.util.Arrays;
 import java.util.Scanner;
+
 public class Task9 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -8,17 +10,53 @@ public class Task9 {
         System.out.println("Введите число: ");
         int n = sc.nextInt();
 
-        System.out.println(getPascalTriangle(n));
+        System.out.println(printTriangle(n));
     }
 
-    static String getPascalTriangle(int n){
-        String whiteSpace = " ";
-        int numbersSpaces = n;
-        String triangle = "";
+    private static int[][] getPascalTriangle(int n) {
+        int[][] triangle = new int[n][n * 2];
 
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n * 2; j++){
-                if()
+        for (int i = 0; i < triangle.length; i++) {
+
+            for (int j = 0; j < triangle[i].length; j++) {
+
+                if (i == 0 && j == 0 || j == 0) {
+                    triangle[i][j] = 1;
+                }
+
+                else if(i == 0 && j != 0){
+                    triangle[i][j] = 0;
+                }
+
+                else{
+                    triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j];
+                }
             }
+        }
+        return triangle;
+    }
+    public static String printTriangle(int n){
+        int[][] triangle = getPascalTriangle(n);
+        int quantityWhiteSpaces = triangle.length;
+        String whiteSpace = " ";
+        String answer = "";
+
+        for(int i = 0; i < triangle.length; i++){
+            answer+= whiteSpace.repeat(quantityWhiteSpaces);
+
+            for(int j = 0; j < triangle[i].length; j++){
+
+                if(triangle[i][j] == 0){
+                    answer+= "";
+                }
+
+                else{
+                    answer+= triangle[i][j] + whiteSpace;
+                }
+            }
+            quantityWhiteSpaces--;
+            answer+= "\n";
+        }
+        return answer;
     }
 }
