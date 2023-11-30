@@ -5,6 +5,7 @@ package com.walking.intensive.chapter2.task8;
  */
 public class Task8 {
     public static void main(String[] args) {
+        System.out.println(getHappyTicketChance(50));
 
     }
 
@@ -16,7 +17,7 @@ public class Task8 {
                 positiveresults++;
             }
         }
-        return positiveresults/999_999d;
+        return positiveresults/1_000_000d;
     }
 
     static boolean isHappyTicket (int ticketNumber) {
