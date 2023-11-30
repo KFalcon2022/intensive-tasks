@@ -12,8 +12,8 @@ public class Task7 {
     static int getFriendlyPair(int m) {
         int maxNumber = 0;
         int maxSum = 0;
-        int sum1 = 1;
-        int sum2 = 1;
+        int sum1;
+        int sum2 = 0;
         for (int i = m - 1; i > 0; i--) {
             sum1 = getSumFactorsNumber(i);
             if (maxSum < i + sum1) {
@@ -23,7 +23,6 @@ public class Task7 {
                 maxSum = sum1 + i;
                 maxNumber = Math.max(sum1, i);
             }
-            sum2 = 1;
         }
         return maxNumber;
     }
