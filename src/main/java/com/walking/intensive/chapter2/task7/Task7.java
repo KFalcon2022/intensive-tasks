@@ -5,14 +5,13 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        getFriendlyPair(100000);
+        getFriendlyPair(1000000);
     }
 
     static int getFriendlyPair(int m) {
         int number1 = 0;
         int number2 = 0;
-        int summNumbers = 0;
-        for (int i = 1; i <= m; i++) {
+        for (int i = m; i > 1; i--) {
             for (int j = 1; j < i; j++) {
                 if (i % j == 0) {
                     number1 = number1 + j;
@@ -23,14 +22,13 @@ public class Task7 {
                     number2 = number2 + j;
                 }
             }
-            if (i == number2 && i != number1) {
+            if (i == number2 && i != number1 && number1 <= m) {
                 System.out.println("Число " + i + " число " + number1 + " - дружественные");
-                summNumbers = summNumbers + 1;
+                break;
             }
             number2 = 0;
             number1 = 0;
         }
-        System.out.println("Всего таких чисел - " + summNumbers);
         return 0;
     }
 }
