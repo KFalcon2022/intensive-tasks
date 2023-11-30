@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         System.out.println("Введите количество этажей: ");
         int floorAmount = sc.nextInt();
 
@@ -23,36 +24,39 @@ public class Main {
         int amountFlatsOnFloor = 4;
         int amountFlats = floorAmount * entranceAmount * amountFlatsOnFloor;
 
-        if (flatNumber > amountFlats || flatNumber <= 0){
+        if (flatNumber > amountFlats || flatNumber <= 0) {
             return "Квартиры с таким номером в доме не существует.";
         }
 
-        if (floorAmount <= 0){
+        if (floorAmount <= 0) {
             return "Количество этажей не может быть меньше 1.";
         }
 
-        if (entranceAmount <= 0){
+        if (entranceAmount <= 0) {
             return "Количество подъездов не может быть меньше 1.";
         }
 
-        int searchableEntrance = (int) Math.ceil(flatNumber / (floorAmount * (double)amountFlatsOnFloor));  // Находим необходимый подъезд.
-        int searchableFloor = (int) (Math.ceil(flatNumber / (double)amountFlatsOnFloor) % floorAmount);     // Находим необходимый этаж.
+        int searchableEntrance = (int) Math.ceil(flatNumber / (floorAmount * (double) amountFlatsOnFloor));
+        int searchableFloor = (int) (Math.ceil(flatNumber / (double) amountFlatsOnFloor) % floorAmount);
         String location = "";
-        location = flatNumber + " кв - " + searchableEntrance + " подъезд, " + searchableFloor + " этаж, ";
+        location = flatNumber + " кв - " + searchableEntrance + " подъезд, " + searchableFloor + " этаж, " + getDirection(flatNumber, amountFlatsOnFloor);
+        return location;
+    }
 
+    private static String getDirection(int flatNumber, int amountFlatsOnFloor) {
         switch (flatNumber % amountFlatsOnFloor) {
             case (0):
-                location += "справа от лифта, вправо.";
-                return location;
+                return "справа от лифта, вправо.";
+
             case (1):
-                location+= "слева от лифта, влево.";
-                return location;
+                return "слева от лифта, влево.";
+
             case (2):
-                location += "слева от лифта, вправо.";
-                return location;
+                return "слева от лифта, вправо.";
+
             case (3):
-                location += "справа от лифта, влево.";
-                return location;
+                return "справа от лифта, влево.";
+
             default:
                 return "";
         }
