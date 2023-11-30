@@ -16,11 +16,11 @@ public class Task7 {
         int friendMax = 0;
 
         for (int i = 1; i < m; i++) {
-            int sumOfDivisorsI = sumOfDivisors(i);
-            if (sumOfDivisorsI < m && sumOfDivisorsI != i && i == sumOfDivisors(sumOfDivisorsI) && (i + sumOfDivisorsI) > maxPairSum) {
-                maxPairSum = i + sumOfDivisorsI;
-                maxNumber = Math.max(i, sumOfDivisorsI);
-                friendMax = Math.min(i, sumOfDivisorsI);
+            int sumDivisorsI = sumDivisors(i);
+            if (sumDivisorsI < m && sumDivisorsI != i && i == sumDivisors(sumDivisorsI) && (i + sumDivisorsI) > maxPairSum) {
+                maxPairSum = i + sumDivisorsI;
+                maxNumber = Math.max(i, sumDivisorsI);
+                friendMax = Math.min(i, sumDivisorsI);
             }
         }
 
@@ -28,7 +28,7 @@ public class Task7 {
         return maxNumber;
     }
 
-    private static int sumOfDivisors(int number) {
+    private static int sumDivisors(int number) {
         int sum = 0;
         for (int i = 1; i <= number / 2; i++) {
             if (number % i == 0) {
