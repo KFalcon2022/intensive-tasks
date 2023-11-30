@@ -39,6 +39,7 @@ public class Main {
 
             return new double[]{0.0};
         }
+
         double hA = (2 / a) * getAreaByHeron(a, b, c);
         double hB = (2 / b) * getAreaByHeron(a, b, c);
         double hC = (2 / c) * getAreaByHeron(a, b, c);
