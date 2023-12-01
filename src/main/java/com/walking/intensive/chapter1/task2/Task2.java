@@ -15,7 +15,7 @@ public class Task2 {
         int flatsInEntrance = floorAmount * 4;
         int positionOnFloor = flatNumber % 4;
 
-        if (0 < flatNumber && flatAmount >= flatNumber) {
+        if ((0 < flatNumber && flatAmount >= flatNumber) && floorAmount > 0 && entranceAmount > 0) {
             outcome += (flatNumber + " кв - ");
         } else {
             return outcome = "Такой квартиры не существует";
@@ -33,6 +33,6 @@ public class Task2 {
             case (0):
                 return outcome += ("справа от лифта, вправо");
         }
-         return "Ошибка";
+        return "Ошибка";
     }
 }
