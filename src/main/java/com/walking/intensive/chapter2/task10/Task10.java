@@ -5,9 +5,8 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        String str1 = "radar";
-        String str2 = "hello";
-        String str3 = "А роза упала на лапу Азора";
+        String str1 = "A man, a plan, a canal, Panama";
+        String str2 = "Hello, World!";
 
         if (isPalindrome(str1)) {
             System.out.println(str1 + " - это палиндром.");
@@ -20,19 +19,12 @@ public class Task10 {
         } else {
             System.out.println(str2 + " - это не палиндром.");
         }
-
-        if (isPalindrome(str3)) {
-            System.out.println(str3 + " - это палиндром.");
-        } else {
-            System.out.println(str3 + " - это не палиндром.");
-        }
     }
 
+    // Метод для проверки строки на палиндром
     public static boolean isPalindrome(String inputString) {
-        // Ваш код
-        // Убираем пробелы и приводим строку к нижнему регистру
-        inputString = inputString.replaceAll(" ", "").toLowerCase();
-//        inputString = inputString.toLowerCase();
+        // Убираем пунктуацию и приводим строку к нижнему регистру
+        inputString = inputString.replaceAll("[^a-zA-Z]", "").toLowerCase();
 
         int left = 0;
         int right = inputString.length() - 1;
