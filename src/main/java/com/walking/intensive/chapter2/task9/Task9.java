@@ -15,7 +15,7 @@ public class Task9 {
 
     public static String printPascalTriangle(int n) {
         int[][] triangle = getPascalNumbers(n);
-        int quantityWhiteSpaces = triangle.length;
+        int quantityWhiteSpaces = triangle.length * 2;
         String whiteSpace = " ";
         String answer = "";
 
@@ -30,7 +30,9 @@ public class Task9 {
                     answer += triangle[i][j] + whiteSpace;
                 }
             }
-            quantityWhiteSpaces--;
+
+                quantityWhiteSpaces--;
+
             answer += "\n";
         }
         return answer;
