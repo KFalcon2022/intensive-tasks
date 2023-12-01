@@ -27,9 +27,10 @@ public class Task7 {
 
             if (sumOfDivSecond == i && i != sumOfDivFirst) {
                 return Math.max(sumOfDivSecond, sumOfDivFirst);
-            }
 
+            }
         }
+
         return 0;
     }
 }
