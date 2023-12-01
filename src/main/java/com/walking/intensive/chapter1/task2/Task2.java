@@ -18,7 +18,7 @@ public class Task2 {
         if (floorAmount <= 0 ||entranceAmount <= 0) {
             return "Ошибка валидации данных";
         }
-        int apartmentOnFloor = 4;
+        var apartmentOnFloor = 4;
         int flatEntrance = (flatNumber / (apartmentOnFloor * floorAmount));
         int apartmentEntrance = (flatNumber - ((flatEntrance - 1) * floorAmount * 4));
         int flatFloor = (apartmentEntrance / apartmentOnFloor);
