@@ -35,19 +35,13 @@ public class Main {
         for (int i = n - 1; i > 0; i--) { //
 
             //Ищем сумму делителей i, сравниваем ее с i на наличие дружественной пары, возвращаем i, если оно максимальное в паре
-            if (isAmicableNumbers(i, getDividersSum(i)) && i > getDividersSum(i)) {
+            int dividersSum = getDividersSum(i);
+
+            if (i == getDividersSum(dividersSum) && i > dividersSum) {
                 return i;
             }
         }
         return 0;
-    }
-
-    /**
-     * проверка двух чисел на наличие пары
-     */
-    public static boolean isAmicableNumbers(int a, int b) {
-
-        return getDividersSum(a) == b && getDividersSum(b) == a;
     }
 
     /**
