@@ -5,11 +5,30 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-
+        System.out.println(getFriendlyPair(1000000));
     }
 
-    static int getFriendlyPair(int m){
-        // Ваш код
+    static int getFriendlyPair(int n) {
+        for (int i = n; i >= 1; i--) {
+
+            if(getNumbers(getNumbers(i)) == i){
+                return i;
+            }
+        }
+
         return 0;
+    }
+
+    static int getNumbers(int x) {
+        int numbers = 0;
+
+        for (int i = 1; i < x - 1; i++) {
+
+            if (x % i == 0) {
+                numbers += i;
+            }
+        }
+
+        return numbers;
     }
 }
