@@ -5,21 +5,21 @@ package com.walking.intensive.chapter2.task8;
  */
 public class Task8 {
     public static void main(String[] args) {
-        System.out.println("вероятность вытащить счастливый билет: " + getHappyTicketChance(999999) + "%");
+        System.out.println("вероятность вытащить счастливый билет: " + getHappyTicketChance(999999));
     }
 
     static double getHappyTicketChance(int ticketNumber) {
-        int count = 0;
+        int countHappyTicket = 1; // счётчик на 1, так как 000_000 тоже считается
         for (int i = 1000; i <= ticketNumber; i++) {
-            int sum1 = i % 10 + i / 10 % 10 + i / 100 % 10;
-            int sum2 = i / 1000 % 10 + i / 10000 % 10 + i / 100000 % 10;
-            if (sum2 == sum1) {
-                count++;
+            int sumRightValue = i % 10 + i / 10 % 10 + i / 100 % 10;
+            int sumLeftValue = i / 1000 % 10 + i / 10000 % 10 + i / 100000 % 10;
+            if (sumRightValue == sumLeftValue) {
+                countHappyTicket++;
             }
         }
 
-        System.out.println("всего счастливых чисел: " + count);
-        return (double) count / ticketNumber * 100;
+        System.out.println("всего счастливых чисел: " + countHappyTicket);
+        return (double) countHappyTicket / ticketNumber;
     }
 
 }
