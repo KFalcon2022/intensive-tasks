@@ -11,13 +11,18 @@ public class Task2 {
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
         int apartmentNumber = 4 * floorAmount * entranceAmount;
-        if (flatNumber > apartmentNumber || flatNumber <= 0 || floorAmount == 0 || entranceAmount == 0) {
+
+        if (flatNumber > apartmentNumber || flatNumber <= 0) {
             return "Неверно введен номер квартиры";
         }
-        int flatEntrance = (flatNumber / (4 * floorAmount));
+        if (floorAmount <= 0 ||entranceAmount <= 0) {
+            return "Ошибка валидации данных";
+        }
+        int apartmentOnFloor = 4;
+        int flatEntrance = (flatNumber / (apartmentOnFloor * floorAmount));
         int apartmentEntrance = (flatNumber - ((flatEntrance - 1) * floorAmount * 4));
-        int flatFloor = (apartmentEntrance / 4);
-        String sideLift = ((apartmentEntrance % 4 == 1) || (apartmentEntrance % 4 == 2)) ? " слева" : " справа";
+        int flatFloor = (apartmentEntrance / apartmentOnFloor);
+        String sideLift = ((apartmentEntrance % apartmentOnFloor == 1) || (apartmentEntrance % apartmentOnFloor == 2)) ? " слева" : " справа";
         String roundAfterLift = (apartmentEntrance % 2 == 1) ? " влево" : " вправо";
 
         String result = String.format(flatNumber + " кв - " + flatEntrance + " подъезд, " + flatFloor + " этаж, " + sideLift + " от лифта, " + roundAfterLift);
