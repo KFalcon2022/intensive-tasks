@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        int N = 1000; // границы поиска дружественных чисел
+        int N = 1000000; // границы поиска дружественных чисел
         int maxNumber = getFriendlyPair(N);
         System.out.println("Максимальное число дружественной пары: " + maxNumber);
     }
@@ -29,12 +29,19 @@ public class Task7 {
     }
 
     private static int sumDivisors(int number) {
-        int sum = 0;
-        for (int i = 1; i <= number / 2; i++) {
+        int sum = 1;
+        int sqrt = (int) Math.sqrt(number);
+
+        for (int i = 2; i <= sqrt; i++) {
             if (number % i == 0) {
                 sum += i;
+                int d = number / i;
+                if (d != i) {
+                    sum += d;
+                }
             }
         }
+
         return sum;
     }
 }
