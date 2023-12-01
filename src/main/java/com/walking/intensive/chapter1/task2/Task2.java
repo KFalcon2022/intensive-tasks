@@ -17,8 +17,7 @@ public class Task2 {
         //        Место для вашего кода
         int flatsOnFloorAmmount = 4;
         String result;
-        if ((flatNumber < 1) || (flatNumber > floorAmount * entranceAmount * flatsOnFloorAmmount))
-        {
+        if ((flatNumber < 1) || (flatNumber > (floorAmount * entranceAmount * flatsOnFloorAmmount))) {
             result = "Такой квартиры не существует";
         } else {
             int entranceNumber = ((flatNumber - 1) / (floorAmount * flatsOnFloorAmmount)) + 1;
