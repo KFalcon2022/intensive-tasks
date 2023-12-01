@@ -18,9 +18,9 @@ public class Task2 {
         if (floorAmount <= 0 ||entranceAmount <= 0) {
             return "Ошибка валидации данных";
         }
-        var apartmentOnFloor = 4;
+        int apartmentOnFloor = 4;
         int flatEntrance = (flatNumber / (apartmentOnFloor * floorAmount));
-        int apartmentEntrance = (flatNumber - ((flatEntrance - 1) * floorAmount * 4));
+        int apartmentEntrance = (flatNumber - ((flatEntrance - 1) * floorAmount * apartmentOnFloor));
         int flatFloor = (apartmentEntrance / apartmentOnFloor);
         String sideLift = ((apartmentEntrance % apartmentOnFloor == 1) || (apartmentEntrance % apartmentOnFloor == 2)) ? " слева" : " справа";
         String roundAfterLift = (apartmentEntrance % 2 == 1) ? " влево" : " вправо";
