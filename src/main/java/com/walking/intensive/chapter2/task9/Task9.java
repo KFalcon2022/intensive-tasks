@@ -1,9 +1,5 @@
 package com.walking.intensive.chapter2.task9;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.stream.Collectors;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-pascalTriangle.html">ссылка</a>
  */
@@ -12,30 +8,62 @@ public class Task9 {
         getPascalTriangle(30);
     }
 
-    static String getPascalTriangle(int n) {
-        Integer[][] pascalArray = new Integer[n][n];
-        String[] pascalArrayString = new String[n];
-        pascalArray[0][0] = 1;
-        pascalArrayString[0] = pascalArray[0][0].toString();
-        for (int i = 1; i < n; i++) {
-            for (int j = 0; j <= i; j++) {
-                if (j == 0 || j == i) {
-                    pascalArray[i][j] = 1;
-                } else {
-                    pascalArray[i][j] = pascalArray[i - 1][j - 1] + pascalArray[i - 1][j];
-                }
+    public static Long getFactorial(Long f) {
+        Long result = new Long(1);
+        for (int i = 1; i <= f; i++) {
+            result = result * i;
+        }
+        return result;
+    }
+
+    public static Long getFactorial(Long k, Long n) {
+        Long result = new Long(k);
+        for (Long i = k+1; i <= n; i++) {
+            result = result * i;
+        }
+        return result;
+    }
+
+    static Long getBinomial(Long k, Long n){
+        if (n.equals(k)){
+            return new Long(1);
+        }
+        if (k > n/2 || k > (n+1)/2){
+            k = n - k;
+        }
+        return getFactorial(n-k+1, n) / getFactorial(k);
+    }
+
+    static String getNPascalLine(int n, int lastLineCount){
+        String currentString = "1";
+        String blankString = "";
+        for (int j = 1; j <= n; j++){
+            Long valueToAdd = getBinomial(new Long(j), new Long(n));
+            currentString += " " + valueToAdd.toString();
+        }
+
+        if (lastLineCount > 0) {
+            int blanksBeforeAndAfter = (lastLineCount - currentString.length())/2;
+            for (int i = 0; i < blanksBeforeAndAfter; i++) {
+                blankString += " ";
             }
-            pascalArrayString[i] = Arrays.stream(pascalArray[i])
-                    .filter(t -> t != null)
-                    .map(Object::toString)
-                    .collect(Collectors.joining(" "));
         }
-        for (int i = 0; i < n; i++) {
-            String whitespaceString = " ";
-            int whitespaceCount = (pascalArrayString[n - 1].length() - pascalArrayString[i].length()) / 2;
-            pascalArrayString[i] = String.join("", Collections.nCopies(whitespaceCount, whitespaceString)) + pascalArrayString[i];
-            System.out.println(pascalArrayString[i]);
+
+        return blankString + currentString + blankString;
+    }
+
+    static String getPascalTriangle(int n) {
+
+        String lastString = getNPascalLine(n, 0);
+
+
+
+        int lastLineLength = lastString.length();
+
+        for (int i = 0; i < n; i++){
+            System.out.println(getNPascalLine(i, lastLineLength));
         }
+
         return null;
     }
 }
