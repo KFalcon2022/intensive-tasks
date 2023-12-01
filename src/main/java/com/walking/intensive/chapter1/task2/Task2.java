@@ -18,11 +18,11 @@ public class Task2 {
         if (floorAmount <= 0 ||entranceAmount <= 0) {
             return "Ошибка валидации данных";
         }
-        int apartmentOnFloor = 4;
-        int flatEntrance = (flatNumber / (apartmentOnFloor * floorAmount));
-        int apartmentEntrance = (flatNumber - ((flatEntrance - 1) * floorAmount * apartmentOnFloor));
-        int flatFloor = (apartmentEntrance / apartmentOnFloor);
-        String sideLift = ((apartmentEntrance % apartmentOnFloor == 1) || (apartmentEntrance % apartmentOnFloor == 2)) ? "слева" : " права";
+        int apartmentsOnFloor = 4;
+        int flatEntrance = (flatNumber / (apartmentsOnFloor * floorAmount));
+        int apartmentEntrance = (flatNumber - ((flatEntrance - 1) * floorAmount * apartmentsOnFloor));
+        int flatFloor = (apartmentEntrance / apartmentsOnFloor);
+        String sideLift = ((apartmentEntrance % apartmentsOnFloor == 1) || (apartmentEntrance % apartmentsOnFloor == 2)) ? "слева" : " права";
         String roundAfterLift = (apartmentEntrance % 2 == 1) ? "влево" : "вправо";
 
         String result = String.format(flatNumber + " кв - " + flatEntrance + " подъезд, " + flatFloor + " этаж, " + sideLift + " от лифта, " + roundAfterLift);
