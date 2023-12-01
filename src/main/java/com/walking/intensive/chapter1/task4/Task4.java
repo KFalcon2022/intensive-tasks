@@ -1,33 +1,59 @@
 package com.walking.intensive.chapter1.task4;
 
 /**
- * РЈСЃР»РѕРІРёРµ: <a href="https://geometry-math.ru/homework/Java-parameter.html">СЃСЃС‹Р»РєР°</a>
+ * Условие: <a href="https://geometry-math.ru/homework/Java-parameter.html">ссылка</a>
  */
 public class Task4 {
     public static void main(String[] args) {
-//        Р”Р»СЏ СЃРѕР±СЃС‚РІРµРЅРЅС‹С… РїСЂРѕРІРµСЂРѕРє РјРѕР¶РµС‚Рµ РґРµР»Р°С‚СЊ Р»СЋР±С‹Рµ РёР·РјРµРЅРµРЅРёСЏ РІ СЌС‚РѕРј РјРµС‚РѕРґРµ
-        double a = 0;
-        double b = 0;
-        double c = 0;
+//        Для собственных проверок можете делать любые изменения в этом методе
+        double a = 2;
+        double b = -8;
+        double c = 4;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
+    } static String beautifier (double d) {
+        int beautified;
+        try {
+            beautified = Integer.valueOf((int) d);
+            return String.valueOf(beautified);
+        }
+        catch (Exception e) {
+            return String.valueOf(d);
+        }
     }
 
     /**
-     * РџСЂРё С„РѕСЂРјРёСЂРѕРІР°РЅРёРё СЃС‚СЂРѕРєРё, РєРѕСЂРЅРё СѓСЂР°РІРЅРµРЅРёСЏ РґРѕР»Р¶РЅС‹ СѓРєР°Р·С‹РІР°С‚СЊСЃСЏ РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ.
+     * При формировании строки, корни уравнения должны указываться по возрастанию.
      * <p>
-     * РџСЂРёРјРµСЂС‹ СЂРµР·СѓР»СЊС‚РёСЂСѓСЋС‰РµР№ СЃС‚СЂРѕРєРё:
+     * Примеры результирующей строки:
      * <p>
-     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 2. РљРѕСЂРЅРё: -4;4
+     * Количество решений: 2. Корни: -4;4
      * <p>
-     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 1. РљРѕСЂРµРЅСЊ: 0
+     * Количество решений: 1. Корень: 0
      * <p>
-     * РљРѕР»РёС‡РµСЃС‚РІРѕ СЂРµС€РµРЅРёР№: 0.
+     * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
-        //        РњРµСЃС‚Рѕ РґР»СЏ РІР°С€РµРіРѕ РєРѕРґР°
-
-        return null; // Р—Р°РіР»СѓС€РєР°. РџСЂРё СЂРµР°Р»РёР·Р°С†РёРё - СѓРґР°Р»РёС‚СЊ
+        //        Место для вашего кода
+        if (a == 0 && b == 0 && c == 0) {
+            return "Решений бесконечно";
+        } else if (a == 0 && b == 0 && c != 0) {
+            return "Количество решений: 0.";
+        } else if (a == 0 && b != 0) {
+            return "Количество решений: 1. Корень: " + beautifier(-c / b);
+            //String.valueOf(-c / b);
+        } else {
+            double discriminant = b * b - 4 * a * c;
+            if (discriminant < 0) {
+                return "Количество решений: 0.";
+            } else if (discriminant == 0) {
+                return "Количество решений: 1. Корень: " + beautifier(-b / 2 * a);
+                //String.valueOf(-b / 2 * a);
+            } else {
+                return "Количество решений: 2. Корни: " + beautifier((-b - Math.sqrt(discriminant)) / (2 * a))  + ";" + beautifier((-b + Math.sqrt(discriminant)) / (2 * a));
+                //String.valueOf(-b + Math.sqrt(discriminant) / 2 * a) + ";" + String.valueOf(-b - Math.sqrt(discriminant) / 2 * a);
+            }
+        }
     }
 }
