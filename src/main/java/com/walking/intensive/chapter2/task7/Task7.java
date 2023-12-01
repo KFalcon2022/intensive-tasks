@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        System.out.println(getFriendlyPair(300));
+        System.out.println(getFriendlyPair(28));
     }
 
     static int getFriendlyPair(int maxValueOfNumber) {
@@ -25,7 +25,7 @@ public class Task7 {
                 }
             }
 
-            if (sumOfDivSecond == i) {
+            if (sumOfDivSecond == i && i != sumOfDivFirst) {
                 return Math.max(sumOfDivSecond, sumOfDivFirst);
             }
 
