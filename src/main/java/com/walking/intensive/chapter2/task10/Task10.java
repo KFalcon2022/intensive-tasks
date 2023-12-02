@@ -20,18 +20,31 @@ public class Task10 {
     }
 
     static boolean isPalindrome(String inputString) {
-        String str = inputString.replaceAll("[,.!? -]", "").toLowerCase();
-        int check = 0;
-        int j = str.length();
-        for (int i = 0; i < str.length() / 2; i++, j--) {
-            if (str.charAt(i) == str.charAt(j - 1)) {
-                check++;
+        int j = inputString.length() - 1;
+        int i = 0;
+        while (i != j && i < j) {
+            if (!isLetter(inputString.charAt(i))) {
+                ++i;
+                continue;
             }
+            if (!isLetter(inputString.charAt(j))) {
+                --j;
+                continue;
+            }
+            if (inputString.toLowerCase().charAt(i) != inputString.toLowerCase().charAt(j)) {
+                return false;
+            }
+            ++i;
+            --j;
         }
+        return true;
+    }
 
-        if (check == j - 1) {
-            return true;
-        }
-        return false;
+    static boolean isLetter(char symbol) {
+        /*return switch (symbol) {
+            case '.', ',', '"', ')', '(', ':', ';', '-', '_', ' ', '!', '?' -> false;
+            default -> true;
+        };*/
+        return ".,;:()-_ \"\'!?".indexOf(symbol) == -1;
     }
 }
