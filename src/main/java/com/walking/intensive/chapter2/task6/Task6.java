@@ -1,10 +1,8 @@
 package com.walking.intensive.chapter2.task6;
 
 /**
- * Условие: <a href="https://geometry-math.ru/homework/Java-NOKNOD.html">ссылка</a> Напишите два
- * метода. Первый метод возвращает НОК двух чисел. Второй метод возвращает НОД двух чисел. P.S. По
- * желанию: Если знакомы с рекурсией напишите алгоритм Евклида поиска НОД. Требования к оформлению.
- * НОД = Greatest common divisor — GCD НОК = Least common multiple — LCM Удачи
+ * Условие: <a href="https://geometry-math.ru/homework/Java-NOKNOD.html">ссылка</a>
+ * Удачи
  */
 public class Task6 {
 
