@@ -7,55 +7,41 @@ public class Task8 {
     public static void main(String[] args) {
 
         System.out.printf("\nThe odds to get a happy ticket are %f", getHappyTicketChance(999_999));
+        //System.out.println(getCombinations(27, 3));
     }
 
     static double getHappyTicketChance(int ticketNumber) {
         final int TRIAD_MAX_SUM = 27;
+        final int TRIAD_DIGITS_NUMBER = 3;
+        final int TRIAD_NUMBER = 2;
+        double happyTicketsNumber = 0;
 
-        int happyTicketsAmount = 0;
-
-        int combinationsAmountPerAllUnequalDigits = 6; // 3!
-        int combinationsAmountPerTwoEqualDigits = 3;   // 3! / (2! * 1!)
-        int combinationsAmountPerThreeEqualDigits = 1; // 3! / 3!
-
-        for (int s = TRIAD_MAX_SUM; s >= 0; s--) {
-
-            int triadCombinationsPerEachSum = 0;
-
-            for (int i = 9; i >= 0; i--) {
-
-                int twoLastDigitsSum = s - i;
-
-                for (int j = 9; j >= 0; j--) {
-
-                    int lastDigit = twoLastDigitsSum - j;
-
-                    for (int k = 9; k >= 0; k--) {
-
-                        if (lastDigit - k == 0) {
-
-                            if (i == j && j == k) {
-
-                                triadCombinationsPerEachSum += combinationsAmountPerThreeEqualDigits;
-                            }
-
-                            if ((i == j && k < j) || (j == k && j < i)) {
-
-                                triadCombinationsPerEachSum += combinationsAmountPerTwoEqualDigits;
-                            }
-
-                            if (i > j && j > k) {
-
-                                triadCombinationsPerEachSum += combinationsAmountPerAllUnequalDigits;
-                            }
-                        }
-                    }
-                }
-            }
-
-            happyTicketsAmount += (triadCombinationsPerEachSum * triadCombinationsPerEachSum); // two triads
+        for (int sum = 0; sum <= TRIAD_MAX_SUM; sum++) {
+            happyTicketsNumber += Math.pow(getCombinations(sum, TRIAD_DIGITS_NUMBER), TRIAD_NUMBER);
         }
 
-        return (double) happyTicketsAmount / 1_000_000;
+        return happyTicketsNumber / 1_000_000;
+    }
+
+    static int getCombinations(int sum, int digitsNumber) {
+        int combinations = 0;
+
+        if (digitsNumber >= 1 && digitsNumber <= 3) {
+            digitsNumber--;
+
+            for (int digit = 0; digit <= 9; digit++) {
+                int remainderDigitsSum = sum - digit;
+
+                if (remainderDigitsSum == 0) {
+                    combinations++;
+                }
+
+                if (remainderDigitsSum > 0) {
+                    combinations += getCombinations(remainderDigitsSum, digitsNumber);
+                }
+            }
+        }
+
+        return combinations;
     }
 }
