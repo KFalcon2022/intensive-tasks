@@ -25,7 +25,7 @@ public class Task8 {
                 count++;
             }
         }
-        System.out.println(count);
-        return ((double) count) / limit;
+
+        return ((double) count) / (limit + 1);
     }
 }
