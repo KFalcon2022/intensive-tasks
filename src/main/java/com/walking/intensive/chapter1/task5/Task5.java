@@ -11,8 +11,7 @@ public class Task5 {
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-
-        if (isInfoAboutTriangle(a, b, c)) {
+        if (isTriangleExist(a, b, c)) {
             return 0;
         }
         double p = (a + b + c) / 2;
@@ -22,8 +21,7 @@ public class Task5 {
     }
 
     static double[] getHeights(double a, double b, double c) {
-
-        if (isInfoAboutTriangle(a, b, c)) {
+        if (isTriangleExist(a, b, c)) {
             return new double[0];
         }
         double s = getAreaByHeron(a, b, c);
@@ -37,8 +35,7 @@ public class Task5 {
     }
 
     static double[] getMedians(double a, double b, double c) {
-
-        if (isInfoAboutTriangle(a, b, c)) {
+        if (isTriangleExist(a, b, c)) {
             return new double[0];
         }
         double mediansA = (Math.sqrt(2 * b * b + 2 * c * c - a * a)) / 2;
@@ -51,8 +48,7 @@ public class Task5 {
     }
 
     static double[] getBisectors(double a, double b, double c) {
-
-        if (isInfoAboutTriangle(a, b, c)) {
+        if (isTriangleExist(a, b, c)) {
             return new double[0];
         }
         double bisectorsA = 1 / (b + c) * Math.sqrt(b * c * (a + b + c) * (c + b - a));
@@ -65,8 +61,7 @@ public class Task5 {
     }
 
     static double[] getAngles(double a, double b, double c) {
-
-        if (isInfoAboutTriangle(a, b, c)) {
+        if (isTriangleExist(a, b, c)) {
             return new double[0];
         }
         double cosA = (b * b + c * c - a * a) / (2 * b * c);
@@ -82,8 +77,7 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-
-        if (isInfoAboutTriangle(a, b, c)) {
+        if (isTriangleExist(a, b, c)) {
             return 0;
         }
         double p = (a + b + c) / 2;
@@ -93,8 +87,7 @@ public class Task5 {
     }
 
     static double getCircumradius(double a, double b, double c) {
-
-        if (isInfoAboutTriangle(a, b, c)) {
+        if (isTriangleExist(a, b, c)) {
             return 0;
         }
         double p = (a + b + c) / 2;
@@ -104,8 +97,7 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-
-        if (isInfoAboutTriangle(a, b, c)) {
+        if (isTriangleExist(a, b, c)) {
             return 0;
         }
         double cosA = (b * b + c * c - a * a) / (2 * b * c);
@@ -114,7 +106,7 @@ public class Task5 {
         return (c * b * sinA / 2);
     }
 
-    static boolean isInfoAboutTriangle(double a, double b, double c) {
+    static boolean isTriangleExist(double a, double b, double c) {
         return (a + b < c || b + c < a || c + a < b);
     }
 }
