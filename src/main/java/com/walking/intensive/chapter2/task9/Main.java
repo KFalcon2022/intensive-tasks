@@ -9,35 +9,22 @@ public class Main {
     public static void createTriangle(int n) {
 
         int[][] triangle = createNumberTriangle(n);
-        String lastString = "";
+        String[] stringTriangle = createStringTriangle(triangle);
 
-        for (int j = 0; j <= n - 1; j++) {
-            lastString += triangle[n - 1][j] + " ";
-        }
+        int longestStringLength = stringTriangle[n - 1].length();
 
 
-        for (int i = 0; i < triangle.length; i++) {
+        for (int i = 0; i < n; i++) {
 
-            for (int j = i; j <= (lastString.length()) / 2; j++) {
+            int spaceCount = (longestStringLength - stringTriangle[i].length()) / 2;
+
+            for (int j = 0; j < spaceCount; j++) {
                 System.out.print(" ");
             }
 
-            if (String.valueOf(triangle[i][n / 2]).length() < 2) {
-                System.out.print("  ");
-
-            }else if (String.valueOf(triangle[i][n / 2]).length() < 3) {
-                System.out.print(" ");
-            }
-
-            for (int j = 0; j < triangle[0].length; j++) {
-                if (j > i) {
-                    break;
-                }
-                System.out.print(triangle[i][j] + " ");
-            }
-
-            System.out.println();
+            System.out.println(stringTriangle[i]);
         }
+
     }
 
     public static int[][] createNumberTriangle(int n) {
@@ -58,5 +45,27 @@ public class Main {
         }
 
         return triangle;
+    }
+
+    public static String[] createStringTriangle(int[][] triangle) {
+
+        String[] stringTriangle = new String[triangle.length];
+
+        for (int i = 0; i < triangle.length; i++) {
+
+            stringTriangle[i] = "";
+
+            for (int j = 0; j < triangle[0].length; j++) {
+                if (j > i) {
+                    break;
+                }
+
+                stringTriangle[i] += triangle[i][j] + " ";
+            }
+
+            stringTriangle[i] = stringTriangle[i].trim();
+        }
+
+        return stringTriangle;
     }
 }
