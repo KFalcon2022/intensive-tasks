@@ -23,7 +23,7 @@ public class Task5 {
         double semiPerimeter = (a + b + c) / 2;
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-            System.out.println("Треугольник вырождённый или не существует");
+ //           System.out.println("Треугольник вырождённый или не существует");
             return -1;
         }
 
@@ -38,7 +38,7 @@ public class Task5 {
         double[] heightsOfTriangle = new double[3];
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-            System.out.println("Треугольник вырождённый или не существует");
+  //          System.out.println("Треугольник вырождённый или не существует");
             return null;
         }
 
@@ -59,7 +59,7 @@ public class Task5 {
         double[] mediansOfTriangle = new double[3];
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-            System.out.println("Треугольник вырождённый или не существует");
+   //         System.out.println("Треугольник вырождённый или не существует");
             return null;
         }
 
@@ -81,7 +81,7 @@ public class Task5 {
         double[] bisectorsOfTriangle = new double[3];
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-            System.out.println("Треугольник вырождённый или не существует");
+  //          System.out.println("Треугольник вырождённый или не существует");
             return null;
         }
 
@@ -102,7 +102,7 @@ public class Task5 {
         double[] anglesOfTriangle = new double[3];
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-            System.out.println("Треугольник вырождённый или не существует");
+  //          System.out.println("Треугольник вырождённый или не существует");
             return null;
         }
 
@@ -120,7 +120,7 @@ public class Task5 {
         double semiPerimeter = (a + b + c) / 2;
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-            System.out.println("Треугольник вырождённый или не существует");
+  //          System.out.println("Треугольник вырождённый или не существует");
             return -1;
         }
 
@@ -130,7 +130,7 @@ public class Task5 {
     static double getCircumradius(double a, double b, double c) {
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-            System.out.println("Треугольник вырождённый или не существует");
+  //          System.out.println("Треугольник вырождённый или не существует");
             return -1;
         }
 
