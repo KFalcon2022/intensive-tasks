@@ -5,8 +5,7 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        System.out.println(getFriendlyPair(100000));
-        System.out.println(getFriendlyPair(0));
+        System.out.println(getFriendlyPair(284));
     }
 
     static int getFriendlyPair(int m) {
@@ -22,8 +21,11 @@ public class Task7 {
             delimiterSum = getDelimiterSum(i);
             potentialPair = getDelimiterSum(delimiterSum);
 
-            if (potentialPair == i && i < 1000000) {
-                result = Math.max(Math.max(delimiterSum, i), result);
+            if (potentialPair == i && delimiterSum != i) {
+                int max = Math.max(i, delimiterSum);
+                if (max < m) {
+                    result = max;
+                }
             }
         }
 
