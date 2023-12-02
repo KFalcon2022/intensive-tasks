@@ -24,7 +24,7 @@ public class Task7 {
         int maxSumFriendlyPair = 0;
 
         for (int i = 0; i <= m; i++) {
-            if (isFriendlyPair(i, m, maxSumFriendlyPair)) {
+            if (isFriendlyPairWithMaxSum(i, m, maxSumFriendlyPair)) {
                 maxSumFriendlyPair = i + getSumDivisor(i);
                 result = Math.max(i, getSumDivisor(i));
             }
@@ -45,8 +45,8 @@ public class Task7 {
         return sum;
     }
 
-    static boolean isFriendlyPair (int i, int m, int sum) {
+    static boolean isFriendlyPairWithMaxSum (int i, int m, int maxSum) {
         int sumDivisor = getSumDivisor(i);
-        return i == getSumDivisor(sumDivisor) && i != sumDivisor && sumDivisor < m && i + sumDivisor > sum;
+        return i == getSumDivisor(sumDivisor) && i != sumDivisor && sumDivisor < m && i + sumDivisor > maxSum;
     }
 }
