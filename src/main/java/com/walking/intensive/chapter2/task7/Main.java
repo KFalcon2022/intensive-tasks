@@ -24,7 +24,7 @@ public class Main {
 
     public static int getMinTotalN(int numberN) {
 
-        int total = 0;
+        int total;
 
         for (int i = numberN; i > 0; i--) {
 
