@@ -10,7 +10,6 @@ public class Task10 {
         System.out.println("Is palindrome: " + task.isPalindrome(testString));
     }
 
-<<<<<<< HEAD
     boolean isPalindrome(String inputString) {
         String cleanedString = "";
 
@@ -39,10 +38,6 @@ public class Task10 {
         }
 
         return true;
-=======
-    static boolean isPalindrome(String inputString) {
-        // Ваш код
-        return false;
->>>>>>> upstream/master
+
     }
 }
