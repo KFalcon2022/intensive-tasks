@@ -11,7 +11,6 @@ public class Task5 {
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-
         if (isInfoAboutTriangle(a, b, c)) {
             return 0;
         }
@@ -22,7 +21,6 @@ public class Task5 {
     }
 
     static double[] getHeights(double a, double b, double c) {
-
         if (isInfoAboutTriangle(a, b, c)) {
             return new double[0];
         }
@@ -37,7 +35,6 @@ public class Task5 {
     }
 
     static double[] getMedians(double a, double b, double c) {
-
         if (isInfoAboutTriangle(a, b, c)) {
             return new double[0];
         }
@@ -51,7 +48,6 @@ public class Task5 {
     }
 
     static double[] getBisectors(double a, double b, double c) {
-
         if (isInfoAboutTriangle(a, b, c)) {
             return new double[0];
         }
@@ -65,7 +61,6 @@ public class Task5 {
     }
 
     static double[] getAngles(double a, double b, double c) {
-
         if (isInfoAboutTriangle(a, b, c)) {
             return new double[0];
         }
@@ -82,7 +77,6 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-
         if (isInfoAboutTriangle(a, b, c)) {
             return 0;
         }
@@ -93,7 +87,6 @@ public class Task5 {
     }
 
     static double getCircumradius(double a, double b, double c) {
-
         if (isInfoAboutTriangle(a, b, c)) {
             return 0;
         }
@@ -104,7 +97,6 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-
         if (isInfoAboutTriangle(a, b, c)) {
             return 0;
         }
