@@ -16,11 +16,11 @@ public class Task8 {
         final int TRIAD_NUMBER = 2;
         double happyTicketsNumber = 0;
 
-        for (int sum = 0; sum <= TRIAD_MAX_SUM; sum++) {
+        for (int sum = 0; sum <= TRIAD_MAX_SUM / 2; sum++) {
             happyTicketsNumber += Math.pow(getCombinations(sum, TRIAD_DIGITS_NUMBER), TRIAD_NUMBER);
         }
 
-        return happyTicketsNumber / 1_000_000;
+        return (happyTicketsNumber * 2) / 1_000_000;
     }
 
     static int getCombinations(int sum, int digitsNumber) {
