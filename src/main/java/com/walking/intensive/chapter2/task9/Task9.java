@@ -10,6 +10,6 @@ public class Task9 {
 
     static String getPascalTriangle(int n){
         // Ваш код
-        return "o";
+        return null;
     }
 }
