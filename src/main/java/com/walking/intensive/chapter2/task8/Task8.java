@@ -6,63 +6,49 @@ package com.walking.intensive.chapter2.task8;
 public class Task8 {
     public static void main(String[] args) {
 
-        System.out.printf("\nThe odds to get a happy ticket are %.2f",getHappyTicketChance(999_999));
+        System.out.printf("\nThe odds to get a happy ticket are %f", getHappyTicketChance(999_999));
     }
 
     static double getHappyTicketChance(int ticketNumber) {
         final int TRIAD_MAX_SUM = 27;
 
-        int happyTicketsAmount = 1; // 000_000
+        int happyTicketsAmount = 0;
 
-        int combinationsAmountPerThreeEqualDigits = 1; // 3! / 3!
-        int combinationsAmountPerTwoEqualDigits = 3;   // 3! / (2! * 1!)
         int combinationsAmountPerAllUnequalDigits = 6; // 3!
+        int combinationsAmountPerTwoEqualDigits = 3;   // 3! / (2! * 1!)
+        int combinationsAmountPerThreeEqualDigits = 1; // 3! / 3!
 
-
-        for (int s = TRIAD_MAX_SUM; s >= 1; s--) {
+        for (int s = TRIAD_MAX_SUM; s >= 0; s--) {
 
             int triadCombinationsPerEachSum = 0;
 
-            for (int i = 9; i >= 1; i--) {
+            for (int i = 9; i >= 0; i--) {
 
                 int twoLastDigitsSum = s - i;
 
-                if (twoLastDigitsSum == 0) {
-
-                    triadCombinationsPerEachSum += combinationsAmountPerTwoEqualDigits;
-                }
-
-                for (int j = 9; j >= 1; j--) {
+                for (int j = 9; j >= 0; j--) {
 
                     int lastDigit = twoLastDigitsSum - j;
 
-                    if (lastDigit == 0 && i == j) {
+                    for (int k = 9; k >= 0; k--) {
 
-                        triadCombinationsPerEachSum += combinationsAmountPerTwoEqualDigits;
-                    }
+                        if (lastDigit - k == 0) {
 
-                    if ((lastDigit == 0 && i > j)) {
+                            if (i == j && j == k) {
 
-                        triadCombinationsPerEachSum += combinationsAmountPerAllUnequalDigits;
-                    }
+                                triadCombinationsPerEachSum += combinationsAmountPerThreeEqualDigits;
+                            }
 
-                    for (int k = 9; k >= 1; k--) {
+                            if ((i == j && k < j) || (j == k && j < i)) {
 
-                        int remainder = lastDigit - k;
+                                triadCombinationsPerEachSum += combinationsAmountPerTwoEqualDigits;
+                            }
 
-                        if ((remainder == 0) && ((i == j) && (j == k))) {
+                            if (i > j && j > k) {
 
-                            triadCombinationsPerEachSum += combinationsAmountPerThreeEqualDigits;
+                                triadCombinationsPerEachSum += combinationsAmountPerAllUnequalDigits;
+                            }
                         }
-
-                        if ((remainder == 0) && (j == k && k != i)) {
-                            triadCombinationsPerEachSum += combinationsAmountPerTwoEqualDigits;
-                        }
-
-                        if ((remainder == 0) && ((i > j) && (j > k))) {
-                            triadCombinationsPerEachSum += combinationsAmountPerAllUnequalDigits;
-                        }
-
                     }
                 }
             }
