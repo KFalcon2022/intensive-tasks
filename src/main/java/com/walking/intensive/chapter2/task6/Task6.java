@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Task6 {
     public static void main(String[] args) {
-
+        System.out.println(getNodByEuclideanAlgorithm(205,600));
     }
 
     static int getNoc(int m, int n) {
@@ -27,11 +27,13 @@ public class Task6 {
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
-        int remainder = Math.max(m, n) % Math.min(m, n);
+        int minNumber = Math.min(m, n);
+        int remainder = Math.max(m, n) % minNumber;
+        System.out.println(m + "    " + n);
         if (remainder != 0) {
-            return getNodByEuclideanAlgorithm(Math.min(m, n), remainder);
+            return getNodByEuclideanAlgorithm(minNumber, remainder);
         }
 
-        return Math.min(m, n);
+        return minNumber;
     }
 }
