@@ -15,6 +15,7 @@ public class Task5 {
         System.out.println(Arrays.toString(getBisectors(7, 5, 4)));
         System.out.println(Arrays.toString((getAngles(7, 5, 4))));
         System.out.println(getInscribedCircleRadius(7, 5, 4));
+        System.out.println(getAreaAdvanced(12, 13, 5));
 
     }
 
@@ -23,7 +24,7 @@ public class Task5 {
         double semiPerimeter = (a + b + c) / 2;
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
- //           System.out.println("Треугольник вырождённый или не существует");
+            System.out.println("Треугольник вырождённый или не существует");
             return -1;
         }
 
@@ -38,7 +39,7 @@ public class Task5 {
         double[] heightsOfTriangle = new double[3];
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-  //          System.out.println("Треугольник вырождённый или не существует");
+            System.out.println("Треугольник вырождённый или не существует");
             return null;
         }
 
@@ -59,7 +60,7 @@ public class Task5 {
         double[] mediansOfTriangle = new double[3];
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-   //         System.out.println("Треугольник вырождённый или не существует");
+            System.out.println("Треугольник вырождённый или не существует");
             return null;
         }
 
@@ -81,7 +82,7 @@ public class Task5 {
         double[] bisectorsOfTriangle = new double[3];
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-  //          System.out.println("Треугольник вырождённый или не существует");
+            System.out.println("Треугольник вырождённый или не существует");
             return null;
         }
 
@@ -102,7 +103,7 @@ public class Task5 {
         double[] anglesOfTriangle = new double[3];
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-  //          System.out.println("Треугольник вырождённый или не существует");
+            System.out.println("Треугольник вырождённый или не существует");
             return null;
         }
 
@@ -120,7 +121,7 @@ public class Task5 {
         double semiPerimeter = (a + b + c) / 2;
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-  //          System.out.println("Треугольник вырождённый или не существует");
+            System.out.println("Треугольник вырождённый или не существует");
             return -1;
         }
 
@@ -130,7 +131,7 @@ public class Task5 {
     static double getCircumradius(double a, double b, double c) {
 
         if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
-  //          System.out.println("Треугольник вырождённый или не существует");
+            System.out.println("Треугольник вырождённый или не существует");
             return -1;
         }
 
@@ -139,6 +140,14 @@ public class Task5 {
 
     static double getAreaAdvanced(double a, double b, double c) {
 
-        return 0;
+        if ((a + b) <= c || (b + c) <= a || (a + c) <= b) {
+            System.out.println("Треугольник вырождённый или не существует");
+            return -1;
+        }
+
+        double sinA = Math.sqrt((1 - Math.pow(((a * a - b * b - c * c) / (-2 * b * c)), 2)));
+
+        return 0.5 * b * c * sinA;
     }
 }
+
