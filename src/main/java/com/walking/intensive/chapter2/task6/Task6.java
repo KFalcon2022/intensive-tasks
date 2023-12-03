@@ -62,13 +62,64 @@ public class Task6 {
     }
 
     static int getNod(int m, int n) {
-        // Ваш код
-        return 0;
+
+        int max = Math.max(m, n);
+        int min = Math.min(m, n);
+        int nod = 1;
+        List<Integer> multipliersMax = new ArrayList<>();
+        List<Integer> multipliersMin = new ArrayList<>();
+
+        while (max > 1) {
+            if (max % 2 == 0) {
+                multipliersMax.add(2);
+                max = max / 2;
+                System.out.println(2);
+            }
+            for (int i = 3; i < (max + 1); i += 2)
+                while (max % i == 0) {
+                    multipliersMax.add(i);
+                    System.out.println(i);
+                    max = max / i;
+                }
+        }
+
+        while (min > 1) {
+            if (min % 2 == 0) {
+                multipliersMin.add(2);
+                min = min / 2;
+                System.out.println(2);
+            }
+            for (int i = 3; i < (min + 1); i += 2)
+                while (min % i == 0) {
+                    multipliersMin.add(i);
+                    System.out.println(i);
+                    min = min / i;
+                }
+        }
+
+        for (int i = 0; i < multipliersMin.size(); i++) {
+            if (multipliersMax.contains(multipliersMin.get(i))) {
+                multipliersMax.remove(Integer.valueOf(multipliersMin.get(i)));
+                nod = nod * multipliersMin.get(i);
+            }
+        }
+
+        System.out.println(nod);
+        return nod;
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
-        // Ваш код
-        return 0;
+
+        int nod = 1;
+        int max = Math.max(m, n);
+        int min = Math.min(m, n);
+
+        if (max % min == 0) {
+            return nod = min;
+        }
+
+        return getNodByEuclideanAlgorithm((max % min), min);
+
     }
 
 }
