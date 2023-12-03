@@ -18,7 +18,7 @@ public class Task15Test {
     @MethodSource("testDataSource")
     void testGetMaxFloors(int[][] city, int expectedCountOfFloors) {
         // when
-        var result = getMaxFloors(city);
+        var result = Task15.getMaxFloors(city);
 
         // then
         assertEquals(expectedCountOfFloors, result);

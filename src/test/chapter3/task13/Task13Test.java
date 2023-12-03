@@ -18,7 +18,7 @@ public class Task13Test {
     @MethodSource("testDataSource")
     void testGetCountSteps(int[] plants, int wateringCanVolume, int expectedCountOfSteps) {
         // when
-        var result = getCountSteps(plants, wateringCanVolume);
+        var result = Task13.getCountSteps(plants, wateringCanVolume);
 
         // then
         assertEquals(expectedCountOfSteps, result);

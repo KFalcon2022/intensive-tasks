@@ -20,11 +20,11 @@ public class Task14Test {
     @MethodSource("testDataSource")
     void testGetCountOfPoints(int[][] points, int[][] queries, int[] expectedCountOfPoints) {
         // when
-        var result = getCountOfPoints(points, queries);
+        var result = Task14.getCountOfPoints(points, queries);
 
         // then
         assertEquals(queries.length, result.length);
-        assertTrue(Arrays.equals(expectedCountOfPoints, result));
+        Assertions.assertTrue(Arrays.equals(expectedCountOfPoints, result));
     }
 
     static Stream<Arguments> testDataSource() {
