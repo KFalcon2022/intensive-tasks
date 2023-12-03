@@ -8,7 +8,7 @@ public class Task8 {
 
     }
 
-    static double getHappyTicketChance(int ticketNumber){
+    static double getHappyTicketChance() {
         // Ваш код
         return 0.0;
     }
