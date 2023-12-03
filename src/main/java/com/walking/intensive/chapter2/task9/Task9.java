@@ -3,7 +3,7 @@ package com.walking.intensive.chapter2.task9;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task9 {
+public class Task9 {  // Никак не могу выровнять числа, прошу подсказку =(
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
