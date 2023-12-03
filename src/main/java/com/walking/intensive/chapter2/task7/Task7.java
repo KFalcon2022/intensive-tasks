@@ -6,18 +6,25 @@ package com.walking.intensive.chapter2.task7;
 
 public class Task7 {
     public static void main(String[] args) {
-        int value = 100000;
+        int value = 10000;
         if (isCorrectInput(value)) {
             System.out.println(getFriendlyPair(value));
         }
     }
 
     static int getFriendlyPair(int m) {
-        int firstValue;
-        int secondValue;
         int result = 0;
         for (int i = 1; i < m; i++) {
+
+            int firstValue;
+            int secondValue;
+
             firstValue = getSumDivisors(i);
+
+            if (firstValue == i) {
+                continue;
+            }
+
             secondValue = getSumDivisors(firstValue);
 
             if (secondValue == i) {
