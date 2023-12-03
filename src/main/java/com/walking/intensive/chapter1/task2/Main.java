@@ -5,7 +5,7 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Main {
 
-    static final double FLATS_ON_FLOOR = 4.0;
+    static final int FLATS_ON_FLOOR = 4;
     public static void main(String[] args) {
 
         int flatNumber = 82;
@@ -16,11 +16,10 @@ public class Main {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-
-        double mainFraction = flatNumber / FLATS_ON_FLOOR;
+        double mainFraction = (double) flatNumber / FLATS_ON_FLOOR;
         String fullAnswer;
 
-        if (floorAmount * 4 * entranceAmount > flatNumber) {
+        if (isValidArguments(floorAmount, entranceAmount, flatNumber)) {
             int entrance = mainFraction > floorAmount ? (int) Math.ceil(mainFraction / floorAmount) : 1;
             int floor =  (int) Math.ceil(mainFraction) - floorAmount * (entrance - 1);
             fullAnswer = entrance + " подъезд, " + floor + " этаж, " + getFlatLocationOnFloor(mainFraction);
@@ -39,5 +38,12 @@ public class Main {
             case 75 -> "справа от лифта, влево";
             default -> "...оставайся в лифте...";
         };
+    }
+
+    static boolean isValidArguments(int floorAmount, int entranceAmount, int flatNumber) {
+        return floorAmount * FLATS_ON_FLOOR * entranceAmount > flatNumber
+                & floorAmount > 0
+                & entranceAmount > 0
+                & flatNumber > 0;
     }
 }
