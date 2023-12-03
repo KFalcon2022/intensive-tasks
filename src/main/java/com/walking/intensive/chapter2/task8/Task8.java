@@ -7,18 +7,18 @@ package com.walking.intensive.chapter2.task8;
 public class Task8 {
 
     public static void main(String[] args) {
-        System.out.println(getHappyTicketChance(999999));
+        System.out.println(getHappyTicketChance());
     }
 
-    static double getHappyTicketChance(int ticketNumber) {
+    static double getHappyTicketChance() {
+        double maxTicket = 999999;
         double counter = 0;
-        for (int i = 0; i <= ticketNumber; i++) {
+        for (int i = 0; i <= maxTicket; i++) {
             if (isTicketHappy(i)) {
                 counter++;
             }
         }
-        return counter / ticketNumber * 100.00;
-
+        return counter / maxTicket;
     }
 
     static boolean isTicketHappy(int ticketNumber) {
