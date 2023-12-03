@@ -21,7 +21,7 @@ public class Task11 {
      */
     static int getSumSubarraysOddLength(int[] array) {
 
-        int[] frequency = new int[array.length];
+        int result = 0;
 
         for (int i = 1; i <= array.length; i++) {
 
@@ -40,11 +40,8 @@ public class Task11 {
             } else {
                 sequencesCountFromPreviousElementAnotherParity = countElementsBeforeAnotherParity * sequencesCountFromHere;
             }
-            frequency[i - 1] = sequencesCountFromHere + sequencesCountFromPreviousElementSameParity + sequencesCountFromPreviousElementAnotherParity;
-        }
-        int result = 0;
-        for (int i = 0; i < array.length; i++) {
-            result += array[i] * frequency[i];
+
+            result += array[i-1] * (sequencesCountFromHere + sequencesCountFromPreviousElementSameParity + sequencesCountFromPreviousElementAnotherParity);
         }
         return result;
     }
