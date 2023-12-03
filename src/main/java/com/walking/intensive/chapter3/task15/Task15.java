@@ -1,7 +1,5 @@
 package com.walking.intensive.chapter3.task15;
 
-import java.lang.reflect.Array;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-City.html">ГОРОД</a>
  */
