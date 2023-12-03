@@ -1,7 +1,5 @@
 package com.walking.intensive.chapter2.task10;
 
-import java.util.Locale;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-palindrome.html">ссылка</a>
  */
@@ -13,22 +11,25 @@ public class Task10 {
     }
 
     static boolean isPalindrome(String inputString) {
-        inputString = inputString.replaceAll("[ ,.!?]", "").toLowerCase(Locale.ROOT);
-
-        char[] arr = new char[inputString.length()];
-
-        for (int i = 0; i < inputString.length(); i++) {
-            arr[i] = inputString.charAt(i);
-        }
-
-        char[] pall = new char[inputString.length()];
-
-        for (int i = 1; i < arr.length + 1; i++) {
-            pall[i - 1] = arr[arr.length - i];
-        }
+        StringBuffer originalPhrase = new StringBuffer(inputString.toLowerCase());
+        StringBuffer phrase = new StringBuffer();
 
         for (int i = 0; i < inputString.length(); i++) {
-            if (pall[i] != arr[i]) {
+            if (Character.isLetter(originalPhrase.charAt(i))) {
+                phrase.append(originalPhrase.charAt(i));
+            }
+        }
+
+        StringBuffer reversePhrase = new StringBuffer();
+
+        for (int i = originalPhrase.length() - 1; i >= 0; i--) {
+            if (Character.isLetter(originalPhrase.charAt(i))) {
+                reversePhrase.append(originalPhrase.charAt(i));
+            }
+        }
+
+        for (int i = 0; i < phrase.length(); i++) {
+            if (!(phrase.charAt(i) == reversePhrase.charAt(i))) {
                 return false;
             }
         }
