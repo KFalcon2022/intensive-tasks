@@ -51,7 +51,23 @@ public class Task7 {
         return (Math.max(firstNum, secondNum) < maxNum);
     }
 
-    public static int getSumOfDivisors(int index) {
+    public static int getSumOfDivisors(int num) {
+        int sum = 1;
+        for (int i = 2; i <= Math.sqrt(num); i++) {
+            if(num % i == 0) {
+                sum += i;
+                int divisionResult = num / i;
+
+                if(divisionResult != i) {
+                    sum += divisionResult;
+                }
+            }
+        }
+
+        return sum;
+    }
+
+    public static int getSumOfDivisors2(int index) {
         int sum = 0;
         for (int i = index - 1; i > 0; i--) {
             if(index % i == 0) {
