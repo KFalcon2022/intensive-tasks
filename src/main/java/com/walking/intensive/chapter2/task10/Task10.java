@@ -10,34 +10,14 @@ public class Task10 {
         System.out.println("Is palindrome: " + task.isPalindrome(testString));
     }
 
-    boolean isPalindrome(String inputString) {
-        String cleanedString = "";
+    public static boolean isPalindrome(String inputString) {
 
-        for (int i = 0; i < inputString.length(); i++) {
-            char currentChar = inputString.charAt(i);
-            if (Character.isLetterOrDigit(currentChar)) {
-                cleanedString += currentChar;
-            }
+        String cleanedString = inputString.replaceAll("[^a-zA-Zа-яА-Я0-9]", "").toLowerCase();
+
+        if (cleanedString.isEmpty() || cleanedString.length() == 1) {
+            return true;
         }
 
-        cleanedString = cleanedString.toLowerCase();
-
-        int leftIndex = 0;
-        int rightIndex = cleanedString.length() - 1;
-
-        while (leftIndex < rightIndex) {
-            char leftChar = cleanedString.charAt(leftIndex);
-            char rightChar = cleanedString.charAt(rightIndex);
-
-            if (leftChar != rightChar) {
-                return false;
-            }
-
-            leftIndex++;
-            rightIndex--;
-        }
-
-        return true;
-
+        return cleanedString.equals(new StringBuilder(cleanedString).reverse().toString());
     }
 }
