@@ -5,17 +5,19 @@ package com.walking.intensive.chapter3.task11;
  */
 public class Task11 {
     public static void main(String[] args) {
-
+        int[] mass = {1, 4, 2, 5, 2, 3};
+        System.out.println(getSumSubarraysOddLength(mass));
     }
 
-    /**
-     * Подсчет суммы всех возможных подмассивов нечетной длины.
-     *
-     * @param array массив целых чисел
-     * @return сумма всех нечетныз подмассивов
-     */
     static int getSumSubarraysOddLength(int[] array) {
-        // Ваш код
-        return 0;
+        int sumSubarrays = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j <= i; j++) {
+                for (int k = i; k < array.length; k++) {
+                    sumSubarrays += (j % 2 == k % 2) ? array[i] : 0;
+                }
+            }
+        }
+        return sumSubarrays;
     }
 }
