@@ -15,11 +15,36 @@ public class Task10 {
 
     static boolean isPalindrome(String inputString) {
 
+        char[] arrayOfChars = new char[inputString.length()];
+        int lastLetterIndex = 0;
+
+        for (int i = 0 ; i < inputString.length() ; i++) {
+            if ( Character.isLetter(inputString.charAt(i)) ) {
+                arrayOfChars[lastLetterIndex++] = Character.toLowerCase (inputString.charAt(i) );
+            }
+        }
+
+        for (int j = 0 ; j < lastLetterIndex ; j++) {
+            if (arrayOfChars[j] != arrayOfChars[lastLetterIndex-1-j]) {
+            return false;
+            }
+        }
+
+        return true;
+    }
+
+
+
+
+
+
+    /* static boolean isPalindrome(String inputString) {
+
         String lowerCaseString = inputString.toLowerCase();
         String regex = "[^à-ÿa-z]";
         String stringWithoutSymbols = lowerCaseString.replaceAll(regex , "");
         StringBuilder stringWithoutSymbolsReverse = new StringBuilder(stringWithoutSymbols).reverse();
 
         return stringWithoutSymbols.compareTo(stringWithoutSymbolsReverse.toString()) == 0;
-    }
+    } */
 }
