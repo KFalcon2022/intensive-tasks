@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task12 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(getNumberOfMovements("11001")));
+        System.out.println(Arrays.toString(getNumberOfMovements("010")));
     }
 
     /**
@@ -20,7 +20,7 @@ public class Task12 {
         int[] numberShifts = new int[baskets.length()];
         for (int i = 0; i < baskets.length(); i++) {
             for (int j = 0; j < baskets.length(); j++) {
-                if (Integer.parseInt(String.valueOf(baskets.charAt(j))) == 1) {
+                if (baskets.charAt(j) == '1') {
                     numberShifts[i] += Math.abs(j-i);
                 }
             }
