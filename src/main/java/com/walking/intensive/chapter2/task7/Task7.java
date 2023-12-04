@@ -6,17 +6,11 @@ package com.walking.intensive.chapter2.task7;
 public class Task7 {
     public static void main(String[] args) {
 
-        System.out.println(getDivisors(220));
-        System.out.println(getDivisors(284));
-        System.out.println(getDivisors(440));
-        System.out.println(getDivisors(880));
-        System.out.println(getDivisors(1760));
-        System.out.println();
-        System.out.println(getFriendlyPair(1000));
-        System.out.println(getFriendlyPair(5000));
-        System.out.println(getFriendlyPair(10000));
-        System.out.println(getFriendlyPair(15000));
-        System.out.println(getFriendlyPair(20000));
+        System.out.println(getFriendlyPair(200));
+        System.out.println(getFriendlyPair(497));
+        System.out.println(getFriendlyPair(10_000));
+        System.out.println(getFriendlyPair(20_000));
+
     }
 
     static int getFriendlyPair(int m) {
