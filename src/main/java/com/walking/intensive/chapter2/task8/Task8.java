@@ -54,7 +54,6 @@ public class Task8 {
       num /= 10;
     }
     return sum;
-
   }
 
 
