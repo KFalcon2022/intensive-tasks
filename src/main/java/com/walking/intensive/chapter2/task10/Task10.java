@@ -26,25 +26,10 @@ public class Task10 {
 
         for (int j = 0 ; j < lastLetterIndex ; j++) {
             if (arrayOfChars[j] != arrayOfChars[lastLetterIndex-1-j]) {
-            return false;
+                return false;
             }
         }
 
         return true;
     }
-
-
-
-
-
-
-    /* static boolean isPalindrome(String inputString) {
-
-        String lowerCaseString = inputString.toLowerCase();
-        String regex = "[^à-ÿa-z]";
-        String stringWithoutSymbols = lowerCaseString.replaceAll(regex , "");
-        StringBuilder stringWithoutSymbolsReverse = new StringBuilder(stringWithoutSymbols).reverse();
-
-        return stringWithoutSymbols.compareTo(stringWithoutSymbolsReverse.toString()) == 0;
-    } */
 }
