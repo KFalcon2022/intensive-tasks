@@ -8,23 +8,23 @@ public class Task8 {
 
         int ticketNumber = 999999;
 
-        if (ticketNumber < 1 || ticketNumber > 999999) {
-            System.out.println("Некорректный номер.");
-            return;
-        }
-
         System.out.println("Вероятность счастливого билета: " + getHappyTicketChance(ticketNumber));
     }
 
     static double getHappyTicketChance(int ticketNumber) {
 
-        if (ticketNumber < 1000) {
+        if (ticketNumber == 0) {
+            return 1;
+        }
+
+        if (ticketNumber < 0 || ticketNumber > 999999) {
+            System.out.println("Некорректный номер.");
             return 0;
         }
 
         int sumHappyTickets = 0;
 
-        for (int i = 1001; i <= ticketNumber; i++) {
+        for (int i = 0; i <= ticketNumber; i++) {
 
             int i1 = i / 100000 % 10,
                     i2 = i / 10000 % 10,
@@ -37,6 +37,6 @@ public class Task8 {
                 sumHappyTickets++;
             }
         }
-        return (double) sumHappyTickets / ticketNumber;
+        return (double) sumHappyTickets / (ticketNumber + 1);
     }
 }
