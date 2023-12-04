@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        int m = 999999;
+        int m = 1000;
         System.out.println(getFriendlyPair(m));
     }
 
@@ -14,9 +14,9 @@ public class Task7 {
         int m1 = 0;
         int m2 = 0;
 
-        if (m > 0 && m < 1000000) {
+        if (m > 0 && m < 1_000_000) {
 
-            for (int i = 220; i <= m; i++) {
+            for (int i = 220; i <= 1_000_000; i++) {
                 int count1 = 0;
                 int count2 = 0;
                 for (int j = 1; j < i; j++) {
@@ -31,9 +31,12 @@ public class Task7 {
                     }
                 }
 
-                if (count1 + count2 <= m && i == count2) {
+                if ((count1 <= m || count2 <= m) && i == count2 && i != count1) {
                     m1 = count1;
                     m2 = count2;
+                }
+                if(i > m){
+                    break;
                 }
             }
         }
