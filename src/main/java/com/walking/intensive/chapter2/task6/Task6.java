@@ -18,36 +18,9 @@ public class Task6 {
         int max = Math.max(m, n);
         int min = Math.min(m, n);
         int noc = min;
-        List<Integer> multipliersMax = new ArrayList<>();
-        List<Integer> multipliersMin = new ArrayList<>();
 
-        while (max > 1) {
-            if (max % 2 == 0) {
-                multipliersMax.add(2);
-                max = max / 2;
-                System.out.println(2);
-            }
-            for (int i = 3; i < (max + 1); i += 2)
-                while (max % i == 0) {
-                    multipliersMax.add(i);
-                    System.out.println(i);
-                    max = max / i;
-                }
-        }
-
-        while (min > 1) {
-            if (min % 2 == 0) {
-                multipliersMin.add(2);
-                min = min / 2;
-                System.out.println(2);
-            }
-            for (int i = 3; i < (min + 1); i += 2)
-                while (min % i == 0) {
-                    multipliersMin.add(i);
-                    System.out.println(i);
-                    min = min / i;
-                }
-        }
+        List<Integer> multipliersMax = getMultipliers(max);
+        List<Integer> multipliersMin = getMultipliers(min);
 
         for (int i = 0;  i < multipliersMax.size(); i++) {
             if (multipliersMin.contains(multipliersMax.get(i))) {
@@ -63,39 +36,12 @@ public class Task6 {
 
     static int getNod(int m, int n) {
 
+        int nod = 1;
         int max = Math.max(m, n);
         int min = Math.min(m, n);
-        int nod = 1;
-        List<Integer> multipliersMax = new ArrayList<>();
-        List<Integer> multipliersMin = new ArrayList<>();
 
-        while (max > 1) {
-            if (max % 2 == 0) {
-                multipliersMax.add(2);
-                max = max / 2;
-                System.out.println(2);
-            }
-            for (int i = 3; i < (max + 1); i += 2)
-                while (max % i == 0) {
-                    multipliersMax.add(i);
-                    System.out.println(i);
-                    max = max / i;
-                }
-        }
-
-        while (min > 1) {
-            if (min % 2 == 0) {
-                multipliersMin.add(2);
-                min = min / 2;
-                System.out.println(2);
-            }
-            for (int i = 3; i < (min + 1); i += 2)
-                while (min % i == 0) {
-                    multipliersMin.add(i);
-                    System.out.println(i);
-                    min = min / i;
-                }
-        }
+        List<Integer> multipliersMax = getMultipliers(max);
+        List<Integer> multipliersMin = getMultipliers(min);
 
         for (int i = 0; i < multipliersMin.size(); i++) {
             if (multipliersMax.contains(multipliersMin.get(i))) {
@@ -120,6 +66,27 @@ public class Task6 {
 
         return getNodByEuclideanAlgorithm((max % min), min);
 
+    }
+
+    static List<Integer> getMultipliers (int m) {
+
+        List<Integer> multipliersM = new ArrayList<>();
+
+        while (m > 1) {
+            if (m % 2 == 0) {
+                multipliersM.add(2);
+                m = m / 2;
+                System.out.println(2);
+            }
+            for (int i = 3; i < (m + 1); i += 2)
+                while (m % i == 0) {
+                    multipliersM.add(i);
+                    System.out.println(i);
+                    m = m / i;
+                }
+        }
+
+        return multipliersM;
     }
 
 }
