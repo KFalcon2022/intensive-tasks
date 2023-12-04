@@ -5,8 +5,8 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        int digitOne = 18;
-        int digitTwo = 12;
+        int digitOne = 2;
+        int digitTwo = 10000000;
         System.out.println(getNoc(digitOne, digitTwo));
         System.out.println(getNod(digitOne, digitTwo));
     }
@@ -28,14 +28,13 @@ public class Task6 {
     }
 
     static int getNod(int digitOne, int digitTwo) {
-        while (digitOne != digitTwo) {
-            if (digitOne > digitTwo) {
-                digitOne = digitOne - digitTwo;
-            } else {
-                digitTwo = digitTwo - digitOne;
-            }
+        while (digitTwo !=0) {
+            int temp = digitOne % digitTwo;
+            digitOne = digitTwo;
+            digitTwo = temp;
         }
         return digitOne;
+    }
 
     }
 
@@ -44,4 +43,3 @@ public class Task6 {
 //        return 0;
 //    }
 
-}
