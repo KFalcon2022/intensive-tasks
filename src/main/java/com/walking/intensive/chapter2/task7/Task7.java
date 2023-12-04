@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        int startNumber = 2620;
+        int startNumber = 1000;
 
         System.out.println(getFriendlyPair(startNumber));
         System.out.println();
@@ -18,14 +18,23 @@ public class Task7 {
             return 0;
         }
 
-        int quantityOfDivisors = sumOfDivisor(m);
-        int potentialPair = sumOfDivisor(quantityOfDivisors);
+        int maxFriendlyPair = 0;
+        for (int i = 1; i < m; i++) {
 
-        return (potentialPair == m && quantityOfDivisors != m ? quantityOfDivisors : 0);
+            int quantityOfDivisors = sumOfDivisor(i);
+            int potentialPair = sumOfDivisor(quantityOfDivisors);
 
+            if (potentialPair == i && quantityOfDivisors != i) {
+                maxFriendlyPair = Math.max(maxFriendlyPair, i);
+            }
+        }
+
+        return maxFriendlyPair;
     }
 
+
     public static int sumOfDivisor(int x) {
+
         int sum = 1;
 
         for (int i = 2; i <= Math.sqrt(x); i++) {
@@ -36,12 +45,14 @@ public class Task7 {
                 }
             }
         }
+
         return sum;
     }
 
     static void msg(int start, int end) {
+
         if (end != 0) {
-            System.out.println("Дружественная пара для числа " + start + ": (" + start + ", " + end + ")");
+            System.out.println("Наибольшее число из пары дружественных чисел для " + start + ": " + end);
         } else {
             System.out.println("Дружественная пара для числа " + start + ": отсутствует");
         }
