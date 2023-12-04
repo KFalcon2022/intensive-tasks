@@ -11,11 +11,13 @@ public class Task10 {
 
     public static boolean isPalindrome(String inputString) {
         String cleanedInput = inputString.toLowerCase().replaceAll("[^a-zA-Z0-9а-яА-Я]", "");
+
         if (cleanedInput.length() <= 1) {
             return false;
         }
         int left = 0, right = cleanedInput.length() - 1;
         while (left < right) {
+
             if (cleanedInput.charAt(left) != cleanedInput.charAt(right)) {
                 return false;
             }
