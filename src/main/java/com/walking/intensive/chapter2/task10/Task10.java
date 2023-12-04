@@ -5,19 +5,23 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        Task10 task = new Task10();
         String testString = "Муза! Ранясь шилом опыта, ты помолишься на разум.";
-        System.out.println("Is palindrome: " + task.isPalindrome(testString));
+        System.out.println("Is palindrome: " + isPalindrome(testString));
     }
 
     public static boolean isPalindrome(String inputString) {
-
-        String cleanedString = inputString.replaceAll("[^a-zA-Zа-яА-Я0-9]", "").toLowerCase();
-
-        if (cleanedString.isEmpty() || cleanedString.length() == 1) {
-            return true;
+        String cleanedInput = inputString.toLowerCase().replaceAll("[^a-zA-Z0-9а-яА-Я]", "");
+        if (cleanedInput.length() <= 1) {
+            return false;
         }
-
-        return cleanedString.equals(new StringBuilder(cleanedString).reverse().toString());
+        int left = 0, right = cleanedInput.length() - 1;
+        while (left < right) {
+            if (cleanedInput.charAt(left) != cleanedInput.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 }
