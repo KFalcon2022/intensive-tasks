@@ -15,7 +15,18 @@ public class Task12 {
      * @return массив с минимальным количеством операций
      */
     static int[] getNumberOfMovements(String baskets) {
-        // Ваш код
-        return new int[]{};
+        int[] answer = new int[baskets.length()];
+
+        for (int i = 0; i < baskets.length(); i++) {
+            int countSum = 0;
+            for (int j = 0; j < baskets.length(); j++) {
+                if (baskets.charAt(j) == '1') {
+                    countSum += Math.abs(i - j);
+                }
+            }
+            answer[i] = countSum;
+        }
+
+        return answer;
     }
 }
