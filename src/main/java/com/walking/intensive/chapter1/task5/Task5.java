@@ -11,7 +11,7 @@ public class Task5 {
 
     }
     static boolean checkTriangleExistance (double a, double b, double c) {
-        return !((a + b) <= c) && !((b + c) <= a) && !((a + c) <= b);
+        return ((a + b) <= c) || ((b + c) <= a) || ((a + c) <= b);
     }
 
     static double getAreaByHeron(double a, double b, double c) {
