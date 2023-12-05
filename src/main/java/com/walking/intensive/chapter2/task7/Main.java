@@ -3,7 +3,7 @@ package com.walking.intensive.chapter2.task7;
 public class Main {
     public static void main(String[] args) {
 
-        int numberN = 999999;
+        int numberN = 283;
         System.out.println(getFriendlyNumbs(numberN));
     }
 
@@ -32,7 +32,7 @@ public class Main {
 
             if (total <= i && getTotalM(total, i) == i) {
 
-                return total;
+                return getTotalM(total, i);
             }
         }
 
