@@ -22,7 +22,7 @@ public class Task6 {
                 m >>= 1;
                 n >>= 1;
                 multTwoGlobal++;
-            } else if (mIsEven && !nIsEven) {
+            } else if (mIsEven) {
                 m >>= 1;
             } else if (nIsEven) {
                 n >>= 1;
@@ -59,7 +59,7 @@ public class Task6 {
         boolean nIsEven = (n & 1) == 0;
         if (mIsEven && nIsEven) {
             return getNodByEuclideanAlgorithm(m >> 1, n >> 1) << 1;
-        } else if (mIsEven && !nIsEven) {
+        } else if (mIsEven) {
             return getNodByEuclideanAlgorithm(m >> 1, n);
         } else if (nIsEven) {
             return getNodByEuclideanAlgorithm(m, n >> 1);
