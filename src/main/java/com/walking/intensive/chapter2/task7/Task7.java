@@ -5,44 +5,37 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static final int MAX_NUMBER = 1000000;
-    public static void main(String[] args) {
-        System.out.println(getFriendlyPair(100));
 
+    public static void main(String[] args) {
+        System.out.println(getFriendlyPair(200));
     }
 
     static int getSumOfDivisorsNumber(int number) {
-        int SumOfDivisorsNumber = 0;
+        int sumOfDivisorsNumber = 0;
         if (number >= MAX_NUMBER || number < 0) {
             System.out.println("Invalid number input. Try again");
         }
-        for (int i = 1; i <= number ; i++) {
+        for (int i = 1; i <= number; i++) {
             if (number % i == 0) {
-                if(number / i == number) {
-                    continue;
+                if (number / i != number) {
+                    sumOfDivisorsNumber += number / i;
                 }
-                SumOfDivisorsNumber += number / i;
             }
         }
-        return SumOfDivisorsNumber;
+        return sumOfDivisorsNumber;
     }
 
-    static int getFriendlyPair(int m){
-        // Ваш код
-        int greaterPairNumber = 0;
-        int lowerPairNumber = 0;
-        int sumOfGreaterPairNumber = 0;
-        int sumOfLowerPairNumber = 0;
-        for (int i = 1; i < m; i++) {
-            sumOfGreaterPairNumber = getSumOfDivisorsNumber(i);
-            for (int j = 0; j <m; j++) {
-                if(getSumOfDivisorsNumber(i) == getSumOfDivisorsNumber(j) & i != j) {
-                    greaterPairNumber = i;
-                    lowerPairNumber = j;
+    static int getFriendlyPair(int m) {
+        int greaterNumberOfPair = 0;
+        for (int i = m - 1; i >= 1; i--) {
+            int pairNumber1 = getSumOfDivisorsNumber(i);
+            if (pairNumber1 < m) {
+                int pairNumber2 = getSumOfDivisorsNumber(pairNumber1);
+                if (pairNumber1 != i && pairNumber2 == i) {
+                    greaterNumberOfPair = Math.max(greaterNumberOfPair, Math.max(pairNumber1, pairNumber2));
+                }
             }
-           }
         }
-        System.out.println("first number: " + greaterPairNumber + " second number: " + lowerPairNumber );
-        System.out.println("Sum of first number: " + getSumOfDivisorsNumber(97) + " sum of second number: " + getSumOfDivisorsNumber(89) );
-        return greaterPairNumber;
-        }
+        return greaterNumberOfPair;
+    }
 }
