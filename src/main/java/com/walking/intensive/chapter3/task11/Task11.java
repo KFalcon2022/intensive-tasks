@@ -17,16 +17,18 @@ public class Task11 {
      */
     static int getSumSubarraysOddLength(int[] array) {
         int sum = 0;
-        int count = 0;
+        int arrayCore = (array.length / 2) - 2;
+        int coreMultiplier = array.length % 2 != 0 ? arrayCore + 1 : arrayCore;
 
-
-        while (count < array.length) {
-            for (int i = 0; i < array.length - count; i++) {
-                for (int j = 0 + i; j <= count + i; j++) {
-                    sum += array[j];
-                }
+        for (int i = 0; i < array.length; i++) {
+            sum += (array[i] * 2);
+            if (i == 0 || i == array.length - 1) {
+                sum += array[i] * coreMultiplier;
+            } else if (i == 1 || i == array.length - 2) {
+                sum += (array[i] * 2 * coreMultiplier);
+            } else {
+                sum += (array[i] * 3 * coreMultiplier);
             }
-            count += 2;
         }
 
         return sum;
