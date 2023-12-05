@@ -35,12 +35,18 @@ public class Main {
         int result = 0;
 
         for (int i = 1; i <= maxInteger; i++) {
-            if ((i != getDivisorsSum(i)) && (i == getDivisorsSum(getDivisorsSum(i))) && (getDivisorsSum(i) < maxInteger) && (i + getDivisorsSum(i) > maxSum)) {
-                maxSum = i + getDivisorsSum(i);
-                result = Math.max(i, getDivisorsSum(i));
+            int divisorSum = getDivisorsSum(i);
+
+            if (isFriendlyPair(i, maxInteger) && (i + divisorSum > maxSum)) {
+                maxSum = i + divisorSum;
+                result = Math.max(i, divisorSum);
             }
         }
 
         return result;
+    }
+
+    public static boolean isFriendlyPair(int number, int maxInteger) {
+        return number != getDivisorsSum(number) && number == getDivisorsSum(getDivisorsSum(number)) && getDivisorsSum(number) < maxInteger;
     }
 }
