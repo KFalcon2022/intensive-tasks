@@ -12,19 +12,19 @@ public class Task6 {
 
     static int getNoc(int m, int n) {
         int getNod = getNod(m, n);
-        int mult = m * n;
-        int result = mult / getNod;
-        return result;
+        return (m * n) / getNod;
     }
 
     static int getNod(int m, int n) {
-        int maxNum = Math.max(Math.abs(m), Math.abs(n));
-        int nod = 1;
-        if (n == 0 || m == n) {
-            return Math.abs(m);
+        int mathAbs_m = Math.abs(m);
+        int mathAbs_n = Math.abs(n);
+        int maxNum = Math.max(mathAbs_m, mathAbs_n);
+        if (n == 0 || m == 0 || mathAbs_m == mathAbs_n) {
+            return maxNum;
         }
+        int nod = 1;
         for (int i = 2; i < maxNum; i++) {
-            if (Math.abs(m) % i == 0 && Math.abs(n) % i == 0) {
+            if (mathAbs_m % i == 0 && mathAbs_n % i == 0) {
                 nod = i;
             }
         }
