@@ -5,7 +5,10 @@ package com.walking.intensive.chapter3.task13;
  */
 public class Task13 {
     public static void main(String[] args) {
+        int[] array = {2, 2, 3, 3};
+        int water = 5;
 
+        System.out.println(getCountSteps(array, water));
     }
 
     /**
@@ -16,7 +19,33 @@ public class Task13 {
      * @return количество шагов необходимое для полива всех растений
      */
     static int getCountSteps(int[] plants, int wateringCanVolume) {
-        // Ваш код
-        return 0;
+        if (plants.length == 0 || wateringCanVolume <= 0 || plants[0] > wateringCanVolume) {
+            return -1;
+        }
+        int sum = 0;
+
+        for (int i = 0; i < plants.length; i++) {
+            int remainingWater = wateringCanVolume;
+
+            if (plants[i] <= remainingWater) {
+                sum += i + 1;
+                remainingWater -= plants[i];
+                i++;
+            }
+            while (i < plants.length && plants[i] <= remainingWater) {
+                sum += 1;
+                remainingWater -= plants[i];
+                i++;
+                if (i == plants.length) {
+                    break;
+                }
+            }
+            if (i < plants.length && plants[i] > remainingWater) {
+                sum += i;
+                i--;
+            }
+        }
+
+        return sum;
     }
 }
