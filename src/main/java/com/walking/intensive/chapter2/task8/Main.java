@@ -6,7 +6,6 @@ public class Main {
     }
 
     public static boolean isLuckyTicket(int ticketNumber) {
-        boolean result = false;
         int divisor = 10;
         int firstHalfSum = 0;
         int secondHaldSum = 0;
@@ -19,14 +18,10 @@ public class Main {
             }
         }
 
-        if (firstHalfSum == secondHaldSum) {
-            result = true;
-        }
-
-        return result;
+        return firstHalfSum == secondHaldSum;
     }
 
-    public static float getSuccessProbability() {
+    public static double getSuccessProbability() {
         int ticketNumberLimit = 999999;
         int successCount = 0;
 
@@ -36,6 +31,6 @@ public class Main {
             }
         }
 
-        return (float) successCount / ticketNumberLimit;
+        return (double) successCount / (ticketNumberLimit + 1);
     }
 }
