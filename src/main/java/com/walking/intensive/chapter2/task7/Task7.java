@@ -5,7 +5,11 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
+        System.out.println(getFriendlyPair(230));
+        System.out.println(getFriendlyPair(497));
         System.out.println(getFriendlyPair(28));
+        System.out.println(getFriendlyPair(1200));
+        System.out.println(getFriendlyPair(1000000));
     }
 
     static int getFriendlyPair(int maxValueOfNumber) {
