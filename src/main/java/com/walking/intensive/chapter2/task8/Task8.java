@@ -13,7 +13,7 @@ public class Task8 {
     }
 
     static double getHappyTicketChance() {
-        int countHappy = 0;
+        int countHappy = 1; // билет 000000
 
         for (int i = 1000; i < TICKETS_QUANTITY; ++i) {
             if (getSumNumbers(getFirstPart(i)) == getSumNumbers(getSecondPart(i))) {
