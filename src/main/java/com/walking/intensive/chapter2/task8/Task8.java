@@ -19,7 +19,7 @@ public class Task8 {
         }
 
         System.out.println("всего счастливых чисел: " + countHappyTicket);
-        return (double) countHappyTicket / ticketNumber;
+        return (double) countHappyTicket / (ticketNumber +1);
     }
 
 }
