@@ -16,7 +16,27 @@ public class Task14 {
      * @return массив с количеством точек внутри окружностей
      */
     static int[] getCountOfPoints(int[][] points, int[][] queries) {
-        // Ваш код
-        return new int[0];
+        int[] answer = new int[queries.length];
+
+        for (int j = 0; j < queries.length; j++) {
+
+            int count = 0;
+            int centerX = queries[j][0];
+            int centerY = queries[j][1];
+            int radius = queries[j][2];
+
+            for (int[] point : points) {
+                int x = point[0];
+                int y = point[1];
+
+                if ((x - centerX) * (x - centerX)
+                        + (y - centerY) * (y - centerY) <= radius * radius) {
+                    count++;
+                }
+            }
+            answer[j] = count;
+        }
+
+        return answer;
     }
 }
