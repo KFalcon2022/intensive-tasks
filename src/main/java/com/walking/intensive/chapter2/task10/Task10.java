@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("ab bb  ba"));
+        System.out.println(isPalindrome("Dab bb bad"));
     }
 
     static boolean isPalindrome(String inputString) {
@@ -15,7 +15,6 @@ public class Task10 {
 
         int left = 0;
         int right = inputString.length() - 1;
-
         while (left < right) {
             if (!Character.isLetter(inputString.charAt(left))) {
                 left++;
@@ -27,7 +26,7 @@ public class Task10 {
                 continue;
             }
 
-            if (inputString.charAt(left) != inputString.charAt(right)) {
+            if (Character.toLowerCase(inputString.charAt(left)) != Character.toLowerCase(inputString.charAt(right))) {
                 return false;
 
             }
