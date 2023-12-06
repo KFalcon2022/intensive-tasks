@@ -21,8 +21,8 @@ public class Task8 {
 
         for (int i = 0; i < maxValueTicketNumber; i++) {
 
-            int sumFirstHalf = calcSumOfDigits(i% halfValueTicketNumber);
-            int sumSecondHalf = calcSumOfDigits(i / halfValueTicketNumber);
+            int sumFirstHalf = calcSumDigits(i% halfValueTicketNumber);
+            int sumSecondHalf = calcSumDigits(i / halfValueTicketNumber);
 
             if (sumFirstHalf == sumSecondHalf) {
                 luckyTickets++;
@@ -32,7 +32,7 @@ public class Task8 {
         return (double) luckyTickets / maxValueTicketNumber;
     }
 
-    private static int calcSumOfDigits(int ticketIteration) {
+    private static int calcSumDigits(int ticketIteration) {
 
         int sum = 0;
 //        for (int i = 0; i < HALF_TOTAL; i++) {
