@@ -4,8 +4,8 @@ package com.walking.intensive.chapter2.task8;
  * Условие: <a href="http://geometry-math.ru/homework/Java-ticket.html">ссылка</a>
  */
 public class Task8 {
-    static final int totalDigits = 6;
-    static final int halfDigits = totalDigits / 2;
+    static final int TOTAL_DIGITS = 6;
+    static final int HALF_TOTAL = TOTAL_DIGITS / 2;
 
     public static void main(String[] args) {
 
@@ -16,14 +16,13 @@ public class Task8 {
     static double getHappyTicketChance() {
 
         int luckyTickets = 0;
-        int maxValueTicketNumber = (int) Math.pow(10, totalDigits);
-        int halfValueTiketNumber = (int) Math.pow(10, halfDigits);
-
+        int maxValueTicketNumber = (int) Math.pow(10, TOTAL_DIGITS);
+        int halfValueTicketNumber = (int) Math.pow(10, HALF_TOTAL);
 
         for (int i = 0; i < maxValueTicketNumber; i++) {
 
-            int sumFirstHalf = sumOfDigitCalc(i);
-            int sumSecondHalf = sumOfDigitCalc(i / halfValueTiketNumber);
+            int sumFirstHalf = calcSumOfDigits(i% halfValueTicketNumber);
+            int sumSecondHalf = calcSumOfDigits(i / halfValueTicketNumber);
 
             if (sumFirstHalf == sumSecondHalf) {
                 luckyTickets++;
@@ -33,13 +32,17 @@ public class Task8 {
         return (double) luckyTickets / maxValueTicketNumber;
     }
 
-    private static int sumOfDigitCalc(int tiketIteration) {
+    private static int calcSumOfDigits(int ticketIteration) {
 
         int sum = 0;
+//        for (int i = 0; i < HALF_TOTAL; i++) {
+//            sum += ticketIteration % 10;
+//            ticketIteration /= 10;
+//        }
 
-        for (int i = 0; i < halfDigits; i++) {
-            sum += tiketIteration % 10;
-            tiketIteration /= 10;
+        while (ticketIteration > 0) {
+            sum += ticketIteration % 10;
+            ticketIteration /= 10;
         }
 
         return sum;
