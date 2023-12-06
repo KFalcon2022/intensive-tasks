@@ -3,53 +3,51 @@ package com.walking.intensive.chapter2.task6;
 public class Main {
     public static void main(String[] args) {
 
-        int number1 = 4791;
-        int number2 = 126;
-
-        System.out.println(getNOKAndNOD(number1, number2));
+        System.out.println(getNoc(97, 13));
+        System.out.println(getNod(97, 13));
     }
 
-    public static boolean isCorrectInput(int number1, int number2) {
-        return number1 < 1 || number2 < 1;
-    }
+    static int getNoc(int m, int n) {
 
-    public static String getNOKAndNOD(int number1, int number2) {
+        if (isCorrectInput(m, n)){
 
-        if (isCorrectInput(number1, number2)) {
-
-            return "Вводимое значение не должны быть меньше или равно 0";
+            return 0;
         }
 
-        int minNumber = Math.min(number1, number2);
-        int maxNumber = Math.max(number1, number2);
-
-        if (maxNumber % minNumber == 0) {
-
-            return "Наименьшее общее кратное (НОК): " + maxNumber + "\nНаибольший общий делить (НОД): " + minNumber;
-        }
-
-        int valueNOD = getNOD(maxNumber, minNumber);
-        int valueNOK = (maxNumber * minNumber) / valueNOD;
-
-        return "Наименьшее общее кратное (НОК): " + valueNOK + "\nНаибольший общий делить (НОД): " + valueNOD;
+        return (m * n) / getNod(m, n);
     }
 
-    public static int getNOD(int valueA, int valueB) {
-        boolean isNOD = true;
-        int valueNOD = 0;
-        int remainDiv;
-        int factorFromAB;
-        while (isNOD) {
-            factorFromAB = valueA / valueB;
-            remainDiv = valueA - (factorFromAB * valueB);
+    static int getNod(int m, int n) {
+
+        if (isCorrectInput(m, n)){
+
+            return 0;
+        }
+
+        int valueA = Math.max(m, n);
+        int valueB = Math.min(m, n);
+
+        if (valueA % valueB == 0){
+
+            return valueB;
+        }
+
+        while (true) {
+
+           int factorFromAB = valueA / valueB;
+           int remainDiv = valueA - (factorFromAB * valueB);
+
             if (valueA % valueB == 0) {
-                valueNOD = valueB;
-                isNOD = false;
+
+                return valueB;
             }
             valueA = valueB;
             valueB = remainDiv;
         }
-
-        return valueNOD;
     }
+
+    public static boolean isCorrectInput(int m, int n) {
+        return m < 1 || n < 1;
+    }
+
 }
