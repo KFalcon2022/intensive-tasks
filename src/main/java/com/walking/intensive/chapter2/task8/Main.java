@@ -3,11 +3,11 @@ package com.walking.intensive.chapter2.task8;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println(getCountHappyTicket());
+        System.out.println(getHappyTicketChance());
 
     }
 
-    public static double getCountHappyTicket(){
+    public static double getHappyTicketChance(){
 
         int count = 0;
 
