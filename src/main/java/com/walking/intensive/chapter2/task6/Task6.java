@@ -6,27 +6,23 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        int m = 7;
-        int n = 7;
+        int m = 150;
+        int n = 75;
 
         System.out.println("Наименьшее общее кратное: " + getNoc(m, n));
-        System.out.println("Наибольший общий множитель: " + getNod(m, n));
-        System.out.println("Наибольший общий множитель по Евклиду " + getNodByEuclideanAlgorithm(m, n));
+        System.out.println("Наибольший общий делитель: " + getNod(m, n));
+        System.out.println("Наибольший общий делитель по Евклиду " + getNodByEuclideanAlgorithm(m, n));
 
     }
 
     static int getNoc(int m, int n) {
-        m = Math.abs(m);
-        n = Math.abs(n);
-
-        for (int i = 1; i <= (Math.max(m, n)); i++) {
-            for (int y = 1; y <= (Math.max(m, n)); y++) {
-                if (m * i == n * y) {
-                    return n * y;
-                }
-            }
+        int product = m * n;
+        while (n != 0) {
+            int temp = m % n;
+            m = n;
+            n = temp;
         }
-        return 0;
+        return product / m;
     }
 
     static int getNod(int m, int n) {
@@ -41,27 +37,18 @@ public class Task6 {
                     return i;
                 }
             }
-
         }
         return 0;
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
-        m = Math.abs(m);
-        n = Math.abs(n);
-        if (m != 0 & n != 0) {
-            if (m > n) {
-                if (m % n == 0) {
-                    return n;
-                }
-                return getNodByEuclideanAlgorithm(m % n, n);
-            } else {
-                if (n % m == 0) {
-                    return m;
-                }
-                return getNodByEuclideanAlgorithm(n % m, m);
-            }
+
+        int nodByEuclideanAlgorithm;
+        if (n == 0) {
+            nodByEuclideanAlgorithm = m;
+        } else {
+            return getNodByEuclideanAlgorithm(n, m % n);
         }
-        return 0;
+        return nodByEuclideanAlgorithm;
     }
 }
