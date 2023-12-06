@@ -23,20 +23,32 @@ public class Task10 {
     }
 
     public static boolean isPalindrome(String inputString) {
-        return doClean(inputString).equals(invertString(doClean(inputString)));
-    }
+        int nextLastCharCounter = 0;
 
-    public static String doClean(String inputString) {
-        return inputString.replaceAll("\\p{Punct}", "").replaceAll("\\s", "").toLowerCase();
-    }
+        for (int i = 0; i < inputString.length(); i++) {
+            char firstChar = Character.toLowerCase(inputString.charAt(i));
 
-    public static String invertString(String inputString) {
-        String invertedString = "";
+            if (!Character.isAlphabetic(firstChar)) {
+                nextLastCharCounter--;
+                continue;
+            }
 
-        for (int i = inputString.length() - 1; i >= 0; i--) {
-            invertedString += inputString.charAt(i);
+            for (int j = inputString.length() - 1 - i - nextLastCharCounter; j >= 0; j--) {
+                char lastChar = Character.toLowerCase(inputString.charAt(j));
+
+                if (!Character.isAlphabetic(lastChar)) {
+                    nextLastCharCounter++;
+                    continue;
+                }
+
+                if (firstChar != lastChar) {
+                    return false;
+                }
+
+                break;
+            }
         }
 
-        return invertedString;
+        return true;
     }
 }
