@@ -33,12 +33,15 @@ public class Task4 {
             }
             return "Количество решений: 0.";
         }
+
         if (((a == 0 && b != 0) || (a != 0 && b == 0)) && c == 0) {
             return "Количество решений: 1. Корень: 0";
         }
+
         if (a == 0 && b != 0) {
             return "Количество решений: 1. Корень: " + formatter.format(-c / b);
         }
+
         if (a != 0 && b == 0) {
             double div = -c / a;
             if (div < 0) {
@@ -46,6 +49,7 @@ public class Task4 {
             }
             return solveUsingDiscriminant(a, b, c);
         }
+
         return solveUsingDiscriminant(a, b, c);
     }
 
