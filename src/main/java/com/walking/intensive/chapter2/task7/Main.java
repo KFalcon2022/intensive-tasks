@@ -37,7 +37,7 @@ public class Main {
         for (int i = 1; i <= maxInteger; i++) {
             int divisorSum = getDivisorsSum(i);
 
-            if (isFriendlyPair(i, maxInteger) && (i + divisorSum > maxSum)) {
+            if (isFriendlyPair(i, maxInteger) && i + divisorSum > maxSum) {
                 maxSum = i + divisorSum;
                 result = Math.max(i, divisorSum);
             }
