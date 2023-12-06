@@ -10,9 +10,9 @@ public class Task8 {
 
     static double getHappyTicketChance() {
         double countLuckyTicket = 0.0;
-        int maxNumber = 999_999;
+        int maxNumber = 1_000_000;
 
-        for (int i = 0; i <= maxNumber; i++) {
+        for (int i = 0; i < maxNumber; i++) {
             if (isLucky(i)) {
                 countLuckyTicket++;
             }
@@ -22,23 +22,15 @@ public class Task8 {
     }
 
     static boolean isLucky(int number) {
-        String string = String.valueOf(number);
+        int a, b, c, d, e, f;
 
-        while (string.length() % 6 != 0) {
-            string = "0" + string;
-        }
+        a = number / 100000;
+        b = (number / 10000) % 10;
+        c = (number / 1000) % 10;
+        d = (number / 100) % 10;
+        e = (number / 10) % 10;
+        f = number % 10;
 
-        int num1 = 0;
-        int num2 = 0;
-
-        for (int i = 0; i < string.length() / 2; i++) {
-            num1 = num1 + Integer.parseInt(String.valueOf(string.charAt(i)));
-        }
-
-        for (int i = string.length() / 2; i < string.length(); i++) {
-            num2 = num2 + Integer.parseInt(String.valueOf(string.charAt(i)));
-        }
-
-        return num1 == num2;
+        return a + b + c == d + f + e;
     }
 }
