@@ -9,13 +9,13 @@ public class Main {
         System.out.println(getNOKAndNOD(number1, number2));
     }
 
-    public static boolean isNotCorrectInput(int number1, int number2) {
+    public static boolean isCorrectInput(int number1, int number2) {
         return number1 < 1 || number2 < 1;
     }
 
     public static String getNOKAndNOD(int number1, int number2) {
 
-        if (isNotCorrectInput(number1, number2)) {
+        if (isCorrectInput(number1, number2)) {
 
             return "Вводимое значение не должны быть меньше или равно 0";
         }
@@ -23,7 +23,7 @@ public class Main {
         int minNumber = Math.min(number1, number2);
         int maxNumber = Math.max(number1, number2);
 
-        if (minNumber == maxNumber || maxNumber % minNumber == 0) {
+        if (maxNumber % minNumber == 0) {
 
             return "Наименьшее общее кратное (НОК): " + maxNumber + "\nНаибольший общий делить (НОД): " + minNumber;
         }
