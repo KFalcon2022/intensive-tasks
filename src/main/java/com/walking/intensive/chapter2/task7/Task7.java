@@ -6,16 +6,14 @@ package com.walking.intensive.chapter2.task7;
 public class Task7 {
     public static void main(String[] args) {
         System.out.println(getFriendlyPair(1000000));
-//        System.out.println(getSumFactorsNumber());
     }
 
     static int getFriendlyPair(int m) {
         int maxNumber = 0;
         int maxSum = 0;
-        int sum1;
-        int sum2 = 0;
         for (int i = m - 1; i > 0; i--) {
-            sum1 = getSumFactorsNumber(i);
+            int sum1 = getSumFactorsNumber(i);
+            int sum2 = 0;
             if (maxSum < i + sum1) {
                 sum2 = getSumFactorsNumber(sum1);
             }
@@ -32,8 +30,9 @@ public class Task7 {
         for (int j = 2; j <= Math.sqrt(n); j++) {
             if (n % j == 0) {
                 sumFactorsNumber += j;
-                if (j != n / j) {
-                    sumFactorsNumber += n / j;
+                int divisionWithoutRemainder = n / j;
+                if (j != divisionWithoutRemainder) {
+                    sumFactorsNumber += divisionWithoutRemainder;
                 }
             }
         }
