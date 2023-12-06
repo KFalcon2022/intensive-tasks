@@ -1,22 +1,29 @@
 package com.walking.intensive.chapter3.task14;
 
+import java.util.Arrays;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-Circle.html">КРУГИ</a>
  */
 public class Task14 {
     public static void main(String[] args) {
+        int[][] points = {{1, 3}, {3, 3}, {5, 3}, {2, 2}, {0, 0}};
+        int[][] queries = {{2, 3, 1}, {4, 3, 1}, {1, 1, 2}};
 
+        System.out.println(Arrays.toString(getCountOfPoints(points, queries)));
     }
 
-    /**
-     * Расчет количества точек попавших в каждую окружность.
-     *
-     * @param points  массив с координатами точек
-     * @param queries массив с координатами центра и радиусом окружностей
-     * @return массив с количеством точек внутри окружностей
-     */
     static int[] getCountOfPoints(int[][] points, int[][] queries) {
-        // Ваш код
-        return new int[0];
+        int[] answer = new int[queries.length];
+
+        for (int j = 0; j < queries.length; j++) { // Для каждой окружности
+            for (int i = 0; i < points.length; i++) { // Проверяем все точки
+                if (Math.sqrt((Math.pow((points[i][0] - queries[j][0]), 2)) + Math.sqrt(Math.pow((points[i][1] - queries[j][1]), 2))) <= queries[j][2]) {
+                    answer[j]++; // Если расстояние между точкой и центром окружности меньше или равен радиусу, то точка внутри окружности, счётчик +1
+                }
+            }
+        }
+
+        return answer;
     }
 }
