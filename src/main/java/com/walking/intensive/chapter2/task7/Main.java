@@ -52,6 +52,6 @@ public class Main {
 
     public static boolean isFriendlyPair(int number, int maxInteger) {
         int friendlyNumberCandidate = getDivisorsSum(number);
-        return number != friendlyNumberCandidate && number == getDivisorsSum(friendlyNumberCandidate) && friendlyNumberCandidate == getDivisorsSum(number);
+        return number != friendlyNumberCandidate && number == getDivisorsSum(friendlyNumberCandidate);
     }
 }
