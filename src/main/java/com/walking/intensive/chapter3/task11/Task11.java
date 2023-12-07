@@ -19,17 +19,12 @@ public class Task11 {
      */
     static int getSumSubarraysOddLength(int[] array) {
 
-        int sum =0;
+        int sum = 0;
         int n = array.length;
-
-        for (int i = 0; i <n ; i++) {
-
-            for (int j = i; j <n ; j+=2) {
-
-                for (int k = i; k <=j ; k++) {
-
-                    sum += array[k];
-                }
+        for (int i = 0; i < n; i++) {
+            int eventArray = (i + 1) * (n - i);
+            if (eventArray % 2 != 0) {
+                sum += array[i] * eventArray;
             }
         }
 
