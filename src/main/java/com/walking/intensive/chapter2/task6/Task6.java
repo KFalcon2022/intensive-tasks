@@ -13,8 +13,9 @@ public class Task6 {
         System.out.print("Введите второе число: ");
         int m = in.nextInt();
 
-        // System.out.println("NOD: " + getNod(n, m));
+        System.out.println("NOD: " + getNod(n, m));
         System.out.print("NOC: " + getNoc(n, m));
+        in.close();
     }
 
     static int getNoc(int m, int n) {
