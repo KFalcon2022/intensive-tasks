@@ -26,14 +26,7 @@ public class Task13 {
         int remainingWater = 0;
 
         for (int i = 0; i < plants.length; i++) {
-            if (i == 0) {
-                remainingWater = wateringCanVolume;
-            }
-
-            if (remainingWater == wateringCanVolume && plants[i] <= remainingWater) {
-                sum += i + 1;
-                remainingWater -= plants[i];
-            } else if (plants[i] <= remainingWater ) {
+            if (plants[i] < remainingWater) {
                 sum += 1;
                 remainingWater -= plants[i];
             } else {
