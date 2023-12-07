@@ -5,7 +5,7 @@ package com.walking.intensive.chapter3.task12;
  */
 public class Task12 {
     public static void main(String[] args) {
-
+        getNumberOfMovements("110111");
     }
 
     /**
@@ -15,7 +15,32 @@ public class Task12 {
      * @return массив с минимальным количеством операций
      */
     static int[] getNumberOfMovements(String baskets) {
-        // Ваш код
-        return new int[]{};
+        int[] resultBasket = new int[baskets.length()];
+        int[] resultBasketCount = new int[baskets.length()];
+
+        for (int i = 0; i < baskets.length(); i++) {
+            resultBasket[i] = Character.getNumericValue(baskets.charAt(i));
+        }
+
+        for (int i = 0; i < baskets.length(); i++) {
+            resultBasketCount[i] = getBallsCount(resultBasket, i);
+        }
+
+        return resultBasketCount;
+    }
+
+    public static int getBallsCount(int[] baskets, int ballPlace) {
+        int ballCount = 0;
+        for (int i = 0; i < ballPlace; i++) {
+            if (baskets[i] == 1) {
+                ballCount += ballPlace - i;
+            }
+        }
+        for (int i = ballPlace; i < baskets.length; i++) {
+            if (baskets[i] == 1) {
+                ballCount += i - ballPlace;
+            }
+        }
+        return ballCount;
     }
 }
