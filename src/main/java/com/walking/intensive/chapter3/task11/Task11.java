@@ -22,10 +22,12 @@ public class Task11 {
         int sum = 0;
         int n = array.length;
         for (int i = 0; i < n; i++) {
-            int eventArray = (i + 1) * (n - i);
-            if (eventArray % 2 != 0) {
-                sum += array[i] * eventArray;
-            }
+
+            int left = (i + 1);
+            int right = (n - i);
+
+            int convection = (left * right + 1) / 2;
+            sum += array[i] * convection;
         }
 
         return sum;
