@@ -5,8 +5,8 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        int a = 96;
-        int b = 72;
+        int a = 72;
+        int b = 96;
 
         System.out.printf("НОК (%s, %s) = %s\n", a, b, getNoc(a, b));
         System.out.printf("НОД Евклид (%s, %s) = %s\n", a, b, getNodByEuclideanAlgorithm(a, b));
@@ -39,16 +39,18 @@ public class Task6 {
 
         m = Math.abs(m);
         n = Math.abs(n);
-        int gcd = 1;
+        int nod = 1;
+        int i = 2;
 
-        for (int i = 2; i < Math.min(m, n); i++) {
-            while (m % i == 0 && n % i == 0) {
-                gcd *= i;
-                m /= i;
-                n /= i;
+        while (i < Math.min(m, n)) {
+            if (m % i == 0 && n % i == 0) {
+                if (i > nod) {
+                    nod = i;
+                }
             }
+            i++;
         }
 
-        return gcd;
+        return nod;
     }
 }
