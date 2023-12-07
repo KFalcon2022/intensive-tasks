@@ -9,7 +9,8 @@ import java.util.List;
  */
 public class Task6 {
     public static void main(String[] args) {
-        getNoc(84, 648);
+        getNoc(88, 648);
+        getNod(88, 648);
 
     }
 
@@ -36,7 +37,7 @@ public class Task6 {
         int min = Math.min(m, n);
 
         for (int i = 1;  i < (min + 1); i++) {
-            if ((max % i == 0) && (min % 1 == 0))  {
+            if ((max % i == 0) && (min % i == 0))  {
                 nod = i;
             }
         }
