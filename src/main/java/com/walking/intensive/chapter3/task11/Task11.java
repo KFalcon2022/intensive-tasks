@@ -8,27 +8,32 @@ public class Task11 {
         int[] array = {1, 4, 2, 5, 3};
         System.out.println(getSumSubarraysOddLength(array));
     }
-
-    /**
-     * прохожусь по каждому елементу масива
-     * генерирую все возможные подмасивы непарной длинны
-     * делаю проверку? если масив выходит за границы основного масива, тогда прерываю расчёт
-     * (мне подсказали без прирывания выдавало Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 5)
-     * сумирую елемемнты масива
-     */
+    /**Логика кода основана на том, что каждый элемент массива входит
+     * в определенное количество подмассивов нечетной длины.
+     * Это количество зависит от позиции элемента в массиве.
+     * Код рассчитывает это, используя свойства комбинаторики,
+     * что позволяет избежать необходимости явно генерировать все подмассивы.
+     * Таким образом, код не требует явного генерирования всех подмассивов.
+     * Каждый элемент массива входит в подмассивы нечетной длины и
+     * умножает каждый элемент на это количество для получения общей суммы.
+     * (до этого я додумался не сам, мне показали)
+     * */
 
     static int getSumSubarraysOddLength(int[] array) {
+        if (array == null || array.length == 0) {
+            return 0;
+        }
+
         int sum = 0;
         int n = array.length;
         for (int i = 0; i < n; i++) {
-            for (int subArrayLength = 1; subArrayLength <= n; subArrayLength += 2) {
-                if (i + subArrayLength > n) {
-                    break;
-                }
-                for (int j = i; j < i + subArrayLength; j++) {
-                    sum += array[j];
-                }
-            }
+
+            int end = i + 1;
+            int start = n - i;
+            int totalSubarrays = start * end;
+            int oddSubarrays = (totalSubarrays + 1) / 2;
+
+            sum += array[i] * oddSubarrays;
         }
         return sum;
     }
