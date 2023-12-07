@@ -6,9 +6,8 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        int m = 150;
-        int n = 75;
-
+        int m = 15;
+        int n = 45;
         System.out.println("Наименьшее общее кратное: " + getNoc(m, n));
         System.out.println("Наибольший общий делитель: " + getNod(m, n));
         System.out.println("Наибольший общий делитель по Евклиду " + getNodByEuclideanAlgorithm(m, n));
@@ -28,27 +27,22 @@ public class Task6 {
     static int getNod(int m, int n) {
         m = Math.abs(m);
         n = Math.abs(n);
-        for (int i = m; i >= 1; i--) {
-            if (m % i != 0) {
-                continue;
-            }
-            for (int y = n; y >= 1; y--) {
-                if (m % i == 0 & n % i == 0) {
-                    return i;
-                }
+        int nod = 0;
+        for (int i = Math.min(m, n); i >= 1; i--) {
+            if (m % i == 0 & n % i == 0) {
+                nod = i;
+                break;
             }
         }
-        return 0;
+        return nod;
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
 
-        int nodByEuclideanAlgorithm;
+//        int nodByEuclideanAlgorithm;
         if (n == 0) {
-            nodByEuclideanAlgorithm = m;
-        } else {
-            return getNodByEuclideanAlgorithm(n, m % n);
+            return m;
         }
-        return nodByEuclideanAlgorithm;
+        return getNodByEuclideanAlgorithm(n, m % n);
     }
 }
