@@ -7,11 +7,11 @@ import java.util.Arrays;
  */
 public class Task14 {
     public static void main(String[] args) {
-        int[][] points_1 = {{1, 3}, {3, 3}, {5, 3}, {2, 2}};
-        int[][] queries_1 = {{2, 3, 1}, {4, 3, 1}, {1, 1, 2}};
-        int[] answer_1 = {3, 2, 2};
+        int[][] points = {{1, 3}, {3, 3}, {5, 3}, {2, 2}};
+        int[][] queries = {{2, 3, 1}, {4, 3, 1}, {1, 1, 2}};
+        int[] answer = {3, 2, 2};
 
-        System.out.println(Arrays.toString(getCountOfPoints(points_1, queries_1)));
+        System.out.println(Arrays.toString(getCountOfPoints(points, queries)) + " answer is " + Arrays.toString(answer));
     }
 
     /**
@@ -25,19 +25,40 @@ public class Task14 {
         int[] result = new int[queries.length];
 
         for (int i = 0; i < queries.length; i++) {
-            int x = (queries[i][0]);
-            int y = (queries[i][1]);
-            int raduis = (queries[i][2]);
-
-            int temp = 0;
+            int xСircle = (queries[i][0]);
+            int yСircle = (queries[i][1]);
+            int radius = (queries[i][2]);
+            int count = 0;
+            
             for (int j = 0; j < points.length; j++) {
-                if (Math.abs(x- points[j][0]) <= raduis && Math.abs(y - points[j][1]) <= raduis) {
-                    temp++;
+                double lineLength = Math.sqrt(Math.pow((points[j][0] - xСircle), 2) + Math.pow((points[j][1] - yСircle), 2));
+                if (lineLength <= radius) {
+                    count++;
                 }
             }
-            result[i] = temp;
+            result[i] = count;
         }
-        System.out.println(Arrays.toString(result));
+
         return result;
     }
+
+
+    /**
+     * Для нахождения расстояния между центром и каждой точкой, а также для сравнения с радиусом, можно использовать
+     * формулу расстояния между двумя точками в пространстве.
+     *
+     * Формула расстояния между двумя точками (x1, y1, z1) и (x2, y2, z2) в трехмерном пространстве выглядит следующим образом:
+     *
+     * d = √((x2 - x1)^2 + (y2 - y1)^2 + (z2 - z1)^2)
+     *
+     * Где (x1, y1, z1) - координаты центра, (x2, y2, z2) - координаты каждой точки, а d - расстояние между ними.
+     *
+     * После нахождения расстояния между центром и каждой точкой, можно сравнить его с радиусом. Если расстояние меньше
+     * или равно радиусу, то точка находится внутри или на границе окружности. Если расстояние больше радиуса,
+     * то точка находится вне окружности.
+     *
+     * Надеюсь, это поможет вам решить задачу!
+     */
+
+
 }
