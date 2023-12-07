@@ -10,32 +10,35 @@ public class Task7 {
         System.out.println(getFriendlyPair(200));
     }
 
-    static int getSumOfDivisorsNumber(int number) {
-        int sumOfDivisorsNumber = 0;
+    static int getSumNumberDivisors(int number) {
+        int sumNumberDivisors = 0;
+
         if (number >= MAX_NUMBER || number < 0) {
             System.out.println("Invalid number input. Try again");
         }
+
         for (int i = 1; i <= number; i++) {
-            if (number % i == 0) {
-                if (number / i != number) {
-                    sumOfDivisorsNumber += number / i;
-                }
+            if ((number % i == 0) & (number / i != number)) {
+                sumNumberDivisors += number / i;
             }
         }
-        return sumOfDivisorsNumber;
+        return sumNumberDivisors;
     }
 
     static int getFriendlyPair(int m) {
-        int greaterNumberOfPair = 0;
+        int friendlyPair = 0;
+
         for (int i = m - 1; i >= 1; i--) {
-            int pairNumber1 = getSumOfDivisorsNumber(i);
+            int pairNumber1 = getSumNumberDivisors(i);
+
             if (pairNumber1 < m) {
-                int pairNumber2 = getSumOfDivisorsNumber(pairNumber1);
+                int pairNumber2 = getSumNumberDivisors(pairNumber1);
+
                 if (pairNumber1 != i && pairNumber2 == i) {
-                    greaterNumberOfPair = Math.max(greaterNumberOfPair, Math.max(pairNumber1, pairNumber2));
+                    friendlyPair = Math.max(friendlyPair, Math.max(pairNumber1, pairNumber2));
                 }
             }
         }
-        return greaterNumberOfPair;
+        return friendlyPair;
     }
 }
