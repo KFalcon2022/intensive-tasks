@@ -17,16 +17,11 @@ public class Task6 {
 
         int max = Math.max(m, n);
         int min = Math.min(m, n);
-        int noc = min;
+        int noc = max * min;
 
-        List<Integer> multipliersMax = getMultipliers(max);
-        List<Integer> multipliersMin = getMultipliers(min);
-
-        for (int i = 0;  i < multipliersMax.size(); i++) {
-            if (multipliersMin.contains(multipliersMax.get(i))) {
-                multipliersMin.remove(Integer.valueOf(multipliersMax.get(i)));
-            } else {
-                noc = noc * multipliersMax.get(i);
+        for (int i = max * min;  i > max; i--) {
+            if ((i % max == 0) && (i % min == 0))  {
+                noc = i;
             }
         }
 
@@ -40,13 +35,9 @@ public class Task6 {
         int max = Math.max(m, n);
         int min = Math.min(m, n);
 
-        List<Integer> multipliersMax = getMultipliers(max);
-        List<Integer> multipliersMin = getMultipliers(min);
-
-        for (int i = 0; i < multipliersMin.size(); i++) {
-            if (multipliersMax.contains(multipliersMin.get(i))) {
-                multipliersMax.remove(Integer.valueOf(multipliersMin.get(i)));
-                nod = nod * multipliersMin.get(i);
+        for (int i = 1;  i < (min + 1); i++) {
+            if ((max % i == 0) && (min % 1 == 0))  {
+                nod = i;
             }
         }
 
@@ -66,27 +57,6 @@ public class Task6 {
 
         return getNodByEuclideanAlgorithm((max % min), min);
 
-    }
-
-    static List<Integer> getMultipliers (int m) {
-
-        List<Integer> multipliersM = new ArrayList<>();
-
-        while (m > 1) {
-            if (m % 2 == 0) {
-                multipliersM.add(2);
-                m = m / 2;
-                System.out.println(2);
-            }
-            for (int i = 3; i < (m + 1); i += 2)
-                while (m % i == 0) {
-                    multipliersM.add(i);
-                    System.out.println(i);
-                    m = m / i;
-                }
-        }
-
-        return multipliersM;
     }
 
 }
