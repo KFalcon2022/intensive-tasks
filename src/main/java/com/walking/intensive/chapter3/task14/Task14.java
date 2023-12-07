@@ -18,13 +18,13 @@ public class Task14 {
         int[] answer = new int[answerLen];
 
         for (int i = 0; i < answerLen; i++) {
-            answer[i] = amountPoints(i, points, queries);
+            answer[i] = getAmountPoints(i, points, queries);
         }
 
         return answer;
     }
 
-    static int amountPoints(int index, int[][] points, int[][] queries) {
+    static int getAmountPoints(int index, int[][] points, int[][] queries) {
         int pointA, pointB, circleRadius, pointX, pointY;
         boolean isTrue;
         int amountPoints = 0;
@@ -33,9 +33,9 @@ public class Task14 {
         pointB = queries[index][1];
         circleRadius = queries[index][2];
 
-        for (int i = 0; i < points.length; i++) {
-            pointX = points[i][0];
-            pointY = points[i][1];
+        for (int[] point : points) {
+            pointX = point[0];
+            pointY = point[1];
 
             isTrue = Math.pow(pointA - pointX, 2) + Math.pow(pointB - pointY, 2) <= Math.pow(circleRadius, 2);
 
