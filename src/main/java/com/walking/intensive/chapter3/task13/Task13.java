@@ -24,25 +24,18 @@ public class Task13 {
         }
         int sum = 0;
         int remainingWater = 0;
-        boolean isContinue = false;
 
         for (int i = 0; i < plants.length; i++) {
             if (i == 0) {
                 remainingWater = wateringCanVolume;
             }
 
-            if (plants[i] <= remainingWater && !isContinue) {
+            if (remainingWater == wateringCanVolume && plants[i] <= remainingWater) {
                 sum += i + 1;
                 remainingWater -= plants[i];
-                if (i < plants.length - 1 && plants[i + 1] <= remainingWater) {
-                    isContinue = true;
-                }
-            } else if (plants[i] <= remainingWater && isContinue) {
+            } else if (plants[i] <= remainingWater ) {
                 sum += 1;
                 remainingWater -= plants[i];
-                if (i < plants.length - 1 && plants[i + 1] > remainingWater) {
-                    isContinue = false;
-                }
             } else {
                 sum += i;
                 remainingWater = wateringCanVolume;
