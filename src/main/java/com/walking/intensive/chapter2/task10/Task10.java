@@ -5,56 +5,40 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-
     }
 
     static boolean isPalindrome(String inputString) {
-        if (isNullOrEmpty(inputString)) {
+        if(inputString == null || inputString.isEmpty()) {
             return false;
         }
 
         String preparedString = getPreparedString(inputString);
 
-        if (preparedString.length() == 1) {
+        if (preparedString.isEmpty() || preparedString.length() == 1) {
             return false;
         }
 
         int i = 0;
-        int j = preparedString.length() - 1;
-        while (i <= j) {
-            if (preparedString.charAt(i) != preparedString.charAt(j)) {
+        int lastCharIndex = preparedString.length() - 1;
+        while (i < preparedString.length()/2) {
+            if (preparedString.charAt(i) != preparedString.charAt(lastCharIndex - i)) {
                 return false;
             }
             i++;
-            j--;
         }
 
         return true;
     }
 
-    static boolean isNullOrEmpty(String inputString) {
-        return inputString == null || inputString.isEmpty();
-    }
-
     static String getPreparedString(String inputString) {
-
-        if (isNullOrEmpty(inputString)) {
-            return "";
-        }
-
-        StringBuilder preparedStringBuilder;
-        preparedStringBuilder = new StringBuilder();
+        StringBuilder preparedStringBuilder = new StringBuilder();
 
         for (int i = 0; i < inputString.length(); i++) {
             char character = inputString.charAt(i);
 
-            if ((character >= ' ' && character <= '/') ||
-                    (character >= ':' && character <= '?') ||
-                    (character >= '[' && character <= '_')) {
-                continue;
+            if (Character.isLetter(character)) {
+                preparedStringBuilder.append(character);
             }
-
-            preparedStringBuilder.append(character);
         }
 
         return preparedStringBuilder.toString().toLowerCase();
