@@ -23,29 +23,23 @@ public class Task10 {
     }
 
     public static boolean isPalindrome(String inputString) {
-        int nextLastCharCounter = 0;
-
-        for (int i = 0; i < inputString.length(); i++) {
+        for (int i = 0, j = inputString.length() - 1; i < inputString.length() && j >= 0; i++, j--) {
             char firstChar = Character.toLowerCase(inputString.charAt(i));
 
             if (!Character.isAlphabetic(firstChar)) {
-                nextLastCharCounter--;
+                j++;
                 continue;
             }
 
-            for (int j = inputString.length() - 1 - i - nextLastCharCounter; j >= 0; j--) {
-                char lastChar = Character.toLowerCase(inputString.charAt(j));
+            char lastChar = Character.toLowerCase(inputString.charAt(j));
 
-                if (!Character.isAlphabetic(lastChar)) {
-                    nextLastCharCounter++;
-                    continue;
-                }
+            if (!Character.isAlphabetic(lastChar)) {
+                i--;
+                continue;
+            }
 
-                if (firstChar != lastChar) {
-                    return false;
-                }
-
-                break;
+            if (firstChar != lastChar) {
+                return false;
             }
         }
 
