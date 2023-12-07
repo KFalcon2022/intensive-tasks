@@ -19,33 +19,52 @@ public class Task13 {
      * @return количество шагов необходимое для полива всех растений
      */
     static int getCountSteps(int[] plants, int wateringCanVolume) {
-        if (plants.length == 0 || wateringCanVolume <= 0 || plants[0] > wateringCanVolume) {
+        if (isInputDataZero(plants, wateringCanVolume) || isWateringCanSmall(plants, wateringCanVolume)) {
             return -1;
         }
         int sum = 0;
+        int remainingWater = 0;
+        boolean isContinue = false;
 
         for (int i = 0; i < plants.length; i++) {
-            int remainingWater = wateringCanVolume;
+            if (i == 0) {
+                remainingWater = wateringCanVolume;
+            }
 
-            if (plants[i] <= remainingWater) {
+            if (plants[i] <= remainingWater && !isContinue) {
                 sum += i + 1;
                 remainingWater -= plants[i];
-                i++;
-            }
-            while (i < plants.length && plants[i] <= remainingWater) {
+                if (i < plants.length - 1 && plants[i + 1] <= remainingWater) {
+                    isContinue = true;
+                }
+            } else if (plants[i] <= remainingWater && isContinue) {
                 sum += 1;
                 remainingWater -= plants[i];
-                i++;
-                if (i == plants.length) {
-                    break;
+                if (i < plants.length - 1 && plants[i + 1] > remainingWater) {
+                    isContinue = false;
                 }
-            }
-            if (i < plants.length && plants[i] > remainingWater) {
+            } else {
                 sum += i;
-                i--;
+                remainingWater = wateringCanVolume;
+                sum += i + 1;
+                remainingWater -= plants[i];
             }
         }
 
         return sum;
+    }
+
+    static boolean isInputDataZero(int[] plants, int wateringCanVolume) {
+        return plants.length == 0 || wateringCanVolume <= 0;
+    }
+
+    static boolean isWateringCanSmall(int[] plants, int wateringCanVolume) {
+        for (int item : plants) {
+            if (item > wateringCanVolume) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
