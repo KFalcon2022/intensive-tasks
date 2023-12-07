@@ -19,10 +19,17 @@ public class Task10 {
             return false;
         }
 
-        StringBuilder reversedStringBuilder;
-        reversedStringBuilder = new StringBuilder(preparedString);
+        int i = 0;
+        int j = preparedString.length() - 1;
+        while (i <= j) {
+            if (preparedString.charAt(i) != preparedString.charAt(j)) {
+                return false;
+            }
+            i++;
+            j--;
+        }
 
-        return preparedString.equalsIgnoreCase(reversedStringBuilder.reverse().toString());
+        return true;
     }
 
     static boolean isNullOrEmpty(String inputString) {
@@ -50,6 +57,6 @@ public class Task10 {
             preparedStringBuilder.append(character);
         }
 
-        return preparedStringBuilder.toString();
+        return preparedStringBuilder.toString().toLowerCase();
     }
 }
