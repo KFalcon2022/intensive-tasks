@@ -29,7 +29,7 @@ public class Task8 {
             i++;
         }
 
-        return (double) sumEvents / 999999.0;
+        return sumEvents / 999999.0;
     }
 
 }
