@@ -1,5 +1,6 @@
 package com.walking.intensive.chapter3.task15;
 
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-City.html">ГОРОД</a>
  */
@@ -7,7 +8,7 @@ public class Task15 {
     public static void main(String[] args) {
         int[][] city = {{3, 0, 8, 4}, {2, 4, 5, 7}, {9, 2, 6, 3}, {0, 3, 1, 0}};
 
-        System.out.println(getMaxFloors(city));;
+        System.out.println(getMaxFloors(city));
     }
 
     static int getMaxFloors(int[][] city) {
