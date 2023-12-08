@@ -14,7 +14,7 @@ public class Task10 {
     }
 
     static boolean isPalindrome(String inputString) {
-        boolean isTrueP = false;
+        boolean isPalindrome = false;
         int left = 0;
         int right = inputString.length() - 1;
         while (left <= right) {
@@ -32,11 +32,11 @@ public class Task10 {
                 return false;
             }
 
-            isTrueP = true;
+            isPalindrome = true;
             left++;
             right--;
         }
 
-        return isTrueP;
+        return isPalindrome;
     }
 }
