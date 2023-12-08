@@ -28,7 +28,7 @@ public class Task7 {
             int sumFriendlyPair = 0;
             int k = getDivisorsSum(n);
 
-            if ((getDivisorsSum(k) == n) && (k < n)) {
+            if ((getDivisorsSum(k) == n) && (Math.max(k, n) < 1000000) && (n != k)) {
                 sumFriendlyPair = k + n;
 
                 if (sumFriendlyPair > maxSum) {
@@ -43,7 +43,7 @@ public class Task7 {
         return maxFriendlyNumber;
     }
 
-    static int getDivisorsSum (int m) {
+    static int getDivisorsSum(int m) {
 
         int sumDivisors = 0;
 
