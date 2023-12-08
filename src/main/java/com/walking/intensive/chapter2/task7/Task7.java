@@ -5,43 +5,54 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        System.out.println(getFriendlyPair(200));
+        System.out.println(getFriendlyPair(10000));
     }
 
     static int getFriendlyPair(int m) {
 
-        int sumOfFriendlyPair = 0;
-        int maxSumOfFriendlyPair = 0;
-        int maxFriendlyNumber = 0;
+        if (m < 0) {
+            System.out.println("The number is not a natural number");
+            return -1;
+        }
 
         if (m >= 1000000) {
             return -1;
         }
 
-        while (m != 0) {
-            if ((sumOfDividers(sumOfDividers(m)) == m) && (sumOfDividers(m) < m)) {
-                sumOfFriendlyPair = sumOfDividers(m) + m;
-                if (sumOfFriendlyPair > maxSumOfFriendlyPair) {
-                    maxSumOfFriendlyPair = sumOfFriendlyPair;
-                    maxFriendlyNumber = Math.max(sumOfDividers(m), m);
+        int maxSum = 0;
+        int maxFriendlyNumber = 0;
+        int n = m;
+
+        while (n != 0) {
+
+            int sumFriendlyPair = 0;
+            int k = getDivisorsSum(n);
+
+            if ((getDivisorsSum(k) == n) && (k < n)) {
+                sumFriendlyPair = k + n;
+
+                if (sumFriendlyPair > maxSum) {
+                    maxSum = sumFriendlyPair;
+                    maxFriendlyNumber = Math.max(k, n);
                 }
             }
-            m--;
+
+            n--;
         }
 
         return maxFriendlyNumber;
     }
 
-    static int sumOfDividers(int m) {
+    static int getDivisorsSum (int m) {
 
-        int sumOfDividers = 0;
+        int sumDivisors = 0;
 
-        for (int i = 1; i < m; i++) {
+        for (int i = 1; i < (m / 2 + 1); i++) {
             if (m % i == 0) {
-                sumOfDividers += i;
+                sumDivisors += i;
             }
         }
 
-        return sumOfDividers;
+        return sumDivisors;
     }
 }
