@@ -15,12 +15,11 @@ public class Task11 {
      * @return сумма всех нечетныз подмассивов
      */
     static int getSumSubarraysOddLength(int[] array) {
-        int arrayLength = array.length;
         int sum = 0;
 
-            for (int i = 0; i < arrayLength; i++) {
-                sum += array[i] * (((i + 1) * (arrayLength - i) + 1) / 2);
-            }
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i] * (((i + 1) * (array.length - i) + 1) / 2);
+        }
 
         return sum;
     }
