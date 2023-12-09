@@ -82,9 +82,9 @@ public class Task5 {
             return null;
         }
         double[] anglesArr = new double[3];
-        anglesArr[0] = Math.asin(a / 2 * getCircumradius(a, b, c));
-        anglesArr[1] = Math.asin(b / 2 * getCircumradius(a, b, c));
-        anglesArr[2] = Math.asin(c / 2 * getCircumradius(a, b, c));
+        anglesArr[0] = Math.asin(a / (2 * getCircumradius(a, b, c)));
+        anglesArr[1] = Math.asin(b / (2 * getCircumradius(a, b, c)));
+        anglesArr[2] = Math.asin(c / (2 * getCircumradius(a, b, c)));
         Arrays.sort(anglesArr);
         return anglesArr;
     }
@@ -94,7 +94,7 @@ public class Task5 {
         if (checkTriangleExistance(a, b, c)) {
             return 0;
         }
-        return getAreaByHeron(a, b, c)/(2 * (a + b + c));
+        return getAreaByHeron(a, b, c)/((a + b + c) / 2);
     }
 
     static double getCircumradius(double a, double b, double c) {
