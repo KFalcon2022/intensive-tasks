@@ -26,7 +26,7 @@ public class Main {
             }
 
             //System.out.println("Compare: " + chI + " and " + chJ);
-            if (chI != chJ || !Character.isLetter(chI) ) {
+            if (chI != chJ || !Character.isLetter(chI)) {
                 //System.out.println("not palindrome");
                 return false;
             }
