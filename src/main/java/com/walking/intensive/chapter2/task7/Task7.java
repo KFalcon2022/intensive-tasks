@@ -5,18 +5,19 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-        int m = 11000;
+        int m = 80000;
         System.out.println(getFriendlyPair(m));
     }
 
     static int getFriendlyPair(int m) {
 
-        int m1 = 0;
-        int m2 = 0;
+        int friendlyPairDigit1 = 0;
+        int friendlyPairDigit2 = 0;
 
         if (m > 0 && m < 1_000_000) {
 
-            for (int i = 220; i <= 1_000_000; i++) {
+            for (int i = 0; i <= m; i++) {
+
                 int count1 = 0;
                 int count2 = 0;
                 for (int j = 1; j < i; j++) {
@@ -25,22 +26,19 @@ public class Task7 {
                     }
                 }
 
-                for (int k = 1; k < count1; k++) {
-                    if (count1 % k == 0) {
-                        count2 += k;
+                for (int j = 1; j < count1; j++) {
+                    if (count1 % j == 0) {
+                        count2 += j;
                     }
                 }
 
-                if ((count1 <= m || count2 <= m) && i == count2 && i != count1) {
-                    m1 = count1;
-                    m2 = count2;
-                }
-                if(i > m){
-                    break;
+                if (count1 <= m  && i == count2 && i != count1) {
+                    friendlyPairDigit1 = count1;
+                    friendlyPairDigit2 = count2;
                 }
             }
         }
-        return Math.max(m1, m2);
+        return Math.max(friendlyPairDigit1, friendlyPairDigit2);
     }
 }
 
