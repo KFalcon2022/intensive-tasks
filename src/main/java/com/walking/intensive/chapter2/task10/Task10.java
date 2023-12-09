@@ -6,27 +6,33 @@ package com.walking.intensive.chapter2.task10;
 public class Task10 {
     public static void main(String[] args) {
 
-        String text = "Муза! Ранясь шилом опыта, ты помолишься на разум.";
-        System.out.println(isPalindrome(text));
+        System.out.println(isPalindrome("как"));
+        System.out.println(isPalindrome("Муза! Ранясь шилом опыта, ты помолишься на разум."));
 
     }
 
     static boolean isPalindrome(String inputString) {
 
-        String text = getReplaceAllText(inputString);
-
-        for (int i = 0; i < text.length(); i++){
-            if(text.charAt(i) != text.charAt(text.length() - 1 - i)){
-
-                return false;
-            }
+        if (inputString.length() < 3){
+            return false;
         }
 
-        return true;
-    }
+        StringBuilder originalText = new StringBuilder(inputString.toLowerCase());
+        StringBuilder reversText = new StringBuilder(inputString.toLowerCase());
+        originalText = getReplaceText(originalText);
+        reversText = getReplaceText(reversText).reverse();
 
-    public static String getReplaceAllText(String text){
+        return originalText.compareTo(reversText) == 0;
+        }
 
-        return text.replaceAll("\\p{Punct}|\\p{Space}", "").toLowerCase();
+    static StringBuilder getReplaceText(StringBuilder text){
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isLetter(text.charAt(i))) {
+                result.append(text.charAt(i));
+            }
+        }
+        return result;
     }
 }
