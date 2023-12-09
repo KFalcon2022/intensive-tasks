@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task12 {
     public static void main(String[] args) {
-        String baskets = "2105";
+        String baskets = "110";
 
         System.out.println(Arrays.toString(getNumberOfMovements(baskets)));
     }
@@ -17,7 +17,9 @@ public class Task12 {
 
         for (int i = 0; i < answer.length; i++) {
             for (int j = 0; j < baskets.length(); j++) {
-                answer[i] += Character.getNumericValue(baskets.charAt(j)) * Math.abs(i - j); // Количество мячиков в j корзинке умножаем на расстояние между i b j корзинками
+                if(baskets.charAt(j) == '1') {
+                    answer[i] += Math.abs(i - j); // Если в корзинки j есть мячик, то добавляем количество операций, нужных для перемещения мячика из j в i
+                }
             }
         }
 
