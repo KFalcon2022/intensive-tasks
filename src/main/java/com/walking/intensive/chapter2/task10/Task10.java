@@ -12,7 +12,6 @@ public class Task10 {
     }
 
     static boolean isPalindrome(String inputString) {
-
         if (inputString.length() < 3){
             return false;
         }
@@ -33,6 +32,7 @@ public class Task10 {
                 result.append(text.charAt(i));
             }
         }
+
         return result;
     }
 }
