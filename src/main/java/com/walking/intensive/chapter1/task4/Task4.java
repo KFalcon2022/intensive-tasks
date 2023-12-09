@@ -7,8 +7,8 @@ public class Task4 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
         double a = 0;
-        double b = 5;
-        double c = 0;
+        double b = 0;
+        double c = 5;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -26,10 +26,6 @@ public class Task4 {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
-        double d = Math.pow(b, 2) - 4 * a * c;
-        double x1 = 0;
-        double x2 = 0;
-
         if (a == 0 && b == 0 && c == 0) {
             return "Решений бесконечно";
         }
@@ -37,6 +33,10 @@ public class Task4 {
         if (a == 0 && b == 0) {
             return "Количество решений: 0.";
         }
+
+        double x1 = 0;
+        double x2 = 0;
+        double d = Math.pow(b, 2) - 4 * a * c;
 
         if (a == 0) {
             x1 = -c / b;
