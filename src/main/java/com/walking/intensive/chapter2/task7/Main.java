@@ -2,19 +2,18 @@ package com.walking.intensive.chapter2.task7;
 
 public class Main {
     public static void main(String[] args) {
+
         System.out.println(getFriendlyPair(10000));
-        //System.out.println(getDivisorSum(284));
 
     }
 
     static int getFriendlyPair(int n) {
 
-        for(int i=n; i>0; i--){
+        for (int i = n; i > 0; i--) {
             int friendN = getDivisorSum(i);
             int friendDivisorSum = getDivisorSum(friendN);
 
-            if (friendDivisorSum == i && i != friendN){
-                //System.out.println("Friends: "+i +", "+friendN+" summ: "+(i+friendN));
+            if (friendDivisorSum == i && i != friendN) {
                 return i;
             }
         }
@@ -27,7 +26,7 @@ public class Main {
         int sum = 0;
 
         for (int i = 1; i < n / 2 + 1; i++) { //нет смысла искать делитель в диапазне от n/2 и выше
-            if (n % i == 0){
+            if (n % i == 0) {
                 sum += i;
             }
         }
