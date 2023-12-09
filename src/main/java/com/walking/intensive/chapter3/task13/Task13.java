@@ -1,7 +1,7 @@
 package com.walking.intensive.chapter3.task13;
 
 /**
- * Условие: <a href="https://geometry-math.ru/Java-Watering-Plants.html">ПОЛИВ РАСТЕНИЙ</a>
+ * Условие: <a href=" ">ПОЛИВ РАСТЕНИЙ</a>
  */
 public class Task13 {
     public static void main(String[] args) {
@@ -16,7 +16,39 @@ public class Task13 {
      * @return количество шагов необходимое для полива всех растений
      */
     static int getCountSteps(int[] plants, int wateringCanVolume) {
-        // Ваш код
-        return 0;
+
+        if (getPlantWateringMaxVolume(plants) > wateringCanVolume) {
+            return 0;
+        }
+
+        int countSteps = 1;
+        int watertRemainder = wateringCanVolume;
+
+        for (int i = 0; i < plants.length - 1; i++) {
+            watertRemainder -= plants[i];
+
+            if (watertRemainder >= plants[i + 1]) {
+                countSteps++;
+
+            } else {
+                countSteps += (i + 1) * 2 + 1;
+                watertRemainder = wateringCanVolume;
+            }
+        }
+
+        return countSteps;
+    }
+
+    static int getPlantWateringMaxVolume(int[] array) {
+        int plantWateringMaxVolume = 0;
+
+        for (int i : array) {
+
+            if (i > plantWateringMaxVolume) {
+                plantWateringMaxVolume = i;
+            }
+        }
+
+        return plantWateringMaxVolume;
     }
 }
