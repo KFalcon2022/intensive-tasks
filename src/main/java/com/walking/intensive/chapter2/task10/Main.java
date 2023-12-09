@@ -9,9 +9,8 @@ public class Main {
     }
 
     static boolean isPalindrome(String s) {
-        String string = s.replaceAll("[^a-zA-Z]", "").toLowerCase();
-        for (int i = 0; i < string.length() / 2; i++) {
-            if (string.charAt(i) != string.charAt(string.length() - i - 1)) {
+        for (int i = 0; i < s.replaceAll("[^a-zA-Z]", "").toLowerCase().length() / 2; i++) {
+            if (s.replaceAll("[^a-zA-Z]", "").toLowerCase().charAt(i) != s.replaceAll("[^a-zA-Z]", "").toLowerCase().charAt(s.replaceAll("[^a-zA-Z]", "").toLowerCase().length() - i - 1)) {
                 return false;
             }
         }
