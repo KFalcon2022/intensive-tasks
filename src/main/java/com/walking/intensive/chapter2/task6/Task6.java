@@ -9,16 +9,17 @@ public class Task6 {
     }
 
     static int getNoc(int m, int n) {
-
         if (m == 0 || n == 0) {
             return 0;
         }
+
         int greaterNumber = Math.max(m, n);
         int smallerNumber = Math.min(m, n);
         int noc = greaterNumber;
         while (noc % smallerNumber != 0) {
-            noc += noc;
+            noc += greaterNumber;
         }
+
         return noc;
 
 
@@ -38,12 +39,13 @@ public class Task6 {
             return 0;
         }
 
-            while (m != n) {
+            if (m != n) {
                 if (m > n) {
                     m = m - n;
                 } else {
                     n = n - m;
                 }
+                getNodByEuclideanAlgorithm(m, n);
             }
             return m;
     }
