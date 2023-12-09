@@ -8,7 +8,7 @@ import static java.lang.System.*;
 public class Task9 {
     public static void main(String[] args) {
 
-        out.println(getPascalTriangle(20));
+        System.out.println(getPascalTriangle(20));
     }
 
     static String getPascalTriangle(int n){
@@ -50,12 +50,12 @@ public class Task9 {
     }
 
     public static String getSpace(int spaceNumb){
-        String space = "";
+        StringBuilder space = new StringBuilder();
 
         for (int i = 0; i < spaceNumb; i++){
-            space = space + " ";
+            space.append(" ");
         }
 
-        return space;
+        return space.toString();
     }
 }
