@@ -19,9 +19,6 @@ public class Task13 {
      * @return количество шагов необходимое для полива всех растений
      */
     static int getCountSteps(int[] plants, int wateringCanVolume) {
-        if (isInputDataZero(plants, wateringCanVolume) || isWateringCanSmall(plants, wateringCanVolume)) {
-            return -1;
-        }
         int sum = 0;
         int remainingWater = 0;
 
@@ -38,19 +35,5 @@ public class Task13 {
         }
 
         return sum;
-    }
-
-    static boolean isInputDataZero(int[] plants, int wateringCanVolume) {
-        return plants.length == 0 || wateringCanVolume <= 0;
-    }
-
-    static boolean isWateringCanSmall(int[] plants, int wateringCanVolume) {
-        for (int item : plants) {
-            if (item > wateringCanVolume) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }
