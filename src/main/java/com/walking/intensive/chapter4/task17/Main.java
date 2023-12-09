@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int[] array = {1,4,2,5,3};
+        int[] array = {5, 1, 2, 3, 4};
 
         System.out.println(Arrays.toString(doBubbleSort(array)));
     }
@@ -26,7 +26,7 @@ public class Main {
                     countMoves += 1;
                 }
             }
-            if (countMoves == 0){
+            if (countMoves == 0) {
                 break;
             }
         }
