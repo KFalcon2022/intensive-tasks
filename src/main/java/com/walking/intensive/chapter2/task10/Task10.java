@@ -9,12 +9,22 @@ public class Task10 {
     }
 
     boolean isPalindrome(String inputString) {
-        inputString = inputString.replace('.', ' ').replace(',', ' ')
-                .replace('!', ' ').replace(" ", "");
-        String reverseString = "";
-        for (int i = inputString.length() - 1; i >= 0; i--) {
-            reverseString += inputString.charAt(i);
+        inputString = inputString.toLowerCase();
+
+        for (int i = 0, j = inputString.length() - 1; i < inputString.length() && j >= 0; i++, j--) {
+
+            if (!Character.isLetter(inputString.charAt(i))) {
+                j++;
+                continue;
+            }
+            if (!Character.isLetter(inputString.charAt(j))) {
+                i--;
+                continue;
+            }
+            if (inputString.charAt(i) != inputString.charAt(j)) {
+                return false;
+            }
         }
-        return reverseString.equalsIgnoreCase(inputString);
+        return true;
     }
 }
