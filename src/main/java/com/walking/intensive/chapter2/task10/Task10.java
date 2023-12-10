@@ -15,7 +15,7 @@ public class Task10 {
 
         inputString = inputString.toLowerCase();
 
-        for (int i = 0, j = inputString.length() - 1; i < inputString.length() && j >= 0; i++, j--) {
+        for (int i = 0, j = inputString.length() - 1; i < j && j >= 0; i++, j--) {
 
             if (!Character.isLetter(inputString.charAt(i))) {
                 j++;
@@ -33,7 +33,6 @@ public class Task10 {
     }
 
     static boolean isStringValid(String string) {
-        int validSymbols = 0;
         for (int i = 0; i < string.length(); i++) {
             if (Character.isLetter(string.charAt(i))) {
                 return true;
