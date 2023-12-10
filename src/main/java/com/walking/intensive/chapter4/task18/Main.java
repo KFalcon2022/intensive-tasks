@@ -11,10 +11,11 @@ import java.util.Arrays;
 
         public static int[] sortArray(int[] numbers) {
             boolean swap = true;
+            int length = numbers.length -1;
 
             while (swap) {
                 swap = false;
-                for (int i = 0; i < numbers.length - 1; i++) {
+                for (int i = 0; i < length; i++) {
                     if (numbers[i] > numbers[i + 1]) {
                         swap = true;
                         int tmp = numbers[i];
@@ -22,6 +23,7 @@ import java.util.Arrays;
                         numbers[i + 1] = tmp;
                     }
                 }
+                length--;
             }
 
             return numbers;
