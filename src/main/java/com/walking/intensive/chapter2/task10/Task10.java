@@ -6,24 +6,48 @@ package com.walking.intensive.chapter2.task10;
 public class Task10 {
     public static void main(String[] args) {
 
-        System.out.println(isPalindrome("как"));
-        System.out.println(isPalindrome("Муза! Ранясь шилом опыта, ты помолишься на разум."));
+        System.out.println(isPalindrome("!!////"));
+        System.out.println(isPalindrome("Муза! ранясь шилом опыта, ты помолишься на разум"));
 
     }
 
     static boolean isPalindrome(String inputString) {
-        String originalText = "";
-        String reversText = "";
+        if (isLetterOnText(inputString)){
 
-        for (int i = 0; i < inputString.length(); i++) {
-            if (Character.isLetter(inputString.charAt(i))) {
-                originalText = originalText + inputString.charAt(i);
+            return false;
+        }
+
+        for (int i = 0, j = inputString.length() - 1; i < inputString.length() && j >= 0; i++, j--) {
+
+            char charForward = Character.toLowerCase(inputString.charAt(i));
+            char charRevers = Character.toLowerCase(inputString.charAt(j));
+
+            if (!Character.isAlphabetic(charForward)){
+                j++;
+                continue;
             }
-            if (Character.isLetter(inputString.charAt(inputString.length() - i - 1))) {
-                reversText = reversText + inputString.charAt(inputString.length() - i - 1);
+
+            if (!Character.isAlphabetic(charRevers)){
+                i--;
+                continue;
+            }
+
+            if (charForward != charRevers){
+                return false;
             }
         }
 
-        return originalText.toLowerCase().equals(reversText.toLowerCase());
+        return true;
+    }
+
+    static boolean isLetterOnText(String text){
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isAlphabetic(text.charAt(i))) {
+
+                return false;
+            }
+        }
+        return true;
     }
 }
+
