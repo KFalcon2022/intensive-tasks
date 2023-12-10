@@ -5,21 +5,29 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("a"));
+        System.out.println(isPalindrome("Мат и тут и там"));
     }
 
     static boolean isPalindrome(String inputString) {
-        char[] badSymbols = {'!', '?', ' ', ',', '.', '-', '\'', '\"'};//
-        for (char symbol : badSymbols
-        ) {
-            inputString = inputString.replace(String.valueOf(symbol), "");
-        }
-        inputString = inputString.toLowerCase();
+        int leftShift = 0, rightShift = 0;
+        for (int i = 0; i < inputString.length(); i++) {
+            while (!Character.isAlphabetic(inputString.charAt(leftShift + i))) {
+                leftShift++;
+            }
+            while (!Character.isAlphabetic(inputString.charAt(inputString.length() - (rightShift + i + 1)))) {
+                rightShift++;
+            }
+            int leftPosition = leftShift + i;
+            int rightPosition = inputString.length() - (rightShift + i + 1);
 
-        for (int i = 0; i < inputString.length() / 2; i++) {
-            if (inputString.charAt(i) != inputString.charAt(inputString.length() - (i + 1))) {
+            if ( leftPosition >= rightPosition){
+                break;
+            }
+
+            if (Character.toUpperCase(inputString.charAt(leftPosition)) != Character.toUpperCase(inputString.charAt(rightPosition))) {
                 return false;
             }
+
         }
 
         return true;
