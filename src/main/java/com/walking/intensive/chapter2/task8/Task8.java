@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task8 {
     public static void main(String[] args) {
-        System.out.println(getHappyTicketChance());
+        //System.out.println(getHappyTicketChance());
     }
 
     static double getHappyTicketChance() {
@@ -21,6 +21,7 @@ public class Task8 {
                 }
             }
         }
+
         for (int numberOfCombination : numberOfCombinations) {
             sumOfCombinations += Math.pow(numberOfCombination, 2);
         }
