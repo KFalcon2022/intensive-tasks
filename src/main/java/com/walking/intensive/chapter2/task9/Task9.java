@@ -9,22 +9,27 @@ public class Task9 {
     }
 
     static String getPascalTriangle(int n) {
-        String[] data = new String[n];
+        StringBuilder builder = new StringBuilder();
         String buff = "";
-        String result = "";
 
         for (int i = 0; i < n; i++) {
+            builder.append('\n');
             buff = getSummedLine(buff);
-            data[i] = buff;
+            builder.append(buff);
         }
 
         int maxLineLength = buff.length();
 
-        for (int i = 0; i < n; i++) {
-            result = result.concat(repeatSpace((maxLineLength - data[i].length()) / 2) + data[i] + "\n");
+        for (int i = builder.length() - 1; i > 0; i--) {
+            int j = 0;
+            while (builder.charAt(i - j) != '\n' && (i - j) > 0) {
+                j++;
+            }
+            i = i - j;
+            builder.insert(i + 1, repeatSpace((maxLineLength - j) / 2));
         }
 
-        return result;
+        return builder.toString();
     }
 
     static String repeatSpace(int n) {
