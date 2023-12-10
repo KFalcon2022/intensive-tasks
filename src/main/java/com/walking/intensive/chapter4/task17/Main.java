@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        int[] answer = bubbleSort(new int[]{1,5, 8, 9});
+        int[] answer = bubbleSort(new int[]{1, 5, 8, 9});
         for (int i = 0; i < answer.length; i++) {
             System.out.println(answer[i]);
         }
