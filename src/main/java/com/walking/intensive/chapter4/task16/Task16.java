@@ -10,11 +10,11 @@ public class Task16 {
 
         int[] arr;
         arr = new int[]{0, 2, 7, 1, 3, 4, 18, 5, 16, 6, 20, 19, 21, 17};
-        getChoiceSort(arr);
+        doChoiceSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
-    public static void getChoiceSort(int[] inputArray) {
+    public static void doChoiceSort(int[] inputArray) {
         if (inputArray.length >= 1 && !isSorted(inputArray)) {
             choiceSort(inputArray);
         }
@@ -22,12 +22,12 @@ public class Task16 {
 
     static void choiceSort(int[] inputArray) {
         for (int i = 0; i < inputArray.length; i++) {
-            int minIndex = minIndex(inputArray, i);
+            int minIndex = getMinIndex(inputArray, i);
             changeItemArray(inputArray, i, minIndex);
         }
     }
 
-    public static int minIndex(int[] inputArray, int startPosition) {
+    public static int getMinIndex(int[] inputArray, int startPosition) {
         int minItem = 2147483647;
         int minIndex = -1;
         for (int i = startPosition; i < inputArray.length; i++) {
