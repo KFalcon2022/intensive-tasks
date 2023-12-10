@@ -9,7 +9,39 @@ public class Task15 {
     }
 
     static int getMaxFloors(int[][] city) {
-        // Ваш код
-        return 0;
+        int[] maxFloorsRows = new int[city.length];
+
+        for (int r = 0; r < maxFloorsRows.length; r++) {
+
+            for (int c = 0; c < city.length; c++) {
+
+                if (city[r][c] > maxFloorsRows[r]) {
+                    maxFloorsRows[r] = city[r][c];
+                }
+            }
+        }
+
+        int[] maxFloorsColumns = new int[city.length];
+
+        for (int c = 0; c < maxFloorsColumns.length; c++) {
+
+            for (int r = 0; r < city.length; r++) {
+
+                if (city[r][c] > maxFloorsColumns[c]) {
+                    maxFloorsColumns[c] = city[r][c];
+                }
+            }
+        }
+
+        int maxFloors = 0;
+
+        for (int r = 0; r < city.length; r++) {
+
+            for (int c = 0; c < city.length; c++) {
+                maxFloors += Math.min(maxFloorsRows[r], maxFloorsColumns[c]) - city[r][c];
+            }
+        }
+
+        return maxFloors;
     }
 }
