@@ -12,10 +12,6 @@ public class Task10 {
     }
 
     static boolean isPalindrome(String inputString) {
-        if (inputString.length() < 3){
-            return false;
-        }
-
         StringBuilder originalText = new StringBuilder(inputString.toLowerCase());
         StringBuilder reversText = new StringBuilder(inputString.toLowerCase());
         originalText = getReplaceText(originalText);
