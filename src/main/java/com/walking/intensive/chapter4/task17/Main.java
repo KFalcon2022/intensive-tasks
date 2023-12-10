@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
 
-        int[] answer = bubbleSort(new int[]{1, 5, 8, 9});
+        int[] answer = bubbleSort(new int[]{1, 4, 3, 9});
         for (int i = 0; i < answer.length; i++) {
             System.out.println(answer[i]);
         }
@@ -13,13 +13,13 @@ public class Main {
 
     public static int[] bubbleSort(int[] array) {
 
-        int rightBorder = array.length;
+        int rightBorder = array.length-1;
         boolean reshuffle = true;//была перестановка
 
         while (reshuffle && rightBorder > 0) {
             reshuffle = false;
 
-            for (int i = 0; i < rightBorder - 1; i++) {
+            for (int i = 0; i < rightBorder; i++) {
                 if (array[i] > array[i + 1]) {
                     reshuffle = true;
                     int buffer = array[i];
@@ -27,6 +27,7 @@ public class Main {
                     array[i + 1] = buffer;
                 }
             }
+            rightBorder--;
         }
 
         return array;
