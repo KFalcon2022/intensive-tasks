@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task8 {
     public static void main(String[] args) {
-        //System.out.println(getHappyTicketChance());
+        //System.out.println(getHappyTicketChance());//used for tests
     }
 
     static double getHappyTicketChance() {
