@@ -14,12 +14,13 @@ public class Task10 {
 
         String preparedString = getPreparedString(inputString);
 
-        if (preparedString.isEmpty() || preparedString.length() == 1) {
+        if (preparedString.isEmpty()) {
             return false;
         }
 
         int i = 0;
         int lastCharIndex = preparedString.length() - 1;
+
         while (i < preparedString.length()/2) {
             if (preparedString.charAt(i) != preparedString.charAt(lastCharIndex - i)) {
                 return false;
@@ -36,7 +37,7 @@ public class Task10 {
         for (int i = 0; i < inputString.length(); i++) {
             char character = inputString.charAt(i);
 
-            if (Character.isLetter(character)) {
+            if (Character.isLetterOrDigit(character)) {
                 preparedStringBuilder.append(character);
             }
         }
