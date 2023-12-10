@@ -41,9 +41,9 @@ public class Task6 {
 
             if (m != n) {
                 if (m > n) {
-                    m = m - n;
+                    m = m % n;
                 } else {
-                    n = n - m;
+                    n = n % m;
                 }
                 getNodByEuclideanAlgorithm(m, n);
             }
