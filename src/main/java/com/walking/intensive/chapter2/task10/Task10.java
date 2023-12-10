@@ -12,23 +12,18 @@ public class Task10 {
     }
 
     static boolean isPalindrome(String inputString) {
-        StringBuilder originalText = new StringBuilder(inputString.toLowerCase());
-        StringBuilder reversText = new StringBuilder(inputString.toLowerCase());
-        originalText = getReplaceText(originalText);
-        reversText = getReplaceText(reversText).reverse();
+        String originalText = "";
+        String reversText = "";
 
-        return originalText.compareTo(reversText) == 0;
-        }
-
-    static StringBuilder getReplaceText(StringBuilder text){
-        StringBuilder result = new StringBuilder();
-
-        for (int i = 0; i < text.length(); i++) {
-            if (Character.isLetter(text.charAt(i))) {
-                result.append(text.charAt(i));
+        for (int i = 0; i < inputString.length(); i++) {
+            if (Character.isLetter(inputString.charAt(i))) {
+                originalText = originalText + inputString.charAt(i);
+            }
+            if (Character.isLetter(inputString.charAt(inputString.length() - i - 1))) {
+                reversText = reversText + inputString.charAt(inputString.length() - i - 1);
             }
         }
 
-        return result;
+        return originalText.toLowerCase().equals(reversText.toLowerCase());
     }
 }
