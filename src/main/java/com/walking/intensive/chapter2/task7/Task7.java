@@ -5,6 +5,7 @@ package com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
+        System.out.println(getFriendlyPair(283));
 
     }
 
@@ -28,7 +29,7 @@ public class Task7 {
         if (m < maxFriendlyNumber) {
             for (int i = 2; i < m; i++) {
                 int maybeFriendlyPair = getSumOfDenominators(i);
-                if ((getSumOfDenominators(maybeFriendlyPair) == i) && maybeFriendlyPair < maxFriendlyNumber && maybeFriendlyPair != i) {
+                if ((getSumOfDenominators(maybeFriendlyPair) == i) && maybeFriendlyPair < maxFriendlyNumber && maybeFriendlyPair != i && maybeFriendlyPair < m) {
                     int maxOfFriendlyPairs = Math.max(maybeFriendlyPair, i);
                     if (maxOfFriendlyPairs > maxFoundNumber) {
                         maxFoundNumber = maxOfFriendlyPairs;
