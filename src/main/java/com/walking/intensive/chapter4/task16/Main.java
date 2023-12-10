@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        int[] array = {5,4,1,2,3};
+        int[] array = {5, 4, 1, 2, 3};
         System.out.println(Arrays.toString(doSelectionSort(array)));
     }
 
