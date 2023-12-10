@@ -12,6 +12,11 @@ public class Task9 {
     }
 
     static String getPascalTriangle(int n){
+        if (n < 0){
+
+            return null;
+        }
+
         StringBuilder maxLengthStr = new StringBuilder();
 
         for (int i = n; i >= 0; i--){
