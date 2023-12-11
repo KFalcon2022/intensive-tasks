@@ -15,9 +15,9 @@ public class Main {
 
             for (int j = left; j < right; j++) {
                 if (array[j] > array[j + 1]) {
-                    int max = array[j];
+                    int maxValue = array[j];
                     array[j] = array[j + 1];
-                    array[j + 1] = max;
+                    array[j + 1] = maxValue;
                     count++;
                 }
             }
@@ -26,9 +26,9 @@ public class Main {
 
             for (int j = right; j > left; j--) {
                 if (array[j] < array[j - 1]) {
-                    int min = array[j];
+                    int minValue = array[j];
                     array[j] = array[j - 1];
-                    array[j - 1] = min;
+                    array[j - 1] = minValue;
                     count++;
                 }
             }
