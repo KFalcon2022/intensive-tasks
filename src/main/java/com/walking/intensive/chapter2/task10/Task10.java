@@ -19,6 +19,10 @@ public class Task10 {
 
         for (int i = 0, j = inputString.length() - 1; i < inputString.length() && j >= 0; i++, j--) {
 
+            if (i >= j){
+                break;
+            }
+
             char charForward = Character.toLowerCase(inputString.charAt(i));
             char charRevers = Character.toLowerCase(inputString.charAt(j));
 
@@ -34,10 +38,6 @@ public class Task10 {
 
             if (charForward != charRevers){
                 return false;
-            }
-
-            if (i == j){
-                break;
             }
         }
 
