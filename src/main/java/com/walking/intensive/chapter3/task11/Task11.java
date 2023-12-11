@@ -24,7 +24,7 @@ public class Task11 {
 
         if (array.length >= 4) {
             for (int i = 3; i < array.length; i = i + 2) {
-                    totalOddLength += getSum(array, i);
+                    totalOddLength += getSumArrayDiv(array, i);
                 }
             }
 
@@ -35,18 +35,18 @@ public class Task11 {
         return totalOddLength + sum;
     }
 
-    public static int getSum(int[] array, int div){
+    public static int getSumArrayDiv(int[] array, int div){
 
-        int sum = 0;
+        int sumArrayDiv = 0;
 
             for (int i = 0; i < array.length - div + 1; i++) {
                 int total = 0;
                 for (int j = i; j < div + i; j++) {
-                    total = total + array[j];
+                    total += array[j];
                 }
-                sum += total;
+                sumArrayDiv += total;
             }
 
-            return sum;
+            return sumArrayDiv;
         }
     }
