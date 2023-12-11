@@ -35,6 +35,10 @@ public class Task10 {
             if (charForward != charRevers){
                 return false;
             }
+
+            if (i == j){
+                break;
+            }
         }
 
         return true;
