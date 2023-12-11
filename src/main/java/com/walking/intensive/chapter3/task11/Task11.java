@@ -6,7 +6,7 @@ package com.walking.intensive.chapter3.task11;
 public class Task11 {
     public static void main(String[] args) {
 
-        int[] arr = {1,4,2,5,3,1,1};
+        int[] arr = {1, 1, 1, 1, 1, 1, 1, 1};
         int[] arr1= {1,2};
         System.out.println(getSumSubarraysOddLength(arr));
         System.out.println(getSumSubarraysOddLength(arr1));
@@ -15,27 +15,38 @@ public class Task11 {
 
     static int getSumSubarraysOddLength(int[] array) {
         int sum = 0;
+
         for (int i : array) {
-            sum = sum + i;
+            sum += i;
         }
 
-        int total = 0;
+        int totalOddLength = 0;
 
         if (array.length >= 4) {
-
-            for (int i = 0; i < array.length - 2; i++) {
-                int totalOddLength = 0;
-                for (int j = i; j < 3 + i; j++) {
-                    totalOddLength = totalOddLength + array[j];
+            for (int i = 3; i < array.length; i = i + 2) {
+                    totalOddLength += getSum(array, i);
                 }
-                total = total + totalOddLength;
             }
-        }
 
         if (array.length % 2 != 0){
             sum = sum * 2;
         }
 
-        return total + sum;
+        return totalOddLength + sum;
     }
-}
+
+    public static int getSum(int[] array, int div){
+
+        int sum = 0;
+
+            for (int i = 0; i < array.length - div + 1; i++) {
+                int total = 0;
+                for (int j = i; j < div + i; j++) {
+                    total = total + array[j];
+                }
+                sum += total;
+            }
+
+            return sum;
+        }
+    }
