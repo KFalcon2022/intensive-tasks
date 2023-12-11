@@ -20,20 +20,16 @@ public class Task12 {
     static int[] getNumberOfMovements(String baskets) {
         int n = baskets.length();
         int[] answer = new int[n];
-
         for (int i = 0; i < n; i++) {
             int totalMovements = 0;
-
             for (int j = 0; j < n; j++) {
                 if (baskets.charAt(j) == '1') {
                     int diff = i - j; //difference
                     totalMovements += (diff >= 0) ? diff : -diff;
                 }
             }
-
             answer[i] = totalMovements;
         }
-
         return answer;
     }
 }
