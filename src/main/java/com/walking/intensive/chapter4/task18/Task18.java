@@ -14,7 +14,7 @@ public class Task18 {
     }
 
     public static void doShakerSort(int[] inputArray) {
-        if (inputArray.length >= 1) {
+        if (inputArray.length > 1) {
             shakerSort(inputArray);
         }
     }
