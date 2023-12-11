@@ -12,8 +12,25 @@ public class Task1 {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        String declension = "Вам " + age;
+        int mod = age % 10;
+
+        if (age >= 0 && age < 150) {
+
+            if (age == 0 || (age >= 5 && age <= 20) || (age >= 105 && age <= 120)) {
+                declension = declension + " лет";
+            } else if (mod == 1) {
+                declension = declension + " год";
+            } else if (mod >= 2 && mod <= 4) {
+                declension = declension + " годa";
+            } else {
+                declension = declension + " лет";
+            }
+        } else {
+            declension = "Указан некорректный возраст!";
+        }
+
+        return declension; // Заглушка. При реализации - удалить
     }
 }
