@@ -6,6 +6,7 @@ package com.walking.intensive.chapter3.task12;
 public class Task12 {
     public static void main(String[] args) {
         int[] result = getNumberOfMovements("110");
+
         for (int i = 0; i < result.length; i++) {
             System.out.print(result[i] + " ");
         }
@@ -20,8 +21,10 @@ public class Task12 {
     static int[] getNumberOfMovements(String baskets) {
         int n = baskets.length();
         int[] answer = new int[n];
+
         for (int i = 0; i < n; i++) {
             int totalMovements = 0;
+
             for (int j = 0; j < n; j++) {
                 if (baskets.charAt(j) == '1') {
                     int diff = i - j; //difference
