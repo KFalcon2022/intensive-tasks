@@ -1,7 +1,5 @@
 package com.walking.intensive.chapter3.task11;
 
-import java.util.Arrays;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-Subarray.html">Подмассив</a>
  */
