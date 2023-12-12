@@ -12,7 +12,7 @@ public class Main {
         System.out.println(Arrays.toString(array));
     }
 
-    public void heapSort(int array[]) {
+    public void heapSort(int[] array) {
         int n = array.length;
 
         for (int i = n / 2 - 1; i >= 0; i--) {
