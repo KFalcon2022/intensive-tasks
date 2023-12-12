@@ -4,16 +4,16 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {100, 5, 8, 100, 7, 2, 0, -2, 3, 12, -100, 100};
+        int[] array = {99, 5, 8, 200, 7, 2, 0, -2, 3, 12, -100, 100};
 
         System.out.println(Arrays.toString(array));
-        //sortArrayQuick(array, 0, array.length - 1);
+        // sortArrayQuick(array, 0, array.length - 1);
         // System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(sortArrayQuick(array, 0, array.length - 1)));
     }
 
     static int[] sortArrayQuick(int[] array, int left, int right) {
-        if (right - left == 2) { // Если в массиве два элемента, то, если нужно, меняем их местами и выходим из рекурсии
+        if (right - left == 1) { // Если в массиве два элемента, то, если нужно, меняем их местами и выходим из рекурсии
             if (array[left] > array[right]) {
                 int temp = array[left];
 
@@ -23,15 +23,16 @@ public class Main {
 
             return array;
         }
-        if (right - left < 2) { // Если в массиве 1 или 0 элемент, выходим из рекурсии
+        if (right - left < 1) { // Если в массиве 1 или 0 элемент, выходим из рекурсии
 
             return array;
         }
         int supportElement = getSupportElementValue(array, left, right); // находим среднее арифметическое между меньшим и большим элементами массива
         int delimiter = getSupportElementPosition(array, left, right, supportElement); // Раскидываем меньшие элементы налево, большие направо, указываем, где делить массив
 
-        sortArrayQuick(array, left, delimiter - 1); // Вызываем рекурсию для левой половины
         sortArrayQuick(array, delimiter, right); // Вызываем рекурсию для правой половины
+        sortArrayQuick(array, left, delimiter - 1); // Вызываем рекурсию для левой половины
+
 
         return array;
     }
