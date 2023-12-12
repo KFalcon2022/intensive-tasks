@@ -4,13 +4,22 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {99, 5, 8, 200, 7, 2, 0, -2, 3, 12, -100, 100};
+        int[] array = {1, 7, 4, 2, 3, 8, 9, 5, 6};
 
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(sortHeap(array)));
     }
 
     static int[] sortHeap(int[] array) { // Метод для сортировки массива кучей
+        int checkIndex = 0; // переменная для проверки, отсортирован ли массив
+
+        while (checkIndex < array.length / 2 && (array[checkIndex] < array[checkIndex * 2 + 1] && array[checkIndex] < array[checkIndex * 2 + 2])) { // Идем по массиву, пока элементы соответствуют куче "наоборот"
+            checkIndex++;
+        }
+        if (checkIndex == array.length / 2) {
+
+            return array; // Если все i меньше 2*i+1 и 2*i+2, то массив уже отсортирован, вернуть массив
+        }
         for (int i = array.length / 2 - 1; i >= 0; i--) { // начиная с конца первой половины массива
             makeHeap(array, i, array.length); // Строим кучу
         }
