@@ -12,6 +12,7 @@ public class Task1 {
     }
 
     static void printAge(int age) {
+
         System.out.println(getAgeString(age));
     }
 
@@ -29,14 +30,10 @@ public class Task1 {
             return "Вам " + age + " лет";
         }
 
-        if (moduloRemainder10 >= 2 && moduloRemainder10 <= 4) {
-            return "Вам " + age + " годa";
-        }
-
         if (moduloRemainder10 == 1) {
             return "Вам " + age + " год";
         }
 
-        return null; // Заглушка. При реализации - удалить
+        return "Вам " + age + " годa";
     }
 }
