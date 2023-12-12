@@ -10,7 +10,6 @@ public class Task13 {
         int wateringCanVolume = 8;
 
         System.out.println(getCountSteps(plants, wateringCanVolume));
-
     }
 
     /**
@@ -22,35 +21,36 @@ public class Task13 {
      */
 
     static int getCountSteps(int[] plants, int wateringCanVolume) {
-        int stepsCount = 0;
+        int countSteps = 0;
         int x = -1;
-        int neededWateringVolume = 0;
+        int totalWaterVolume = 0;
+
         for (int plant: plants) {
-            neededWateringVolume += plant;
+            totalWaterVolume += plant;
         }
 
         int wateringCan = wateringCanVolume;
 
-        while (neededWateringVolume > 0) {
+        while (totalWaterVolume > 0) {
             x++;
-            stepsCount++;
+            countSteps++;
 
             while (wateringCan > 0 && plants[x] > 0) {
                 wateringCan--;
                 plants[x]--;
-                neededWateringVolume--;
+                totalWaterVolume--;
             }
 
-            if (neededWateringVolume > 0 && (wateringCan == 0 || plants[x + 1] > wateringCan)) {
+            if (totalWaterVolume > 0 && (wateringCan == 0 || plants[x + 1] > wateringCan)) {
                 while (x >= 0) {
                     x--;
-                    stepsCount++;
+                    countSteps++;
                 }
                 wateringCan = wateringCanVolume;
             }
         }
 
-        return stepsCount;
+        return countSteps;
     }
 
 /* Алгоритм, если выливать лейку до конца
@@ -58,6 +58,7 @@ public class Task13 {
         int stepsCount = 0;
         int x = -1;
         int neededWateringVolume = 0;
+
         for (int plant: plants) {
             neededWateringVolume += plant;
         }
