@@ -1,6 +1,5 @@
 package com.walking.intensive.chapter4.task16;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main {
@@ -12,29 +11,25 @@ public class Main {
         System.out.println(Arrays.toString(initsArray));
     }
 
-    static int[] sortSelection(int[] array) {
-
+    static void sortSelection(int[] array) {
         for (int i = 0; i < array.length; i++) {
             int minIndex = getMinIndex(array, i);
             int temp = array[minIndex];
             array[minIndex] = array[i];
             array[i] = temp;
         }
-
-        return array;
     }
 
     static int getMinIndex(int[] array, int index) {
-        int min = Integer.MAX_VALUE;
-        int minIndex = 0;
-        
+        int min = 0;
+
         for (int i = index; i < array.length; i++) {
             if (array[i] < min) {
                 min = array[i];
-                minIndex = i;
+                index = i;
             }
         }
 
-        return minIndex;
+        return index;
     }
 }
