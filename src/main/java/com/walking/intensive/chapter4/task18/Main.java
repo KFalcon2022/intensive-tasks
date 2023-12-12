@@ -19,14 +19,14 @@ public class Main {
         int lastIndex = array.length - 1;
 
         while (firstIndex < lastIndex) {
-            int countSorted = 0;
+            boolean notSorted = true;
 
             for (int i = firstIndex; i < lastIndex; i++) {
                 if (array[i] > array[i + 1]) {
                     int temporaryValue = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = temporaryValue;
-                    countSorted++;
+                    notSorted = false;
                 }
             }
 
@@ -37,11 +37,11 @@ public class Main {
                     int temporaryValue = array[i];
                     array[i] = array[i - 1];
                     array[i - 1] = temporaryValue;
-                    countSorted++;
+                    notSorted = false;
                 }
             }
 
-            if (countSorted == 0) {
+            if (notSorted) {
                 break;
             }
 
