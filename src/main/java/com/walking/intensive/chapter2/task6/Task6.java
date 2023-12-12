@@ -5,15 +5,15 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        int m = 1600;
-        int n = 25472;
+        int m = 0;
+        int n = 0;
         System.out.println("NOC: " + getNoc(m, n));
         System.out.println("NOD: " + getNod(m, n));
     }
 
     static int getNoc(int m, int n) {
         if (m == n && n == 0) {
-            return 123;
+            return 0;
         }
 
         if (getNod(m, n) == 1) {
@@ -35,6 +35,10 @@ public class Task6 {
 
 
     static int getNod(int m, int n) {
+        if (m == n && n == 0) {
+            return 0;
+        }
+
         int biggest = Math.max(m, n);
         int smaller = Math.min(m, n);
         int temp = biggest % smaller;
