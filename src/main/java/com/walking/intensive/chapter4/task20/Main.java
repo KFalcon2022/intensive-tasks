@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] array = {1, 2, 3, 4, 5, 10, 6, 7, 8, 9};
 
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(sortHeap(array)));
@@ -13,7 +13,7 @@ public class Main {
     static int[] sortHeap(int[] array) { // Метод для сортировки массива кучей
         int checkIndex = 0; // переменная для проверки, отсортирован ли массив
 
-        while (checkIndex < array.length / 2 && (array[checkIndex] < array[checkIndex * 2 + 1] && array[checkIndex] < array[checkIndex * 2 + 2])) { // Идем по массиву, пока элементы соответствуют куче "наоборот"
+        while (checkIndex < array.length / 2 && ((array[checkIndex] < array[checkIndex * 2 + 1] && checkIndex * 2 + 1 < array.length) && (checkIndex * 2 + 2 < array.length && array[checkIndex] < array[checkIndex * 2 + 2]))) { // Идем по массиву, пока элементы соответствуют куче "наоборот"
             checkIndex++;
         }
         if (checkIndex == array.length / 2) {
