@@ -30,7 +30,6 @@ public class Task11 {
     }
 
     public static int getSumArrayDiv(int[] array, int div) {
-
         int sumArrayDiv = 0;
 
         for (int i = 0; i <= array.length - div; i++) {
