@@ -16,7 +16,16 @@ public class Task13 {
      * @return количество шагов необходимое для полива всех растений
      */
     static int getCountSteps(int[] plants, int wateringCanVolume) {
-        // Ваш код
-        return 0;
+        int waterVolume = wateringCanVolume;
+        int steps = 0;
+        for (int i = 0; i < plants.length; i++, steps++) {
+            if (plants[i] > waterVolume) {
+                waterVolume = wateringCanVolume - plants[i];
+                steps += i * 2;
+            } else {
+                waterVolume -= plants[i];
+            }
+        }
+        return steps;
     }
 }
