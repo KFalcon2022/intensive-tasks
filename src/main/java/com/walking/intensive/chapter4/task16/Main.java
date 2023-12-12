@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] initsArray = {-4, 2, -1, 3, 1, 7, 24, 9};
+        int[] initsArray = {10, 2, 11, 3, 1, 7, 24, 9};
 
         System.out.println(Arrays.toString(initsArray));
         sortSelection(initsArray);
@@ -21,7 +21,7 @@ public class Main {
     }
 
     static int getMinIndex(int[] array, int index) {
-        int min = 0;
+        int min = Integer.MAX_VALUE;
 
         for (int i = index; i < array.length; i++) {
             if (array[i] < min) {
