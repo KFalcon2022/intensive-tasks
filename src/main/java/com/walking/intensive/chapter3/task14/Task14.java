@@ -7,7 +7,7 @@ public class Task14 {
     public static void main(String[] args) {
         // Пример входных данных
         int[][] points = {{1, 3}, {3, 3}, {5, 3}, {2, 2}};
-        int[][] queries = {{2, 3, 1}, {4, 3, 1}, {1, 1, 2}};
+        int[][] queries = {{1, 2, -2}, {2, 2, 2}, {4, 3, 2}, {4, 3, 3}};
 
         int[] answer = getCountOfPoints(points, queries);
 
@@ -42,6 +42,10 @@ public class Task14 {
 
     static boolean isInsideCircle(int[] point, int[] query) {
         // query = [x_center, y_center, radius]
+        if (query[2] < 0) {
+            // Отрицательный радиус не допустим, считаем что внутри окружности нет точек
+            return false;
+        }
         int dx = point[0] - query[0];
         int dy = point[1] - query[1];
         int distanceSquared = dx * dx + dy * dy;
