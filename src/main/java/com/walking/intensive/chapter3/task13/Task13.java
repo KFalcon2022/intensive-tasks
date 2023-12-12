@@ -20,6 +20,40 @@ public class Task13 {
      * @param wateringCanVolume объем лейки
      * @return количество шагов необходимое для полива всех растений
      */
+
+    static int getCountSteps(int[] plants, int wateringCanVolume) {
+        int stepsCount = 0;
+        int x = -1;
+        int neededWateringVolume = 0;
+        for (int plant: plants) {
+            neededWateringVolume += plant;
+        }
+
+        int wateringCan = wateringCanVolume;
+
+        while (neededWateringVolume > 0) {
+            x++;
+            stepsCount++;
+
+            while (wateringCan > 0 && plants[x] > 0) {
+                wateringCan--;
+                plants[x]--;
+                neededWateringVolume--;
+            }
+
+            if (neededWateringVolume > 0 && (wateringCan == 0 || plants[x + 1] > wateringCan)) {
+                while (x >= 0) {
+                    x--;
+                    stepsCount++;
+                }
+                wateringCan = wateringCanVolume;
+            }
+        }
+
+        return stepsCount;
+    }
+
+/* Алгоритм, если выливать лейку до конца
     static int getCountSteps(int[] plants, int wateringCanVolume) {
         int stepsCount = 0;
         int x = -1;
@@ -51,4 +85,5 @@ public class Task13 {
 
         return stepsCount;
     }
+    */
 }
