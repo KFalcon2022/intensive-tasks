@@ -5,18 +5,25 @@ package com.walking.intensive.chapter3.task13;
  */
 public class Task13 {
     public static void main(String[] args) {
-
+        int[] plants = {2, 2, 3, 3};
+        int wateringCanVolume = 5;
+        System.out.println(getCountSteps(plants, wateringCanVolume));
     }
 
-    /**
-     * Получить количество шагов необходимых для полива всех растений.
-     *
-     * @param plants            массив с количеством литров воды необходимому i-му растению
-     * @param wateringCanVolume объем лейки
-     * @return количество шагов необходимое для полива всех растений
-     */
     static int getCountSteps(int[] plants, int wateringCanVolume) {
-        // Ваш код
-        return 0;
+        int countSteps = 0;
+        int currentWaterLevel = wateringCanVolume;
+
+        for (int i = 0; i < plants.length; i++) {
+            if (plants[i] < currentWaterLevel) {
+                countSteps++;
+                currentWaterLevel -= plants[i];
+            } else {
+                countSteps += (2 * i + 1);
+                currentWaterLevel = wateringCanVolume - plants[i];
+            }
+        }
+
+        return countSteps;
     }
 }
