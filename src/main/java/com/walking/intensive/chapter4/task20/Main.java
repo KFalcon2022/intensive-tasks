@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] array = {1, 7, 4, 2, 3, 8, 9, 5, 6};
+        int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
         System.out.println(Arrays.toString(array));
         System.out.println(Arrays.toString(sortHeap(array)));
