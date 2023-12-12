@@ -22,11 +22,9 @@ public class Task11 {
 
         int totalOddLength = 0;
 
-
         for (int i = 3; i <= array.length; i += 2) {
             totalOddLength += getSumArrayDiv(array, i);
         }
-
 
         return totalOddLength + sum;
     }
