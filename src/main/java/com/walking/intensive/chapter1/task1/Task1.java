@@ -17,23 +17,26 @@ public class Task1 {
 
     static String getAgeString(int age) {
 
-        String declension = "Вам " + age;
-        String resultString = null;
-        int moduloDivision10 = age % 10;
-        int moduloDivision100 = age % 100;
+        int moduloRemainder10 = age % 10;
+        int moduloRemainder100 = age % 100;
 
-        if (age < 0 || age > 150) {
+        if (age < 0 || age > 127) {
             return "Указан некорректный возраст!";
         }
 
-        if (moduloDivision10 == 0 || (moduloDivision100 >= 5 && moduloDivision100 <= 20) || (moduloDivision10 >= 5 && moduloDivision10 <= 10)) {
-            resultString = declension + " лет";
-        } else if (moduloDivision10 >= 2 && moduloDivision10 <= 4) {
-            resultString = declension + " годa";
-        } else if (moduloDivision10 == 1) {
-            resultString = declension + " год";
+        if (moduloRemainder10 == 0 || (moduloRemainder100 >= 11 && moduloRemainder100 <= 19) || (moduloRemainder10 >= 5 && moduloRemainder10 <= 9))
+        {
+            return "Вам " + age + " лет";
         }
 
-        return resultString; // Заглушка. При реализации - удалить
+        if (moduloRemainder10 >= 2 && moduloRemainder10 <= 4) {
+            return "Вам " + age + " годa";
+        }
+
+        if (moduloRemainder10 == 1) {
+            return "Вам " + age + " год";
+        }
+
+        return null; // Заглушка. При реализации - удалить
     }
 }
