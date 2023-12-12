@@ -14,14 +14,14 @@ public class Main {
             swapped = false;
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j] > array[j + 1]) {
-                    // swap elements
+                    // поменять местами элементы
                     int temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
                     swapped = true;
                 }
             }
-            // if no two elements were swapped by inner loop, then break
+            // если ни один из двух элементов не был заменен внутренним циклом, то прерываем
             if (!swapped)
                 break;
         }
