@@ -6,20 +6,20 @@ public class Main {
     }
 
     public static void sortArray(int[] unSortedArray) {
-        for (int i = 0; i < unSortedArray.length; i++) {
+        for (int i = 0; i < unSortedArray.length - 1; i++) {
 
-            int min = unSortedArray[i];
-            int minPlace = i;
+            int minValue = unSortedArray[i];
+            int minValueIndex = i;
 
             for (int j = i + 1; j < unSortedArray.length; j++) {
-                if (unSortedArray[j] < min) {
-                    minPlace = j;
-                    min = unSortedArray[j];
+                if (unSortedArray[j] < minValue) {
+                    minValueIndex = j;
+                    minValue = unSortedArray[j];
                 }
             }
 
-            unSortedArray[minPlace] = unSortedArray[i];
-            unSortedArray[i] = min;
+            unSortedArray[minValueIndex] = unSortedArray[i];
+            unSortedArray[i] = minValue;
             System.out.print(unSortedArray[i]);
         }
     }
