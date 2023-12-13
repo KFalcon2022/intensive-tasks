@@ -17,11 +17,11 @@ public class Task12Test {
     @MethodSource("testDataSource")
     void testGetNumberOfMovements(String baskets, int[] expectedArray) {
         // when
-        var result = Task12.getNumberOfMovements(baskets);
+        var result = getNumberOfMovements(baskets);
 
         // then
         assertEquals(baskets.length(), result.length);
-        Assertions.assertTrue(Arrays.equals(expectedArray, result));
+        assertTrue(Arrays.equals(expectedArray, result));
     }
 
     static Stream<Arguments> testDataSource() {

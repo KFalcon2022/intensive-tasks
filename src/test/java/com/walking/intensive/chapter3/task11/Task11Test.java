@@ -15,7 +15,7 @@ public class Task11Test {
     @MethodSource("testDataSource")
     void testGetSumSubarraysOddLength(int[] array, int expectedSum) {
         // when
-        var result = Task11.getSumSubarraysOddLength(array);
+        var result = getSumSubarraysOddLength(array);
 
         // then
         assertEquals(expectedSum, result);
