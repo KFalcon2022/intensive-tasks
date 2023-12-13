@@ -27,25 +27,23 @@ public class Task4 {
      */
     static String solveQuadraticEquation(double a, double b, double c) {
         DecimalFormat formatter = new DecimalFormat("#.##");
+
         if (a != 0) {
-            return solveUsingDiscriminant(a, b, c);
-        }
-        if (b != 0 && c == 0) {
-            return "Количество решений: 1. Корень: 0";
+            return solveEquation(a, b, c);
         }
 
         if (b != 0) {
             return "Количество решений: 1. Корень: " + formatter.format(-c / b);
         }
 
-        if (b == 0 && c == 0) {
+        if (c == 0) {
             return "Решений бесконечно";
+        } else {
+            return "Количество решений: 0.";
         }
-
-        return "Количество решений: 0.";
     }
 
-    static String solveUsingDiscriminant(double a, double b, double c) {
+    static String solveEquation(double a, double b, double c) {
         DecimalFormat formatter = new DecimalFormat("#.##");
         double discriminant = b * b - 4 * a * c;
         if (discriminant > 0) {
