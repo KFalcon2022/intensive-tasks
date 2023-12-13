@@ -13,9 +13,9 @@ public class Task15 {
         int[] alongLimits = new int[city.length];
         int[] acrossLimits = new int[city[0].length];
 
-
         for (int i = 0; i < alongLimits.length; i++) {
             int maxAcross = 0, maxAlong = 0;
+
             for (int j = 0; j < acrossLimits.length; j++) {
                 maxAlong = Integer.max(maxAlong, city[i][j]);
                 maxAcross = Integer.max(maxAcross, city[j][i]);
