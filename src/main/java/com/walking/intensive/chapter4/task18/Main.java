@@ -2,16 +2,17 @@ package com.walking.intensive.chapter4.task18;
 
 public class Main {
     public static void main(String[] args) {
-        shakerSort(new int[]{4, 8, 6, 5, 7, 9, 3, 45, 6, 7, 8, 9});
+        shakerSort(new int[]{1, 2, 3, 4, 6, 5, 7, 8, 9, 10});
     }
 
     public static void shakerSort(int[] array) {
 
-        int count = 0;
+
         int left = 0;
         int right = array.length - 1;
 
-        for (int i = 0; i < array.length-1; i++) {
+        for (int i = 0; i < array.length - 1 || left >= right; i++) {
+            int count = 0;
 
             for (int j = left; j < right; j++) {
                 if (array[j] > array[j + 1]) {
@@ -35,13 +36,9 @@ public class Main {
 
             left++;
 
-            if (count == 0 || left >= right) {
+            if (count == 0) {
                 break;
             }
-        }
-
-        for (int j : array) {
-            System.out.print(j + " ");
         }
     }
 }
