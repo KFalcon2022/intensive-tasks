@@ -9,19 +9,15 @@ public class Task8 {
     }
 
     static double getHappyTicketChance(int ticketNumber) {
-        int numsOfCoincidences = 0;
+        int happyTicketQuantity = 0;
 
-        for (int i = 0; i < 1000; i++) {
-            int sumI = (i % 10) + (i % 100 - i % 10) + (i / 100);
-
-            for (int j = 0; j < 1000; j++) {
-                int sumJ = (j % 10) + (j % 100 - j % 10) + (j / 100);
-
-                if (sumI == sumJ) {
-                    numsOfCoincidences++;
+        for (int i = 0; i <= 999999; i++) {
+            int sumNumsOneThree = (i / 100000) + (i % 100000 / 10000) + (i % 10000 / 1000);
+            int sumNumsFourSix =  i % 1000 / 100 + i % 100 / 10 + i % 10;
+                if (sumNumsOneThree == sumNumsFourSix) {
+                    happyTicketQuantity++;
                 }
             }
-        }
-        return (double) numsOfCoincidences / Math.pow(10, 6);
+        return (double) happyTicketQuantity / Math.pow(10, 6);
     }
 }
