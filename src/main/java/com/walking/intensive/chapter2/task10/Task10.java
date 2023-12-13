@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("Муза, ранясь шилом опыта, ты помолишься на разумы"));
+        System.out.println(isPalindrome("!!! ."));
     }
 
     static boolean isPalindrome(String inputString) {
@@ -15,6 +15,10 @@ public class Task10 {
             stringCleared += Character.isLetter(inputString.charAt(i)) ?
                     Character.toUpperCase(inputString.charAt(i)) :
                     "";
+        }
+
+        if (stringCleared.length()==0){
+            return false;
         }
 
         for (int i =0; i<stringCleared.length()/2-1; i++){
