@@ -25,6 +25,5 @@ public class Task1 {
         }
 
         return "Вам " + age + " лет";
-
     }
 }
