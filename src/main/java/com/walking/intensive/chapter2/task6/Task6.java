@@ -1,63 +1,49 @@
 package com.walking.intensive.chapter2.task6;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-NOKNOD.html">ссылка</a>
  */
 public class Task6 {
     public static void main(String[] args) {
-        getNoc(88, 648);
-        getNod(88, 648);
+        System.out.println(getNoc(88, 648));
+        System.out.println(getNod(88, 648));
+        System.out.println(getNodByEuclideanAlgorithm(54, 765));
 
     }
 
     static int getNoc(int m, int n) {
-
         int max = Math.max(m, n);
-        int min = Math.min(m, n);
-        int noc = max * min;
+        int noc = m * n;
 
-        for (int i = max * min;  i > max; i--) {
-            if ((i % max == 0) && (i % min == 0))  {
+        for (int i = m * n; i > max; i--) {
+            if ((i % m == 0) && (i % n == 0)) {
                 noc = i;
             }
         }
 
-        System.out.println(noc);
         return noc;
     }
 
     static int getNod(int m, int n) {
-
         int nod = 1;
-        int max = Math.max(m, n);
         int min = Math.min(m, n);
 
-        for (int i = 1;  i < (min + 1); i++) {
-            if ((max % i == 0) && (min % i == 0))  {
+        for (int i = 1; i <= min; i++) {
+            if ((m % i == 0) && (n % i == 0)) {
                 nod = i;
             }
         }
 
-        System.out.println(nod);
         return nod;
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
 
-        int nod = 1;
-        int max = Math.max(m, n);
-        int min = Math.min(m, n);
-
-        if (max % min == 0) {
-            return nod = min;
+        if (m % n == 0) {
+            return n;
         }
 
-        return getNodByEuclideanAlgorithm((max % min), min);
-
+        return getNodByEuclideanAlgorithm(n, m % n);
     }
 
 }
