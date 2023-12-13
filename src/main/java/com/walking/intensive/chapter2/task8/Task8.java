@@ -8,21 +8,26 @@ import javax.sound.midi.Soundbank;
 public class Task8 {
     public static void main(String[] args) {
         System.out.println(getHappyTicketChance());
+        System.out.println((int) 50050/1000);
     }
 
     static double getHappyTicketChance() {
-
         int i = 0;
         int sumEvents = 0;
 
         while (i < 1000000) {
 
-            String ticketNumber = String.format("%06d", i);
+            int firstNumber;
+            int sumFirst = 0;
+            int secondNumber = i % 1000;
+            int sumSecond = (int) secondNumber / 100 + secondNumber % 10 + (int) (secondNumber % 100) / 10;
 
-            int firstNumber = Integer.parseInt(ticketNumber.substring(0, 1)) + Integer.parseInt(ticketNumber.substring(1, 2)) + Integer.parseInt(ticketNumber.substring(2, 3));
-            int secondNumber = Integer.parseInt(ticketNumber.substring(3, 4)) + Integer.parseInt(ticketNumber.substring(4, 5)) + Integer.parseInt(ticketNumber.substring(5, 6));
+            if (i >= 1000) {
+                firstNumber = (int) i / 1000;
+                sumFirst = (int) firstNumber / 100 + firstNumber % 10 + (int) (firstNumber % 100) / 10;
+            }
 
-            if (firstNumber == secondNumber) {
+            if (sumFirst == sumSecond) {
                 sumEvents++;
             }
 
