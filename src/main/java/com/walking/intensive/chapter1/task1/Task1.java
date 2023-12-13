@@ -8,7 +8,7 @@ public class Task1 {
 //        Для собственных проверок можете делать любые изменения в этом методе
         int age;
 
-        for (age = 0; age < 128; age++) {
+        for (age = -2; age < 130; age++) {
             System.out.println(getAgeString(age));
         }
     }
@@ -16,6 +16,10 @@ public class Task1 {
     static String getAgeString(int age) {
         int ageModHundred = age % 100;
         int ageModTen = ageModHundred % 10;
+
+        if(age < 0 || age > 127){
+            return "Данные введены некорректно";
+        }
 
         if (ageModTen == 1 && ageModHundred != 11) {
             return "Вам " + age + " год";
