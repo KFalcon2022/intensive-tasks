@@ -7,17 +7,21 @@ import java.util.Arrays;
  */
 public class Task17 {
     public static void main(String[] args) {
-        int[] array = {160, 150, 10, -50, -121, -160};
+        int[] array = {0, 150, 160, 8, 9, 85, -52, 63};
 
         System.out.println(Arrays.toString(sortByBubble(array)));
     }
 
     private static int[] sortByBubble(int[] array) {
-        for (int i = 0; i < array.length - 1; i++) {
+        boolean isSorted = false;
+
+        for (int i = 0; i < array.length - 1 && !isSorted; i++) {
             int temp;
+            isSorted = true;
 
             for (int j = 0; j < array.length - 1 - i; j++) {
                 if (array[j] > array[j + 1]) {
+                    isSorted = false;
                     temp = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = temp;
