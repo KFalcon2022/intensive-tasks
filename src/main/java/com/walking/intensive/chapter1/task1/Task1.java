@@ -14,12 +14,12 @@ public class Task1 {
     }
 
     static String getAgeString(int age) {
-        int ageModHundred = age % 100;
-        int ageModTen = ageModHundred % 10;
-
         if(age < 0 || age > 127){
             return "Данные введены некорректно";
         }
+
+        int ageModHundred = age % 100;
+        int ageModTen = ageModHundred % 10;
 
         if (ageModTen == 1 && ageModHundred != 11) {
             return "Вам " + age + " год";
