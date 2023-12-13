@@ -8,7 +8,6 @@ import javax.sound.midi.Soundbank;
 public class Task8 {
     public static void main(String[] args) {
         System.out.println(getHappyTicketChance());
-        System.out.println((int) 50050/1000);
     }
 
     static double getHappyTicketChance() {
