@@ -19,10 +19,12 @@ public class Task1 {
         if (ageMod % 10 == 1 && ageMod != 11) {
             return "Вам " + age + " год";
         }
+
         if (ageMod % 10 > 1 && ageMod % 10 < 5 && (ageMod < 12 || ageMod > 14)) {
             return "Вам " + age + " года";
-        } else {
-            return "Вам " + age + " лет";
         }
+
+        return "Вам " + age + " лет";
+
     }
 }
