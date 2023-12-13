@@ -5,28 +5,17 @@ package main.java.com.walking.intensive.chapter2.task7;
  */
 public class Task7 {
     public static void main(String[] args) {
-
+        System.out.println(getFriendlyPair(1000000));
     }
 
     static int getFriendlyPair(int m) {
-        int sumDemominators1;
-        int sumDemominators2;
-
+        int maxNumberFromPair = 0;
         for (int i = 1; i < m; i++) {
-            sumDemominators1 = searchDenominators(i);
-
-            for (int j = 1; j < m; j++) {
-                sumDemominators2 = searchDenominators(j);
-
-                if (i == j) continue;
-
-                if (sumDemominators1 == j && sumDemominators2 == i) {
-
-                    return Math.max(i, j);
-                }
+            if (searchDenominators(searchDenominators(i)) == i && searchDenominators(i) != i) {
+                maxNumberFromPair = Math.max(searchDenominators(i), i);
             }
         }
-        return -1;
+        return maxNumberFromPair;
     }
 
     public static int searchDenominators(int num) {
