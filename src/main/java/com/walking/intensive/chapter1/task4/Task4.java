@@ -8,7 +8,7 @@ public class Task4 {
 //        Для собственных проверок можете делать любые изменения в этом методе
         double a = 1;
         double b = 0;
-        double c = -1;
+        double c = 0;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -51,11 +51,7 @@ public class Task4 {
             return "Количество решений: 2. Корни: " + x1 + ";" + x2;
         }
 
-        if (d == 0) {
-            x1 = -b / 2 * a;
-            return "Количество решений: 1. Корень: " + x1;
-        }
-
-        return "";
+        x1 = -b / 2 * a;
+        return "Количество решений: 1. Корень: " + x1;
     }
 }
