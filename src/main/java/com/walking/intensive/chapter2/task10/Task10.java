@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("Ежу хуже"));
+        System.out.println(isPalindrome("Ежу хуже!"));
     }
 
     static boolean isPalindrome(String inputString) {
