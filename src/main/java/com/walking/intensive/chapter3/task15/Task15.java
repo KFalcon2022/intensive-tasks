@@ -20,6 +20,7 @@ public class Task15 {
                 maxAlong = Integer.max(maxAlong, city[i][j]);
                 maxAcross = Integer.max(maxAcross, city[j][i]);
             }
+
             alongLimits[i] = maxAlong;
             acrossLimits[i] = maxAcross;
         }
@@ -29,10 +30,10 @@ public class Task15 {
         for (int i = 0; i < alongLimits.length; i++) {
             for (int j = 0; j < acrossLimits.length; j++) {
                 int limit = Math.min(acrossLimits[j], alongLimits[i]);
+
                 if (city[i][j] < limit) {
                     maxFloors += limit - city[i][j];
                 }
-
             }
         }
 
