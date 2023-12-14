@@ -24,18 +24,18 @@ public class Task15 {
             acrossLimits[i] = maxAcross;
         }
 
-        int count = 0;
+        int maxFloors = 0;
 
         for (int i = 0; i < alongLimits.length; i++) {
             for (int j = 0; j < acrossLimits.length; j++) {
                 int limit = Math.min(acrossLimits[j], alongLimits[i]);
                 if (city[i][j] < limit) {
-                    count += limit - city[i][j];
+                    maxFloors += limit - city[i][j];
                 }
 
             }
         }
 
-        return count;
+        return maxFloors;
     }
 }
