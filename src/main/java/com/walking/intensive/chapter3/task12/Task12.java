@@ -34,20 +34,15 @@ public class Task12 {
 
     static int[] checkAndConvert(String string) {
         int[] result = new int[string.length()];
-        try {
-            for (int i = 0; i < result.length; i++) {
-                if (string.substring(i, i + 1).equals("1") || string.substring(i, i + 1).equals("0")) {
-                    result[i] = Integer.parseInt(string.substring(i, i + 1));
-                } else {
-                    throw new Exception();
-                }
+        for (int i = 0; i < result.length; i++) {
+            if (string.substring(i, i + 1).equals("1") || string.substring(i, i + 1).equals("0")) {
+                result[i] = Integer.parseInt(string.substring(i, i + 1));
+            } else {
+                System.out.println("Wrong input, return 000");
+                return new int[]{0, 0, 0};
             }
-            return result;
-        } catch (Exception ex) {
-            System.err.println("Wrong input, return 111");
-            return new int[]{1, 1, 1};
         }
-
+        return result;
     }
 
 }
