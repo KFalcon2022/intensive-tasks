@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] testArray = new int[30];
+        int[] testArray = new int[17];
 
         for (int i = 0; i < testArray.length; i++) {
-            testArray[i] = (int) (Math.random() * 1000);
+            testArray[i] = (int) (Math.random() * 100);
         }
 
         System.out.println(Arrays.toString(testArray));
@@ -16,7 +16,14 @@ public class Main {
     }
 
     static void quickSort(int[] array, int leftIndex, int rightIndex) {
-        if (leftIndex >= rightIndex) {
+        if (rightIndex - leftIndex < 1) {
+            return;
+        }
+
+        if (rightIndex - leftIndex == 1) {
+            if (array[leftIndex] > array[rightIndex]) {
+                swapElements(array, leftIndex, rightIndex);
+            }
             return;
         }
 
