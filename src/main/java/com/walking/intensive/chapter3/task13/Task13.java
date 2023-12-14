@@ -18,7 +18,7 @@ public class Task13 {
     static int getCountSteps(int[] plants, int wateringCanVolume) {
         checkInputData(plants, wateringCanVolume);
 
-        int steps = 0;
+        int countSteps = 0;
         int wateredPlantsCount = 0;
         int workingVolume;
         int i = 1;
@@ -26,23 +26,22 @@ public class Task13 {
         while (wateredPlantsCount < plants.length) {
 
             workingVolume = wateringCanVolume;
-            steps += i - 1;
-
+            countSteps += i - 1;
 
             while (plants[i - 1] <= workingVolume) {
                 workingVolume -= plants[i - 1];
-                steps++;
+                countSteps++;
                 wateredPlantsCount++;
                 i++;
                 if (wateredPlantsCount == plants.length) {
-                    return steps;
+                    return countSteps;
                 }
             }
 
-            steps += i - 1;
+            countSteps += i - 1;
         }
 
-        return steps;
+        return countSteps;
     }
 
     static void checkInputData(int[] plants, int wateringCanVolume) {
