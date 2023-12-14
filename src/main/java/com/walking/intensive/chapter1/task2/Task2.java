@@ -21,7 +21,7 @@ public class Task2 {
 
         String direction;
 
-        switch(floorFlatAmountMod) {
+        switch (floorFlatAmountMod) {
             case 1:
                 direction = "слева от лифта, влево";
                 break;
