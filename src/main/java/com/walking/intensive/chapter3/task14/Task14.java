@@ -21,25 +21,27 @@ public class Task14 {
      * @return массив с количеством точек внутри окружностей
      */
     static int[] getCountOfPoints(int[][] points, int[][] queries) {
-        int[] answer = new int[queries.length];
+        int[] countOfPoints = new int[queries.length];
         int index = 0;
+
         for (int[] query : queries
         ) {
             for (int[] point : points
             ) {
                 if (isInsidePoint(query, point)) {
-                    answer[index] += 1;
+                    countOfPoints[index] += 1;
                 }
             }
             index++;
         }
-        return answer;
+        return countOfPoints;
     }
 
     static boolean isInsidePoint(int[] query, int[] point) {
         if ((query[0] - query[2] <= point[0] && point[0] <= query[0] + query[2]) && (query[1] - query[2] <= point[1] && point[1] <= query[1] + query[2])) {
             int a = Math.abs(query[0] - point[0]);
             int b = Math.abs(query[1] - point[1]);
+
             return Math.sqrt(a * a + b * b) <= query[2];
         }
 
