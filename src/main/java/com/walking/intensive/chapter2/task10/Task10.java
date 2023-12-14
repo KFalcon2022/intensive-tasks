@@ -5,27 +5,40 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("Муза! Ранясь шилом опыта, ты помолишься на разум."));
-
+        System.out.println(isPalindrome("Ежу хуже"));
     }
 
     static boolean isPalindrome(String inputString) {
-
-        if (inputString.length() < 2) {
+        if (inputString.length() < 3) {
             return false;
         }
 
-        String inputStringFormatted = inputString.toLowerCase().replaceAll("[\\s\\p{P}]", "");
+        int stringLength = inputString.length();
+        int rightIndex = stringLength - 1;
 
-        int stringLength = inputStringFormatted.length();
+        for (int i = 0; i < stringLength/2; i++) {
 
-        for (int i = 0, k = stringLength - 1; i < stringLength && k >= 0; i++, k--) {
-
-            if (inputStringFormatted.charAt(i) != inputStringFormatted.charAt(k)) {
-                return false;
+            if (!Character.isLetter(inputString.charAt(i))) {
+                continue;
             }
+
+            while (true) {
+                if (!Character.isLetter(inputString.charAt(rightIndex))) {
+                    rightIndex--;
+                    continue;
+                }
+
+                if (Character.toLowerCase(inputString.charAt(i)) != Character.toLowerCase(inputString.charAt(rightIndex))) {
+                    return false;
+                }
+                break;
+            }
+
+            rightIndex--;
         }
 
         return true;
     }
+
 }
+
