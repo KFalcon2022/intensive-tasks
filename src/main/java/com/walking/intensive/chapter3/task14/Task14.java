@@ -32,8 +32,10 @@ public class Task14 {
                     countOfPoints[index] += 1;
                 }
             }
+
             index++;
         }
+
         return countOfPoints;
     }
 
