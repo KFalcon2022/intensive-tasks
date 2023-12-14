@@ -24,7 +24,6 @@ public class Task13 {
         int i = 1;
 
         while (wateredPlantsCount < plants.length) {
-
             workingVolume = wateringCanVolume;
             countSteps += i - 1;
 
@@ -33,6 +32,7 @@ public class Task13 {
                 countSteps++;
                 wateredPlantsCount++;
                 i++;
+
                 if (wateredPlantsCount == plants.length) {
                     return countSteps;
                 }
@@ -49,6 +49,7 @@ public class Task13 {
             if (plant < 0) {
                 throw new IllegalArgumentException("Ошибка входных параметров");
             }
+
             if (plant > wateringCanVolume) {
                 throw new IllegalArgumentException("Объема лейки должно быть достаточно для полива каждого цветка");
             }
