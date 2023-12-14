@@ -11,29 +11,27 @@ public class Task8 {
     }
 
     static double getHappyTicketChance() {
-        int i = 0;
-        int sumEvents = 0;
+        int sumHappyTickets = 0;
 
-        while (i < 1000000) {
-
-            int firstNumber;
-            int sumFirst = 0;
-            int secondNumber = i % 1000;
-            int sumSecond = (int) secondNumber / 100 + secondNumber % 10 + (int) (secondNumber % 100) / 10;
+        for (int i = 0; i < 1000000; i++) {
+            int firstSum = 0;
+            int secondSum = sumDigitsInThreeDigitNumber(i % 1000);
 
             if (i >= 1000) {
-                firstNumber = (int) i / 1000;
-                sumFirst = (int) firstNumber / 100 + firstNumber % 10 + (int) (firstNumber % 100) / 10;
+                firstSum = sumDigitsInThreeDigitNumber(i / 1000);
             }
 
-            if (sumFirst == sumSecond) {
-                sumEvents++;
+            if (firstSum == secondSum) {
+                sumHappyTickets++;
             }
 
-            i++;
         }
 
-        return sumEvents / 999999.0;
+        return sumHappyTickets / 1000000.0;
+    }
+
+    static int sumDigitsInThreeDigitNumber (int number) {
+        return number / 100 + number % 10 + (number % 100) / 10;
     }
 
 }
