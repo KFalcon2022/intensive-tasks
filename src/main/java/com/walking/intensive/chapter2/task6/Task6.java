@@ -8,15 +8,13 @@ public class Task6 {
         System.out.println(getNoc(88, 648));
         System.out.println(getNod(88, 648));
         System.out.println(getNodByEuclideanAlgorithm(54, 765));
-
     }
 
     static int getNoc(int m, int n) {
-        int max = Math.max(m, n);
         int noc = m * n;
 
-        for (int i = m * n; i > max; i--) {
-            if ((i % m == 0) && (i % n == 0)) {
+        for (int i = noc; i > m; i -= m) {
+            if (i % n == 0) {
                 noc = i;
             }
         }
@@ -28,9 +26,10 @@ public class Task6 {
         int nod = 1;
         int min = Math.min(m, n);
 
-        for (int i = 1; i <= min; i++) {
+        for (int i = min; i >= 1; i--) {
             if ((m % i == 0) && (n % i == 0)) {
                 nod = i;
+                break;
             }
         }
 
