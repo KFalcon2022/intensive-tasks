@@ -10,21 +10,25 @@ public class Task10 {
 
     static boolean isPalindrome(String inputString) {
         int leftShift = 0, rightShift = 0;
-        boolean result = false;
+        boolean isPalindrome = false;
 
         for (int i = 0; i < inputString.length(); i++) {
             while (!Character.isAlphabetic(inputString.charAt(leftShift + i))) {
                 leftShift++;
+
                 if ((leftShift + i) == inputString.length()) {
                     break;
                 }
             }
+
             while (!Character.isAlphabetic(inputString.charAt(inputString.length() - (rightShift + i + 1)))) {
                 rightShift++;
+
                 if (inputString.length() == (rightShift + i + 1)) {
                     break;
                 }
             }
+
             int leftPosition = leftShift + i;
             int rightPosition = inputString.length() - (rightShift + i + 1);
 
@@ -33,13 +37,12 @@ public class Task10 {
             }
 
             if (Character.toUpperCase(inputString.charAt(leftPosition)) != Character.toUpperCase(inputString.charAt(rightPosition))) {
-                result = false;
-                break;
+                return false;
             } else {
-                result = true;
+                isPalindrome = true;
             }
         }
 
-        return result;
+        return isPalindrome;
     }
 }
