@@ -1,5 +1,4 @@
 package com.walking.intensive.chapter4.task19;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Quicksort.html">Быстрая сортировка - Quicksort</a>
  */
