@@ -2,17 +2,25 @@ package com.walking.intensive.chapter4.task18;
 
 import java.util.Arrays;
 
+/**
+ * Условие: <a href="https://geometry-math.ru/homework/Shaker-Sort.html">Сортировка шейкером</a>
+ */
+
 public class Main {
     public static void main(String[] args) {
         int[] array = {5, 10, 7, 1, 4, 16, 3, 0, 8, 12, 17, 6};
 
-        System.out.println(Arrays.toString(getShakerSortedArray(array, array.length, 0)));
+        System.out.println(Arrays.toString(sortByShaker(array)));
     }
 
-    static int[] getShakerSortedArray(int[] array, int arrayLength, int lastIndexForMinValueCheck) {
+    private static int[] sortByShaker(int[] array) {
+        return getShakerSortedArray(array, array.length, 0);
+    }
+
+    static int[] getShakerSortedArray(int[] array, int arrayLength, int lastMinValueCheckIndex) {
         boolean isSorted = true;
 
-        for (int i = lastIndexForMinValueCheck; i < arrayLength - 1; i++) {
+        for (int i = lastMinValueCheckIndex; i < arrayLength - 1; i++) {
             int nextIndex = i + 1;
 
             if (array[i] > array[nextIndex]) {
@@ -24,7 +32,7 @@ public class Main {
             }
         }
 
-        for (int i = arrayLength - 2; i > lastIndexForMinValueCheck; i--) {
+        for (int i = arrayLength - 2; i > lastMinValueCheckIndex; i--) {
             int previousIndex = i - 1;
 
             if (array[i] < array[previousIndex]) {
@@ -40,6 +48,6 @@ public class Main {
             return array;
         }
 
-        return getShakerSortedArray(array, arrayLength - 1, lastIndexForMinValueCheck + 1);
+        return getShakerSortedArray(array, arrayLength - 1, lastMinValueCheckIndex + 1);
     }
 }
