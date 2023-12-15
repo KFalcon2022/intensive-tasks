@@ -5,7 +5,8 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("Ежу хуже!"));
+        System.out.println(isPalindrome("!!111111111111!!!!!!!!!!!!!! Ежу Хуже....!!  111111111111111111111111111111111111111"));
+        System.out.println(isPalindrome("!!. вю."));
     }
 
     static boolean isPalindrome(String inputString) {
@@ -15,8 +16,9 @@ public class Task10 {
 
         int stringLength = inputString.length();
         int rightIndex = stringLength - 1;
+        int lettersQuantity = 0;
 
-        for (int i = 0; i < stringLength/2; i++) {
+        for (int i = 0; i < stringLength; i++) {
 
             if (!Character.isLetter(inputString.charAt(i))) {
                 continue;
@@ -35,6 +37,11 @@ public class Task10 {
             }
 
             rightIndex--;
+            lettersQuantity++;
+        }
+
+        if (lettersQuantity < 3) {
+            return false;
         }
 
         return true;
