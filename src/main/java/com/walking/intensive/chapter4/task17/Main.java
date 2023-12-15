@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] initsArray = {1, 5, 4, -7, -1, 3, 2, 0};
+        int[] initsArray = {23, 16, 7, -13, -1, -66, 2, 0, 0, 1, 1, -1};
 
         System.out.println(Arrays.toString(initsArray));
         bubbleSearch(initsArray);
