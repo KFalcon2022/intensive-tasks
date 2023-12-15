@@ -16,7 +16,7 @@ public class Task10 {
 
         int stringLength = inputString.length();
         int rightIndex = stringLength - 1;
-        int lettersQuantity = 0;
+        int lettersAmount = 0;
 
         for (int i = 0; i < stringLength; i++) {
 
@@ -37,10 +37,10 @@ public class Task10 {
             }
 
             rightIndex--;
-            lettersQuantity++;
+            lettersAmount++;
         }
 
-        if (lettersQuantity < 3) {
+        if (lettersAmount < 3) {
             return false;
         }
 
