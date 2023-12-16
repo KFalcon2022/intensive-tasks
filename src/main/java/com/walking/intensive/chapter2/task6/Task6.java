@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        System.out.println(getNoc(88, 648));
+        System.out.println(getNoc(9, 81));
         System.out.println(getNod(88, 648));
         System.out.println(getNodByEuclideanAlgorithm(54, 765));
     }
@@ -13,7 +13,7 @@ public class Task6 {
     static int getNoc(int m, int n) {
         int noc = m * n;
 
-        for (int i = noc; i > m; i -= m) {
+        for (int i = noc; i >= m; i -= m) {
             if (i % n == 0) {
                 noc = i;
             }
