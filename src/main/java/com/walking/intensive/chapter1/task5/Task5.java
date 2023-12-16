@@ -1,6 +1,5 @@
 package com.walking.intensive.chapter1.task5;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -13,11 +12,12 @@ public class Task5 {
         double b = 15;
         double c = 17;
 
-        double[] arr = getAngles(a, b, c);
+        double arr = getInscribedCircleRadius(a, b, c);
 
-        for (double v : arr) {
+       /* for (double v : arr) {
             System.out.println(v);
-        }
+        }*/
+        System.out.println(arr);
 
 
     }
@@ -99,15 +99,16 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return 0; // Заглушка. При реализации - удалить
+        double p = (a + b + c) / 2;
+        double r = Math.sqrt(((p - a) * (p - b) * (p - c)) / p);
+        return r;
     }
 
     static double getCircumradius(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return 0; // Заглушка. При реализации - удалить
+        double r = (a * b * c) / (4 * getAreaByHeron(a, b, c));
+        return r;
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
