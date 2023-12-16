@@ -8,9 +8,9 @@ import java.lang.Math;
 public class Task4 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 1;
-        double b = 3;
-        double c = 0;
+        double a = 2;
+        double b = 8;
+        double c = -16;
 
         System.out.println(solveQuadraticEquation(a, b, c));
     }
@@ -33,13 +33,12 @@ public class Task4 {
             return "Решений бесконечно";
         }
 
-        double discriminant = b * b - 4 * a * c;
-        if (a == 0 && b == 0 || discriminant < 0) {
+        if (a == 0 && b == 0) {
             return "Количество решений: 0.";
         }
 
         if (a == 0) {
-            return "Количество решений: 1. Корень: " + (int) (c / b);
+            return "Количество решений: 1. Корень: " + (int) (-c / b);
         }
 
         if (c == 0 && b != 0) {
@@ -48,13 +47,19 @@ public class Task4 {
                     + (int) Math.min(singleRoot, 0) + ";" + (int) Math.max(singleRoot, 0);
         }
 
+        double discriminant = b * b - 4 * a * c;
+
         if (discriminant > 0) {
             double firstRoot = (-b - Math.sqrt(discriminant)) / (2 * a);
             double secondRoot = (-b + Math.sqrt(discriminant)) / (2 * a);
             return "Количество решений: 2. Корни: " +
                     (int) Math.min(firstRoot, secondRoot) + ";" + (int) Math.max(firstRoot, secondRoot);
-        } else {
+        }
+
+        if (discriminant == 0) {
             return "Количество решений: 1. Корень: " + (int) (-b / (2 * a));
         }
+
+        return "Количество решений: 0.";
     }
 }
