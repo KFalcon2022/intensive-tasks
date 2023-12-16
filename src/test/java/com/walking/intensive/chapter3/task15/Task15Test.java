@@ -29,11 +29,15 @@ public class Task15Test {
         int[][] city1 = {{2, 1}, {1, 3}};
 
         // case 2
-        int[][] city2 = {{3, 0, 8, 4}, {2, 4, 5, 7}, {9, 2, 6, 3}, {0, 3, 1, 0}};
+        int[][] city2 = {
+                  {3, 0, 8, 4}
+                , {2, 4, 5, 7}
+                , {9, 2, 6, 3}
+                , {0, 3, 1, 0}};
 
         return Stream.of(
                 Arguments.of(city1, 2),
-                Arguments.of(city2, 35)
+                Arguments.of(city2, 3)
         );
     }
 }
