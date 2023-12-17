@@ -13,11 +13,13 @@ public class Task17 {
     }
 
     private static int[] sortByBubble(int[] array) {
-        boolean swapped;
-        do {
+        boolean swapped = true;
+        int n = array.length;
+
+        while (swapped) {
             swapped = false;
 
-            for (int i = 0; i < array.length - 1; i++) {
+            for (int i = 0; i < n - 1; i++) {
 
                 if (array[i] > array[i + 1]) {
                     int temp = array[i];
@@ -26,7 +28,8 @@ public class Task17 {
                     swapped = true;
                 }
             }
-        } while (swapped);
+            n--;
+        }
 
         return array;
     }
