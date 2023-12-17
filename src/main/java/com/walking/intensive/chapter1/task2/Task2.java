@@ -14,8 +14,8 @@ public class Task2 {
     public static void main(String[] args) {
 
         int flatNumber = 80;
-        int floorAmount = 10;
-        int entranceAmount = 2;
+        int floorAmount = -10;
+        int entranceAmount = -2;
         final int NUMBER_APARTMENTS_FLOOR = 4;
 
         System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber, NUMBER_APARTMENTS_FLOOR));
@@ -23,7 +23,7 @@ public class Task2 {
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber, int NUMBER_APARTMENTS_FLOOR) {
 
-        if ((flatNumber < 1) || (flatNumber > (floorAmount * entranceAmount * NUMBER_APARTMENTS_FLOOR))) {
+        if ((flatNumber < 1) && (floorAmount < 1) && (entranceAmount < 1) || (flatNumber > (floorAmount * entranceAmount * NUMBER_APARTMENTS_FLOOR))) {
             return ("Такой квартиры не существует");
         }
 
