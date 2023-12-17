@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task20 {
     public static void main(String[] args) {
-        int[] testArray = new int[31];
+        int[] testArray = new int[14];
 
         for (int i = 0; i < testArray.length; i++) {
             testArray[i] = (int) (Math.random() * 100);
@@ -25,9 +25,9 @@ public class Task20 {
         }
 
         //sort sub arrays
-        for (int lastIndex = array.length - 1; lastIndex >= 1; lastIndex--) {
-            swapElements(array, 0, lastIndex);
-            siftHeap(array, 0, lastIndex);
+        for (int heapSize = array.length - 1; heapSize >= 1; heapSize--) {
+            swapElements(array, 0, heapSize);
+            siftHeap(array, 0, heapSize);
         }
     }
 
