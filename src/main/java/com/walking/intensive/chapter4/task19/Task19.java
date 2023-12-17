@@ -12,36 +12,47 @@ public class Task19 {
         System.out.println(Arrays.toString(sortByQuicksort(array)));
     }
 
-    private static int[] sortByQuicksort(int[] array) {
-        quickSort(array, 0, array.length - 1);
+    public static int[] sortByQuicksort(int[] array) {
+        if (array != null && array.length > 1) {
+            quickSort(array, 0, array.length - 1);
+        }
         return array;
     }
 
     private static void quickSort(int[] array, int left, int right) {
-        if (left >= right) {
-            return;
+        if (left < right) {
+            int pivotIndex = separation(array, left, right);
+            quickSort(array, left, pivotIndex - 1);
+            quickSort(array, pivotIndex + 1, right);
         }
-        
-        int index = separation(array, left, right);
-        quickSort(array, left, index - 1);
-        quickSort(array, index + 1, right);
     }
 
     private static int separation(int[] array, int left, int right) {
-        for (int i = left; i < right; i++) {
-            if (array[i] < array[right]) {
-                swap(array, left, i);
-                left++;
+        int min = array[left];
+        int max = array[right];
+        for (int i = left; i <= right; i++) {
+            if (array[i] < min) min = array[i];
+            if (array[i] > max) max = array[i];
+        }
+        int pivotValue = (min + max) / 2;
+
+        int i = left;
+        int j = right;
+        while (i <= j) {
+            while (array[i] < pivotValue) i++;
+            while (array[j] > pivotValue) j--;
+            if (i <= j) {
+                swap(array, i, j);
+                i++;
+                j--;
             }
         }
-
-        swap(array, left, right);
-        return left;
+        return i;
     }
 
-    private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
