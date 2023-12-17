@@ -30,6 +30,7 @@ public class Task19 {
     private static int separation(int[] array, int left, int right) {
         int min = array[left];
         int max = array[right];
+
         for (int i = left; i <= right; i++) {
             if (array[i] < min) min = array[i];
             if (array[i] > max) max = array[i];
