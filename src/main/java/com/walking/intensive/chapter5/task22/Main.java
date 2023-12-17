@@ -1,6 +1,7 @@
 package com.walking.intensive.chapter5.task22;
 
 import java.io.*;
+import java.net.URL;
 import java.util.*;
 
 /**
@@ -9,26 +10,37 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        String inputFilePath = "/Volumes/Projects/Develop/input.txt";
-        String outputFilePath = "/Volumes/Projects/Develop/output.txt";
+        URL url = new URL("https://followlyrics.com/lyrics/4664742/txt");
+        String lyricsPath = "/Volumes/Projects/Develop/input.txt";
+        String resultFilePath = "/Volumes/Projects/Develop/output.txt";
         List<String> words = new ArrayList<>();
 
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(inputFilePath));
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(outputFilePath))) {
+        try (BufferedReader reader =
+                     new BufferedReader(new InputStreamReader(url.openStream()));
+             BufferedWriter lyricsWriter =
+                     new BufferedWriter(new OutputStreamWriter(new FileOutputStream(lyricsPath)));
+             BufferedWriter resultWriter = new BufferedWriter(new FileWriter(resultFilePath))) {
 
-            while (bufferedReader.ready()) {
-                String[] line = bufferedReader.readLine().split("\\p{Punct}\s|\s");
-                words.addAll(Arrays.asList(line));
+            while (reader.ready()) {
+                String line = reader.readLine();
+
+                lyricsWriter.write(line);
+                lyricsWriter.newLine();
+                System.out.println(line);
+
+                String[] lineArray = line.toLowerCase(Locale.ROOT).split("\\p{Punct}\s|\s");
+                words.addAll(Arrays.asList(lineArray));
             }
 
-            bufferedWriter.write(getMaxFrequencyWords(words));
-            System.out.println(getMaxFrequencyWords(words));
+            String mostFrequentWord = getMostFrequentWords(words);
+            resultWriter.write(mostFrequentWord);
+            System.out.println(mostFrequentWord);
         }
     }
 
-    static String getMaxFrequencyWords(List<String> words) {
+    static String getMostFrequentWords(List<String> words) {
         Map<String, Integer> wordsMap = new HashMap<>();
-        StringBuilder maxFrequencyWords = new StringBuilder();
+        StringBuilder mostFrequentWords = new StringBuilder();
 
         for (String word: words) {
             if (!wordsMap.containsKey(word)) {
@@ -43,13 +55,13 @@ public class Main {
 
         for (Map.Entry<String, Integer> entry: wordsMap.entrySet()) {
             if (entry.getValue().equals(maxFrequency)) {
-                maxFrequencyWords
+                mostFrequentWords
                         .append(entry.getKey())
                         .append(" ")
                         .append(entry.getValue());
             }
         }
 
-        return maxFrequencyWords.toString();
+        return mostFrequentWords.toString();
     }
 }
