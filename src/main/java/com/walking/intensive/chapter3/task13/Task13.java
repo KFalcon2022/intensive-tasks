@@ -3,49 +3,40 @@ package com.walking.intensive.chapter3.task13;
 /**
  * Условие: <a href="https://geometry-math.ru/Java-Watering-Plants.html">ПОЛИВ РАСТЕНИЙ</a>
  */
+
 public class Task13 {
     public static void main(String[] args) {
         int[] plants = {2, 2, 3, 3};
-        int wateringCanVolume = 5;
+        int waterCapacity = 5;
 
-        System.out.println("Необходимое количество шагов: " + getCountSteps(plants, wateringCanVolume));
+        System.out.println("Необходимое количество шагов: " + getCountSteps(plants, waterCapacity));
     }
-
     /**
-     * Получить количество шагов необходимых для полива всех растений.
+     * Получает количество шагов, необходимых для полива всех растений.
      *
-     * @param plants            массив с количеством литров воды необходимому i-му растению
-     * @param wateringCanVolume объем лейки
-     * @return количество шагов необходимое для полива всех растений
-     * Логика работы:
-     * 1. Проходим по всем растениям в массиве plants.
-     * 2. Проверяем, хватает ли воды в лейке для полива текущего растения.
-     * 3. Если воды не хватает, возвращаемся к реке, чтобы наполнить лейку.
-     * 4. После полива каждого растения переходим к следующему, учитывая количество шагов.
-     * 5. После полива последнего растения возвращаемся к начальной точке.
+     * @param plants        массив с количеством литров воды, необходимым каждому растению
+     * @param waterCapacity объем лейки
+     * @return общее количество шагов для полива всех растений
      */
-    static int getCountSteps(int[] plants, int wateringCanVolume) {
+
+    static int getCountSteps(int[] plants, int waterCapacity) {
         int steps = 0; // Общее количество шагов
-        int waterInCan = 0; // Текущее количество воды в лейке
+        int currentWater = waterCapacity; // текущее количество воды в лейке
 
         for (int i = 0; i < plants.length; i++) {
-            if (waterInCan < plants[i]) {
-                // Шаги, чтобы вернуться к реке и наполнить лейку
-                steps += (i + 1) * 2;
+            // Если в лейке недостаточно воды для полива текущего растения
+            if (currentWater < plants[i]) {
+                // Возвращаемся к реке и обратно
+                steps += i * 2;
                 // Наполняем лейку полностью
-                waterInCan = wateringCanVolume;
+                currentWater = waterCapacity;
             }
 
-            // Поливаем растение, и уменьшаем количество воды в лейке
-            waterInCan -= plants[i];
-            // Если это не последнее растение, делаем шаг к следующему
-            if (i < plants.length - 1) {
-                steps++;
-            }
+            // Поливаем растение и уменьшаем объем воды в лейке
+            currentWater -= plants[i];
+            // Шаг к следующему растению
+            steps++;
         }
-
-        // Последний шаг - возвращение к начальной точке после полива последнего растения
-        steps += plants.length;
 
         return steps;
     }
