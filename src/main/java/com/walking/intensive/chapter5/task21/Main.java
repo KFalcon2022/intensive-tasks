@@ -49,10 +49,13 @@ public class Main {
         parallelepipeds.add(parallelepiped7);
         parallelepipeds.add(parallelepiped8);
 
-        checkIntersectionForPairs(spheres,parallelepipeds);
+        for (int i = 0; i < spheres.size(); i++) {
+            System.out.printf("Пересекаются ли сфера %d и параллелепипед %d ? \nответ: %s\n",
+                    i + 1, i + 1, isCheckIntersection(spheres.get(i), parallelepipeds.get(i)) ? "да" : "нет");
+        }
     }
 
-    public static boolean checkIntersection(Sphere sphere, Parallelepiped parallelepiped) {
+    public static boolean isCheckIntersection(Sphere sphere, Parallelepiped parallelepiped) {
         double distance = Math.sqrt(
                 Math.pow(sphere.getX() - Math.max(parallelepiped.getX1(), Math.min(sphere.getX(), parallelepiped.getX2())), 2) +
                         Math.pow(sphere.getY() - Math.max(parallelepiped.getY1(), Math.min(sphere.getY(), parallelepiped.getY2())), 2) +
@@ -64,12 +67,5 @@ public class Main {
                         Math.pow((parallelepiped.getZ2() - parallelepiped.getZ1()) / 2, 2));
 
         return distance <= (sphere.getRadius() + parallelepipedDiagonal);
-    }
-
-    private static void checkIntersectionForPairs(List<Sphere> spheres, List<Parallelepiped> parallelepipeds) {
-        for (int i = 0; i < spheres.size(); i++) {
-            System.out.printf("Пересекаются ли сфера %d и параллелепипед %d ? \nответ: %s\n",
-                    i + 1, i + 1, checkIntersection(spheres.get(i), parallelepipeds.get(i)) ? "да" : "нет");
-        }
     }
 }
