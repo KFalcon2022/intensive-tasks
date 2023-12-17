@@ -16,6 +16,7 @@ public class Task19 {
         if (array != null && array.length > 1) {
             quickSort(array, 0, array.length - 1);
         }
+
         return array;
     }
 
@@ -39,6 +40,7 @@ public class Task19 {
 
         int i = left;
         int j = right;
+
         while (i <= j) {
             while (array[i] < pivotValue) i++;
             while (array[j] > pivotValue) j--;
@@ -48,6 +50,7 @@ public class Task19 {
                 j--;
             }
         }
+
         return i;
     }
 
