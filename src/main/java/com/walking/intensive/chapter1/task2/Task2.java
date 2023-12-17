@@ -13,23 +13,23 @@ package com.walking.intensive.chapter1.task2;
 public class Task2 {
     public static void main(String[] args) {
 
-        int flatNumber = 5;
-        int floorAmount = 2;
+        int flatNumber = 80;
+        int floorAmount = 10;
         int entranceAmount = 2;
-        final int NUMBER_OF_APARTMENTS_PER_FLOOR = 4;
+        final int NUMBER_APARTMENTS_FLOOR = 4;
 
-        System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber, NUMBER_OF_APARTMENTS_PER_FLOOR));
+        System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber, NUMBER_APARTMENTS_FLOOR));
     }
 
-    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber, int NUMBER_OF_APARTMENTS_PER_FLOOR) {
+    static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber, int NUMBER_APARTMENTS_FLOOR) {
 
-        if ((flatNumber < 1) || (flatNumber > (floorAmount * entranceAmount * 4))) {
+        if ((flatNumber < 1) || (flatNumber > (floorAmount * entranceAmount * NUMBER_APARTMENTS_FLOOR))) {
             return ("Такой квартиры не существует");
         }
 
-        int entranceNumber = (int) Math.ceil((double) flatNumber / (floorAmount * NUMBER_OF_APARTMENTS_PER_FLOOR));
+        int entranceNumber = (int) Math.ceil((double) flatNumber / (floorAmount * NUMBER_APARTMENTS_FLOOR));
 
-        int floorNumber = (int) Math.ceil((double) flatNumber / NUMBER_OF_APARTMENTS_PER_FLOOR);
+        int floorNumber = (int) Math.ceil((double) flatNumber / NUMBER_APARTMENTS_FLOOR);
 
         if (floorNumber > floorAmount) {
             if (floorNumber % floorAmount == 0) {
@@ -40,17 +40,17 @@ public class Task2 {
         }
 
         String apartmentPosition = null;
-        if ((flatNumber % NUMBER_OF_APARTMENTS_PER_FLOOR) == 0) {
+        if ((flatNumber % NUMBER_APARTMENTS_FLOOR) == 0) {
+            apartmentPosition = "справа от лифта, вправо";
+        }
+        if ((flatNumber % NUMBER_APARTMENTS_FLOOR) == 1) {
             apartmentPosition = "слева от лифта, влево";
         }
-        if ((flatNumber % NUMBER_OF_APARTMENTS_PER_FLOOR) == 1) {
+        if ((flatNumber % NUMBER_APARTMENTS_FLOOR) == 2) {
             apartmentPosition = "слева от лифта, вправо";
         }
-        if ((flatNumber % NUMBER_OF_APARTMENTS_PER_FLOOR) == 2) {
+        if ((flatNumber % NUMBER_APARTMENTS_FLOOR) == 3) {
             apartmentPosition = "справа от лифта, влево";
-        }
-        if ((flatNumber % NUMBER_OF_APARTMENTS_PER_FLOOR) == 3) {
-            apartmentPosition = "справа от лифта, вправо";
         }
 
         return (flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + " этаж, " + apartmentPosition);
