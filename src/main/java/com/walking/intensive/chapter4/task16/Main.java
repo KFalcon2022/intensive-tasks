@@ -4,43 +4,23 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {13, 8, 6, 1, 0, -8};
+        int[] arr = {13, 8, 6, 1, 0, -8, -9, 180, 75};
         System.out.println(Arrays.toString(getSortArrayByChoice(arr)));
     }
 
     static int[] getSortArrayByChoice(int[] array) {
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length - 1; i++) {
 
-            int temp = array[i];
+            for (int j = i; j <= array.length - 1; j++) {
 
-            for (int j = i; j < array.length; j++) {
-
-                int minValueIndex = getMinValueIndex(array, j);
-
-                if (array[minValueIndex] <= array[i]) {
-                    array[i] = array[minValueIndex];
-                    array[minValueIndex] = temp;
+                if (array[j] < array[i]) {
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
                 }
             }
         }
         return array;
-    }
-
-    static int getMinValueIndex(int[] arr, int index) {
-
-        int minValue = arr[index];
-        int minValueIndex = 0;
-
-        for (int i = index; i < arr.length; i++) {
-
-            if (arr[i] <= minValue) {
-                minValue = arr[i];
-                minValueIndex = i;
-            }
-
-            index++;
-        }
-        return minValueIndex;
     }
 }
