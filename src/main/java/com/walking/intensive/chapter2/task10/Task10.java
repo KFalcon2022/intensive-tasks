@@ -5,30 +5,39 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("Муза, ранясь шилом опыта, ты помолишься на разумы"));
+        System.out.println(isPalindrome("Муза, ранясь шилом опыта, ты помолишься на разум"));
     }
 
     static boolean isPalindrome(String inputString) {
-        char[] chars = new char[inputString.length()];
-        int length = 0;
+        int left = 0;
+        int right = inputString.length() - 1;
+        boolean hasLetter = false;
 
-        for (int i = 0; i < inputString.length(); i++) {
-            char c = inputString.charAt(i);
-            if (Character.isLetter(c)) {
-                chars[length++] = Character.toUpperCase(c);
+        while (left < right) {
+            // Проверяем, является ли символ слева буквой
+            while (left < right && !Character.isLetter(inputString.charAt(left))) {
+                left++;
             }
-        }
 
-        if (length == 0) {
-            return false;
-        }
+            // Проверяем, является ли символ справа буквой
+            while (left < right && !Character.isLetter(inputString.charAt(right))) {
+                right--;
+            }
 
-        for (int i = 0; i < length / 2; i++) {
-            if (chars[i] != chars[length - 1 - i]) {
+            // Проверяем, встретилась ли хотя бы одна буква
+            if (left < right) {
+                hasLetter = true;
+            }
+
+            // Сравниваем символы
+            if (Character.toUpperCase(inputString.charAt(left)) != Character.toUpperCase(inputString.charAt(right))) {
                 return false;
             }
+
+            left++;
+            right--;
         }
 
-        return true;
+        return hasLetter;
     }
 }
