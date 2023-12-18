@@ -14,28 +14,30 @@ public class Task18 {
     private static int[] sortByShaker(int[] array) {
         int left = 0;
         int right = array.length - 1;
+        boolean isChanged;
         do {
+            isChanged = false;
             for (int i = right; i > left; i--) {
-
                 if (array[i] <= array[i - 1]) {
                     int temp = array[i];
                     array[i] = array[i - 1];
                     array[i - 1] = temp;
+                    isChanged = true;
                 }
             }
             right--;
 
             for (int i = left; i <= right; i++) {
-
                 if (array[i] >= array[i + 1]) {
                     int temp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
+                    isChanged = true;
                 }
             }
             left++;
-
-        } while (left < right);
+        }
+        while (left < right || isChanged);
 
         return array;
     }
