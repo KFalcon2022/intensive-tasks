@@ -6,8 +6,10 @@ import java.util.Arrays;
  * Условие: <a href="https://geometry-math.ru/homework/Pyramid-Sort.html">Пирамидальная сортировка</a>
  */
 public class Task20 {
+
     public static void main(String[] args) {
-        int[] testArray = new int[14];
+//        int[] testArray = new int[] {93, 95, 51, 29, 97, 51, 2, 90, 3, 44, 64};
+        int[] testArray = new int[31];
 
         for (int i = 0; i < testArray.length; i++) {
             testArray[i] = (int) (Math.random() * 100);
@@ -44,7 +46,10 @@ public class Task20 {
 
         if (maxValueIndex != -1 && array[parentIndex] < array[maxValueIndex]) {
             swapElements(array, parentIndex, maxValueIndex);
-            siftHeap(array, maxValueIndex, heapSize);
+
+            if ((maxValueIndex * 2 + 1) < heapSize) {
+                siftHeap(array, maxValueIndex, heapSize);
+            }
         }
     }
 
