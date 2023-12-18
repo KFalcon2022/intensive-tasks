@@ -5,24 +5,26 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        System.out.println(isPalindrome("!!! ."));
+        System.out.println(isPalindrome("Муза, ранясь шилом опыта, ты помолишься на разумы"));
     }
 
     static boolean isPalindrome(String inputString) {
-        String stringCleared = "";
+        char[] chars = new char[inputString.length()];
+        int length = 0;
 
         for (int i = 0; i < inputString.length(); i++) {
-            stringCleared += Character.isLetter(inputString.charAt(i)) ?
-                    Character.toUpperCase(inputString.charAt(i)) :
-                    "";
+            char c = inputString.charAt(i);
+            if (Character.isLetter(c)) {
+                chars[length++] = Character.toUpperCase(c);
+            }
         }
 
-        if (stringCleared.length()==0){
+        if (length == 0) {
             return false;
         }
 
-        for (int i =0; i<stringCleared.length()/2-1; i++){
-            if (stringCleared.charAt(i)!=stringCleared.charAt(stringCleared.length()-1-i)){
+        for (int i = 0; i < length / 2; i++) {
+            if (chars[i] != chars[length - 1 - i]) {
                 return false;
             }
         }
