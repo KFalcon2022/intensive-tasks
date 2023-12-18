@@ -5,26 +5,29 @@ package com.walking.intensive.chapter1.task1;
  */
 public class Task1 {
     public static void main(String[] args) {
-        //int age = 0;
+
         for (int age = 500; age <= 700; age++) {
             System.out.println(getAgeString(age));
         }
     }
 
     static String getAgeString(int age) {
-        String tail = "";
-        int lastChar = age % 10;
-        int doubleDec = age % 100;
-        String temp = String.valueOf(age);
 
-        if (lastChar == 0 || (lastChar > 4 && lastChar < 21) || (doubleDec > 4 && doubleDec < 21)) {
-            tail = " лет";
-        } else if (lastChar == 1 && age % 100 != 11) {
-            tail = " год";
-        } else if (lastChar >= 2 && lastChar <= 4) {
-            tail = " года";
+        int lastDigitInAge = age % 10;
+        int lastTwoDigitsInAge = age % 100;
+
+        if (lastDigitInAge == 0) {
+            return "Вам " + age + " лет";
+        } else if (lastDigitInAge > 4 && lastDigitInAge < 21) {
+            return "Вам " + age + " лет";
+        } else if (lastTwoDigitsInAge > 4 && lastTwoDigitsInAge < 21) {
+            return "Вам " + age + " лет";
+        } else if (lastDigitInAge == 1 && age % 100 != 11) {
+            return "Вам " + age + " год";
+        } else if (lastDigitInAge >= 2 && lastDigitInAge <= 4) {
+            return "Вам " + age + " года";
         }
 
-        return "Вам " + age + tail;
+        return "";
     }
 }
