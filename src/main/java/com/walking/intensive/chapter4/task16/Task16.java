@@ -15,7 +15,7 @@ public class Task16 {
         for (int i = 0; i < array.length; i++) {
             int indexMinElement = i;
             for (int j = i + 1; j < array.length; j++) {
-                if (array[j] < array[indexMinElement]) {
+                if (array[indexMinElement] > array[j]) {
                     indexMinElement = j;
                 }
             }
