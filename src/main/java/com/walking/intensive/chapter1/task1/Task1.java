@@ -16,18 +16,14 @@ public class Task1 {
         int lastDigitInAge = age % 10;
         int lastTwoDigitsInAge = age % 100;
 
-        if (lastDigitInAge == 0) {
+        if (lastDigitInAge == 0 || lastDigitInAge >= 5
+                || (lastTwoDigitsInAge > 4 && lastTwoDigitsInAge < 21)) {
             return "Вам " + age + " лет";
-        } else if (lastDigitInAge > 4 && lastDigitInAge < 21) {
-            return "Вам " + age + " лет";
-        } else if (lastTwoDigitsInAge > 4 && lastTwoDigitsInAge < 21) {
-            return "Вам " + age + " лет";
-        } else if (lastDigitInAge == 1 && age % 100 != 11) {
-            return "Вам " + age + " год";
-        } else if (lastDigitInAge >= 2 && lastDigitInAge <= 4) {
-            return "Вам " + age + " года";
         }
 
-        return "";
+        if (lastDigitInAge == 1 && age % 100 != 11) {
+            return "Вам " + age + " год";
+        }
+        return "Вам " + age + " года";
     }
 }
