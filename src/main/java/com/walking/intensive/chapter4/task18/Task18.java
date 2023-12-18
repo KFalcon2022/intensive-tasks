@@ -17,7 +17,9 @@ public class Task18 {
         boolean isChanged;
         do {
             isChanged = false;
+
             for (int i = right; i > left; i--) {
+
                 if (array[i] <= array[i - 1]) {
                     int temp = array[i];
                     array[i] = array[i - 1];
@@ -28,6 +30,7 @@ public class Task18 {
             right--;
 
             for (int i = left; i <= right; i++) {
+
                 if (array[i] >= array[i + 1]) {
                     int temp = array[i];
                     array[i] = array[i + 1];
