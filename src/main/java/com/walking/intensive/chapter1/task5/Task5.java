@@ -6,22 +6,30 @@ import java.util.Arrays;
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
  */
 public class Task5 {
-    public static double[] returnedArray = new double[3];
     public static void main(String[] args) {
+        System.out.println("Heron: " + getAreaByHeron(12, 13, 5));
+        System.out.println("Heron: " + getAreaByHeron(1, 2, 4));
+        System.out.println("Heron: " + getAreaByHeron(2, 2, 4));
     }
 
     static double getAreaByHeron(double a, double b, double c) {
+
+        if ((a + b) <= c || (a + c) <= b || (b + c) <= a) {
+            return 0;
+        }
+
         double p = (a + b + c) / 2;
-        double triangleS = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        return triangleS;
+        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
     static double[] getHeights(double a, double b, double c) {
-        double p = (a + b + c) / 2;
-        double triangleS = 2 * Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        returnedArray[0] = triangleS / a;
-        returnedArray[1] = triangleS / b;
-        returnedArray[2] = triangleS / c;
+
+        double[] returnedArray = new double[3];
+
+        double doubleTriangleArea = 2 * getAreaByHeron(a, b, c);
+        returnedArray[0] = doubleTriangleArea / a;
+        returnedArray[1] = doubleTriangleArea / b;
+        returnedArray[2] = doubleTriangleArea / c;
         Arrays.sort(returnedArray);
 
         return returnedArray;
@@ -32,7 +40,7 @@ public class Task5 {
         double bb = b * b;
         double cc = c * c;
 
-        returnedArray = new double[]{0, 0, 0};
+        double[] returnedArray = new double[]{0, 0, 0};
 
         returnedArray[0] = Math.sqrt(2 * bb + 2 * cc - aa) / 2;
         returnedArray[1] = Math.sqrt(2 * aa + 2 * cc - bb) / 2;
@@ -47,7 +55,7 @@ public class Task5 {
         double ac = a + c;
         double bc = b + c;
 
-        returnedArray = new double[]{0, 0, 0};
+        double[] returnedArray = new double[]{0, 0, 0};
 
         returnedArray[0] = Math.sqrt(a * b * (ab + c) * (ab - c)) / ab; //c
         returnedArray[1] = Math.sqrt(a * c * (ac + b) * (ac - b)) / ac; //b
@@ -58,7 +66,7 @@ public class Task5 {
     }
 
     static double[] getAngles(double a, double b, double c) {
-        returnedArray = new double[]{0, 0, 0};
+        double[] returnedArray = new double[]{0, 0, 0};
 
         returnedArray[0] = Math.toDegrees(Math.acos((b * b + c * c - a * a) / (2 * b * c))); //alpha /a
         returnedArray[1] = Math.toDegrees(Math.acos((a * a + c * c - b * b) / (2 * a * c))); //betta /b
@@ -69,30 +77,20 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        double p = (a + b + c) / 2;
-        double innerRadius = Math.sqrt(((p - a) * (p - b) * (p - c)) / p);
 
-        return innerRadius;
+        return (2 * getAreaByHeron(a, b, c) / (a + b + c));
     }
 
     static double getCircumradius(double a, double b, double c) {
-        double p = (a + b + c) / 2;
-        double outerRadius = (a * b * c) / (4 * Math.sqrt(p * (p - a) * (p - b) * (p - c)));
 
-        return outerRadius;
+        return (a * b * c) / (4 * getAreaByHeron(a, b, c));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
 
         double alpha = Math.toDegrees(Math.acos((b * b + c * c - a * a) / (2 * b * c))); //alpha /a
         double sinAlpha = Math.sqrt(1 - Math.cos(alpha) * Math.cos(alpha));
-        double triangleS = (a * b * sinAlpha) / 2;
 
-        return triangleS;
-    }
-
-    @Override
-    public String toString() {
-        return Arrays.toString(returnedArray);
+        return (a * b * sinAlpha) / 2;
     }
 }

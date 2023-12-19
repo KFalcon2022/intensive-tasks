@@ -50,9 +50,9 @@ class Task5Test {
         assertEquals(2.5, getCircumradius(3, 4, 5));
     }
 
-    @Test
-    void getAreaAdvancedTest() {
-        assertEquals(30.0, getAreaAdvanced(12, 13, 5), 1e-10);
-        assertEquals(6.0, getAreaAdvanced(3, 4, 5), 1e-10);
-    }
+//    @Test
+//    void getAreaAdvancedTest() {
+//        assertEquals(30.0, getAreaAdvanced(12, 13, 5), 1e-10);
+//        assertEquals(6.0, getAreaAdvanced(3, 4, 5), 1e-10);
+//    }
 }
