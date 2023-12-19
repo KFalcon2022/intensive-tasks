@@ -40,7 +40,6 @@ public class Main {
         double closestY = Math.max(parallelepiped.getY1(), Math.min(sphere.getY(), parallelepiped.getY2()));
         double closestZ = Math.max(parallelepiped.getZ1(), Math.min(sphere.getZ(), parallelepiped.getZ2()));
 
-
         double distX = sphere.getX() - closestX;
         double distY = sphere.getY() - closestY;
         double distZ = sphere.getZ() - closestZ;
