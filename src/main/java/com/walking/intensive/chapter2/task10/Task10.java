@@ -5,19 +5,33 @@ package com.walking.intensive.chapter2.task10;
  */
 public class Task10 {
     public static void main(String[] args) {
-        //System.out.println(isPalindrome("Муза! Ранясь шилом опыта, ты помолишься на разум"));
+        System.out.println(isPalindrome("Муза! Ранясь шилом опыта, ты помолишься на разум"));
     }
 
     static boolean isPalindrome(String inputString) {
-        //https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html
-        String temp = inputString.replaceAll("[\\p{Punct}+\\s+]", "").toLowerCase();
-        if (temp.length() < 2) return false;
 
-        String reverse = "";
-        for (int i = temp.length() - 1; i >= 0; i--){
-            reverse += temp.charAt(i);
+        String temporaryString = "";
+        for (int i = 0; i < inputString.length(); i++) {
+
+            if (Character.isLetterOrDigit(inputString.charAt(i))) {
+                temporaryString += inputString.toLowerCase().charAt(i);
+            }
         }
 
-        return temp.equals(reverse);
+        //Прошу прощения за скобки, задания отправлялись разом и многие ошибки тоже.
+        if (temporaryString.length() < 2) {
+            return false;
+        }
+        int start = 0;
+        int end = temporaryString.length() - 1;
+
+        while (start < end) {
+            char stepFwd = temporaryString.charAt(start++);
+            char stepBack = temporaryString.charAt(end--);
+
+            return stepFwd == stepBack;
+        }
+
+        return false;
     }
 }
