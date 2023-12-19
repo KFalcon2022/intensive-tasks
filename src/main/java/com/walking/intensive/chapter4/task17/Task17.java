@@ -12,17 +12,17 @@ public class Task17 {
     }
 
     private static int[] sortByBubble(int[] array) {
-        boolean sort = false;
+        boolean isSorted = false;
         int temp;
 
-        while (!sort) {
-            sort = true;
+        while (!isSorted) {
+            isSorted = true;
             for (int i = 0; i < array.length - 1; i++) {
                 if (array[i] > array[i + 1]) {
                     temp = array[i];
                     array[i] = array[i + 1];
                     array[i + 1] = temp;
-                    sort = false;
+                    isSorted = false;
                 }
             }
         }
