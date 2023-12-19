@@ -27,8 +27,6 @@ public class Task16 {
             }
 
         }
-
-        //return new int[]{};
         return array;
     }
 }
