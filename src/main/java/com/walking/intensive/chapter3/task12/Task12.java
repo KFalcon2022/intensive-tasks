@@ -1,11 +1,13 @@
 package com.walking.intensive.chapter3.task12;
 
+import java.util.Arrays;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-balls.html">МЯЧИКИ</a>
  */
 public class Task12 {
     public static void main(String[] args) {
-
+        System.out.println(Arrays.toString(getNumberOfMovements("110")));
     }
 
     /**
@@ -15,7 +17,24 @@ public class Task12 {
      * @return массив с минимальным количеством операций
      */
     static int[] getNumberOfMovements(String baskets) {
-        // Ваш код
-        return new int[]{};
+
+        int[] basketsArray = new int[baskets.length()];
+        int[] movementsNumber = new int[basketsArray.length];
+
+        for (int i = 0; i < basketsArray.length; i++) {
+            basketsArray[i] = Character.getNumericValue(baskets.charAt(i));
+        }
+
+        for (int i = 0; i < basketsArray.length; i++) {
+            for (int j = 0; j < basketsArray.length; j++) {
+                if (i == j) {
+                    continue;
+                }
+                if (basketsArray[j] == 1) {
+                    movementsNumber[i] = movementsNumber[i] + ((j > i) ? (j - i) : (i - j));
+                }
+            }
+        }
+        return movementsNumber;
     }
 }
