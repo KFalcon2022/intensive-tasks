@@ -1,63 +1,89 @@
 package com.walking.intensive.chapter4.task19;
 
+import java.util.Arrays;
+
 /**
- * Условие: <a href="https://geometry-math.ru/homework/Quicksort.html">Быстрая сортировка - Quicksort</a>
+ * Класс Task19 реализует алгоритм быстрой сортировки (Quicksort).
+ * Алгоритм использует рекурсивное разделение массива на подмассивы вокруг опорных элементов.
+ * Опорный элемент выбирается как среднее между максимальным и минимальным элементами подмассива.
+ * Включает специальную обработку для массивов длиной два.
  */
 public class Task19 {
     public static void main(String[] args) {
-        // Создание и инициализация массива
-        int[] array = {10, 7, 8, 9, 1, 5, -100, 1000};
-        // Вызов метода быстрой сортировки
+        int[] array = {10, 7, 8000, 9000, 1, 5, 11, 10};
         sortByQuicksort(array, 0, array.length - 1);
-        // Вывод отсортированного массива
-        for (int value : array) {
-            System.out.print(value + " ");
-        }
+        System.out.println(Arrays.toString(array));
     }
 
-    // Метод быстрой сортировки
+    /**
+     * Реализует алгоритм быстрой сортировки (Quicksort).
+     * Рекурсивно разделяет массив на подмассивы, сортируя их вокруг опорных элементов.
+     * Особое внимание уделяется массивам длиной два.
+     *
+     * @param array Массив, который необходимо отсортировать.
+     * @param begin Начальный индекс подмассива для сортировки.
+     * @param end Конечный индекс подмассива для сортировки.
+     */
     private static void sortByQuicksort(int[] array, int begin, int end) {
-        // Проверка условия для рекурсии
         if (begin < end) {
-            // Вычисление индекса разделения
-            int partitionIndex = partition(array, begin, end);
-            // Рекурсивный вызов для левой части массива
-            sortByQuicksort(array, begin, partitionIndex - 1);
-            // Рекурсивный вызов для правой части массива
-            sortByQuicksort(array, partitionIndex + 1, end);
+            if (end - begin == 1) {
+                if (array[begin] > array[end]) {
+                    swap(array, begin, end);
+                }
+            } else {
+                int partitionIndex = partition(array, begin, end);
+                sortByQuicksort(array, begin, partitionIndex - 1);
+                sortByQuicksort(array, partitionIndex, end); // Обновлено для включения partitionIndex
+            }
         }
     }
 
-    // Метод для разделения массива
+    /**
+     * Разделяет массив на две части вокруг опорного элемента.
+     * Элементы, меньшие опорного, перемещаются в левую часть,
+     * а элементы, большие или равные опорному - в правую.
+     * Опорный элемент выбирается как среднее значение между максимальным и минимальным элементами подмассива.
+     *
+     * @param array Массив для сортировки.
+     * @param begin Начальный индекс подмассива.
+     * @param end Конечный индекс подмассива.
+     * @return Индекс, разделяющий массив на две части.
+     */
     private static int partition(int[] array, int begin, int end) {
-        // Нахождение минимального и максимального элементов в массиве
         int min = array[begin], max = array[begin];
         for (int i = begin + 1; i <= end; i++) {
             if (array[i] > max) {
                 max = array[i];
-            } else if (array[i] < min) {
+            }
+            if (array[i] < min) {
                 min = array[i];
             }
         }
-        // Вычисление опорного элемента как среднее между max и min
         int pivot = (max + min) / 2;
-        // Инициализация указателей
+
         int i = begin, j = end;
-        // Цикл разделения
         while (i <= j) {
-            // Перемещение указателей
             while (array[i] < pivot) i++;
             while (array[j] > pivot) j--;
-            // Обмен элементов
             if (i <= j) {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+                swap(array, i, j);
                 i++;
                 j--;
             }
         }
-        // Возвращение индекса разделения
         return i;
+    }
+
+    /**
+     * Меняет местами два элемента в массиве.
+     *
+     * @param array Массив, в котором происходит обмен.
+     * @param i Индекс первого элемента для обмена.
+     * @param j Индекс второго элемента для обмена.
+     */
+    private static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
     }
 }
