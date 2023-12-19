@@ -14,7 +14,7 @@ public class Task18 {
     private static int[] sortByShaker(int[] array) {
         int right = array.length;
         int left = 0;
-        int count = 0;
+        int elementRearrangement = 0;
 
         for (int i = left; i < right; i++) {
             for (int j = left + 1; j < right; j++) {
@@ -23,7 +23,7 @@ public class Task18 {
                 if (array[j - 1] > array[j]) {
                     array[j - 1] = array[j];
                     array[j] = temp;
-                    count++;
+                    elementRearrangement++;
                 }
             }
             right--;
@@ -34,16 +34,16 @@ public class Task18 {
                 if(array[j] < array[j - 1]){
                     array[j] = array[j - 1];
                     array[j - 1] = temp;
-                    count++;
+                    elementRearrangement++;
                 }
             }
             left++;
 
-            if(count == 0){
+            if(elementRearrangement == 0){
                 break;
             }
 
-            count = 0;
+            elementRearrangement = 0;
         }
 
         return array;
