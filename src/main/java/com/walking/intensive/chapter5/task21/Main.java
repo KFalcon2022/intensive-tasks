@@ -51,21 +51,19 @@ public class Main {
 
         for (int i = 0; i < spheres.size(); i++) {
             System.out.printf("Пересекаются ли сфера %d и параллелепипед %d ? \nответ: %s\n",
-                    i + 1, i + 1, isCheckIntersection(spheres.get(i), parallelepipeds.get(i)) ? "да" : "нет");
+                    i + 1, i + 1, isIntersection(spheres.get(i), parallelepipeds.get(i)) ? "да" : "нет");
         }
     }
 
-    public static boolean isCheckIntersection(Sphere sphere, Parallelepiped parallelepiped) {
-        double distance = Math.sqrt(
-                Math.pow(sphere.getX() - Math.max(parallelepiped.getX1(), Math.min(sphere.getX(), parallelepiped.getX2())), 2) +
-                        Math.pow(sphere.getY() - Math.max(parallelepiped.getY1(), Math.min(sphere.getY(), parallelepiped.getY2())), 2) +
-                        Math.pow(sphere.getZ() - Math.max(parallelepiped.getZ1(), Math.min(sphere.getZ(), parallelepiped.getZ2())), 2));
+    public static boolean isIntersection(Sphere sphere, Parallelepiped parallelepiped) {
+        double closestX = Math.max(parallelepiped.getX1(), Math.min(sphere.getX(), parallelepiped.getX2()));
+        double closestY = Math.max(parallelepiped.getY1(), Math.min(sphere.getY(), parallelepiped.getY2()));
+        double closestZ = Math.max(parallelepiped.getZ1(), Math.min(sphere.getZ(), parallelepiped.getZ2()));
 
-        double parallelepipedDiagonal = Math.sqrt(
-                Math.pow((parallelepiped.getX2() - parallelepiped.getX1()) / 2, 2) +
-                        Math.pow((parallelepiped.getY2() - parallelepiped.getY1()) / 2, 2) +
-                        Math.pow((parallelepiped.getZ2() - parallelepiped.getZ1()) / 2, 2));
+        double distX = sphere.getX() - closestX;
+        double distY = sphere.getY() - closestY;
+        double distZ = sphere.getZ() - closestZ;
 
-        return distance <= (sphere.getRadius() + parallelepipedDiagonal);
+        return (distX * distX + distY * distY + distZ * distZ) < (sphere.getRadius() * sphere.getRadius());
     }
 }
