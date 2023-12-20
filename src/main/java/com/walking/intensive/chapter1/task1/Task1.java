@@ -1,59 +1,30 @@
 package com.walking.intensive.chapter1.task1;
 
 /**
- * Условие: <a href="https://geometry-math.ru/homework/Java-age.html">ссылка</a>
+ * Условие:
  */
 public class Task1 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 127;
-
-
+        int age = 122;
         System.out.println(getAgeString(age));
-
     }
 
     static String getAgeString(int age) {
-        if (age == 1) {
-            System.out.print(age);
-            System.out.println(" год");
-        }
-        if (age == 111) {
-            System.out.print(age);
-            System.out.println(" лет");
-        }
-        if (age >= 2 && age <= 4) {
-            System.out.print(age);
-            System.out.println(" года");
-        }
-        if (age >= 5 && age <= 20) {
-            System.out.print(age);
-            System.out.println(" лет");
-        }
-        if (age >= 112 && age <= 120) {
-            System.out.print(age);
-            System.out.println(" лет");
-        }
-        int x = 500;
-        if (age > 21 && age < 111) {
-            x = age % 10;
-        }
-        if (age > 111) {
-            x = age % 10;
+        int x = age;
+        if (x >= 100) {
+            x -= 100;
         }
         if (x == 1) {
-            System.out.print(age);
-            System.out.println(" год");
+            return "Вам " + age + " год";
         }
-        if (x >= 2 && x < 5) {
-            System.out.print(age);
-            System.out.println(" года");
+        if (x > 4 && x <= 20 || x == 0) {
+            return "Вам " + age + " лет";
         }
-        if (x >= 5 && x <= 20) {
-            System.out.print(age);
-            System.out.println(" лет");
+        if (x % 10 > 4 && x % 10 < 10 || x % 10 == 0) {
+            return "Вам " + age + " лет";
         }
-
-        return null; // Заглушка. При реализации - удалить
+        if (x % 10 == 1) {
+            return "Вам " + age + " год";
+        } else return "Вам " + age + " года";
     }
 }
