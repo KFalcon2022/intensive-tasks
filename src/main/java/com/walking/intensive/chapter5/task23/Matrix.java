@@ -11,18 +11,6 @@ public class Matrix {
         this.columns = data[0].length;
     }
 
-    public Matrix(int rows, int columns) {
-        this.rows = rows;
-        this.columns = columns;
-        this.data = new int[rows][columns];
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-                data[i][j] = (int) (Math.random() * 20 - 10);
-            }
-        }
-    }
-
     public Matrix(int extractedRow, int extractedColumn, Matrix baseMatrix) {
         this.rows = baseMatrix.rows - 1;
         this.columns = baseMatrix.columns -1;
@@ -34,12 +22,12 @@ public class Matrix {
             int columnCoef = 0;
 
             if (i == extractedRow) {
-                rowCoef++;
+                rowCoef = 1;
             }
 
             for (int j = 0; j < columns; j++) {
                 if (j == extractedColumn) {
-                    columnCoef++;
+                    columnCoef = 1;
                 }
                 data[i][j] = baseMatrix.data[i + rowCoef][j + columnCoef];
             }
@@ -79,3 +67,17 @@ public class Matrix {
         return (rows == columns);
     }
 }
+
+    /* конструктор случайной матрицы - не стирать
+    public Matrix(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
+        this.data = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                data[i][j] = (int) (Math.random() * 20 - 10);
+            }
+        }
+    }
+*/
