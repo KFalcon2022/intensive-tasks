@@ -25,6 +25,8 @@ public class Task1 {
         }
         if (x % 10 == 1) {
             return "Вам " + age + " год";
-        } else return "Вам " + age + " года";
+        } else{
+            return "Вам " + age + " года";
+        }
     }
 }
