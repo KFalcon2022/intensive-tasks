@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task9;
  */
 public class Task9 {
     public static void main(String[] args) {
-        printPascalTriangle(getPascalTriangle(10));
+        printPascalTriangle(getPascalTriangle(56));
     }
 
     static String[][] getPascalTriangle(int n) {
