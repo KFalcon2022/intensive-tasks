@@ -10,10 +10,10 @@ public class Main {
     public static void main(String[] args) {
         StringBuilder fileText = new StringBuilder();
         try {
-            File input = new File("C:\\Users\\aksen\\Documents\\JavaIntensivLearning\\intensive-tasks\\src\\main\\java\\com\\walking\\intensive\\chapter5\\task22\\input.txt");
+            File input = new File(".\\src\\main\\java\\com\\walking\\intensive\\chapter5\\task22\\input.txt");
             Scanner myScanner = new Scanner(input);
             while (myScanner.hasNextLine()) {
-                fileText.append(myScanner.nextLine());
+                fileText.append(myScanner.nextLine()).append(" ");
             }
             myScanner.close();
         } catch (FileNotFoundException e) {
@@ -21,7 +21,7 @@ public class Main {
             e.printStackTrace();
         }
         try {
-            File myObj = new File("C:\\Users\\aksen\\Documents\\JavaIntensivLearning\\intensive-tasks\\src\\main\\java\\com\\walking\\intensive\\chapter5\\task22\\output.txt");
+            File myObj = new File(".\\src\\main\\java\\com\\walking\\intensive\\chapter5\\task22\\output.txt");
             FileWriter myWriter = new FileWriter(myObj);
             myWriter.write(wordUsedMax(fileText));
             myWriter.close();
