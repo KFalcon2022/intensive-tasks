@@ -8,7 +8,7 @@ public class Main {
         Sphere sphereOne = new Sphere(5, 2, 3, 4);
         Parallelepiped parOne = new Parallelepiped(5, 2, 5, 3, 2, 1);
         Parallelepiped parTwo = new Parallelepiped(-5, -10, -6, -20, -5, -7);
-        Parallelepiped parThree = new Parallelepiped(10,10,10,12,12,12);
+        Parallelepiped parThree = new Parallelepiped(10, 10, 10, 12, 12, 12);
         Parallelepiped parFour = new Parallelepiped(9, 2, 3, 15, 16, 20);
 
         System.out.println(isSphereAndParallelepipedCrossed(sphereOne, parOne));
@@ -33,15 +33,13 @@ public class Main {
     }
 
     public static boolean isSphereInside(Sphere sphere, Parallelepiped parallelepiped) {
-        boolean isInside = true;
-
         for (int i = 0; i < parallelepiped.getHeights().length; i++) {
             if (distanceBetweenPoints(sphere.getCenter(), parallelepiped.getHeights()[i]) > Math.pow(sphere.getRadius(), 2)) {
-                isInside = false;
+                return false;
             }
         }
 
-        return isInside;
+        return true;
     }
 
     public static boolean isHeightCrossed(Sphere sphere, Parallelepiped parallelepiped) {
@@ -56,8 +54,6 @@ public class Main {
     }
 
     public static boolean isSideCrossed(Sphere sphere, Parallelepiped parallelepiped) {
-        boolean isCrossed = false;
-
         for (int i = 0; i < parallelepiped.getSides().length; i++) { // Определяем плоскость грани и точку пересечения
             int[][] side = parallelepiped.getSides()[i]; // Просто чтобы удобней запись была
             int[] crossPoint = {sphere.getCenter()[0], sphere.getCenter()[1], sphere.getCenter()[2]};
@@ -81,7 +77,7 @@ public class Main {
             }
         }
 
-        return isCrossed;
+        return false;
     }
 
 
