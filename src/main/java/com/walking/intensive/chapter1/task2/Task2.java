@@ -7,38 +7,40 @@ public class Task2 {
     public static void main(String[] args) {
     }
 
-    //        Для собственных проверок можете делать любые изменения в этом методе
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        int flat = 1;
-        boolean flag = false;
-        int[][][] mass = new int[entranceAmount][floorAmount][4];
-        for (int i = 0; i < entranceAmount; i++) {
-            for (int j = 0; j < floorAmount; j++) {
-                for (int k = 0; k < 4; k++) {
-                    mass[i][j][k] = flat++;
-                }
+        int flat = flatNumber, pod = 0, floor = 0;
+        String n = null;
+        if (flatNumber < 0 || flatNumber > (floorAmount * entranceAmount * 4)) {
+            return ("Такой квартиры не существует");
+        } else {
+            for (int i = flatNumber; i > 0; i -= 4 * floorAmount) {
+                pod++;
             }
-        }
-        for (int i = 0; i < entranceAmount; i++) {
-            for (int j = 0; j < floorAmount; j++) {
-                for (int k = 0; k < 4; k++) {
-                    if (flatNumber == mass[i][j][k] && k == 0) {
-                        return (flatNumber + " кв - " + (i + 1) + " подъезд, " + (j + 1) + " этаж, слева от лифта, влево");
-                    }
-                    if (flatNumber == mass[i][j][k] && k == 1) {
-                        return (flatNumber + " кв - " + (i + 1) + " подъезд, " + (j + 1) + " этаж, слева от лифта, вправо");
-                    }
-                    if (flatNumber == mass[i][j][k] && k == 2) {
-                        return (flatNumber + " кв - " + (i + 1) + " подъезд, " + (j + 1) + " этаж, справа от лифта, влево");
-                    }
-                    if (flatNumber == mass[i][j][k] && k == 3) {
-                        return (flatNumber + " кв - " + (i + 1) + " подъезд, " + (j + 1) + " этаж, справа от лифта, вправо");
-                    } else {
-                        flag = true;
-                    }
-                }
+            for (int i = flatNumber; i > 0; i -= 4) {
+                flat = i;
             }
+            for (int i = 0; i < flatNumber; i += 4) {
+                floor++;
+            }
+            if (floor > floorAmount) {
+                floor = floor - (pod - 1) * floorAmount;
+            }
+
+            switch (flat) {
+                case 1:
+                    n = " этаж, слева от лифта, влево";
+                    break;
+                case 2:
+                    n = " этаж, слева от лифта, вправо";
+                    break;
+                case 3:
+                    n = " этаж, справа от лифта, влево";
+                    break;
+                case 4:
+                    n = " этаж, справа от лифта, вправо";
+                    break;
+            }
+            return (flatNumber + " кв - " + pod + " подъезд, " + floor + n);
         }
-        return (flag ? "Такой квартиры не существует" : "");
     }
 }
