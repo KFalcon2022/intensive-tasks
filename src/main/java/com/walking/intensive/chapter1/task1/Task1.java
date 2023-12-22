@@ -1,19 +1,32 @@
 package com.walking.intensive.chapter1.task1;
 
 /**
- * Условие: <a href="https://geometry-math.ru/homework/Java-age.html">ссылка</a>
+ * Условие:
  */
 public class Task1 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 0;
-
+        int age = 122;
         System.out.println(getAgeString(age));
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
-
-        return null; // Заглушка. При реализации - удалить
+        int x = age;
+        if (x >= 100) {
+            x -= 100;
+        }
+        if (x == 1) {
+            return "Вам " + age + " год";
+        }
+        if (x > 4 && x <= 20 || x == 0) {
+            return "Вам " + age + " лет";
+        }
+        if (x % 10 > 4 && x % 10 < 10 || x % 10 == 0) {
+            return "Вам " + age + " лет";
+        }
+        if (x % 10 == 1) {
+            return "Вам " + age + " год";
+        } else{
+            return "Вам " + age + " года";
+        }
     }
 }
