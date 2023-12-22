@@ -8,7 +8,7 @@ public class Matrix {
     public Matrix(int[][] data) {
         this.data = data;
         this.rows = data.length;
-        this.columns = data[0].length;
+        this.columns = (rows == 0) ? 0 : data[0].length;
     }
 
     public Matrix(int extractedRow, int extractedColumn, Matrix baseMatrix) {
@@ -64,7 +64,20 @@ public class Matrix {
     }
 
     public boolean isSquare() {
-        return (rows == columns);
+        boolean isSquare = true;
+
+        if (rows == 0 || columns == 0) {
+            isSquare = false;
+        } else {
+            for (int i = 0; i < rows; i++) {
+                if (data[i].length != rows) {
+                    isSquare = false;
+                    break;
+                }
+            }
+        }
+
+        return isSquare;
     }
 }
 

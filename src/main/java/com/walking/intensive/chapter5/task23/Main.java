@@ -8,13 +8,24 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        Matrix matrix = new Matrix(new int[][]{{2, -5, 3, 4},
-                                               {1, 9, 0, 8},
-                                               {-3, 7, 5, 4},
-                                               {5, -6, -3, 3}});
+        Matrix matrix1 = new Matrix(new int[0][0]);
+        System.out.println(Arrays.deepToString(matrix1.getData()));
+        System.out.println(matrix1.getDeterminant() + "\n");
 
-        System.out.println(Arrays.deepToString(matrix.getData()));
-        System.out.println(matrix.getDeterminant());
+        Matrix matrix2 = new Matrix(new int[][]{{2, -5, 3, 4},
+                                               {1, 9, 0, 8},
+                                               {-3, 7, 5},
+                                               {5, -6, -3, 3}});
+        System.out.println(Arrays.deepToString(matrix2.getData()));
+        System.out.println(matrix2.getDeterminant() + "\n");
+
+        Matrix matrix3 = new Matrix(new int[][]{{2, -5, 3, 4},
+                                               {1, 9, 0, 8},
+                                               {-3, 7, 5, 6},
+                                               {5, -6, -3, 3}});
+        System.out.println(Arrays.deepToString(matrix3.getData()));
+        System.out.println(matrix3.getDeterminant() + "\n");
+
     }
 }
 
