@@ -19,14 +19,14 @@ public class Sphere {
         //проверка, что сфера полностью внутри пипеда
         if (parallelepiped.getMinX() < x - radius && parallelepiped.getMaxX() > x + radius // если сфера вписывается в пипед по оси Х
                 && parallelepiped.getMinY() < y - radius && parallelepiped.getMaxY() > y + radius // и сфера вписывается по оси Y
-                && parallelepiped.getMinZ() < z - radius && parallelepiped.getMaxZ() > z + radius) { // и сфера вписывается по оси Y
+                && parallelepiped.getMinZ() < z - radius && parallelepiped.getMaxZ() > z + radius) { // и сфера вписывается по оси Z
             return false; // то сфера полностью внутри пипеда и не пересекает его
         }
 
         //проверка, что пипед полностью внутри сферы
         if (x - radius < parallelepiped.getMinX() && x + radius > parallelepiped.getMaxX() // если пипед вписывается в сферу по оси Х
                 && y - radius < parallelepiped.getMinY() && y + radius > parallelepiped.getMaxY() // и пипед вписывается по оси Y
-                && z - radius < parallelepiped.getMinZ() && z + radius > parallelepiped.getMaxZ()) { // и пипед вписывается по оси Y
+                && z - radius < parallelepiped.getMinZ() && z + radius > parallelepiped.getMaxZ()) { // и пипед вписывается по оси Z
             return false; // то пипед полностью внутри сферы и не пересекает ее
         }
 
@@ -49,6 +49,6 @@ public class Sphere {
     public boolean isIntersectedAxisZ(Parallelepiped parallelepiped) {
         return parallelepiped.getMinZ() <= z && parallelepiped.getMaxZ() >= z  // если Z центра окружности находится между крайними Z пипеда
                 || parallelepiped.getMinZ() >= z - radius && parallelepiped.getMinZ() <= z + radius // или если minZ пипеда находится между крайними Z сферы
-                || parallelepiped.getMaxZ() >= z - radius && parallelepiped.getMaxX() <= z + radius; // или если maxZ пипеда находится между крайними Z сферы
+                || parallelepiped.getMaxZ() >= z - radius && parallelepiped.getMaxZ() <= z + radius; // или если maxZ пипеда находится между крайними Z сферы
     }
 }
