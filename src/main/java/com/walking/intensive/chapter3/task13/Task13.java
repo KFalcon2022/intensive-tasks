@@ -6,7 +6,6 @@ package com.walking.intensive.chapter3.task13;
 public class Task13 {
     public static void main(String[] args) {
         System.out.println(getCountSteps(new int[]{7, 7, 7, 7, 7, 7, 7}, 8));
-
     }
 
     /**
@@ -42,7 +41,7 @@ public class Task13 {
         int waterAmount = wateringCanVolume;
 
         for (int j = 0; j < plants.length; j++) {
-            if (waterAmount != 0 || waterAmount >= plants[j]) {
+            if (!(waterAmount == 0 || waterAmount < plants[j])) {
                 stepsAmount++;
 
                 if (plants[j] == 0) {
