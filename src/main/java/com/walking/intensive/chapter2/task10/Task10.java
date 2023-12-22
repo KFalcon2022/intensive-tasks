@@ -15,7 +15,7 @@ public class Task10 {
     static boolean isPalindrome(String inputString) {
 
         int charChecker = 0;
-        for (int i = 0; i < inputString.length() - 1; i++){
+        for (int i = 0; i < inputString.length(); i++){
             if (Character.isLetter(inputString.charAt(i))){
                 charChecker++;
             }
