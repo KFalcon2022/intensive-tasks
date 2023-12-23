@@ -15,13 +15,17 @@ public class Main {
     }
 
     public static boolean isIntersectingSphereAndParallelepiped(Sphere sphere, Parallelepiped parallelepiped) {
-        boolean isThereCommonPoints =
-                (sphere.getXAxisCoordinate() >= parallelepiped.getXAxisCoordinate1() &&
-                        sphere.getXAxisCoordinate() <= parallelepiped.getXAxisCoordinate2()) &&
-                        (sphere.getYAxisCoordinate() >= parallelepiped.getYAxisCoordinate1() &&
-                                sphere.getYAxisCoordinate() <= parallelepiped.getYAxisCoordinate2()) &&
-                        (sphere.getZAxisCoordinate() >= parallelepiped.getZAxisCoordinate1() &&
-                                sphere.getZAxisCoordinate() <= parallelepiped.getZAxisCoordinate2());
+        boolean isThereCommonPoints = false;
+
+        if ((sphere.getXAxisCoordinate() >= parallelepiped.getXAxisCoordinate1() &&
+                sphere.getXAxisCoordinate() <= parallelepiped.getXAxisCoordinate2()) &&
+                (sphere.getYAxisCoordinate() >= parallelepiped.getYAxisCoordinate1() &&
+                        sphere.getYAxisCoordinate() <= parallelepiped.getYAxisCoordinate2()) &&
+                (sphere.getZAxisCoordinate() >= parallelepiped.getZAxisCoordinate1() &&
+                        sphere.getZAxisCoordinate() <= parallelepiped.getZAxisCoordinate2())) {
+
+            isThereCommonPoints = true;
+        }
 
         int[][] pointsCoordinates = parallelepiped.getPointsCoordinatesArray();
 
