@@ -18,8 +18,7 @@ public class Task18 {
     }
 
     static int[] getShakerSortedArray(int[] array, int arrayLength, int lastMinValueCheckIndex) {
-        boolean isSortedMax = true;
-        boolean isSortedMin = true;
+        boolean isSorted = true;
 
         for (int i = lastMinValueCheckIndex; i < arrayLength - 1; i++) {
             int nextIndex = i + 1;
@@ -29,13 +28,15 @@ public class Task18 {
                 array[i] = array[nextIndex];
                 array[nextIndex] = temp;
 
-                isSortedMax = false;
+                isSorted = false;
             }
         }
 
-        if (isSortedMax) {
+        if (isSorted) {
             return array;
         }
+
+        isSorted = true;
 
         for (int i = arrayLength - 2; i > lastMinValueCheckIndex; i--) {
             int previousIndex = i - 1;
@@ -45,11 +46,11 @@ public class Task18 {
                 array[i] = array[previousIndex];
                 array[previousIndex] = temp;
 
-                isSortedMin = false;
+                isSorted = false;
             }
         }
 
-        if (isSortedMin) {
+        if (isSorted) {
             return array;
         }
 
