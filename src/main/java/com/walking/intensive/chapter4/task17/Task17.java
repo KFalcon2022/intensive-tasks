@@ -14,8 +14,10 @@ public class Task17 {
 
     private static int[] sortByBubble(int[] array) {
         int minValue;
+
         for (int i = 0; i < array.length; i++) {
             int counter = 0;
+
             for (int j = 0; j < array.length - 1; j++) {
                 if (array[j] > array[j + 1]) {
                     minValue = array[j + 1];
