@@ -5,17 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class LyricsAnalyzer {
+public class TextAnalyzer {
 
-    static String getMostFrequentWords(List<String> words) {
-        Map<String, Integer> wordsMap = new HashMap<>();
-        StringBuilder mostFrequentWords = new StringBuilder();
 
-        for (String word: words) {
-            wordsMap.compute(word, (key, value) -> (value == null) ? 1 : value + 1);
-        }
+    String analyzeText(List<String> words) {
+        HashMap<String, Integer> wordsMap = new HashMap<>();
+        words.forEach(word -> wordsMap.compute(word, (key, value) -> value == null ? 1 : value + 1));
 
+        return getMostFrequentWords(wordsMap);
+    }
+
+    private String getMostFrequentWords(HashMap<String, Integer> wordsMap) {
         int maxFrequency = Collections.max(wordsMap.values());
+        StringBuilder mostFrequentWords = new StringBuilder();
 
         for (Map.Entry<String, Integer> entry: wordsMap.entrySet()) {
             if (entry.getValue().equals(maxFrequency)) {
@@ -27,5 +29,4 @@ public class LyricsAnalyzer {
 
         return mostFrequentWords.toString();
     }
-
 }

@@ -9,30 +9,16 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        String lyricsPath = "input.txt";
-        String resultFilePath = "output.txt";
+        List<String> wordsList;
+        FileUtilities fileUtilities = new FileUtilities();
+        WordUtilities wordUtilities = new WordUtilities();
+        final String inputFilePath = "input.txt";
+        wordsList = wordUtilities.makeWordsList(fileUtilities.readFile(inputFilePath));
 
-        writeResult(resultFilePath, LyricsAnalyzer.getMostFrequentWords(readFile(lyricsPath)));
-    }
+        TextAnalyzer textAnalyzer = new TextAnalyzer();
+        String analysisResult = textAnalyzer.analyzeText(wordsList);
 
-    static List<String> readFile(String readPath) throws IOException {
-        List<String> words = new ArrayList<>();
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(readPath))) {
-            while (reader.ready()) {
-                String line = reader.readLine();
-                String[] lineArray = line.toLowerCase(Locale.ROOT)
-                        .split("\\p{Punct}\s|\s");
-                words.addAll(Arrays.asList(lineArray));
-            }
-        }
-
-        return words;
-    }
-
-    static void writeResult(String writePath, String result) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(writePath))) {
-            writer.write(result);
-        }
+        final String resultFilePath = "output.txt";
+        fileUtilities.writeResult(resultFilePath, analysisResult);
     }
 }
