@@ -5,16 +5,12 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Sphere sphereOne = new Sphere(5, 2, 3, 4);
-        Parallelepiped parOne = new Parallelepiped(5, 2, 5, 3, 2, 1);
-        Parallelepiped parTwo = new Parallelepiped(-5, -10, -6, -20, -5, -7);
-        Parallelepiped parThree = new Parallelepiped(10, 10, 10, 12, 12, 12);
-        Parallelepiped parFour = new Parallelepiped(9, 2, 3, 15, 16, 20);
+        Sphere sphereOne = new Sphere(0, 0, 0, 3);
+        Parallelepiped parOne = new Parallelepiped(-4, -4, -4, 4, 4, 4);
+
 
         System.out.println(isSphereAndParallelepipedCrossed(sphereOne, parOne));
-        System.out.println(isSphereAndParallelepipedCrossed(sphereOne, parTwo));
-        System.out.println(isSphereAndParallelepipedCrossed(sphereOne, parThree));
-        System.out.println(isSphereAndParallelepipedCrossed(sphereOne, parFour));
+
 
     }
 
@@ -33,13 +29,21 @@ public class Main {
     }
 
     public static boolean isSphereInside(Sphere sphere, Parallelepiped parallelepiped) {
-        for (int i = 0; i < parallelepiped.getHeights().length; i++) {
-            if (distanceBetweenPoints(sphere.getCenter(), parallelepiped.getHeights()[i]) > Math.pow(sphere.getRadius(), 2)) {
-                return false;
-            }
-        }
+        // Сфера внутри, если центр сферы находится от минимальной по всем координатам вершины параллелепипеда до максимальной
+        // Для наглядности создадим переменные
+        int sphereX = sphere.getCenter()[0];
+        int sphereY = sphere.getCenter()[1];
+        int sphereZ = sphere.getCenter()[2];
 
-        return true;
+        int maxHeightX = parallelepiped.getHeights()[6][0];
+        int maxHeightY = parallelepiped.getHeights()[6][1];
+        int maxHeightZ = parallelepiped.getHeights()[6][2];
+
+        int minHeightX = parallelepiped.getHeights()[0][0];
+        int minHeightY = parallelepiped.getHeights()[0][1];
+        int minHeightZ = parallelepiped.getHeights()[0][2];
+
+        return ((minHeightX <= sphereX) && (minHeightY <= sphereY) && (minHeightZ <= sphereZ)) && ((sphereX <= maxHeightX) && (sphereY <= maxHeightY) && (sphereZ <= maxHeightZ));
     }
 
     public static boolean isHeightCrossed(Sphere sphere, Parallelepiped parallelepiped) {
