@@ -21,12 +21,12 @@ public class Parallelepiped {
         // у [0] и [1] у всех точек одинаковый [][][0], [2] и [3] одинаковый [][][1], [4] и [5] одинаковый [][][2]
 
         this.sides = new int[][][]{
-                {heights[0], heights[4], heights[5], heights[1]},
-                {heights[3], heights[7], heights[6], heights[2]},
-                {heights[4], heights[5], heights[6], heights[7]},
-                {heights[0], heights[1], heights[2], heights[3]},
-                {heights[0], heights[4], heights[7], heights[3]},
-                {heights[1], heights[5], heights[6], heights[2]}
+                {heights[0], heights[5]},
+                {heights[3], heights[6]},
+                {heights[4], heights[6]},
+                {heights[0], heights[2]},
+                {heights[0], heights[7]},
+                {heights[1], heights[6]}
         }; // Я так понял, что мог бы и обойтись диагоналями, но уже ладно
 
         this.lines = new int[][][]{

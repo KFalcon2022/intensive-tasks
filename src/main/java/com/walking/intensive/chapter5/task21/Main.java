@@ -70,9 +70,9 @@ public class Main {
             int[][] line = parallelepiped.getLines()[i]; // для наглядности
             int[] crossPoint = {sphere.getCenter()[0], sphere.getCenter()[1], sphere.getCenter()[2]};
 
-            if (line[0][0] == line[1][0] && line[0][0] == line[1][1]){ // Не знаю, как правильно назвать, проецирую центр шара на прямую отрезка
+            if (line[0][0] == line[1][0] && line[0][0] == line[1][1]) { // Не знаю, как правильно назвать, проецирую центр шара на прямую отрезка
                 crossPoint[0] = crossPoint[1] = line[0][0];
-            } else if (line[0][0] == line[1][0] && line[0][0] == line[1][2]){
+            } else if (line[0][0] == line[1][0] && line[0][0] == line[1][2]) {
                 crossPoint[0] = crossPoint[2] = line[0][0];
             } else {
                 crossPoint[1] = crossPoint[2] = line[0][1];
@@ -80,12 +80,12 @@ public class Main {
 
             if (distanceBetweenPoints(sphere.getCenter(), crossPoint) <= Math.pow(sphere.getRadius(), 2)) {
                 // Если расстояние от точки пересечения с прямой до центра шара меньше радиуса
-                if (isPointOnSide(crossPoint, line)){
+                if (isPointOnSide(crossPoint, line)) {
                     // Не стал переписывать, метод также определяет, находится ли точка пересечения с прямой на отрезке - ребре
                     return true;
                 }
             }
-
+// Метод вышел почти одинаковым с isSideCrossed, но не придумал, как унифицировать в один
         }
         return false;
     }
@@ -95,11 +95,11 @@ public class Main {
             int[][] side = parallelepiped.getSides()[i]; // Просто чтобы удобней запись была
             int[] crossPoint = {sphere.getCenter()[0], sphere.getCenter()[1], sphere.getCenter()[2]};
 
-            if (side[0][0] == side[2][0]) { // Сначала я писал тут все точки, потом понял что достаточно диагонали
+            if (side[0][0] == side[1][0]) { // Сначала я писал тут все точки, потом понял что достаточно диагонали
                 crossPoint[0] = side[0][0];
-            } else if (side[0][1] == side[2][1]) {
+            } else if (side[0][1] == side[1][1]) {
                 crossPoint[1] = side[0][1];
-            } else if (side[0][2] == side[2][2]) {
+            } else if (side[0][2] == side[1][2]) {
                 crossPoint[2] = side[0][2];
             } else {
                 System.out.println("wtf");
@@ -124,9 +124,9 @@ public class Main {
 
     public static boolean isPointOnSide(int[] crossPoint, int[][] side) {
         //Точка принадлежит прямоугольнику
-        return (((side[0][0] <= crossPoint[0]) && (crossPoint[0] <= side[2][0])) &&
-                ((side[0][1] <= crossPoint[1]) && (crossPoint[1] <= side[2][1])) &&
-                ((side[0][2] <= crossPoint[2]) && (crossPoint[2] <= side[2][2])));
+        return (((side[0][0] <= crossPoint[0]) && (crossPoint[0] <= side[1][0])) &&
+                ((side[0][1] <= crossPoint[1]) && (crossPoint[1] <= side[1][1])) &&
+                ((side[0][2] <= crossPoint[2]) && (crossPoint[2] <= side[1][2])));
     }
 
 }
