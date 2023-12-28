@@ -3,6 +3,7 @@ package com.walking.intensive.chapter5.task21;
 public class Parallelepiped {
     private int[][] heights;
     private int[][][] sides;
+    private int[][][] lines;
 
     public Parallelepiped(int xA, int yA, int zA, int xB, int yB, int zB) {
         //0 = A, 1 = B, 2 = C, 3 = D, 4 = A1, 5 = B1, 6 = C1, 7 = D1
@@ -27,6 +28,12 @@ public class Parallelepiped {
                 {heights[0], heights[4], heights[7], heights[3]},
                 {heights[1], heights[5], heights[6], heights[2]}
         }; // Я так понял, что мог бы и обойтись диагоналями, но уже ладно
+
+        this.lines = new int[][][]{
+                {heights[0], heights[1]}, {heights[1], heights[2]}, {heights[3], heights[2]}, {heights[0], heights[3]}, // Горизонтальные нижние ребра
+                {heights[4], heights[5]}, {heights[5], heights[6]}, {heights[7], heights[6]}, {heights[4], heights[7]}, // Горизонтальные верхние ребра
+                {heights[0], heights[4]}, {heights[1], heights[5]}, {heights[2], heights[6]}, {heights[3], heights[7]}  // Вертикальные ребра
+        };
     }
 
     public int[][] getHeights() {
@@ -37,5 +44,9 @@ public class Parallelepiped {
     public int[][][] getSides() {
 
         return sides;
+    }
+
+    public int[][][] getLines() {
+        return lines;
     }
 }

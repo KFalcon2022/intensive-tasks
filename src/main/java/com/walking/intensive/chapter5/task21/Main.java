@@ -6,10 +6,13 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         Sphere sphereOne = new Sphere(0, 0, 0, 3);
+        Sphere sphereTwo = new Sphere(5, 11, 11, 2);
         Parallelepiped parOne = new Parallelepiped(-4, -4, -4, 4, 4, 4);
+        Parallelepiped parTwo = new Parallelepiped(0, 0, 0, 10, 10, 10);
 
 
         System.out.println(isSphereAndParallelepipedCrossed(sphereOne, parOne));
+        System.out.println(isSphereAndParallelepipedCrossed(sphereTwo, parTwo));
 
 
     }
@@ -21,6 +24,11 @@ public class Main {
         }
 
         if (isHeightCrossed(sphere, parallelepiped)) { // Если хоть одна из вершин внутри шара
+
+            return true;
+        }
+
+        if (isLineCrossed(sphere, parallelepiped)) { // Если пересекает ребро
 
             return true;
         }
@@ -54,6 +62,31 @@ public class Main {
             }
         }
 
+        return false;
+    }
+
+    public static boolean isLineCrossed(Sphere sphere, Parallelepiped parallelepiped) {
+        for (int i = 0; i < parallelepiped.getLines().length; i++) {
+            int[][] line = parallelepiped.getLines()[i]; // для наглядности
+            int[] crossPoint = {sphere.getCenter()[0], sphere.getCenter()[1], sphere.getCenter()[2]};
+
+            if (line[0][0] == line[1][0] && line[0][0] == line[1][1]){ // Не знаю, как правильно назвать, проецирую центр шара на прямую отрезка
+                crossPoint[0] = crossPoint[1] = line[0][0];
+            } else if (line[0][0] == line[1][0] && line[0][0] == line[1][2]){
+                crossPoint[0] = crossPoint[2] = line[0][0];
+            } else {
+                crossPoint[1] = crossPoint[2] = line[0][1];
+            }
+
+            if (distanceBetweenPoints(sphere.getCenter(), crossPoint) <= Math.pow(sphere.getRadius(), 2)) {
+                // Если расстояние от точки пересечения с прямой до центра шара меньше радиуса
+                if (isPointOnSide(crossPoint, line)){
+                    // Не стал переписывать, метод также определяет, находится ли точка пересечения с прямой на отрезке - ребре
+                    return true;
+                }
+            }
+
+        }
         return false;
     }
 
