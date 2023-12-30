@@ -1,6 +1,5 @@
 package com.walking.intensive.chapter5.task22;
 
-import java.io.*;
 import java.util.*;
 
 /**
@@ -8,17 +7,16 @@ import java.util.*;
  * <a href="https://geometry-math.ru/homework/read-write.html">Чтение и запись</a>
  */
 public class Main {
-    public static void main(String[] args) throws IOException {
-        List<String> wordsList;
-        FileUtilities fileUtilities = new FileUtilities();
-        WordUtilities wordUtilities = new WordUtilities();
-        final String inputFilePath = "input.txt";
-        wordsList = wordUtilities.makeWordsList(fileUtilities.readFile(inputFilePath));
+    private static final String INPUT_FILE_PATH =
+            "src/main/java/com/walking/intensive/chapter5/task22/resources/input.txt";
+    private static final String RESULT_FLE_PATH =
+            "src/main/java/com/walking/intensive/chapter5/task22/resources/output.txt";
 
-        TextAnalyzer textAnalyzer = new TextAnalyzer();
-        String analysisResult = textAnalyzer.analyzeText(wordsList);
 
-        final String resultFilePath = "output.txt";
-        fileUtilities.writeResult(resultFilePath, analysisResult);
+    public static void main(String[] args) {
+        List<String> wordList =
+                new WordUtilities().collectWordList(new SimpleFileReader().readFile(INPUT_FILE_PATH));
+        String analysisResult = new TextAnalyzer().analyzeText(wordList);
+        new SimpleFileWriter().writeResult(RESULT_FLE_PATH, analysisResult);
     }
 }

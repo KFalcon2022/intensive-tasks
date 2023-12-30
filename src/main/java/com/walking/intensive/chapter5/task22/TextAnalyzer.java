@@ -7,8 +7,7 @@ import java.util.Map;
 
 public class TextAnalyzer {
 
-
-    String analyzeText(List<String> words) {
+    public String analyzeText(List<String> words) {
         HashMap<String, Integer> wordsMap = new HashMap<>();
         words.forEach(word -> wordsMap.compute(word, (key, value) -> value == null ? 1 : value + 1));
 
@@ -23,7 +22,8 @@ public class TextAnalyzer {
             if (entry.getValue().equals(maxFrequency)) {
                 mostFrequentWords.append(entry.getKey())
                         .append(" ")
-                        .append(entry.getValue());
+                        .append(entry.getValue())
+                        .append("\n");
             }
         }
 
