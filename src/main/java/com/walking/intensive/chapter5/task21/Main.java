@@ -2,13 +2,9 @@ package com.walking.intensive.chapter5.task21;
 
 public class Main {
     public static void main(String[] args) {
-        Point ballCenter = new Point(1, 3, 4);
-        Ball ball = new Ball(ballCenter, 1);
-
-        Point pointA = new Point(0, 0, 0);
-        Point pointB = new Point(2, 2, 2);
-
-        Parallelepiped parallelepiped = new Parallelepiped(pointA, pointB);
+        Ball ball = new Ball(1, 3, 4, 1);
+        Parallelepiped parallelepiped = new Parallelepiped(0, 0, 0, 2, 2, 2);
+        
         System.out.println(hasIntersection(parallelepiped, ball));
     }
 

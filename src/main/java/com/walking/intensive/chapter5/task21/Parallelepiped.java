@@ -4,9 +4,9 @@ public class Parallelepiped {
     Point a;
     Point b;
 
-    public Parallelepiped(Point a, Point b) {
-        this.a = a;
-        this.b = b;
+    public Parallelepiped(double aX, double aY, double aZ, double bX, double bY, double bZ) {
+        this.a = new Point(aX, aY, aZ);
+        this.b = new Point(bX, bY, bZ);
     }
 
     Point getMinPerspectivePoint() {

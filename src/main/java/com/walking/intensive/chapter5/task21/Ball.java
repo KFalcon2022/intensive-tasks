@@ -4,8 +4,8 @@ public class Ball {
     Point center;
     double radius;
 
-    public Ball(Point center, double radius) {
-        this.center = center;
+    public Ball(double x, double y, double z, double radius) {
+        this.center = new Point(x, y, z);
         this.radius = radius;
     }
 
