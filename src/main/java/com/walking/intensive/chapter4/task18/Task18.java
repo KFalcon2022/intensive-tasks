@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task18 {
     public static void main(String[] args) {
-        int[] arrayNumbers = {1, 2, 4, 2, -1, 3, 2, -34, 25, 77, -13, 235, -2143, 534, 1346, -453, 1, 35, 678, 3, 7, -1};
+        int[] arrayNumbers = {9, 8, 7, 6, 5, 5, 4, 3, 2, 1};
         System.out.println(Arrays.toString(sortByShaker(arrayNumbers)));
     }
 
@@ -17,6 +17,7 @@ public class Task18 {
 
         for (int i = left; i < right; i++) {
             boolean isElementRearrangement = false;
+            boolean isElementRearrangementSecond = false;
 
             for (int j = left + 1; j < right; j++) {
                 int temp = array[j - 1];
@@ -29,19 +30,20 @@ public class Task18 {
             }
             right--;
 
-            if (!isElementRearrangement) {
-                break;
-            }
-
             for (int j = right; j > left; j--) {
                 int temp = array[j];
 
                 if (array[j] < array[j - 1]) {
                     array[j] = array[j - 1];
                     array[j - 1] = temp;
+                    isElementRearrangementSecond = true;
                 }
             }
             left++;
+
+            if (!isElementRearrangement && !isElementRearrangementSecond){
+                break;
+            }
         }
 
         return array;
