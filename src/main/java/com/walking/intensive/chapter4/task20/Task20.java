@@ -25,29 +25,15 @@ public class Task20 {
         int nodes = (size / 2) - 1;
 
         while (nodes >= deep) {
-            int leftChildIndex = 2 * nodes + 1;
-            int rightChildIndex = 2 * nodes + 2;
+            int maxValueIndex = 2 * nodes + 1;
 
-            if (array[nodes] <= array[leftChildIndex]) {
-                if (rightChildIndex < size) {
-                    if (array[nodes] > array[rightChildIndex]) {
-                        swap(array, nodes, rightChildIndex);
-                        sift(array, size, nodes);
-                    }
-                }
-            } else {
-                if (rightChildIndex < size) {
-                    if (array[leftChildIndex] > array[rightChildIndex]) {
-                        swap(array, nodes, rightChildIndex);
-                        sift(array, size, nodes);
-                    } else {
-                        swap(array, nodes, leftChildIndex);
-                        sift(array, size, nodes);
-                    }
-                } else {
-                    swap(array, nodes, leftChildIndex);
-                    sift(array, size, nodes);
-                }
+            if (maxValueIndex + 1 < size) {
+                maxValueIndex = array[maxValueIndex] < array[maxValueIndex + 1] ? maxValueIndex + 1 : maxValueIndex;
+            }
+
+            if (array[nodes] < array[maxValueIndex]) {
+                swap(array, nodes, maxValueIndex);
+                sift(array, size, nodes);
             }
 
             nodes--;
@@ -62,7 +48,7 @@ public class Task20 {
 
     public static boolean isSorted(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
-            if (array[i] < array[i + 1])
+            if (array[i] > array[i + 1])
                 return false;
         }
         return true;
