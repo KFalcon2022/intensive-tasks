@@ -29,6 +29,10 @@ public class GeometryAnalyzer {
     }
 
     public boolean checkFaces(Sphere sphere, Parallelepiped parallelepiped) {
+        Point closestVertex = getClosestVertex(sphere, parallelepiped);
+        // to be continued
+
+
         return false;
     }
 
