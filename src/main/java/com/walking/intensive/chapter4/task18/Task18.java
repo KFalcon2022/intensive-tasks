@@ -17,12 +17,11 @@ public class Task18 {
 
         for (int i = left; i < right; i++) {
             boolean isElementRearrangement = false;
-            boolean isElementRearrangementSecond = false;
 
             for (int j = left + 1; j < right; j++) {
-                int temp = array[j - 1];
 
                 if (array[j - 1] > array[j]) {
+                    int temp = array[j - 1];
                     array[j - 1] = array[j];
                     array[j] = temp;
                     isElementRearrangement = true;
@@ -30,20 +29,19 @@ public class Task18 {
             }
             right--;
 
+            if (!isElementRearrangement) {
+                break;
+            }
+
             for (int j = right; j > left; j--) {
-                int temp = array[j];
 
                 if (array[j] < array[j - 1]) {
+                    int temp = array[j];
                     array[j] = array[j - 1];
                     array[j - 1] = temp;
-                    isElementRearrangementSecond = true;
                 }
             }
             left++;
-
-            if (!isElementRearrangement && !isElementRearrangementSecond){
-                break;
-            }
         }
 
         return array;
