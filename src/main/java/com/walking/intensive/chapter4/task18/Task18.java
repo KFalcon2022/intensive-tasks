@@ -33,15 +33,22 @@ public class Task18 {
                 break;
             }
 
+            isElementRearrangement = false;
+
             for (int j = right; j > left; j--) {
 
                 if (array[j] < array[j - 1]) {
                     int temp = array[j];
                     array[j] = array[j - 1];
                     array[j - 1] = temp;
+                    isElementRearrangement = true;
                 }
             }
             left++;
+
+            if (!isElementRearrangement) {
+                break;
+            }
         }
 
         return array;
