@@ -24,8 +24,8 @@ public class Task14 {
         int[] result = new int[queries.length];
 
         for (int i = 0; i < queries.length; i++) {
-            for (int j = 0; j < points.length; j++) {
-                if (isPointBelongsToCircle(points[j], queries[i])) {
+            for (int[] point : points) {
+                if (isPointBelongsToCircle(point, queries[i])) {
                     result[i] += 1;
                 }
             }
@@ -35,10 +35,6 @@ public class Task14 {
     }
 
     static boolean isPointBelongsToCircle(int[] pointCoordinates, int[] circleParameters) {
-        if (Math.sqrt((Math.pow(pointCoordinates[0] - circleParameters[0], 2)) + Math.pow(pointCoordinates[1] - circleParameters[1], 2)) <= circleParameters[2]) {
-            return true;
-        }
-
-        return false;
+        return (Math.sqrt((Math.pow(pointCoordinates[0] - circleParameters[0], 2)) + Math.pow(pointCoordinates[1] - circleParameters[1], 2)) <= circleParameters[2]);
     }
 }
