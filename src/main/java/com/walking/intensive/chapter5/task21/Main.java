@@ -30,7 +30,7 @@ public class Main {
             System.out.println(new GeometryAnalyzer(sphere, p1));
         }
 
-        System.out.println(p2);
+        System.out.println("\n" + p2);
 
         for (Sphere sphere: sphereList) {
             System.out.println(new GeometryAnalyzer(sphere, p2));

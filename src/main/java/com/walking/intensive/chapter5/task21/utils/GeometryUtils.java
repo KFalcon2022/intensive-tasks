@@ -1,8 +1,6 @@
 package com.walking.intensive.chapter5.task21.utils;
 
-import com.walking.intensive.chapter5.task21.objects.Parallelepiped;
-import com.walking.intensive.chapter5.task21.objects.Point;
-import com.walking.intensive.chapter5.task21.objects.Sphere;
+import com.walking.intensive.chapter5.task21.objects.*;
 
 public class GeometryUtils {
 

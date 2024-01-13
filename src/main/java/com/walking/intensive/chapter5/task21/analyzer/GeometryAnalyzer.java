@@ -1,8 +1,6 @@
 package com.walking.intensive.chapter5.task21.analyzer;
 
-import com.walking.intensive.chapter5.task21.objects.Parallelepiped;
-import com.walking.intensive.chapter5.task21.objects.Point;
-import com.walking.intensive.chapter5.task21.objects.Sphere;
+import com.walking.intensive.chapter5.task21.objects.*;
 import com.walking.intensive.chapter5.task21.utils.GeometryUtils;
 
 public class GeometryAnalyzer {
@@ -15,10 +13,6 @@ public class GeometryAnalyzer {
     public GeometryAnalyzer(Sphere sphere, Parallelepiped parallelepiped) {
         this.sphere = sphere;
         this.parallelepiped = parallelepiped;
-    }
-
-    public Point getCheckPoint() {
-        return checkPoint;
     }
 
     public boolean checkIntersection() {
@@ -55,7 +49,6 @@ public class GeometryAnalyzer {
         if (distanceToVertex <= sphere.getRadius()) {
             checkPoint = closestVertex;
             intersectionType = "Parallelepiped vertex is inside Sphere";
-
             return true;
         }
 
@@ -73,7 +66,6 @@ public class GeometryAnalyzer {
             if (distanceToEdge <= sphere.getRadius()) {
                 checkPoint = oppositeEdgeClosestPoint;
                 intersectionType = "Sphere intersects opposite edge of Parallelepiped";
-
                 return true;
             }
         }
@@ -92,7 +84,6 @@ public class GeometryAnalyzer {
             if (centerToFaceDistance <= sphere.getRadius()) {
                 checkPoint = oppositeFaceClosestPoint;
                 intersectionType = "Sphere intersects opposite face of Parallelepiped";
-
                 return true;
             }
         }
@@ -105,7 +96,7 @@ public class GeometryAnalyzer {
         return "" +
                 sphere +
                 " " + checkIntersection() +
-                ". Checkpoint: " + checkPoint +
-                " - " + intersectionType;
+                " - " + intersectionType +
+                ". Checkpoint: " + checkPoint;
     }
 }
