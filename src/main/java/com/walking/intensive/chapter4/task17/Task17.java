@@ -13,22 +13,19 @@ public class Task17 {
     }
 
     private static int[] sortByBubble(int[] array) {
-        int buffer = 0;
-        int counter;
-
         for (int i = 0; i < array.length; i++) {
-            counter = 0;
+            boolean isArrayChanged = false;
 
             for (int j = 0; j < array.length - i - 1; j++) {
                 if (array[j] > array[j + 1]) {
-                    buffer = array[j];
+                    int buffer = array[j];
                     array[j] = array[j + 1];
                     array[j + 1] = buffer;
-                    counter++;
+                    isArrayChanged = true;
                 }
             }
 
-            if (counter == 0) {
+            if (isArrayChanged == false) {
                 return array;
             }
         }
