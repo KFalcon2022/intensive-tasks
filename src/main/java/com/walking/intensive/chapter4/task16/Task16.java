@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task16 {
     public static void main(String[] args) {
-        int[] array = new int[]{2, 13, -4, 2, 0, 8, Integer.MAX_VALUE, 4, 6, 12, 34, 64, 2, 4, 7, 8,};
+        int[] array = new int[]{2, 13, -4, 2, 0, 8, Integer.MAX_VALUE, 4, 6, 12, 34, 64, 2, 4, 7, 8};
 
         System.out.println(Arrays.toString(sortBySelection(array)));
     }
@@ -16,7 +16,7 @@ public class Task16 {
         for (int i = 0; i < array.length; i++) {
             int min = Integer.MAX_VALUE;
             int index = 0;
-            int buffer;
+            int buffer = array[i];
 
             for (int j = i; j < array.length; j++) {
                 if (array[j] <= min) {
@@ -25,7 +25,6 @@ public class Task16 {
                 }
             }
 
-            buffer = array[i];
             array[i] = array[index];
             array[index] = buffer;
         }
