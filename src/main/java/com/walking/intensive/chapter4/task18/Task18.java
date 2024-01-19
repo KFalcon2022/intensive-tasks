@@ -30,12 +30,18 @@ public class Task18 {
                 }
             }
 
-            for (int k = array.length - i - 2; k > i; k--) {
-                if (array[k] < array[k - 1]) {
-                    int buffer = array[k];
+            if (!isArrayChanged) {
+                return array;
+            }
 
-                    array[k] = array[k - 1];
-                    array[k - 1] = buffer;
+            isArrayChanged = false;
+
+            for (int j = array.length - i - 2; j > i; j--) {
+                if (array[j] < array[j - 1]) {
+                    int buffer = array[j];
+
+                    array[j] = array[j - 1];
+                    array[j - 1] = buffer;
                     isArrayChanged = true;
                 }
             }
