@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class Task20 {
     public static void main(String[] args) {
         int[] array = {-1, 4, 56, 3, 87, 3, 32, 11, -56, 24};
-        int[] array2 = {-1, 4, 56, 3, 8, 2};
+        int[] array2 = {-1, 4, 56, 3, 7, 2};
         int[] array3 = {-1, 56, 4};
 
         System.out.println(Arrays.toString(sortByPyramid(array)));
