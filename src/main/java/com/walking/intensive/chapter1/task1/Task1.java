@@ -9,7 +9,6 @@ public class Task1 {
 
         int age = 129;
         System.out.println(getAgeString(age));
-
     }
 
     static String getAgeString(int age) {

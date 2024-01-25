@@ -5,13 +5,44 @@ package com.walking.intensive.chapter1.task2;
  */
 public class Task2 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
 
+        System.out.println(getFlatLocation(11, 2, 41));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        //        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        if (floorAmount < 0 || entranceAmount < 0 || flatNumber < 0) {
+            return "Такой квартиры не существует"; /*Изначально тут я указал:
+                                                        "один из параметров отрицательный"*/
+        }
+
+        int flatValue = flatNumber;
+        int quantityOfFlatsOnFloor = 4;
+
+        if (floorAmount > 1) {
+            flatValue = flatNumber - ((floorAmount - 1) * quantityOfFlatsOnFloor);
+        }
+
+        switch (flatValue) {
+            case 1 -> {
+                return flatNumber + " кв - " + entranceAmount + " подъезд, " + floorAmount + " этаж, слева от лифта, влево";
+            }
+            case 2 -> {
+                return flatNumber + " кв - " + entranceAmount + " подъезд, " + floorAmount + " этаж, слева от лифта, вправо";
+            }
+            case 3 -> {
+                return flatNumber + " кв - " + entranceAmount + " подъезд, " + floorAmount + " этаж, справа от лифта, влево";
+            }
+            case 4 -> {
+                return flatNumber + " кв - " + entranceAmount + " подъезд, " + floorAmount + " этаж, справа от лифта, вправо";
+            }
+            default -> {
+                return "Такой квартиры не существует"; /*Изначально тут я возвращал:
+                                                            "квартиры " + flatNumber +
+                                                            " на этаже " + floorAmount +
+                                                            " не существует"
+                                                            Но такой вариант не проходит по тестам*/
+            }
+        }
     }
 }
