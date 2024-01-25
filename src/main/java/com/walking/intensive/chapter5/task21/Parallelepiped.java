@@ -17,27 +17,27 @@ public class Parallelepiped {
         this.zPointB = zPointB;
     }
 
-    public int getxPointA() {
+    public int getXPointA() {
         return xPointA;
     }
 
-    public int getyPointA() {
+    public int getYPointA() {
         return yPointA;
     }
 
-    public int getzPointA() {
+    public int getZPointA() {
         return zPointA;
     }
 
-    public int getxPointB() {
+    public int getXPointB() {
         return xPointB;
     }
 
-    public int getyPointB() {
+    public int getYPointB() {
         return yPointB;
     }
 
-    public int getzPointB() {
+    public int getZPointB() {
         return zPointB;
     }
 

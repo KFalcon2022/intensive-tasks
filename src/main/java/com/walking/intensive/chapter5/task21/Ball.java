@@ -13,19 +13,19 @@ public class Ball {
         this.rBall = rBall;
     }
 
-    public int getxBallCenter() {
+    public int getXBallCenter() {
         return xBallCenter;
     }
 
-    public int getyBallCenter() {
+    public int getYBallCenter() {
         return yBallCenter;
     }
 
-    public int getzBallCenter() {
+    public int getZBallCenter() {
         return zBallCenter;
     }
 
-    public int getrBall() {
+    public int getRBall() {
         return rBall;
     }
 }
