@@ -10,52 +10,9 @@ public class Main {
     public static void main(String[] args) throws IOException {
         File inputFile = new File(getPathname("input.txt"));
 
-        String songWords = "So close no matter how far\n" +
-                "Couldn't be much more from the heart\n" +
-                "Forever trusting who we are\n" +
-                "And nothing else matters\n\n" +
-                "Never opened myself this way\n" +
-                "Life is ours, we live it our way\n" +
-                "All these words I don't just say\n" +
-                "And nothing else matters\n\n" +
-                "Trust I seek and I find in you\n" +
-                "Every day for us something new\n" +
-                "Open mind for a different view\n" +
-                "And nothing else matters\n\n" +
-                "Never cared for what they do\n" +
-                "Never cared for what they know, whoa\n" +
-                "But I know\n\n" +
-                "So close no matter how far\n" +
-                "Couldn't be much more from the heart\n" +
-                "Forever trusting who we are\n" +
-                "And nothing else matters\n\n" +
-                "Never cared for what they do\n" +
-                "Never cared for what they know, whoa\n" +
-                "But I know\n\n" +
-                "Never opened myself this way\n" +
-                "Life is ours, we live it our way\n" +
-                "All these words I don't just say\n" +
-                "And nothing else matters\n\n" +
-                "Trust I seek and I find in you\n" +
-                "Every day for us something new\n" +
-                "Open mind for a different view\n" +
-                "And nothing else matters\n\n" +
-                "Never cared for what they say\n" +
-                "Never cared for games they play\n" +
-                "Never cared for what they do\n" +
-                "Never cared for what they know\n" +
-                "And I know\n\n" +
-                "So close no matter how far\n" +
-                "Couldn't be much more from the heart\n" +
-                "Forever trusting who we are\n" +
-                "No, nothing else matters";
-
-        writeToFile(inputFile, songWords);
-
         File outputFile = new File(getPathname("output.txt"));
-        String theMostMetWord = getTheMostMetWord(inputFile.getName());
 
-        writeToFile(outputFile, theMostMetWord);
+        writeToFile(outputFile, getTheMostMetWord(inputFile.getName()));
     }
 
     private static String getPathname(String fileName) {
