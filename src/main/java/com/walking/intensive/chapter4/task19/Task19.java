@@ -29,59 +29,64 @@ public class Task19 {
             return array;
         }
 
+        if (isSorted(array, firstSortingIndex, lastSortingIndex)) {
+            return array;
+        }
+
         int pivotValue = getPivotValue(array, firstSortingIndex, lastSortingIndex);
 
-        for (int i = firstSortingIndex; i <= lastSortingIndex; i++) {
-            for (int j = lastSortingIndex; j >= firstSortingIndex; j--) {
+        int i = firstSortingIndex;
+        int j = lastSortingIndex;
+        while (i < j) {
+            if (array[i] > pivotValue &&
+                    array[j] <= pivotValue) {
+                swapElements(array, i, j);
+                i++;
+                j--;
+            }
 
-                if (array[i] >= pivotValue &&
-                        array[j] <= pivotValue &&
-                        i < j) {
+            if (array[i] >= pivotValue && array[j] > pivotValue) {
+                j--;
+            }
 
-                    swapElements(array, i, j);
-                }
+            if (array[i] <= pivotValue && array[j] <= pivotValue) {
+                i++;
+            }
+
+            if (array[i] <= pivotValue && array[j] > pivotValue) {
+                i++;
+                j--;
             }
         }
 
         int pivotIndex = getPivotIndex(array, firstSortingIndex, lastSortingIndex, pivotValue);
-
-        if (array[pivotIndex] == pivotValue) {
-            getQuickSortedArray(array, firstSortingIndex, pivotIndex - 1);
-            getQuickSortedArray(array, pivotIndex + 1, lastSortingIndex);
-        }
-
-        if (array[pivotIndex] < pivotValue) {
-            getQuickSortedArray(array, firstSortingIndex, pivotIndex);
-            getQuickSortedArray(array, pivotIndex + 1, lastSortingIndex);
-        }
+        getQuickSortedArray(array, firstSortingIndex, pivotIndex);
+        getQuickSortedArray(array, pivotIndex + 1, lastSortingIndex);
 
         return array;
     }
 
     static int getPivotValue(int[] array, int firstSortingIndex, int lastSortingIndex) {
         int minValue = array[firstSortingIndex];
-        int maxValue = array[lastSortingIndex];
+        int maxValue = array[firstSortingIndex];
 
         for (int i = firstSortingIndex + 1; i <= lastSortingIndex; i++) {
             if (array[i] < minValue) {
                 minValue = array[i];
             }
-        }
-
-        for (int j = lastSortingIndex - 1; j >= firstSortingIndex; j--) {
-            if (array[j] > maxValue) {
-                maxValue = array[j];
+            if (array[i] > maxValue) {
+                maxValue = array[i];
             }
         }
 
         return (minValue + maxValue) / 2;
     }
 
-    static int getPivotIndex(int[] array, int firstSortingIndex, int lastSortingIndex, int pivotValue){
+    static int getPivotIndex(int[] array, int firstSortingIndex, int lastSortingIndex, int pivotValue) {
         int pivotIndex = firstSortingIndex - 1;
 
-        for (int i = firstSortingIndex; i <= lastSortingIndex; i++){
-            if(array[i] <= pivotValue){
+        for (int i = firstSortingIndex; i <= lastSortingIndex; i++) {
+            if (array[i] <= pivotValue) {
                 pivotIndex++;
             }
         }
@@ -89,9 +94,18 @@ public class Task19 {
         return pivotIndex;
     }
 
-    static void swapElements(int[] array, int firstIndex, int secondIndex){
+    static void swapElements(int[] array, int firstIndex, int secondIndex) {
         int temp = array[firstIndex];
         array[firstIndex] = array[secondIndex];
         array[secondIndex] = temp;
+    }
+
+    static boolean isSorted(int[] array, int firstSortingIndex, int lastSortingIndex) {
+        for (int i = firstSortingIndex; i < lastSortingIndex; i++) {
+            if (array[i] > array[i + 1]) {
+                return false;
+            }
+        }
+        return true;
     }
 }
