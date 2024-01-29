@@ -6,9 +6,9 @@ package com.walking.intensive.chapter1.task4;
 public class Task4 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        double a = 0;
-        double b = 0;
-        double c = 0;
+        double a = 1;
+        double b = 1;
+        double c = -1;
 
         System.out.println(solveQuadraticEquation(a, b, c));
 
@@ -26,8 +26,54 @@ public class Task4 {
      * Количество решений: 0.
      */
     static String solveQuadraticEquation(double a, double b, double c) {
-        //        Место для вашего кода
+        if (a == 0 && b == 0 && c == 0) {
+            return "Решений бесконечно";
+        }
 
-        return null; // Заглушка. При реализации - удалить
+        if (a == 0 && b == 0) {
+            return "Количество решений: 0.";
+        }
+
+        if (a == 0) {
+            c = -c;
+            double result = c / b;
+            return "Количество решений: 1. Корень: " + result;
+        }
+
+        if (b == 0 && c == 0) {
+            return "Количество решений: 1. Корень: 0";
+        }
+
+        double discriminant = (b * b) - (4 * a * c);
+        double firstResult;
+        double secondResult;
+
+        if (discriminant > 0 && a != 0) {
+
+            firstResult = (-b + Math.sqrt(discriminant)) / (2 * a);
+            secondResult = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+            double smallerResult;
+            double biggerResult;
+
+            if (firstResult > secondResult) {
+                biggerResult = firstResult;
+                smallerResult = secondResult;
+            } else {
+                biggerResult = secondResult;
+                smallerResult = firstResult;
+            }
+            return "Количество решений: 2. Корни: " + smallerResult + "; " + biggerResult;
+        }
+
+        if (discriminant == 0) {
+            double result = -b / (2 * a);
+            return "Количество решений: 1. Корень: " + result;
+        }
+
+        if (discriminant < 0) {
+            return "Количество решений: 0.";
+        }
+        return null;
     }
 }
