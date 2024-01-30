@@ -7,8 +7,10 @@ import java.util.Arrays;
  */
 public class Task5 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(getMedians(12, 13, 5)));
-        System.out.println(Arrays.toString(getMedians(3, 4, 5)));
+        System.out.println(Arrays.toString(getHeights(3, 4, 5)));
+//        System.out.println(Arrays.toString(getMedians(12, 13, 5)));
+        System.out.println(Arrays.toString(getHeights(12, 13, 5)));
+//        System.out.println(Arrays.toString(getMedians(3, 4, 5)));
     }
 
     static double getAreaByHeron(double a, double b, double c) {
@@ -37,9 +39,8 @@ public class Task5 {
         double heightC = (square * 2) / c;
 
         double[] heights = {heightA, heightB, heightC};
-        Arrays.sort(heights);
 
-        return heights;
+        return sortForTriangleSides(heights);
     }
 
     /**
@@ -66,15 +67,7 @@ public class Task5 {
 
             medians[i] = result;
         }
-        //в этом методе я решил сортировку написать ручками, чтоб не забывать =)
-        for (int j = 0; j < medians.length - 1; j++) {
-            if (medians[j] > medians[j + 1]) {
-                double temp = medians[j];
-                medians[j] = medians[j + 1];
-                medians[j + 1] = temp;
-            }
-        }
-        return medians;
+        return sortForTriangleSides(medians);
     }
 
     /**
@@ -111,5 +104,24 @@ public class Task5 {
         //        Место для вашего кода
 
         return 0; // Заглушка. При реализации - удалить
+    }
+
+    static double[] sortForTriangleSides(double[] arr) {
+
+        if (arr.length > 3) {
+            throw new IndexOutOfBoundsException("Метод сортирует массив до 3 элементов");
+        }
+
+        for (int i = arr.length - 1; i >= 0; i--) {
+            for (int j = 0; j < i; j++) {
+
+                if (arr[j] > arr[j + 1]) {
+                    double temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr;
     }
 }
