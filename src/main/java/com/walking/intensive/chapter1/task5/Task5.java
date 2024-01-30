@@ -1,36 +1,80 @@
 package com.walking.intensive.chapter1.task5;
 
+import java.util.Arrays;
+
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
  */
 public class Task5 {
     public static void main(String[] args) {
-//        Для собственных проверок можете делать любые изменения в этом методе
-
+        System.out.println(Arrays.toString(getMedians(12, 13, 5)));
+        System.out.println(Arrays.toString(getMedians(3, 4, 5)));
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return 0; // Заглушка. При реализации - удалить
+        if (a <= 0 || b <= 0 || c <= 0) {
+            throw new IllegalArgumentException("Стороны треугольника не могут быть меньше или равны 0");
+        }
+
+        double p = (a + b + c) / 2;
+        double temp = p * (p - a) * (p - b) * (p - c);
+        return Math.sqrt(temp);
     }
 
     /**
      * Располагайте высоты по возрастанию.
      */
     static double[] getHeights(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        if (a <= 0 || b <= 0 || c <= 0) {
+            throw new IllegalArgumentException("Стороны треугольника не могут быть меньше или равны 0");
+        }
+
+        double square = getAreaByHeron(a, b, c);
+        double heightA = (square * 2) / a;
+        double heightB = (square * 2) / b;
+        double heightC = (square * 2) / c;
+
+        double[] heights = {heightA, heightB, heightC};
+        Arrays.sort(heights);
+
+        return heights;
     }
 
     /**
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        if (a <= 0 || b <= 0 || c <= 0) {
+            throw new IllegalArgumentException("Стороны треугольника не могут быть меньше или равны 0");
+        }
+
+        double[] squareSides = {a * a, b * b, c * c};
+        double[] medians = new double[squareSides.length];
+
+        for (int i = 0; i < squareSides.length; i++) {
+
+            double temp = squareSides[0];
+            squareSides[0] = squareSides[2];
+            squareSides[2] = squareSides[1];
+            squareSides[1] = temp;
+
+            double tempResult = 2 * (squareSides[1] + squareSides[2]) - squareSides[0];
+            double result = Math.sqrt(tempResult) / 2;
+
+            medians[i] = result;
+        }
+        //в этом методе я решил сортировку написать ручками, чтоб не забывать =)
+        for (int j = 0; j < medians.length - 1; j++) {
+            if (medians[j] > medians[j + 1]) {
+                double temp = medians[j];
+                medians[j] = medians[j + 1];
+                medians[j + 1] = temp;
+            }
+        }
+        return medians;
     }
 
     /**

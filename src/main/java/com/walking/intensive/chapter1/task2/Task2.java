@@ -12,8 +12,7 @@ public class Task2 {
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
 
         if (floorAmount < 0 || entranceAmount < 0 || flatNumber < 0) {
-            return "Такой квартиры не существует"; /*Изначально тут я указал:
-                                                        "один из параметров отрицательный"*/
+            return "Такой квартиры не существует";
         }
 
         int flatValue = flatNumber;
@@ -37,11 +36,7 @@ public class Task2 {
                 return flatNumber + " кв - " + entranceAmount + " подъезд, " + floorAmount + " этаж, справа от лифта, вправо";
             }
             default -> {
-                return "Такой квартиры не существует"; /*Изначально тут я возвращал:
-                                                            "квартиры " + flatNumber +
-                                                            " на этаже " + floorAmount +
-                                                            " не существует"
-                                                            Но такой вариант не проходит по тестам*/
+                return "Такой квартиры не существует";
             }
         }
     }
