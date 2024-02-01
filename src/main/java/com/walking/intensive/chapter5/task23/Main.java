@@ -11,7 +11,7 @@ public class Main {
         double[][] matrix5 = {{0, 12, -12, 12, 6}, {-3, -9, 9, 9, -6}, {0, 0, -2, 4, -2}, {-3, -17, 13, 3, -8},
                 {0, 0, 4, -8, 0}}; // det A = -1728
 
-        double[][] matrix = {{1, 2, 3}, {4, 5, 6}}; // throws Exception
+        double[][] matrix = {{1, 2, 3}, {4, 5}, {4, 5, 6}}; // throws Exception
         try {
             System.out.println(getMatrixDeterminant(matrix2));
             System.out.println(getMatrixDeterminant(matrix3));
@@ -25,7 +25,7 @@ public class Main {
     }
 
     public static double getMatrixDeterminant(double[][] matrix) throws IllegalArgumentException {
-        if (matrix.length != matrix[0].length) {
+        if (!isMatrixSquare(matrix)) {
             throw new IllegalArgumentException("Вычисление определителя возможно только для квадратных матриц.");
         }
 
@@ -82,5 +82,15 @@ public class Main {
         }
 
         return minorMatrix;
+    }
+
+    public static boolean isMatrixSquare(double[][] matrix) {
+        for (double[] strings : matrix) {
+            if (strings.length != matrix.length) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
