@@ -8,12 +8,18 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
+
         final String INPUT_FILE_NAME = "input.txt";
         final String OUTPUT_FILE_NAME = "output.txt";
 
-        File outputFile = new File(getPathname(OUTPUT_FILE_NAME));
+        try {
+            File outputFile = new File(getPathname(OUTPUT_FILE_NAME));
 
-        writeToFile(outputFile, getTheMostMetWord(INPUT_FILE_NAME));
+            writeToFile(outputFile, getTheMostMetWord(INPUT_FILE_NAME));
+
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static String getPathname(String fileName) {
@@ -46,6 +52,7 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException("Stream writing error");
         }
+
         try {
             outputStream.close();
         } catch (IOException e) {
