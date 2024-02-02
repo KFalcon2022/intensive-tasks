@@ -7,12 +7,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        File inputFile = new File(getPathname("input.txt"));
+    public static void main(String[] args) {
+        final String INPUT_FILE_NAME = "input.txt";
+        final String OUTPUT_FILE_NAME = "output.txt";
 
-        File outputFile = new File(getPathname("output.txt"));
+        File outputFile = new File(getPathname(OUTPUT_FILE_NAME));
 
-        writeToFile(outputFile, getTheMostMetWord(inputFile.getName()));
+        writeToFile(outputFile, getTheMostMetWord(INPUT_FILE_NAME));
     }
 
     private static String getPathname(String fileName) {
@@ -29,31 +30,55 @@ public class Main {
                 separator + fileName;
     }
 
-    private static void writeToFile(File file, String content) throws IOException {
-        FileOutputStream outputStream = new FileOutputStream(file);
+    private static void writeToFile(File file, String content) {
+        FileOutputStream outputStream;
+
+        try {
+            outputStream = new FileOutputStream(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("Output file is not found");
+        }
 
         byte[] buffer = content.getBytes();
 
-        outputStream.write(buffer);
-        outputStream.close();
+        try {
+            outputStream.write(buffer);
+        } catch (IOException e) {
+            throw new RuntimeException("Stream writing error");
+        }
+        try {
+            outputStream.close();
+        } catch (IOException e) {
+            throw new RuntimeException("Stream closing error");
+        }
     }
 
-    private static String getTheMostMetWord(String fileName) throws IOException {
-        String text = new String(Files.readAllBytes(Paths.get(getPathname(fileName))));
-        String preparedText = text.toUpperCase().replaceAll("\\p{Punct}", "");
-        String[] wordsArray = preparedText.split("\\s+");
-
-        Map<String, Integer> wordsMap = new HashMap<>();
-        for (String s : wordsArray) {
-            wordsMap.merge(s, 1, Integer::sum);
+    private static String getTheMostMetWord(String fileName) {
+        byte[] textAsBytes;
+        try {
+            textAsBytes = Files.readAllBytes(
+                    Paths.get(getPathname(fileName)));
+        } catch (IOException e) {
+            throw new RuntimeException("It's not possible to read the file");
         }
 
-        Integer maxValue = 0;
+        String text = new String(textAsBytes);
+
+        String preparedText = text.toUpperCase()
+                .replaceAll("\\p{Punct}", "");
+
+        String[] wordsArray = preparedText.split("\\s+");
+
+        int maxValue = 0;
         String theMostMetWord = null;
-        for (Map.Entry<String, Integer> entry : wordsMap.entrySet()) {
-            if (entry.getValue() > maxValue) {
-                maxValue = entry.getValue();
-                theMostMetWord = entry.getKey();
+
+        Map<String, Integer> wordsMap = new HashMap<>();
+        for (String word : wordsArray) {
+            wordsMap.merge(word, 1, Integer::sum);
+
+            if (wordsMap.get(word) > maxValue) {
+                maxValue = wordsMap.get(word);
+                theMostMetWord = word;
             }
         }
 
