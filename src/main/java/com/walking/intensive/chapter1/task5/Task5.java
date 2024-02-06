@@ -1,16 +1,14 @@
 package com.walking.intensive.chapter1.task5;
 
-import java.util.Arrays;
-
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
  */
 public class Task5 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(getHeights(-6, 4, 5)));
-//        System.out.println(Arrays.toString(getMedians(12, 13, 5)));
-        System.out.println(Arrays.toString(getHeights(12, 13, 5)));
-//        System.out.println(Arrays.toString(getMedians(3, 4, 5)));
+
+        System.out.println(getAngles(12, 13, 5));
+        System.out.println(getAreaByHeron(12, 13, 5));
+        System.out.println(getAreaAdvanced(12, 13, 5));
     }
 
     static double getAreaByHeron(double a, double b, double c) {
@@ -103,7 +101,7 @@ public class Task5 {
         double cosB = (aSquare + bSquare - cSquare) / (2 * a * b);
         double cosY = (cSquare + bSquare - aSquare) / (2 * c * b);
 
-        double angleA = Math.acos(cosA) * 180 / Math.PI;
+        double angleA = Math.acos(cosA) * 180 / Math.PI; //Также можно воспользоваться методом Math.toDegrees()
         double angleB = Math.acos(cosB) * 180 / Math.PI;
         double angleC = Math.acos(cosY) * 180 / Math.PI;
 
@@ -112,27 +110,55 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return 0; // Заглушка. При реализации - удалить
+        checkTriangleSides(a, b, c);
+
+        double p = (a + b + c) / 2;
+
+        double r = (p - a) * (p - b) * (p - c);
+        r = Math.sqrt(r / p);
+        return r;
     }
 
-    static double getCircumradius(double a, double b, double c) {
-        //        Место для вашего кода
+    static double getCircumRadius(double a, double b, double c) {
 
-        return 0; // Заглушка. При реализации - удалить
+        checkTriangleSides(a, b, c);
+
+        double p = (a + b + c) / 2;
+
+        double temp = p * ((p - a) * (p - b) * (p - c));
+        temp = Math.sqrt(temp) * 4;
+        temp = (a * b * c) / temp;
+        return temp;
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return 0; // Заглушка. При реализации - удалить
+        checkTriangleSides(a, b, c);
+
+        double aSquare = a * a;
+        double bSquare = b * b;
+        double cSquare = c * c;
+
+        double cosB = (aSquare + bSquare - cSquare) / (2 * a * b);
+        ;
+
+
+        double temp = cosB * cosB;
+        double sinA = Math.sqrt(1 - temp);
+
+        return 0.5 * a * b * sinA;
     }
-
 
     static void checkTriangleSides(double a, double b, double c) {
         if (a <= 0 || b <= 0 || c <= 0) {
             throw new IllegalArgumentException(("Стороны треугольника не могут быть меньше или равны 0"));
+        }
+
+        double p = (a + b + c) / 2;
+
+        if (a + c == p || a + b == p || b + c == p) {
+            throw new IllegalArgumentException("Треугольник не может быть вырожденным");
         }
     }
 

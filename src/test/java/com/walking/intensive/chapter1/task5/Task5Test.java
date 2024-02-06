@@ -45,9 +45,9 @@ class Task5Test {
     }
 
     @Test
-    void getCircumradiusTest() {
-        assertEquals(6.5, getCircumradius(12, 13, 5));
-        assertEquals(2.5, getCircumradius(3, 4, 5));
+    void getCircumRadiusTest() {
+        assertEquals(6.5, getCircumRadius(12, 13, 5));
+        assertEquals(2.5, getCircumRadius(3, 4, 5));
     }
 
     @Test
