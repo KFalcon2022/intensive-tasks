@@ -69,8 +69,23 @@ public class Task5 {
      */
     static double[] getBisectors(double a, double b, double c) {
 
+        checkTriangleSides(a, b, c);
+        double[] bisectors = new double[3];
 
-        return null; // Заглушка. При реализации - удалить
+        for (int i = 0; i < 3; i++) {
+
+            double result = b * c * (a + b + c) * (b + c - a);
+            result = Math.sqrt(result);
+            result = result / (b + c);
+
+            bisectors[i] = result;
+
+            double temp = a;
+            a = b;
+            b = c;
+            c = temp;
+        }
+        return sortForTriangleSides(bisectors);
     }
 
     /**
