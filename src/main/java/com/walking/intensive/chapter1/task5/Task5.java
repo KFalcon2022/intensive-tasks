@@ -6,9 +6,6 @@ package com.walking.intensive.chapter1.task5;
 public class Task5 {
     public static void main(String[] args) {
 
-        System.out.println(getAngles(12, 13, 5));
-        System.out.println(getAreaByHeron(12, 13, 5));
-        System.out.println(getAreaAdvanced(12, 13, 5));
     }
 
     static double getAreaByHeron(double a, double b, double c) {
@@ -141,8 +138,6 @@ public class Task5 {
         double cSquare = c * c;
 
         double cosB = (aSquare + bSquare - cSquare) / (2 * a * b);
-        ;
-
 
         double temp = cosB * cosB;
         double sinA = Math.sqrt(1 - temp);
