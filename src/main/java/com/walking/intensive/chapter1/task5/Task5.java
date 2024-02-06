@@ -92,9 +92,23 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        //        Место для вашего кода
 
-        return null; // Заглушка. При реализации - удалить
+        checkTriangleSides(a, b, c);
+
+        double aSquare = a * a;
+        double bSquare = b * b;
+        double cSquare = c * c;
+
+        double cosA = (aSquare + cSquare - bSquare) / (2 * a * c);
+        double cosB = (aSquare + bSquare - cSquare) / (2 * a * b);
+        double cosY = (cSquare + bSquare - aSquare) / (2 * c * b);
+
+        double angleA = Math.acos(cosA) * 180 / Math.PI;
+        double angleB = Math.acos(cosB) * 180 / Math.PI;
+        double angleC = Math.acos(cosY) * 180 / Math.PI;
+
+        double[] results = {angleA, angleB, angleC};
+        return sortForTriangleSides(results);
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {

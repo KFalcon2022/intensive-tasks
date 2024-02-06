@@ -35,7 +35,7 @@ class Task5Test {
     @Test
     void getAnglesTest() {
         assertArrayEquals(new double[]{22.61986494804042, 67.38013505195957, 90.0}, getAngles(12, 13, 5));
-        assertArrayEquals(new double[]{36.86989764584401, 53.13010235415599, 90.0}, getAngles(3, 4, 5));
+        assertArrayEquals(new double[]{36.86989764584401, 53.13010235415598, 90.0}, getAngles(3, 4, 5));
     }
 
     @Test
