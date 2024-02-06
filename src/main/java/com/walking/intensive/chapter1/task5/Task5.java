@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class Task5 {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(getHeights(3, 4, 5)));
+        System.out.println(Arrays.toString(getHeights(-6, 4, 5)));
 //        System.out.println(Arrays.toString(getMedians(12, 13, 5)));
         System.out.println(Arrays.toString(getHeights(12, 13, 5)));
 //        System.out.println(Arrays.toString(getMedians(3, 4, 5)));
@@ -15,9 +15,7 @@ public class Task5 {
 
     static double getAreaByHeron(double a, double b, double c) {
 
-        if (a <= 0 || b <= 0 || c <= 0) {
-            throw new IllegalArgumentException("Стороны треугольника не могут быть меньше или равны 0");
-        }
+        checkTriangleSides(a, b, c);
 
         double p = (a + b + c) / 2;
         double temp = p * (p - a) * (p - b) * (p - c);
@@ -29,9 +27,7 @@ public class Task5 {
      */
     static double[] getHeights(double a, double b, double c) {
 
-        if (a <= 0 || b <= 0 || c <= 0) {
-            throw new IllegalArgumentException("Стороны треугольника не могут быть меньше или равны 0");
-        }
+        checkTriangleSides(a, b, c);
 
         double square = getAreaByHeron(a, b, c);
         double heightA = (square * 2) / a;
@@ -48,9 +44,7 @@ public class Task5 {
      */
     static double[] getMedians(double a, double b, double c) {
 
-        if (a <= 0 || b <= 0 || c <= 0) {
-            throw new IllegalArgumentException("Стороны треугольника не могут быть меньше или равны 0");
-        }
+        checkTriangleSides(a, b, c);
 
         double[] squareSides = {a * a, b * b, c * c};
         double[] medians = new double[squareSides.length];
@@ -74,7 +68,7 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        //        Место для вашего кода
+
 
         return null; // Заглушка. При реализации - удалить
     }
@@ -104,6 +98,13 @@ public class Task5 {
         //        Место для вашего кода
 
         return 0; // Заглушка. При реализации - удалить
+    }
+
+
+    static void checkTriangleSides(double a, double b, double c) {
+        if (a <= 0 || b <= 0 || c <= 0) {
+            throw new IllegalArgumentException(("Стороны треугольника не могут быть меньше или равны 0"));
+        }
     }
 
     static double[] sortForTriangleSides(double[] arr) {
