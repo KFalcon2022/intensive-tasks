@@ -7,6 +7,7 @@ public class Task2 {
     public static void main(String[] args) {
 
         System.out.println(getFlatLocation(11, 2, 41));
+        System.out.println(getFlatLocation(10, 3, 88));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
@@ -16,10 +17,10 @@ public class Task2 {
         }
 
         int flatValue = flatNumber;
-        int quantityOfFlatsOnFloor = 4;
+        int flatsQuantity = 4;
 
         if (floorAmount > 1) {
-            flatValue = flatNumber - ((floorAmount - 1) * quantityOfFlatsOnFloor);
+            flatValue = flatNumber - ((floorAmount - 1) * flatsQuantity);
         }
 
         switch (flatValue) {
