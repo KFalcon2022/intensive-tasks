@@ -8,8 +8,7 @@ public class Task2 {
 
     public static void main(String[] args) {
 
-        System.out.println(getFlatLocation(3, 2, 9));
-        System.out.println(getFlatLocation(10, 3, 88));
+        System.out.println(getFlatLocation(10, 3, 41));
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
@@ -24,21 +23,19 @@ public class Task2 {
             return "Такой квартиры не существует";
         }
 
-        int floorValue = 0;
-        int entranceValue = 0;
-        int flatCount = 0;
+        int flatsInOneEntrance = maxFlatNumber / entranceAmount;
+        int floorValue = 1;
+        int entranceValue = 1;
 
-        for (int i = 1; i <= entranceAmount; i++) {
-            for (int j = 1; j <= floorAmount; j++) {
-                for (int k = 1; k <= FLATS_QUANTITY; k++) {
+        for (int i = 1; i != flatNumber; i++) {
 
-                    flatCount++;
-                    if (flatCount == flatNumber) {
-                        floorValue = j;
-                        entranceValue = i;
-                        break;
-                    }
-                }
+            if (i % FLATS_QUANTITY == 0) {
+                floorValue++;
+            }
+
+            if (i % flatsInOneEntrance == 0) {
+                entranceValue++;
+                floorValue = 1;
             }
         }
 
