@@ -8,22 +8,15 @@ import java.util.List;
  */
 public class Task6 {
     public static void main(String[] args) {
-        System.out.println(getNod(150, 225));
+        System.out.println(getNodByEuclideanAlgorithm(312, 143));
     }
 
     static int getNoc(int m, int n) {
 
-        if (m < 1 || n < 1) {
-            throw new IllegalArgumentException("Введенные числа должны быть натуральными");
-        }
+        checkNums(m, n);
 
-        int largeNum = n;
-        int smallNum = m;
-
-        if (m > n) {
-            largeNum = m;
-            smallNum = n;
-        }
+        int largeNum = Math.max(m, n);
+        int smallNum = Math.min(m, n);
 
         List<Integer> largeNumMults = getMults(largeNum);
         List<Integer> smallNumMults = getMults(smallNum);
@@ -43,21 +36,14 @@ public class Task6 {
 
     static int getNod(int m, int n) {
 
-        if (m < 1 || n < 1) {
-            throw new IllegalArgumentException("Введенные числа должны быть натуральными");
-        }
-        int largeNum = n;
-        int smallNum = m;
+        checkNums(m, n);
 
-        if (m > n) {
-            largeNum = m;
-            smallNum = n;
-        }
+        int largeNum = Math.max(m, n);
+        int smallNum = Math.min(m, n);
 
-        List<Integer> largeNumMults = getMults(largeNum); // 1 2 2 5 7 41
-        List<Integer> smallNumMults = getMults(smallNum); // 2 2  3 7
+        List<Integer> largeNumMults = getMults(largeNum);
+        List<Integer> smallNumMults = getMults(smallNum);
         int result = 1;
-
 
         for (Integer smallNumMult : smallNumMults) {
             for (int j = 0; j < largeNumMults.size(); j++) {
@@ -72,16 +58,33 @@ public class Task6 {
         return result;
     }
 
-
     static int getNodByEuclideanAlgorithm(int m, int n) {
-        // Ваш код
-        return 0;
+
+        checkNums(m, n);
+
+        int largeNum = Math.max(m, n);
+        int smallNum = Math.min(m, n);
+        int remainder = largeNum % smallNum;
+
+        if (remainder != 0) {
+            largeNum = smallNum;
+            smallNum = remainder;
+
+            return getNodByEuclideanAlgorithm(largeNum, smallNum);
+        }
+        return smallNum;
+    }
+
+    private static void checkNums(int m, int n) {
+        if (m < 1 || n < 1) {
+            throw new IllegalArgumentException("Введенные числа должны быть натуральными");
+        }
     }
 
     private static List<Integer> getMults(int num) {
 
-        int multiplier = 2;
         List<Integer> mults = new ArrayList<>();
+        int multiplier = 2;
 
         do {
             if (num % multiplier == 0) {
@@ -89,7 +92,6 @@ public class Task6 {
                 num /= multiplier;
                 continue;
             }
-
             multiplier++;
         } while (num != 1);
 
