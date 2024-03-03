@@ -165,8 +165,7 @@ public class Task5 {
             return 0;
         }
 
-        final double p2 = (a + b + c) / 2,
-                cosineA = (pow(b, 2) + pow(c, 2) - pow(a, 2)) / (2 * b * c),
+        final double cosineA = (pow(b, 2) + pow(c, 2) - pow(a, 2)) / (2 * b * c),
                 sinusA = sqrt(1 - pow(cosineA, 2));
 
         return b * c * sinusA / 2;
