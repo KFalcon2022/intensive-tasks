@@ -37,6 +37,6 @@ public class Task1 {
             return "Вам " + age + " года";
         }
 
-        return "Возможно, Вы вампир";
+        return "Возможно, Вы Дементор";
     }
 }
