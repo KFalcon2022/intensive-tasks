@@ -135,7 +135,7 @@ public class Task5 {
             return 0;
         }
 
-        final double halfPerimeter = (a + b + c) / 2;
+        double halfPerimeter = (a + b + c) / 2;
 
         return Math.sqrt((halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c) / halfPerimeter);
     }
