@@ -9,6 +9,7 @@ public class Task1 {
         Scanner sc= new Scanner(System.in);    //System.in is a standard input stream
         System.out.print("Введите число лет (только целые значения): ");
         int age = sc.nextInt();
+
         System.out.println(getAgeString(age));
     }
 
