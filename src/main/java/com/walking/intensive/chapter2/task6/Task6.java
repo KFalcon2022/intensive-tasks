@@ -5,8 +5,8 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        final int a = 36,
-                b = 28;
+        final int a = 42,
+                b = 23;
 
         System.out.println("НОД: " + getNod(a, b) +
                 "\nНОК: " + getNoc(a, b) +
