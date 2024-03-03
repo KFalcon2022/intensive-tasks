@@ -25,16 +25,13 @@ public class Task1 {
         {
             return "Возможно, Вы вампир";
         }
-        if(age100 >= 10 && age100 <= 19) {
-            return "Вам " + age + " лет";
-        }
-        else if(age10 == 0 || age10 >= 5) {
+        if ((age100 >= 10 && age100 <= 19) || (age10 == 0 || age10 >= 5)) {
             return "Вам " + age + " лет";
         }
         else if (age10 == 1) {
             return "Вам " + age + " год";
         }
-        else if(age10 >= 2 && age10 <= 4) {
+        else if (age10 >= 2 && age10 <= 4) {
             return "Вам " + age + " года";
         }
 
