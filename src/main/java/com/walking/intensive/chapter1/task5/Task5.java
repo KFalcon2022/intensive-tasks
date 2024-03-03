@@ -1,9 +1,5 @@
 package com.walking.intensive.chapter1.task5;
-
 import java.util.Arrays;
-
-import static java.lang.Math.sqrt;
-import static java.lang.Math.pow;
 
 /**
  * Условие: <a href="https://geometry-math.ru/homework/Java-triangle.html">ссылка</a>
@@ -53,7 +49,7 @@ public class Task5 {
 
         final double halfPerimeter = (a + b + c) / 2;
 
-        return sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
+        return Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
     }
 
     /**
@@ -80,12 +76,12 @@ public class Task5 {
         if (isTriangleNotExist(a, b, c)) {
             return null;
         }
-        final double powA = pow(a, 2),
-                powB = pow(b, 2),
-                powC = pow(c, 2),
-                median1 = sqrt(2 * powA + 2 * powB - powC) / 2,
-                median2 = sqrt(2 * powA + 2 * powC - powB) / 2,
-                median3 = sqrt(2 * powB + 2 * powC - powA) / 2;
+        final double powA = Math.pow(a, 2),
+                powB = Math.pow(b, 2),
+                powC = Math.pow(c, 2),
+                median1 = Math.sqrt(2 * powA + 2 * powB - powC) / 2,
+                median2 = Math.sqrt(2 * powA + 2 * powC - powB) / 2,
+                median3 = Math.sqrt(2 * powB + 2 * powC - powA) / 2;
 
         double[] medians = {median1, median2, median3};
         Arrays.sort(medians);
@@ -100,9 +96,9 @@ public class Task5 {
             return null;
         }
 
-        double bisector1 = sqrt((a * b * (a + b + c) * (a + b - c))) / (a + b);
-        double bisector2 = sqrt((a * c * (a + c + b) * (a + c - b))) / (a + c);
-        double bisector3 = sqrt((b * c * (b + c + a) * (b + c - a))) / (b + c);
+        double bisector1 = Math.sqrt((a * b * (a + b + c) * (a + b - c))) / (a + b);
+        double bisector2 = Math.sqrt((a * c * (a + c + b) * (a + c - b))) / (a + c);
+        double bisector3 = Math.sqrt((b * c * (b + c + a) * (b + c - a))) / (b + c);
         double[] bisectors = {bisector1, bisector2, bisector3};
         Arrays.sort(bisectors);
         return bisectors;
@@ -116,15 +112,15 @@ public class Task5 {
             return null;
         }
 
-        double cosineA = (pow(a, 2) + pow(b, 2) - pow(c, 2)) / (2 * a * b);
+        double cosineA = (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) / (2 * a * b);
         double angleInRadiansA = Math.acos(cosineA);
         double angleInDegreesA = Math.toDegrees(angleInRadiansA);
 
-        double cosineB = (pow(a, 2) + pow(c, 2) - pow(b, 2)) / (2 * a * c);
+        double cosineB = (Math.pow(a, 2) + Math.pow(c, 2) - Math.pow(b, 2)) / (2 * a * c);
         double angleInRadiansB = Math.acos(cosineB);
         double angleInDegreesB = Math.toDegrees(angleInRadiansB);
 
-        double cosineC = (pow(b, 2) + pow(c, 2) - pow(a, 2)) / (2 * b * c);
+        double cosineC = (Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c);
         double angleInRadiansC = Math.acos(cosineC);
         double angleInDegreesC = Math.toDegrees(angleInRadiansC);
 
@@ -140,7 +136,7 @@ public class Task5 {
 
         final double halfPerimeter = (a + b + c) / 2;
 
-        return sqrt((halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c) / halfPerimeter);
+        return Math.sqrt((halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c) / halfPerimeter);
     }
 
     static double getCircumradius(double a, double b, double c) {
@@ -158,8 +154,8 @@ public class Task5 {
             return 0;
         }
 
-        final double cosineA = (pow(b, 2) + pow(c, 2) - pow(a, 2)) / (2 * b * c),
-                sinusA = sqrt(1 - pow(cosineA, 2));
+        final double cosineA = (Math.pow(b, 2) + Math.pow(c, 2) - Math.pow(a, 2)) / (2 * b * c),
+                sinusA = Math.sqrt(1 - Math.pow(cosineA, 2));
 
         return b * c * sinusA / 2;
     }
