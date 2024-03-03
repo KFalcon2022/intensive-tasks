@@ -17,18 +17,20 @@ public class Task2 {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        int entrance = ((flatNumber - 1) / floorAmount) / 4 + 1;
-        // int floor = (flatNumber - 1) / 4 + 1;
-        int floor = (flatNumber + 1) / 4 - (entrance - 1) * floorAmount;
-        if (entrance > entranceAmount) {
+        final int entrance = ((flatNumber - 1) / floorAmount) / 4 + 1;
+        final int floor = (flatNumber + 1) / 4 - (entrance - 1) * floorAmount;
+
+        if ((entrance > entranceAmount) || (flatNumber < 1)) {
             return "Такой квартиры не существует";
         }
+
         String dirrection = switch (flatNumber % 4) {
             default -> "справа от лифта, вправо";
             case 1 -> "слева от лифта, влево";
             case 2 -> "слева от лифта, вправо";
             case 3 -> "справа от лифта, влево";
         };
+
         return flatNumber + " кв - " + entrance +
                 " подъезд, " + floor + " этаж, " + dirrection;
     }
