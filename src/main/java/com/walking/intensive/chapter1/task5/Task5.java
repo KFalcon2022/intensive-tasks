@@ -147,7 +147,7 @@ public class Task5 {
 
         final double halfPerimeter = (a + b + c) / 2;
 
-        return (a * b * c) / (4 * Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c)));
+        return (a * b * c) / (4 * getAreaByHeron(a, b, c));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
