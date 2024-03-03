@@ -14,7 +14,7 @@ public class Task5 {
         double b = 8;
         double c = 10;
 
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             System.out.println("Треугольник вырожденный или не существует ");
             return;
         }
@@ -53,7 +53,7 @@ public class Task5 {
     }
 
     static double getAreaByHeron(double a, double b, double c) {
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             System.out.println("Треугольник вырожденный или не существует ");
             return 0;
         }
@@ -67,7 +67,7 @@ public class Task5 {
      * Располагайте высоты по возрастанию.
      */
     static double[] getHeights(double a, double b, double c) {
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             return null;
         }
         final double heron2 = getAreaByHeron(a, b, c) * 2,
@@ -84,7 +84,7 @@ public class Task5 {
      * Располагайте медианы по возрастанию.
      */
     static double[] getMedians(double a, double b, double c) {
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             return null;
         }
         final double powA = pow(a, 2),
@@ -103,7 +103,7 @@ public class Task5 {
      * Располагайте биссектрисы по возрастанию.
      */
     static double[] getBisectors(double a, double b, double c) {
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             return null;
         }
 
@@ -119,7 +119,7 @@ public class Task5 {
      * Располагайте углы по возрастанию.
      */
     static double[] getAngles(double a, double b, double c) {
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             return null;
         }
 
@@ -141,7 +141,7 @@ public class Task5 {
     }
 
     static double getInscribedCircleRadius(double a, double b, double c) {
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             return 0;
         }
 
@@ -151,7 +151,7 @@ public class Task5 {
     }
 
     static double getCircumradius(double a, double b, double c) {
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             return 0;
         }
 
@@ -161,7 +161,7 @@ public class Task5 {
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
-        if (!isTriangleExist(a, b, c)) {
+        if (isTriangleNotExist(a, b, c)) {
             return 0;
         }
 
@@ -171,7 +171,7 @@ public class Task5 {
         return b * c * sinusA / 2;
     }
 
-    static boolean isTriangleExist(double a, double b, double c) {
-        return ((a > 0 && b > 0 && c > 0) && (a + b > c && a + c > b && b + c > a) && (Math.abs(a - b) < c && Math.abs(a - c) < b && Math.abs(b - c) < a));
+    static boolean isTriangleNotExist(double a, double b, double c) {
+        return !((a > 0 && b > 0 && c > 0) && (a + b > c && a + c > b && b + c > a) && (Math.abs(a - b) < c && Math.abs(a - c) < b && Math.abs(b - c) < a));
     }
 }
