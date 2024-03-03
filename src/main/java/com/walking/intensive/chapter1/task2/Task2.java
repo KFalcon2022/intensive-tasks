@@ -25,7 +25,7 @@ public class Task2 {
             return "Такой квартиры не существует";
         }
 
-        String dirrection = switch (flatNumber % flatOnFloor) {
+        String direction = switch (flatNumber % flatOnFloor) {
             default -> "справа от лифта, вправо";
             case 1 -> "слева от лифта, влево";
             case 2 -> "слева от лифта, вправо";
@@ -33,6 +33,6 @@ public class Task2 {
         };
 
         return flatNumber + " кв - " + entrance +
-                " подъезд, " + floor + " этаж, " + dirrection;
+                " подъезд, " + floor + " этаж, " + direction;
     }
 }
