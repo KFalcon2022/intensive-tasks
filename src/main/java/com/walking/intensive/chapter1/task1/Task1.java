@@ -33,7 +33,8 @@ public class Task1 {
         if (age10 == 1) {
             return "Вам " + age + " год";
         }
-        if (age10 >= 2 && age10 <= 4) {
+
+        if (age10 >= 2) {
             return "Вам " + age + " года";
         }
 
