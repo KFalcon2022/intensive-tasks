@@ -16,6 +16,10 @@ public class Task1 {
         int age10 = age % 10,
             age100 = age % 100;
 
+        if (age < 1)
+        {
+            return "Возможно, Вы не родились";
+        }
         if (age > 200)
         {
             return "Возможно, Вы вампир";
