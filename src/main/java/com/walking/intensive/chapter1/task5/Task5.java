@@ -22,33 +22,26 @@ public class Task5 {
         //Площадь Герона
         System.out.println("Формула площади Герона: " + getAreaByHeron(a, b, c));
 
-        //Высоты треугольника
         double[] heights = getHeights(a, b, c);
 
         System.out.println("Высоты треугольника: " + Arrays.toString(heights));
 
-        //Медианы треугольника
         double[] medians = getMedians(a, b, c);
 
         System.out.println("Медианы треугольника: " + Arrays.toString(medians));
 
-        //Биссектрисы треугольника
         double[] bisectors = getBisectors(a, b, c);
 
         System.out.println("Биссектрисы треугольника:" + Arrays.toString(bisectors));
 
-        //Углы треугольника
         double[] angles = getAngles(a, b, c);
 
         System.out.println("Углы треугольника: " + Arrays.toString(angles));
 
-        //Радиус вписанной окружности
         System.out.println("Радиус вписанной окружности: " + getInscribedCircleRadius(a, b, c));
 
-        //Радиус описанной окружности
         System.out.println("Радиус описанной окружности: " + getCircumradius(a, b, c));
 
-        //Формула площади через синус
         System.out.println("Формула площади через синус: " + getAreaAdvanced(a, b, c));
     }
 
@@ -58,9 +51,9 @@ public class Task5 {
             return 0;
         }
 
-        final double p2 = (a + b + c) / 2;
+        final double halfPerimeter = (a + b + c) / 2;
 
-        return sqrt(p2 * (p2 - a) * (p2 - b) * (p2 - c));
+        return sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c));
     }
 
     /**
@@ -145,9 +138,9 @@ public class Task5 {
             return 0;
         }
 
-        final double p2 = (a + b + c) / 2;
+        final double halfPerimeter = (a + b + c) / 2;
 
-        return sqrt((p2 - a) * (p2 - b) * (p2 - c) / p2);
+        return sqrt((halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c) / halfPerimeter);
     }
 
     static double getCircumradius(double a, double b, double c) {
@@ -155,9 +148,9 @@ public class Task5 {
             return 0;
         }
 
-        final double p2 = (a + b + c) / 2;
+        final double halfPerimeter = (a + b + c) / 2;
 
-        return (a * b * c) / (4 * Math.sqrt(p2 * (p2 - a) * (p2 - b) * (p2 - c)));
+        return (a * b * c) / (4 * Math.sqrt(halfPerimeter * (halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c)));
     }
 
     static double getAreaAdvanced(double a, double b, double c) {
