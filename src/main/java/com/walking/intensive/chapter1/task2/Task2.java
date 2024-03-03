@@ -8,13 +8,13 @@ public class Task2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
 
-        System.out.print("Введите число этажей в доме (только целые значения): ");
+        System.out.print("Введите число этажей в доме (только целые положительные значения): ");
         int floorAmount = sc.nextInt();
 
-        System.out.print("Введите число подъездов в доме (только целые значения): ");
+        System.out.print("Введите число подъездов в доме (только целые положительные значения): ");
         int entranceAmount = sc.nextInt();
 
-        System.out.print("Введите номер квартиры (только целые значения): ");
+        System.out.print("Введите номер квартиры (только целые положительные значения): ");
         int flatNumber = sc.nextInt();
 
         System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber));
@@ -35,7 +35,7 @@ public class Task2 {
 
         final int floorFlatsNum = 4,
                   entrance = ((flatNumber - 1) / floorAmount) / floorFlatsNum + 1,
-                  floor = (flatNumber + 1) / floorFlatsNum - (entrance - 1) * floorAmount ;
+                  floor = (int) Math.ceil((double) flatNumber / floorFlatsNum) - (entrance - 1) * floorAmount;
 
         if (entrance > entranceAmount) {
             return "Такой квартиры не существует";
