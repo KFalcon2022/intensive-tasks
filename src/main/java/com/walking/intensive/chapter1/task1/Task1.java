@@ -20,6 +20,9 @@ public class Task1 {
         else if(age%10 == 0 || age%10 >= 5 && age%10 <= 9) {
             postfix = " лет";
         }
+        else if(age%100 >= 10 && age%100 <= 19) {
+            postfix = " лет";
+        }
         else if(age%10 >= 2 && age%10 <= 4) {
             postfix = " года";
         }
