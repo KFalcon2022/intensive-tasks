@@ -28,9 +28,12 @@ public class Task1 {
 
         if ((age100 >= 10 && age100 <= 19) || (age10 == 0 || age10 >= 5)) {
             return "Вам " + age + " лет";
-        } else if (age10 == 1) {
+        }
+
+        if (age10 == 1) {
             return "Вам " + age + " год";
-        } else if (age10 >= 2 && age10 <= 4) {
+        }
+        if (age10 >= 2 && age10 <= 4) {
             return "Вам " + age + " года";
         }
 
