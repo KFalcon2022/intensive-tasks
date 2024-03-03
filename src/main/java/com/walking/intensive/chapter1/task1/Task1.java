@@ -16,7 +16,7 @@ public class Task1 {
         int age10 = age % 10,
             age100 = age % 100;
 
-        if (age < 1)
+        if (age < 0)
         {
             return "Возможно, Вы не родились";
         }
