@@ -7,12 +7,16 @@ import java.util.*;
 public class Task2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);    //System.in is a standard input stream
+
         System.out.print("Введите число этажей в доме (только целые значения): ");
         int floorAmount = sc.nextInt();
+
         System.out.print("Введите число подъездов в доме (только целые значения): ");
         int entranceAmount = sc.nextInt();
+
         System.out.print("Введите номер квартиры (только целые значения): ");
         int flatNumber = sc.nextInt();
+
         System.out.println(getFlatLocation(floorAmount, entranceAmount, flatNumber));
     }
 
