@@ -21,9 +21,11 @@ public class Task1 {
         if (age < 0) {
             return "Возможно, Вы не родились";
         }
+
         if (age > 200) {
             return "Возможно, Вы вампир";
         }
+
         if ((age100 >= 10 && age100 <= 19) || (age10 == 0 || age10 >= 5)) {
             return "Вам " + age + " лет";
         } else if (age10 == 1) {
