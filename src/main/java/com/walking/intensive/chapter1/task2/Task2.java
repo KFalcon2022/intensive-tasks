@@ -17,15 +17,15 @@ public class Task2 {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        final int flatOnFloor = 4,
-                  entrance = ((flatNumber - 1) / floorAmount) / flatOnFloor + 1,
-                  floor = (flatNumber + 1) / flatOnFloor - (entrance - 1) * floorAmount;
+        final int floorFlatsNum = 4,
+                  entrance = ((flatNumber - 1) / floorAmount) / floorFlatsNum + 1,
+                  floor = (flatNumber + 1) / floorFlatsNum - (entrance - 1) * floorAmount;
 
         if ((entrance > entranceAmount) || (flatNumber < 1)) {
             return "Такой квартиры не существует";
         }
 
-        String direction = switch (flatNumber % flatOnFloor) {
+        String direction = switch (flatNumber % floorFlatsNum) {
             default -> "справа от лифта, вправо";
             case 1 -> "слева от лифта, влево";
             case 2 -> "слева от лифта, вправо";
