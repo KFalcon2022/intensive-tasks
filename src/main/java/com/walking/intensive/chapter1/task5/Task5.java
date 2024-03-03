@@ -49,7 +49,7 @@ public class Task5 {
         System.out.println("Радиус описанной окружности: " + getCircumradius(a, b, c));
 
         //Формула площади через синус
-        System.out.println("Формула площади через cинус: " + getAreaAdvanced(a, b, c));
+        System.out.println("Формула площади через синус: " + getAreaAdvanced(a, b, c));
     }
 
     static double getAreaByHeron(double a, double b, double c) {
