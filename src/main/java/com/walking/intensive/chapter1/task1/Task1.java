@@ -13,22 +13,26 @@ public class Task1 {
     }
 
     static String getAgeString(int age) {
-        String postfix = "";
-        if(age%100 >= 10 && age%100 <= 19) {
-            postfix = " лет";
+        int age10 = age % 10,
+            age100 = age % 100;
+
+        if (age > 200)
+        {
+            return "Возможно, Вы вампир";
         }
-        else if(age%10 == 0 || age%10 >= 5 && age%10 <= 9) {
-            postfix = " лет";
+        if(age100 >= 10 && age100 <= 19) {
+            return "Вам " + age + " лет";
         }
-        else if (age%10 == 1) {
-            postfix = " год";
+        else if(age10 == 0 || age10 >= 5) {
+            return "Вам " + age + " лет";
         }
-        else if(age%10 >= 2 && age%10 <= 4) {
-            postfix = " года";
+        else if (age10 == 1) {
+            return "Вам " + age + " год";
         }
-        else {
-            return "Ошибка обработки";
+        else if(age10 >= 2 && age10 <= 4) {
+            return "Вам " + age + " года";
         }
-        return "Вам " + age + postfix;
+
+        return "Возможно, Вы вампир";
     }
 }
