@@ -21,11 +21,23 @@ public class Task2 {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
+        if (flatNumber < 1) {
+            return "Такой квартиры не существует";
+        }
+
+        if (entranceAmount < 1) {
+            return "В доме должен быть хоть один подъезд";
+        }
+
+        if (floorAmount < 1) {
+            return "В доме должен быть хоть один этаж";
+        }
+
         final int floorFlatsNum = 4,
                   entrance = ((flatNumber - 1) / floorAmount) / floorFlatsNum + 1,
-                  floor = (flatNumber + 1) / floorFlatsNum - (entrance - 1) * floorAmount;
+                  floor = (flatNumber + 1) / floorFlatsNum - (entrance - 1) * floorAmount ;
 
-        if ((entrance > entranceAmount) || (flatNumber < 1)) {
+        if (entrance > entranceAmount) {
             return "Такой квартиры не существует";
         }
 
