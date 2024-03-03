@@ -34,10 +34,6 @@ public class Task1 {
             return "Вам " + age + " год";
         }
 
-        if (age10 >= 2) {
-            return "Вам " + age + " года";
-        }
-
-        return "Возможно, Вы Дементор";
+        return "Вам " + age + " года";
     }
 }
