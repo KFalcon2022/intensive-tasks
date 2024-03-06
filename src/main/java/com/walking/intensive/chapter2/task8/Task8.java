@@ -25,7 +25,6 @@ public class Task8 {
 
             if (happy(ticket)) {
                 sum++;
-                System.out.println(ticket);
             }
         }
 
