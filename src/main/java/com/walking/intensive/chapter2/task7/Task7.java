@@ -17,6 +17,7 @@ public class Task7 {
                 if (i + getSum(i) > 1000000) {
                     break;
                 }
+
                 numOne = i;
                 numTwo = getSum(i);
             }
