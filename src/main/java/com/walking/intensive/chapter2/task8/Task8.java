@@ -10,7 +10,7 @@ public class Task8 {
 
     static double getHappyTicketChance() {
         String ticket;
-        int sum = 0;
+        int sum = 1;
         final int ticketsNumber = 999999;
 
         for (int i = 1001; i < ticketsNumber; i++) {
@@ -28,7 +28,7 @@ public class Task8 {
             }
         }
 
-        return (double) sum / ticketsNumber;
+        return (double) sum / (ticketsNumber - 1);
     }
 
     static boolean happy(String ticket) {
