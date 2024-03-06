@@ -23,7 +23,7 @@ public class Task6 {
             }
         }
 
-        return 0;
+        throw new RuntimeException();
     }
 
     static int getNod(int m, int n) {
