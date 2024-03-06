@@ -16,10 +16,9 @@ public class Task7 {
             if (getSum(getSum(i)) == i && getSum(i) != i) {
                 if (i + getSum(i) > 1000000) {
                     break;
-                } else {
-                    numOne = i;
-                    numTwo = getSum(i);
                 }
+                numOne = i;
+                numTwo = getSum(i);
             }
         }
 
@@ -31,6 +30,7 @@ public class Task7 {
 
         return Math.max(numOne, numTwo);
     }
+
     static int getSum(int num) {
         int counter = 1;
 
@@ -42,7 +42,7 @@ public class Task7 {
         }
 
         if (Math.sqrt(num) % 1 == 0) {
-            counter += (int)Math.round(Math.sqrt(num));
+            counter += (int) Math.round(Math.sqrt(num));
         }
 
         return counter;
