@@ -5,7 +5,7 @@ package com.walking.intensive.chapter2.task6;
  */
 public class Task6 {
     public static void main(String[] args) {
-        final int a = 42,
+        int a = 42,
                 b = 23;
 
         System.out.println("НОД: " + getNod(a, b) +
@@ -46,10 +46,8 @@ public class Task6 {
 
         if (remainder == 0) {
             return floor;
-        } else {
-            ceiling = remainder;
         }
 
-        return getNodByEuclideanAlgorithm(floor, ceiling); //рекурсия
+        return getNodByEuclideanAlgorithm(floor, remainder);
     }
 }
