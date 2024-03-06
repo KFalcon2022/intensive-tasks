@@ -14,16 +14,16 @@ public class Task6 {
     }
 
     static int getNoc(int m, int n) {
+        int noc = 0;
         for (int i = 1; i <= n; i++) {
-            int noc;
             noc = i * m;
 
             if (noc % n == 0) {
-                return noc;
+                break;
             }
         }
 
-        throw new RuntimeException();
+        return noc;
     }
 
     static int getNod(int m, int n) {
