@@ -40,14 +40,10 @@ public class Task6 {
     }
 
     static int getNodByEuclideanAlgorithm(int m, int n) {
-        int ceiling = Math.max(m, n),
-                floor = Math.min(m, n),
-                remainder = ceiling % floor;
-
-        if (remainder == 0) {
-            return floor;
+        if (m%n == 0) {
+            return Math.min(m, n);
         }
 
-        return getNodByEuclideanAlgorithm(floor, remainder);
+        return getNodByEuclideanAlgorithm(n, m%n);
     }
 }
