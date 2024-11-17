@@ -6,7 +6,7 @@ package com.walking.intensive.chapter1.task1;
 public class Task1 {
     public static void main(String[] args) {
 //        Для собственных проверок можете делать любые изменения в этом методе
-        int age = 100;
+        int age = -111;
 
         System.out.println(getAgeString(age));
     }
@@ -16,20 +16,20 @@ public class Task1 {
         if (age >= 0 && age <= 127) {
 
             if (age % 10 == 1 && age % 100 != 11) {
-                return "Vam " + age + " god";
+                return "Вам " + age + " год.";
             }
             if (age % 10 == 2 && age % 100 != 12) {
-                return "Vam " + age + " goda";
+                return "Вам " + age + " года.";
             }
             if (age % 10 == 3 && age % 100 != 13) {
-                return "Vam " + age + " goda";
+                return "Вам " + age + " года.";
             }
             if (age % 10 == 4 && age % 100 != 14) {
-                return "Vam " + age + " goda";
+                return "Вам " + age + " года.";
             }
-            return "Vam " + age + " let";
+            return "Вам " + age + " лет.";
         }
-        return "Vvedeni nevernie dannie!";
+        return "Либо Вы еще не родились, либо уже того...";
 
     }
 }
