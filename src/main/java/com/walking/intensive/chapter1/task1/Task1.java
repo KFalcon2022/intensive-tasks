@@ -12,7 +12,7 @@ public class Task1 {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+//        Место для вашего кода okok
 
         return null; // Заглушка. При реализации - удалить
     }
