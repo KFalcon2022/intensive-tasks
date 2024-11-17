@@ -12,7 +12,7 @@ public class Task1 {
     }
 
     static String getAgeString(int age) {
-//        Место для вашего кода
+
         if (age >= 0 && age <= 127) {
 
             if (age % 10 == 1 && age % 100 != 11) {
